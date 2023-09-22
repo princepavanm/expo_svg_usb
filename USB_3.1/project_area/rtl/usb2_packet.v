@@ -1,3 +1,4 @@
+`include "usb2_crc.v"
 
 //
 // usb 2.0 packet handler
@@ -105,9 +106,7 @@ output	wire	[2:0]	dbg_pkt_type
 					EP_MODE_BULK		= 2'd2,
 					EP_MODE_INTERRUPT	= 2'd3;
 					
-	wire	[3:0]	data_pid 			= 	data_toggle == DATA_TOGGLE_1 ? PID_DATA_1 :
-											data_toggle == DATA_TOGGLE_2 ? PID_DATA_2 :
-											data_toggle == DATA_TOGGLE_M ? PID_DATA_M : PID_DATA_0;
+	
 										
 	parameter [1:0]	DATA_TOGGLE_0		= 2'b00;
 	parameter [1:0]	DATA_TOGGLE_1		= 2'b01;
@@ -139,13 +138,11 @@ output	wire	[2:0]	dbg_pkt_type
 									crc16[12], crc16[13], crc16[14], crc16[15],
 									crc16[0], crc16[1], crc16[2], crc16[3], 
 									crc16[4], crc16[5], crc16[6], crc16[7]}; 
-
+	wire	[3:0]	data_pid 			= 	data_toggle == DATA_TOGGLE_1 ? PID_DATA_1 :
+											data_toggle == DATA_TOGGLE_2 ? PID_DATA_2 :
+											data_toggle == DATA_TOGGLE_M ? PID_DATA_M : PID_DATA_0;
 	// two byte delay for incoming data
 	//
-	assign			buf_in_addr = buf_in_addr_0;
-	assign			buf_in_data = buf_in_data_0;
-	assign			buf_in_wren = buf_in_wren_0 && (state == ST_IN_1) && (pkt_type == PKT_TYPE_DATA);
-	
 	reg		[8:0]	buf_in_addr_2, buf_in_addr_1, buf_in_addr_0;
 	reg		[7:0]	buf_in_data_1, buf_in_data_0;
 	reg				buf_in_wren_1, buf_in_wren_0;
@@ -156,12 +153,9 @@ output	wire	[2:0]	dbg_pkt_type
 	reg				out_byte_buf;
 	reg		[7:0]	out_byte_out;
 	reg		[1:0]	out_byte_crc;
-	wire	[7:0]	out_crc_mux = 	out_byte_crc[0] ? crc16_fix_out[15:8] : crc16_fix_out[7:0];
-	assign			out_byte	= 	out_byte_crc[1] ? out_crc_mux :
-									out_byte_buf ? buf_out_q : out_byte_out;
-	//reg		[9:0]	bytes_tosend /* synthesis noprune */;
-	//reg		[9:0]	bytes_sent /* synthesis noprune */;
-	
+
+	assign			buf_in_addr = buf_in_addr_0;
+	assign			buf_in_data = buf_in_data_0;
 	reg		[5:0]	state;
 	parameter [5:0]	ST_RST_0			= 6'd0,
 					ST_RST_1			= 6'd1,
@@ -178,9 +172,23 @@ output	wire	[2:0]	dbg_pkt_type
 					ST_OUT_1			= 6'd41,
 					ST_OUT_2			= 6'd42,
 					ST_OUT_3			= 6'd43;
-					
-	assign dbg_pkt_type = pkt_type;
+
+	assign			buf_in_wren = buf_in_wren_0 && (state == ST_IN_1) && (pkt_type == PKT_TYPE_DATA);
 	
+	wire	[7:0]	out_crc_mux = 	out_byte_crc[0] ? crc16_fix_out[15:8] : crc16_fix_out[7:0];
+	assign			out_byte	= 	out_byte_crc[1] ? out_crc_mux :
+									out_byte_buf ? buf_out_q : out_byte_out;
+	//reg		[9:0]	bytes_tosend /* synthesis noprune */;
+	//reg		[9:0]	bytes_sent /* synthesis noprune */;
+	
+	
+						
+	assign dbg_pkt_type = pkt_type;
+reg				crc16_byte_sel;
+wire	[15:0]	next_crc16;
+wire	[4:0]	next_crc5;
+	reg		[10:0]	crc5_data;
+
 always @(posedge phy_clk) begin
 
 	in_act_1 <= in_act;
@@ -551,9 +559,7 @@ end
 //
 // crc5-usb
 //
-	wire	[4:0]	next_crc5;
-	reg		[10:0]	crc5_data;
-	
+		
 usb2_crc5 ic5 (
 	.c			( 5'h1F ),
 	.data		( crc5_data ),
@@ -563,9 +569,8 @@ usb2_crc5 ic5 (
 //
 // crc16-usb
 //
-	wire	[15:0]	next_crc16;
-	reg				crc16_byte_sel;
-	wire	[7:0]	crc16_byte	= crc16_byte_sel ? out_byte : in_byte;
+	
+		wire	[7:0]	crc16_byte	= crc16_byte_sel ? out_byte : in_byte;
 	
 usb2_crc16 ic16 ( 
 	.c			( crc16 ),

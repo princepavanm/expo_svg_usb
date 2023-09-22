@@ -1,4 +1,5 @@
-
+`include "usb2_ep0.v"
+`include "usb2_ep.v"
 //
 // usb 2.0 protocol layer
 //
@@ -65,6 +66,26 @@ output	wire			err_setup_pkt
 );
 
 	reg 			reset_1, reset_2;
+	parameter [3:0]	SEL_ENDP0 			= 4'd0,
+					SEL_ENDP1 			= 4'd1,
+					SEL_ENDP2 			= 4'd2;
+					
+	parameter [1:0]	EP_MODE_CONTROL		= 2'd0,
+					EP_MODE_ISOCH		= 2'd1,
+					EP_MODE_BULK		= 2'd2,
+					EP_MODE_INTERRUPT	= 2'd3;
+					
+	// assign endpoint modes here and also 
+	// in the descriptor strings
+	wire	[1:0]	EP1_MODE			= EP_MODE_BULK;
+	wire	[1:0]	EP2_MODE			= EP_MODE_BULK;
+					
+	reg		[5:0]	dc;
+	
+	reg		[5:0]	state;
+	parameter [5:0]	ST_RST_0			= 6'd0,
+					ST_RST_1			= 6'd1,
+					ST_IDLE				= 6'd10;
 	
 	// mux bram signals
 	wire	[5:0]	ep0_buf_in_addr		= 	sel_endp == SEL_ENDP0 ? buf_in_addr[5:0] : 6'h0;
@@ -129,27 +150,7 @@ output	wire			err_setup_pkt
 											sel_endp == SEL_ENDP1 ? ep1_data_toggle : 
 											sel_endp == SEL_ENDP2 ? ep2_data_toggle : 2'h0;
 											
-	parameter [3:0]	SEL_ENDP0 			= 4'd0,
-					SEL_ENDP1 			= 4'd1,
-					SEL_ENDP2 			= 4'd2;
-					
-	parameter [1:0]	EP_MODE_CONTROL		= 2'd0,
-					EP_MODE_ISOCH		= 2'd1,
-					EP_MODE_BULK		= 2'd2,
-					EP_MODE_INTERRUPT	= 2'd3;
-					
-	// assign endpoint modes here and also 
-	// in the descriptor strings
-	wire	[1:0]	EP1_MODE			= EP_MODE_BULK;
-	wire	[1:0]	EP2_MODE			= EP_MODE_BULK;
-					
-	reg		[5:0]	dc;
 	
-	reg		[5:0]	state;
-	parameter [5:0]	ST_RST_0			= 6'd0,
-					ST_RST_1			= 6'd1,
-					ST_IDLE				= 6'd10;
-
 always @(posedge phy_clk) begin
 
 	{reset_2, reset_1} <= {reset_1, reset_n};

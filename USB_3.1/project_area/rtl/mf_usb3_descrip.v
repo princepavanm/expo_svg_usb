@@ -55,6 +55,22 @@ module mf_usb3_descrip (
 	wire [31:0] sub_wire0;
 	wire [31:0] q = sub_wire0[31:0];
 
+	defparam
+		altsyncram_component.address_aclr_a = "NONE",
+		altsyncram_component.clock_enable_input_a = "BYPASS",
+		altsyncram_component.clock_enable_output_a = "BYPASS",
+		altsyncram_component.init_file = "usb3_descrip.mif",
+		altsyncram_component.intended_device_family = "Cyclone IV E",
+		altsyncram_component.lpm_hint = "ENABLE_RUNTIME_MOD=NO",
+		altsyncram_component.lpm_type = "altsyncram",
+		altsyncram_component.numwords_a = 128,
+		altsyncram_component.operation_mode = "ROM",
+		altsyncram_component.outdata_aclr_a = "NONE",
+		altsyncram_component.outdata_reg_a = "CLOCK0",
+		altsyncram_component.widthad_a = 7,
+		altsyncram_component.width_a = 32,
+		altsyncram_component.width_byteena_a = 1;
+
 	altsyncram	altsyncram_component (
 				.address_a (address),
 				.clock0 (clock),
@@ -79,22 +95,7 @@ module mf_usb3_descrip (
 				.rden_b (1'b1),
 				.wren_a (1'b0),
 				.wren_b (1'b0));
-	defparam
-		altsyncram_component.address_aclr_a = "NONE",
-		altsyncram_component.clock_enable_input_a = "BYPASS",
-		altsyncram_component.clock_enable_output_a = "BYPASS",
-		altsyncram_component.init_file = "usb3_descrip.mif",
-		altsyncram_component.intended_device_family = "Cyclone IV E",
-		altsyncram_component.lpm_hint = "ENABLE_RUNTIME_MOD=NO",
-		altsyncram_component.lpm_type = "altsyncram",
-		altsyncram_component.numwords_a = 128,
-		altsyncram_component.operation_mode = "ROM",
-		altsyncram_component.outdata_aclr_a = "NONE",
-		altsyncram_component.outdata_reg_a = "CLOCK0",
-		altsyncram_component.widthad_a = 7,
-		altsyncram_component.width_a = 32,
-		altsyncram_component.width_byteena_a = 1;
-
+	
 
 endmodule
 

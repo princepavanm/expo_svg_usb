@@ -47,6 +47,36 @@ output	wire	[1:0]	dbg_linestate
 
 );
 
+/****************************************************************/
+	reg				pkt_in_latch_defer;
+	
+	reg				can_send;
+	reg		[3:0]	can_send_delay;
+	
+	reg		[6:0]	state;
+	reg		[6:0]	state_next;
+	
+	parameter [6:0]	ST_RST_0			= 7'd0,
+					ST_RST_1			= 7'd1,
+					ST_RST_2			= 7'd2,
+					ST_RST_3			= 7'd3,
+					ST_RST_4			= 7'd4,
+					ST_IDLE				= 7'd10,
+					ST_RX_0				= 7'd20,
+					ST_TXCMD_0			= 7'd30,
+					ST_TXCMD_1			= 7'd31,
+					ST_TXCMD_2			= 7'd32,
+					ST_TXCMD_3			= 7'd33,
+					ST_PKT_0			= 7'd40,
+					ST_PKT_1			= 7'd41,
+					ST_PKT_2			= 7'd42,
+					ST_CHIRP_0			= 7'd50,
+					ST_CHIRP_1			= 7'd51,
+					ST_CHIRP_2			= 7'd52,
+					ST_CHIRP_3			= 7'd53,
+					ST_CHIRP_4			= 7'd54,
+					ST_CHIRP_5			= 7'd55;
+
 
 ////////////////////////////////////////////////////////////////////
 //
@@ -110,34 +140,7 @@ output	wire	[1:0]	dbg_linestate
 	assign	pkt_in_cts		= ~phy_dir & can_send;
 	assign	pkt_in_nxt		= phy_nxt && (state == ST_PKT_1 || state == ST_PKT_2);
 	
-	reg				pkt_in_latch_defer;
-	
-	reg				can_send;
-	reg		[3:0]	can_send_delay;
-	
-	reg		[6:0]	state;
-	reg		[6:0]	state_next;
-	parameter [6:0]	ST_RST_0			= 7'd0,
-					ST_RST_1			= 7'd1,
-					ST_RST_2			= 7'd2,
-					ST_RST_3			= 7'd3,
-					ST_RST_4			= 7'd4,
-					ST_IDLE				= 7'd10,
-					ST_RX_0				= 7'd20,
-					ST_TXCMD_0			= 7'd30,
-					ST_TXCMD_1			= 7'd31,
-					ST_TXCMD_2			= 7'd32,
-					ST_TXCMD_3			= 7'd33,
-					ST_PKT_0			= 7'd40,
-					ST_PKT_1			= 7'd41,
-					ST_PKT_2			= 7'd42,
-					ST_CHIRP_0			= 7'd50,
-					ST_CHIRP_1			= 7'd51,
-					ST_CHIRP_2			= 7'd52,
-					ST_CHIRP_3			= 7'd53,
-					ST_CHIRP_4			= 7'd54,
-					ST_CHIRP_5			= 7'd55;
-	
+		
 	reg		[7:0]	dc;
 	reg		[11:0]	dc_wrap;
 	

@@ -1,5 +1,6 @@
+`include "mf_usb2_ep0in.v"
+`include "mf_usb2_descrip.v"
 
-//
 // usb 2.0 endpoint 0 control
 //
 // Copyright (c) 2012-2013 Marshall H.
@@ -49,6 +50,29 @@ output	reg				err_setup_pkt
 );
 
 `include "usb_descrip.vh"
+	reg		[6:0]	dc;
+	
+	reg		[5:0]	state_in;
+	parameter [5:0]	ST_RST_0			= 6'd0,
+					ST_RST_1			= 6'd1,
+					ST_IDLE				= 6'd10,
+					ST_IN_COMMIT		= 6'd11,
+					ST_IN_SWAP			= 6'd20,
+					ST_IN_PARSE_0		= 6'd21,
+					ST_IN_PARSE_1		= 6'd22,
+					ST_REQ_DESCR		= 6'd30,
+					ST_RDLEN_0			= 6'd31,
+					ST_RDLEN_1			= 6'd32,
+					ST_RDLEN_2			= 6'd33,
+					ST_REQ_GETCONFIG	= 6'd34,
+					ST_REQ_SETCONFIG	= 6'd35,
+					ST_REQ_SETINTERFACE	= 6'd36,
+					ST_REQ_SETADDR		= 6'd37,
+					ST_REQ_VENDOR		= 6'd38;
+					
+	reg		[5:0]	state_out;
+	parameter [5:0]	ST_OUT_ARM			= 6'd11,
+					ST_OUT_SWAP			= 6'd20;
 
 	reg 			reset_1, reset_2;
 	reg				buf_in_commit_1, buf_in_commit_2;
@@ -120,29 +144,37 @@ output	reg				err_setup_pkt
 	assign			buf_out_hasdata 	= 	hasdata_out;
 	assign			buf_out_arm_ack 	= 	(state_out == ST_OUT_ARM);
 	
-	reg		[6:0]	dc;
+// endpoint OUT buffer
+// 64 bytes
+// terminology here: USB specs defines IN as device reads going into the PC,
+// and OUT transfers as device writes from the PC. from a device standpoint
+// this may seem backwards but it's just for consistency, which is not entirely
+// reflected in these conventions locally
+
+	reg		[5:0]	buf_in_rdaddr;
+	wire	[7:0]	buf_in_q;
 	
-	reg		[5:0]	state_in;
-	parameter [5:0]	ST_RST_0			= 6'd0,
-					ST_RST_1			= 6'd1,
-					ST_IDLE				= 6'd10,
-					ST_IN_COMMIT		= 6'd11,
-					ST_IN_SWAP			= 6'd20,
-					ST_IN_PARSE_0		= 6'd21,
-					ST_IN_PARSE_1		= 6'd22,
-					ST_REQ_DESCR		= 6'd30,
-					ST_RDLEN_0			= 6'd31,
-					ST_RDLEN_1			= 6'd32,
-					ST_RDLEN_2			= 6'd33,
-					ST_REQ_GETCONFIG	= 6'd34,
-					ST_REQ_SETCONFIG	= 6'd35,
-					ST_REQ_SETINTERFACE	= 6'd36,
-					ST_REQ_SETADDR		= 6'd37,
-					ST_REQ_VENDOR		= 6'd38;
-					
-	reg		[5:0]	state_out;
-	parameter [5:0]	ST_OUT_ARM			= 6'd11,
-					ST_OUT_SWAP			= 6'd20;
+mf_usb2_ep0in	iu2ep0i (
+	.clock 		( phy_clk ),
+	.data 		( buf_in_data ),
+	.rdaddress 	( buf_in_rdaddr ),
+	.wraddress 	( buf_in_addr ),
+	.wren 		( buf_in_wren ),
+	.q 			( buf_in_q )
+);
+
+
+// endpoint IN buffer
+// segmented
+// relevant descriptors (device, interface, endpoint etc)
+
+	reg		[7:0]	descrip_addr_offset;
+	
+mf_usb2_descrip	iu2d (
+	.clock 		( phy_clk ),
+	.address 	( buf_out_addr + descrip_addr_offset),
+	.q 			( buf_out_q )
+);
 
 					
 always @(posedge phy_clk) begin
@@ -418,37 +450,6 @@ always @(posedge phy_clk) begin
 end
 	
 	
-// endpoint OUT buffer
-// 64 bytes
-// terminology here: USB specs defines IN as device reads going into the PC,
-// and OUT transfers as device writes from the PC. from a device standpoint
-// this may seem backwards but it's just for consistency, which is not entirely
-// reflected in these conventions locally
-
-	reg		[5:0]	buf_in_rdaddr;
-	wire	[7:0]	buf_in_q;
-	
-mf_usb2_ep0in	iu2ep0i (
-	.clock 		( phy_clk ),
-	.data 		( buf_in_data ),
-	.rdaddress 	( buf_in_rdaddr ),
-	.wraddress 	( buf_in_addr ),
-	.wren 		( buf_in_wren ),
-	.q 			( buf_in_q )
-);
-
-
-// endpoint IN buffer
-// segmented
-// relevant descriptors (device, interface, endpoint etc)
-
-	reg		[7:0]	descrip_addr_offset;
-	
-mf_usb2_descrip	iu2d (
-	.clock 		( phy_clk ),
-	.address 	( buf_out_addr + descrip_addr_offset),
-	.q 			( buf_out_q )
-);
 
 	
 endmodule

@@ -1,4 +1,4 @@
-
+`include "mf_usb2_ep.v"
 //
 // usb 2.0 endpoint abstract
 //
@@ -38,6 +38,23 @@ input	wire			data_toggle_act,
 output	reg		[1:0]	data_toggle
 
 );
+parameter [1:0]	EP_MODE_CONTROL		= 2'd0,
+					EP_MODE_ISOCH		= 2'd1,
+					EP_MODE_BULK		= 2'd2,
+					EP_MODE_INTERRUPT	= 2'd3;
+					
+	reg		[3:0]	dc;
+	
+	reg		[5:0]	state_in;
+	parameter [5:0]	ST_RST_0			= 6'd0,
+					ST_RST_1			= 6'd1,
+					ST_IDLE				= 6'd10,
+					ST_IN_COMMIT		= 6'd11,
+					ST_IN_SWAP			= 6'd12;
+					
+	reg		[5:0]	state_out;	
+	parameter [5:0]	ST_OUT_ARM			= 6'd11,
+					ST_OUT_SWAP			= 6'd12;	
 
 	// synchronizers
 	reg 			reset_1, reset_2;
@@ -67,24 +84,7 @@ output	reg		[1:0]	data_toggle
 	assign			buf_out_hasdata 	= 	ptr_out ? hasdata_out_b : hasdata_out_a;
 	assign			buf_out_arm_ack 	= 	(state_out == ST_OUT_ARM || state_out == ST_OUT_SWAP);
 	
-	parameter [1:0]	EP_MODE_CONTROL		= 2'd0,
-					EP_MODE_ISOCH		= 2'd1,
-					EP_MODE_BULK		= 2'd2,
-					EP_MODE_INTERRUPT	= 2'd3;
-					
-	reg		[3:0]	dc;
-	
-	reg		[5:0]	state_in;
-	parameter [5:0]	ST_RST_0			= 6'd0,
-					ST_RST_1			= 6'd1,
-					ST_IDLE				= 6'd10,
-					ST_IN_COMMIT		= 6'd11,
-					ST_IN_SWAP			= 6'd12;
-					
-	reg		[5:0]	state_out;	
-	parameter [5:0]	ST_OUT_ARM			= 6'd11,
-					ST_OUT_SWAP			= 6'd12;	
-	
+		
 always @(posedge phy_clk) begin
 
 	// synchronizers

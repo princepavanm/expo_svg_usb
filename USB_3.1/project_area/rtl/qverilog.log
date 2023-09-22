@@ -1,0 +1,26 @@
+Start time: 10:05:09 on Sep 22,2023
+qverilog usb2_top.v 
+-- Compiling module usb2_ulpi
+-- Compiling module usb2_crc5
+-- Compiling module usb2_crc16
+-- Compiling module usb2_packet
+-- Compiling module mf_usb2_ep0in
+-- Compiling module mf_usb2_descrip
+-- Compiling module usb2_ep0
+-- Compiling module mf_usb2_ep
+-- Compiling module usb2_ep
+-- Compiling module usb2_protocol
+-- Compiling module usb2_top
+
+Top level modules:
+	usb2_top
+# vsim -lib work work.usb2_top -c -do "run -all; quit -f" -appendlog -l qverilog.log -vopt 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Error: mf_usb2_ep0in.v(87): Module 'altsyncram' is not defined.
+# ** Error: mf_usb2_descrip.v(58): Module 'altsyncram' is not defined.
+# ** Error: mf_usb2_ep.v(87): Module 'altsyncram' is not defined.
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=3, Warnings=0.
+# Error loading design
+# End time: 10:05:26 on Sep 22,2023, Elapsed time: 0:00:17
+# Errors: 3, Warnings: 0
