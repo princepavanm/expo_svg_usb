@@ -7,6 +7,31 @@
 // This code is released under the terms of the simplified BSD license. 
 // See LICENSE.TXT for details.
 //
+`include "usb3_lfsr.v"
+`include "usb3_descramble.v"
+`include "usb3_scramble.v"
+
+`include "mf_usb3_rx.v"
+
+`include "mf_usb3_tx.v"
+
+`include "usb3_pipe.v"
+
+`include "usb3_ltssm.v"
+
+`include "usb3_crc.v"
+`include "usb3_link.v"
+
+`include "mf_usb3_ep.v"
+`include "usb3_ep.v"
+
+`include "mf_usb3_ep0in.v"
+`include "mf_usb3_descrip.v"
+`include "usb3_ep0.v"
+
+`include "usb3_protocol.v"
+
+`include "mf_usb3_pll.v"
 
 module usb3_top (
 
@@ -67,13 +92,15 @@ output	wire	[15:0]	vend_req_val
 	
 	assign			reset_n_out 	= 1'b1;
 	reg 			reset_1, reset_2;				// local reset
+	wire			pll_locked;						// indicates PCLK present and valid clock output
 	wire			local_reset		= reset_n & pll_locked & phy_pwrpresent;
 	wire			local_pclk_quarter;				// local 1/4 PCLK output via PLL
 	wire			local_pclk_half;				// local 1/2 PCLK output via PLL
 	wire			local_pclk_half_phase;			// local 1/2 PCLK output via PLL, phase shift 90
 	wire			local_tx_clk;					// local regenerated PCLK used for transmit
 	wire			local_tx_clk_phase;				// local regenerated PCLK used for transmit, phase shift 90
-	wire			pll_locked;						// indicates PCLK present and valid clock output
+	
+
 	
 always @(posedge local_pclk_half ) begin
 
@@ -112,6 +139,161 @@ end
 
 	wire		ltssm_reset_n;
 	
+////////////////////////////////////////////////////////////
+//
+// USB 3.0 LTSSM, LFPS
+//
+////////////////////////////////////////////////////////////
+
+	wire	[4:0]	ltssm_state;
+	wire			port_rx_term;
+	wire			port_tx_detrx_lpbk;
+	wire			port_tx_elecidle;
+	
+	wire	[1:0]	port_power_down;
+	wire			port_power_go;
+	wire			port_power_ack;
+	wire			port_power_err;
+	wire			ltssm_hot_reset;
+	
+	wire			ltssm_training;
+	wire			ltssm_train_rxeq;
+	wire			ltssm_train_rxeq_pass;
+	wire			ltssm_train_active;
+	wire			ltssm_train_ts1;
+	wire			ltssm_train_ts2;
+	wire			ltssm_train_config;
+	wire			ltssm_train_idle;
+	wire			ltssm_train_idle_pass;
+
+	wire			partner_detect;
+	wire			partner_looking;
+	wire			partner_detected;
+	
+	wire			lfps_recv_active;
+	wire			lfps_recv_poll_u1;
+	wire			lfps_recv_ping;
+	wire			lfps_recv_reset;
+	wire			lfps_recv_u2lb;
+	wire			lfps_recv_u3;
+	
+	wire			ltssm_warm_reset;	
+	
+////////////////////////////////////////////////////////////
+//
+// USB 3.0 Link layer interface
+//
+////////////////////////////////////////////////////////////
+
+	wire		[31:0]	link_in_data;
+	wire		[3:0]	link_in_datak;
+	wire				link_in_active;
+	wire		[31:0]	link_out_data;
+	wire		[3:0]	link_out_datak;
+	wire				link_out_active;
+	wire				link_out_stall;
+	wire				ltssm_go_disabled;
+	wire				ltssm_go_recovery;
+	wire		[2:0]	ltssm_go_u;
+	
+////////////////////////////////////////////////////////////
+//
+// USB 3.0 Protocol layer interface
+//
+////////////////////////////////////////////////////////////
+
+	//wire	[31:0]	prot_in_data;
+	//wire	[3:0]	prot_in_datak;
+	//wire			prot_in_active;
+	
+	wire	[1:0]	prot_endp_mode_rx;
+	wire	[1:0]	prot_endp_mode_tx;
+	wire	[6:0]	prot_dev_addr;
+	wire			prot_configured;
+	
+	wire			prot_rx_tp;
+	wire			prot_rx_tp_hosterr;
+	wire			prot_rx_tp_retry;
+	wire			prot_rx_tp_pktpend;
+	wire	[3:0]	prot_rx_tp_subtype;
+	wire	[3:0]	prot_rx_tp_endp;
+	wire	[4:0]	prot_rx_tp_nump;
+	wire	[4:0]	prot_rx_tp_seq;
+	wire	[15:0]	prot_rx_tp_stream;
+
+	wire			prot_rx_dph;
+	wire			prot_rx_dph_eob;
+	wire			prot_rx_dph_setup;
+	wire			prot_rx_dph_pktpend;
+	wire	[3:0]	prot_rx_dph_endp;
+	wire	[4:0]	prot_rx_dph_seq;
+	wire	[15:0]	prot_rx_dph_len;
+	wire			prot_rx_dpp_start;
+	wire			prot_rx_dpp_done;
+	wire			prot_rx_dpp_crcgood;
+	
+	wire			prot_tx_tp_a;
+	wire			prot_tx_tp_a_retry;
+	wire			prot_tx_tp_a_dir;
+	wire	[3:0]	prot_tx_tp_a_subtype;
+	wire	[3:0]	prot_tx_tp_a_endp;
+	wire	[4:0]	prot_tx_tp_a_nump;
+	wire	[4:0]	prot_tx_tp_a_seq;
+	wire	[15:0]	prot_tx_tp_a_stream;
+	wire			prot_tx_tp_a_ack;
+
+	wire			prot_tx_tp_b;
+	wire			prot_tx_tp_b_retry;
+	wire			prot_tx_tp_b_dir;
+	wire	[3:0]	prot_tx_tp_b_subtype;
+	wire	[3:0]	prot_tx_tp_b_endp;
+	wire	[4:0]	prot_tx_tp_b_nump;
+	wire	[4:0]	prot_tx_tp_b_seq;
+	wire	[15:0]	prot_tx_tp_b_stream;
+	wire			prot_tx_tp_b_ack;
+	
+	wire			prot_tx_tp_c;
+	wire			prot_tx_tp_c_retry;
+	wire			prot_tx_tp_c_dir;
+	wire	[3:0]	prot_tx_tp_c_subtype;
+	wire	[3:0]	prot_tx_tp_c_endp;
+	wire	[4:0]	prot_tx_tp_c_nump;
+	wire	[4:0]	prot_tx_tp_c_seq;
+	wire	[15:0]	prot_tx_tp_c_stream;
+	wire			prot_tx_tp_c_ack;
+	
+	wire			prot_tx_dph;
+	wire			prot_tx_dph_eob;
+	wire			prot_tx_dph_dir;
+	wire	[3:0]	prot_tx_dph_endp;
+	wire	[4:0]	prot_tx_dph_seq;
+	wire	[15:0]	prot_tx_dph_len;
+	wire			prot_tx_dpp_ack;
+	wire			prot_tx_dpp_done;
+
+
+	wire	[8:0]	prot_buf_in_addr;
+	wire	[31:0]	prot_buf_in_data;
+	wire			prot_buf_in_wren;
+	wire			prot_buf_in_ready;
+	wire			prot_buf_in_commit;
+	wire	[10:0]	prot_buf_in_commit_len;
+	wire			prot_buf_in_commit_ack;
+
+	wire	[8:0]	prot_buf_out_addr;
+	wire	[31:0]	prot_buf_out_q;
+	wire	[10:0]	prot_buf_out_len;
+	wire			prot_buf_out_hasdata;
+	wire			prot_buf_out_arm;
+	wire			prot_buf_out_arm_ack;
+	
+	
+////////////////////////////////////////////////////////////
+//
+// USB 3.0 PIPE3 interface
+//
+////////////////////////////////////////////////////////////
+
 usb3_pipe	iu3p (
 
 	.slow_clk				( local_pclk_quarter ),
@@ -192,39 +374,6 @@ usb3_pipe	iu3p (
 //
 ////////////////////////////////////////////////////////////
 
-	wire	[4:0]	ltssm_state;
-	wire			port_rx_term;
-	wire			port_tx_detrx_lpbk;
-	wire			port_tx_elecidle;
-	
-	wire	[1:0]	port_power_down;
-	wire			port_power_go;
-	wire			port_power_ack;
-	wire			port_power_err;
-	wire			ltssm_hot_reset;
-	
-	wire			ltssm_training;
-	wire			ltssm_train_rxeq;
-	wire			ltssm_train_rxeq_pass;
-	wire			ltssm_train_active;
-	wire			ltssm_train_ts1;
-	wire			ltssm_train_ts2;
-	wire			ltssm_train_config;
-	wire			ltssm_train_idle;
-	wire			ltssm_train_idle_pass;
-
-	wire			partner_detect;
-	wire			partner_looking;
-	wire			partner_detected;
-	
-	wire			lfps_recv_active;
-	wire			lfps_recv_poll_u1;
-	wire			lfps_recv_ping;
-	wire			lfps_recv_reset;
-	wire			lfps_recv_u2lb;
-	wire			lfps_recv_u3;
-	
-	wire			ltssm_warm_reset;
 
 usb3_ltssm	iu3lt (
 
@@ -283,16 +432,6 @@ usb3_ltssm	iu3lt (
 //
 ////////////////////////////////////////////////////////////
 
-	wire		[31:0]	link_in_data;
-	wire		[3:0]	link_in_datak;
-	wire				link_in_active;
-	wire		[31:0]	link_out_data;
-	wire		[3:0]	link_out_datak;
-	wire				link_out_active;
-	wire				link_out_stall;
-	wire				ltssm_go_disabled;
-	wire				ltssm_go_recovery;
-	wire		[2:0]	ltssm_go_u;
 	
 usb3_link iu3l (
 
@@ -402,93 +541,6 @@ usb3_link iu3l (
 // USB 3.0 Protocol layer interface
 //
 ////////////////////////////////////////////////////////////
-
-	//wire	[31:0]	prot_in_data;
-	//wire	[3:0]	prot_in_datak;
-	//wire			prot_in_active;
-	
-	wire	[1:0]	prot_endp_mode_rx;
-	wire	[1:0]	prot_endp_mode_tx;
-	wire	[6:0]	prot_dev_addr;
-	wire			prot_configured;
-	
-	wire			prot_rx_tp;
-	wire			prot_rx_tp_hosterr;
-	wire			prot_rx_tp_retry;
-	wire			prot_rx_tp_pktpend;
-	wire	[3:0]	prot_rx_tp_subtype;
-	wire	[3:0]	prot_rx_tp_endp;
-	wire	[4:0]	prot_rx_tp_nump;
-	wire	[4:0]	prot_rx_tp_seq;
-	wire	[15:0]	prot_rx_tp_stream;
-
-	wire			prot_rx_dph;
-	wire			prot_rx_dph_eob;
-	wire			prot_rx_dph_setup;
-	wire			prot_rx_dph_pktpend;
-	wire	[3:0]	prot_rx_dph_endp;
-	wire	[4:0]	prot_rx_dph_seq;
-	wire	[15:0]	prot_rx_dph_len;
-	wire			prot_rx_dpp_start;
-	wire			prot_rx_dpp_done;
-	wire			prot_rx_dpp_crcgood;
-	
-	wire			prot_tx_tp_a;
-	wire			prot_tx_tp_a_retry;
-	wire			prot_tx_tp_a_dir;
-	wire	[3:0]	prot_tx_tp_a_subtype;
-	wire	[3:0]	prot_tx_tp_a_endp;
-	wire	[4:0]	prot_tx_tp_a_nump;
-	wire	[4:0]	prot_tx_tp_a_seq;
-	wire	[15:0]	prot_tx_tp_a_stream;
-	wire			prot_tx_tp_a_ack;
-
-	wire			prot_tx_tp_b;
-	wire			prot_tx_tp_b_retry;
-	wire			prot_tx_tp_b_dir;
-	wire	[3:0]	prot_tx_tp_b_subtype;
-	wire	[3:0]	prot_tx_tp_b_endp;
-	wire	[4:0]	prot_tx_tp_b_nump;
-	wire	[4:0]	prot_tx_tp_b_seq;
-	wire	[15:0]	prot_tx_tp_b_stream;
-	wire			prot_tx_tp_b_ack;
-	
-	wire			prot_tx_tp_c;
-	wire			prot_tx_tp_c_retry;
-	wire			prot_tx_tp_c_dir;
-	wire	[3:0]	prot_tx_tp_c_subtype;
-	wire	[3:0]	prot_tx_tp_c_endp;
-	wire	[4:0]	prot_tx_tp_c_nump;
-	wire	[4:0]	prot_tx_tp_c_seq;
-	wire	[15:0]	prot_tx_tp_c_stream;
-	wire			prot_tx_tp_c_ack;
-	
-	wire			prot_tx_dph;
-	wire			prot_tx_dph_eob;
-	wire			prot_tx_dph_dir;
-	wire	[3:0]	prot_tx_dph_endp;
-	wire	[4:0]	prot_tx_dph_seq;
-	wire	[15:0]	prot_tx_dph_len;
-	wire			prot_tx_dpp_ack;
-	wire			prot_tx_dpp_done;
-
-
-	wire	[8:0]	prot_buf_in_addr;
-	wire	[31:0]	prot_buf_in_data;
-	wire			prot_buf_in_wren;
-	wire			prot_buf_in_ready;
-	wire			prot_buf_in_commit;
-	wire	[10:0]	prot_buf_in_commit_len;
-	wire			prot_buf_in_commit_ack;
-
-	wire	[8:0]	prot_buf_out_addr;
-	wire	[31:0]	prot_buf_out_q;
-	wire	[10:0]	prot_buf_out_len;
-	wire			prot_buf_out_hasdata;
-	wire			prot_buf_out_arm;
-	wire			prot_buf_out_arm_ack;
-	
-	
 
 usb3_protocol iu3r (
 
@@ -606,7 +658,6 @@ usb3_protocol iu3r (
 	.configured				( prot_configured )	
 );
 	
-
 
 ////////////////////////////////////////////////////////////
 //

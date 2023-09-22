@@ -87,13 +87,6 @@ output	reg				partner_detected
 
 `include "usb3_const.vh"
 
-	assign phy_pipe_tx_clk = local_tx_clk_phase;
-	
-	// mux these phy signals with both local PIPE and external LTSSM control
-	//
-	assign phy_tx_elecidle = phy_tx_elecidle_local & ltssm_tx_elecidle;
-	assign phy_tx_detrx_lpbk = phy_tx_detrx_lpbk_local | ltssm_tx_detrx_lpbk;
-	
 	reg				lfps_recv_active_1;
 	reg				partner_detect_1;
 	reg				ltssm_power_go_1;
@@ -190,6 +183,13 @@ parameter	[5:0]	PD_RESET			= 6'd0,
 	reg		[3:0]	sync_outk /* synthesis noprune */;
 	reg				sync_out_active;
 	
+//
+// RX descramble and filtering
+//
+	wire	[3:0]	proc_datak  /* synthesis keep */;
+	wire	[31:0]	proc_data /* synthesis keep */;
+	wire			proc_active /* synthesis keep */;
+	
 	// combinational detection of valid packet framing
 	// k-symbols within a received word.
 	wire			sync_byte_3 = proc_datak[3] && (	proc_data[31:24] == 8'h5C || proc_data[31:24] == 8'hBC ||
@@ -207,6 +207,88 @@ parameter	[5:0]	PD_RESET			= 6'd0,
 	wire			sync_end_1 = proc_datak[1] && (		proc_data[15:8] == 8'hF7 || proc_data[15:8] == 8'hBC );
 	wire			sync_end_0 = proc_datak[0] && (		proc_data[7:0] == 8'hF7 || proc_data[7:0] == 8'hBC );
 	wire	[3:0]	sync_end 	= {sync_end_3, sync_end_2, sync_end_1, sync_end_0};
+	
+//
+// TX scramble and padding
+//
+	wire	[3:0]	send_datak  /* synthesis keep */;
+	wire	[31:0]	send_data /* synthesis keep */;
+	
+	reg		[3:0]	local_tx_datak;
+	reg		[31:0]	local_tx_data;
+	reg				local_tx_active;
+	reg				local_tx_skp_inhibit;
+	reg				local_tx_skp_defer;
+	
+	reg				scr_mux;
+	
+	wire	[3:0]	scr_mux_datak 	= scr_mux ? link_out_datak : local_tx_datak;
+	wire	[31:0]	scr_mux_data 	= scr_mux ? link_out_data : local_tx_data;
+	wire			scr_mux_active 	= scr_mux ? link_out_active : local_tx_active;
+	wire			scr_mux_inhibit = scr_mux ? link_out_skp_inhibit : local_tx_skp_inhibit;
+	wire			scr_mux_defer 	= scr_mux ? link_out_skp_defer : local_tx_skp_defer;	
+
+//
+// TRANSMIT
+//
+	// send processed data from tx scrambler module
+	wire	[31:0]	pipe_tx_data	= send_data;
+	wire	[3:0]	pipe_tx_datak	= send_datak;
+	
+	// byteswap the outgoing data to the proper order
+	wire	[31:0]	pipe_tx_data_swap	= {	pipe_tx_data[7:0], pipe_tx_data[15:8],
+											pipe_tx_data[23:16], pipe_tx_data[31:24]};
+	wire	[3:0]	pipe_tx_datak_swap	= { pipe_tx_datak[0], pipe_tx_datak[1], 
+											pipe_tx_datak[2], pipe_tx_datak[3] };
+
+	wire	[23:0]	pipe_tx_h = {				// transmitted on high side of clock
+						6'h0,
+						pipe_tx_datak_swap[1:0],
+						pipe_tx_data_swap[15:0]
+					};
+	wire	[23:0]	pipe_tx_l = {				// transmitted on low side of clock
+						6'h0,
+						pipe_tx_datak_swap[3:2],
+						pipe_tx_data_swap[31:16]
+					};
+	
+	// map DDIO outputs onto wires going to proper IO pins
+	wire	[23:0]	pipe_tx_phy;
+	
+//
+// RECEIVE
+//
+	wire	[23:0]	pipe_rx_h;
+	wire	[23:0]	pipe_rx_l;
+	wire	[23:0]	pipe_rx_phy = {
+						1'h0,
+						phy_phy_status,			// 1
+						phy_rx_status,			// 3
+						phy_pipe_rx_valid,		// 1
+						phy_pipe_rx_datak,		// 2
+						phy_pipe_rx_data		// 16
+					} /* synthesis keep */ ;
+
+	wire	[1:0]	pipe_rx_valid		= {pipe_rx_h[18],    pipe_rx_l[18]};
+	wire	[5:0]	pipe_rx_status		= {pipe_rx_h[21:19], pipe_rx_l[21:19]} /* synthesis keep */;
+	wire	[1:0]	pipe_phy_status		= {pipe_rx_h[22],    pipe_rx_l[22]} /* synthesis keep */;   
+	wire	[3:0]	pipe_rx_datak_swap	= {pipe_rx_h[17:16], pipe_rx_l[17:16]};
+	wire	[31:0]	pipe_rx_data_swap	= {pipe_rx_h[15:0],  pipe_rx_l[15:0]};
+
+	wire	[3:0]	pipe_rx_datak = {	pipe_rx_datak_swap[0], pipe_rx_datak_swap[1], 
+										pipe_rx_datak_swap[2], pipe_rx_datak_swap[3] } /* synthesis keep */;
+	wire	[31:0]	pipe_rx_data = {	pipe_rx_data_swap[7:0], pipe_rx_data_swap[15:8], 
+										pipe_rx_data_swap[23:16], pipe_rx_data_swap[31:24] } /* synthesis keep */;
+
+////////////////////////////////////////////////////////////////////////////////////
+	assign phy_pipe_tx_clk = local_tx_clk_phase;
+	
+	// mux these phy signals with both local PIPE and external LTSSM control
+	//
+	assign phy_tx_elecidle = phy_tx_elecidle_local & ltssm_tx_elecidle;
+	assign phy_tx_detrx_lpbk = phy_tx_detrx_lpbk_local | ltssm_tx_detrx_lpbk;
+	
+///////////////////////////////////////////////////////////////////////////////////
 				
 	assign			link_in_data	= sync_out;
 	assign			link_in_datak	= sync_outk;
@@ -799,9 +881,7 @@ end
 //
 // RX descramble and filtering
 //
-	wire	[3:0]	proc_datak  /* synthesis keep */;
-	wire	[31:0]	proc_data /* synthesis keep */;
-	wire			proc_active /* synthesis keep */;
+
 usb3_descramble iu3rds (
 	.local_clk		( local_clk ),
 	.reset_n		( reset_n ),
@@ -822,22 +902,6 @@ usb3_descramble iu3rds (
 //
 // TX scramble and padding
 //
-	wire	[3:0]	send_datak  /* synthesis keep */;
-	wire	[31:0]	send_data /* synthesis keep */;
-	
-	reg		[3:0]	local_tx_datak;
-	reg		[31:0]	local_tx_data;
-	reg				local_tx_active;
-	reg				local_tx_skp_inhibit;
-	reg				local_tx_skp_defer;
-	
-	reg				scr_mux;
-	
-	wire	[3:0]	scr_mux_datak 	= scr_mux ? link_out_datak : local_tx_datak;
-	wire	[31:0]	scr_mux_data 	= scr_mux ? link_out_data : local_tx_data;
-	wire			scr_mux_active 	= scr_mux ? link_out_active : local_tx_active;
-	wire			scr_mux_inhibit = scr_mux ? link_out_skp_inhibit : local_tx_skp_inhibit;
-	wire			scr_mux_defer 	= scr_mux ? link_out_skp_defer : local_tx_skp_defer;
 	
 usb3_scramble iu3ss (
 	.local_clk		( local_clk ),
@@ -866,54 +930,13 @@ usb3_scramble iu3ss (
 //
 // TRANSMIT
 //
-	wire	[23:0]	pipe_tx_h = {				// transmitted on high side of clock
-						6'h0,
-						pipe_tx_datak_swap[1:0],
-						pipe_tx_data_swap[15:0]
-					};
-	wire	[23:0]	pipe_tx_l = {				// transmitted on low side of clock
-						6'h0,
-						pipe_tx_datak_swap[3:2],
-						pipe_tx_data_swap[31:16]
-					};
-	// byteswap the outgoing data to the proper order
-	wire	[31:0]	pipe_tx_data_swap	= {	pipe_tx_data[7:0], pipe_tx_data[15:8],
-											pipe_tx_data[23:16], pipe_tx_data[31:24]};
-	wire	[3:0]	pipe_tx_datak_swap	= { pipe_tx_datak[0], pipe_tx_datak[1], 
-											pipe_tx_datak[2], pipe_tx_datak[3] };
-	// send processed data from tx scrambler module
-	wire	[31:0]	pipe_tx_data	= send_data;
-	wire	[3:0]	pipe_tx_datak	= send_datak;
 	
-	// map DDIO outputs onto wires going to proper IO pins
-	wire	[23:0]	pipe_tx_phy;	
 	assign			phy_pipe_tx_datak	= pipe_tx_phy[17:16];
 	assign			phy_pipe_tx_data	= pipe_tx_phy[15:0];
 
 //
 // RECEIVE
 //
-	wire	[23:0]	pipe_rx_h;
-	wire	[23:0]	pipe_rx_l;
-	wire	[23:0]	pipe_rx_phy = {
-						1'h0,
-						phy_phy_status,			// 1
-						phy_rx_status,			// 3
-						phy_pipe_rx_valid,		// 1
-						phy_pipe_rx_datak,		// 2
-						phy_pipe_rx_data		// 16
-					} /* synthesis keep */ ;
-
-	wire	[1:0]	pipe_rx_valid		= {pipe_rx_h[18],    pipe_rx_l[18]};
-	wire	[5:0]	pipe_rx_status		= {pipe_rx_h[21:19], pipe_rx_l[21:19]} /* synthesis keep */;
-	wire	[1:0]	pipe_phy_status		= {pipe_rx_h[22],    pipe_rx_l[22]} /* synthesis keep */;   
-	wire	[3:0]	pipe_rx_datak_swap	= {pipe_rx_h[17:16], pipe_rx_l[17:16]};
-	wire	[31:0]	pipe_rx_data_swap	= {pipe_rx_h[15:0],  pipe_rx_l[15:0]};
-
-	wire	[3:0]	pipe_rx_datak = {	pipe_rx_datak_swap[0], pipe_rx_datak_swap[1], 
-										pipe_rx_datak_swap[2], pipe_rx_datak_swap[3] } /* synthesis keep */;
-	wire	[31:0]	pipe_rx_data = {	pipe_rx_data_swap[7:0], pipe_rx_data_swap[15:8], 
-										pipe_rx_data_swap[23:16], pipe_rx_data_swap[31:24] } /* synthesis keep */;
 
 mf_usb3_rx	iu3prx (
 	.datain		( pipe_rx_phy ),

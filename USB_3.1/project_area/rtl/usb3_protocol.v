@@ -130,6 +130,28 @@ output	reg				err_missed_dpp_done
 
 `include "usb3_const.vh"	
 	
+	reg		[3:0]	rx_endp;
+	reg		[3:0]	tx_endp;
+	
+	parameter [3:0]	SEL_ENDP0 			= 4'd0,
+					SEL_ENDP1 			= 4'd1,
+					SEL_ENDP2 			= 4'd2,
+					SEL_ENDP3 			= 4'd3,
+					SEL_ENDP4 			= 4'd4,
+					SEL_ENDP5 			= 4'd5,
+					SEL_ENDP6 			= 4'd6,
+					SEL_ENDP7 			= 4'd7;
+					
+	parameter [1:0]	EP_MODE_CONTROL		= 2'd0,
+					EP_MODE_ISOCH		= 2'd1,
+					EP_MODE_BULK		= 2'd2,
+					EP_MODE_INTERRUPT	= 2'd3;
+					
+	// assign endpoint modes here and also 
+	// in the descriptor strings
+	wire	[1:0]	EP1_MODE			= EP_MODE_BULK;
+	wire	[1:0]	EP2_MODE			= EP_MODE_BULK;
+	
 	// mux bram signals
 	wire	[8:0]	ep0_buf_in_addr		= 	rx_endp == SEL_ENDP0 ? buf_in_addr : 'h0;
 	wire	[31:0]	ep0_buf_in_data		= 	rx_endp == SEL_ENDP0 ? buf_in_data : 'h0;
@@ -186,24 +208,6 @@ output	reg				err_missed_dpp_done
 	assign			endp_mode_rx		=	rx_endp == SEL_ENDP1 ? EP1_MODE : 
 											rx_endp == SEL_ENDP2 ? EP2_MODE : EP_MODE_CONTROL;										
 											
-	parameter [3:0]	SEL_ENDP0 			= 4'd0,
-					SEL_ENDP1 			= 4'd1,
-					SEL_ENDP2 			= 4'd2,
-					SEL_ENDP3 			= 4'd3,
-					SEL_ENDP4 			= 4'd4,
-					SEL_ENDP5 			= 4'd5,
-					SEL_ENDP6 			= 4'd6,
-					SEL_ENDP7 			= 4'd7;
-					
-	parameter [1:0]	EP_MODE_CONTROL		= 2'd0,
-					EP_MODE_ISOCH		= 2'd1,
-					EP_MODE_BULK		= 2'd2,
-					EP_MODE_INTERRUPT	= 2'd3;
-					
-	// assign endpoint modes here and also 
-	// in the descriptor strings
-	wire	[1:0]	EP1_MODE			= EP_MODE_BULK;
-	wire	[1:0]	EP2_MODE			= EP_MODE_BULK;
 	
 	reg		[4:0]	rx_state;
 parameter	[4:0]	RX_RESET		= 'd0,
@@ -240,9 +244,6 @@ parameter	[4:0]	TX_RESET		= 'd0,
 	
 	reg		[10:0]	recv_count;
 	reg		[10:0]	dc;
-	
-	reg		[3:0]	rx_endp;
-	reg		[3:0]	tx_endp;
 	
 always @(posedge local_clk) begin
 

@@ -89,14 +89,6 @@ output	reg				err_setup_pkt
 	
 	reg		[10:0]	len_in;
 	reg				ready_in;
-	assign			buf_in_ready 		= 	ready_in;
-	assign			buf_in_commit_ack	= 	(state_in == ST_IN_COMMIT);
-	
-	reg		[10:0]	len_out;
-	reg				hasdata_out;
-	assign			buf_out_len			=	len_out;
-	assign			buf_out_hasdata 	= 	hasdata_out;
-	assign			buf_out_arm_ack 	= 	(state_out == ST_OUT_ARM);
 	
 	reg		[6:0]	dc;
 	
@@ -125,7 +117,22 @@ output	reg				err_setup_pkt
 	reg		[5:0]	state_out;
 	parameter [5:0]	ST_OUT_ARM			= 6'd11,
 					ST_OUT_SWAP			= 6'd20;
-				
+					
+	assign			buf_in_ready 		= 	ready_in;
+	assign			buf_in_commit_ack	= 	(state_in == ST_IN_COMMIT);
+	
+	reg		[10:0]	len_out;
+	reg				hasdata_out;
+	assign			buf_out_len			=	len_out;
+	assign			buf_out_hasdata 	= 	hasdata_out;
+	assign			buf_out_arm_ack 	= 	(state_out == ST_OUT_ARM);
+	
+	reg		[3:0]	buf_in_rdaddr;
+	wire	[31:0]	buf_in_q;	
+
+	reg		[7:0]	descrip_addr_offset;
+
+////////////////////////////////////////////////	
 always @(posedge local_clk) begin
 
 	{buf_in_commit_2, buf_in_commit_1} <= {buf_in_commit_1, buf_in_commit};
@@ -438,9 +445,6 @@ always @(posedge local_clk) begin
 	
 end
 
-
-	reg		[3:0]	buf_in_rdaddr;
-	wire	[31:0]	buf_in_q;
 	
 mf_usb3_ep0in	iu3ep0i (
 	.clock 		( local_clk ),
@@ -450,8 +454,6 @@ mf_usb3_ep0in	iu3ep0i (
 	.wren 		( buf_in_wren ),
 	.q 			( buf_in_q )
 );
-
-	reg		[7:0]	descrip_addr_offset;
 	
 mf_usb3_descrip	iu3d (
 	.clock 		( local_clk ),

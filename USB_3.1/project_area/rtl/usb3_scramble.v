@@ -35,28 +35,52 @@ output	reg				err_empty_accum
 	reg				reset_n_1;
 	reg				enable_1;
 	
+	reg		[31:0]	pl_data;
+	reg		[3:0]	pl_datak;
+	reg				pl_active;
+	
 	// indicates presence of COM at last symbol position (K28.5)
 	wire			comma	= {	(pl_data[7:0] == 8'hBC) & pl_datak[0] };
 	reg				comma_1;
 		
-	reg		[31:0]	pl_data;
-	reg		[3:0]	pl_datak;
-	reg				pl_active;
 
 // step 1.
 // accept incoming data, but inject SKP sets to allow remote elastic buffer
 // to catch up and compensate for spread spectrum clocking.
 
-	wire			insert_skp	=  enable && symbols_since_skp > 78;
-	// nominal SKP insertion rate is every 354 symbols. 
-	// however due to SSC profiles varying across the industry (i.e. +/- 2500ppm vs. -5000 to 0 ppm)
-	// err on the safe side and send more SKP.
-	
 	reg		[15:0]	symbols_since_skp;
 	reg		[2:0]	num_queued_skp;
 	
 	reg		[31:0]	ac_data;
 	reg		[3:0]	ac_datak;
+	
+	wire			insert_skp	=  enable && symbols_since_skp > 78;
+	// nominal SKP insertion rate is every 354 symbols. 
+	// however due to SSC profiles varying across the industry (i.e. +/- 2500ppm vs. -5000 to 0 ppm)
+	// err on the safe side and send more SKP.
+	
+//
+// scrambling LFSR pool
+//
+
+	reg		[63:0]	sp_data;
+	reg		[3:0]	sp_depth;
+	reg		[3:0]	sp_read_num;
+	
+	wire			sp_dofill = ((sp_depth+8 - sp_read_num) <= 12);
+	
+	wire	[31:0]	sp_pick32 = 	(sp_depth == 4) ? sp_data[31:0] :
+									(sp_depth == 6) ? sp_data[47:16] : 
+									(sp_depth == 8) ? sp_data[63:32] : 32'hFFFFFFFF;
+	wire	[15:0]	sp_pick16 = 	sp_pick32[31:16];
+							
+//
+// data scrambling for TX
+//
+	wire	[31:0]	ds_out_swap;
+	wire	[31:0]	ds_out = {ds_out_swap[7:0], ds_out_swap[15:8], 
+							ds_out_swap[23:16], ds_out_swap[31:24]};
+	
 		
 always @(posedge local_clk) begin
 		
@@ -144,17 +168,6 @@ end
 //
 // scrambling LFSR pool
 //
-
-	reg		[63:0]	sp_data;
-	reg		[3:0]	sp_depth;
-	reg		[3:0]	sp_read_num;
-	
-	wire			sp_dofill = ((sp_depth+8 - sp_read_num) <= 12);
-	
-	wire	[15:0]	sp_pick16 = 	sp_pick32[31:16];
-	wire	[31:0]	sp_pick32 = 	(sp_depth == 4) ? sp_data[31:0] :
-									(sp_depth == 6) ? sp_data[47:16] : 
-									(sp_depth == 8) ? sp_data[63:32] : 32'hFFFFFFFF;
 	
 always @(posedge local_clk) begin
 	
@@ -168,13 +181,9 @@ always @(posedge local_clk) begin
 	end
 end
 
-
 //
 // data scrambling for TX
 //
-	wire	[31:0]	ds_out = {ds_out_swap[7:0], ds_out_swap[15:8], 
-							ds_out_swap[23:16], ds_out_swap[31:24]};
-	wire	[31:0]	ds_out_swap;
 	
 usb3_lfsr iu3srx(
 

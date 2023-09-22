@@ -58,7 +58,9 @@ output	wire	[1:0]	dbg_linestate
 );
 
 	reg 			reset_1, reset_2;				// local reset
-	
+	wire	[7:0]	phy_ulpi_d_in = phy_ulpi_d;
+	wire	[7:0]	phy_ulpi_d_out;
+	wire			phy_ulpi_d_oe;
 	// allow reset-time pin strapping for the usb 3.0 phy. 
 	// this should not affect regular usb 2.0 PHYs
 	//
@@ -70,9 +72,7 @@ output	wire	[1:0]	dbg_linestate
 						4'b0
 					});
 	
-	wire	[7:0]	phy_ulpi_d_in = phy_ulpi_d;
-	wire	[7:0]	phy_ulpi_d_out;
-	wire			phy_ulpi_d_oe;
+
 									
 always @(posedge ext_clk) begin
 	// synchronize external reset to local domain

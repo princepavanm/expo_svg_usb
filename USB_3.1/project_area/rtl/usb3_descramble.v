@@ -54,23 +54,60 @@ output	reg				err_skp_unexpected
 // push the last word of the packet onto the following cycle where ACTIVE
 // is asserted again.
 
+// step 1.
+	//reg		[5:0]	skr_status;
+	reg		[31:0]	skr_data;
+	reg		[3:0]	skr_datak; 
+	reg		[2:0]	skr_num; 
+	reg		[1:0]	skr_valid;
 
+// step 2.
+	reg		[5:0]	acc_status;
+	reg		[63:0]	acc_data;
+	reg		[7:0]	acc_datak; 
+	
+	reg		[2:0]	acc_depth; 
+
+// step 3.
+	reg		[31:0]	coll_data ;
+	reg		[3:0]	coll_datak;
+	reg				coll_active;
+	reg		[1:0]	coll_valid;
+	
+	reg		[2:0]	ds_align;
+	reg		[2:0]	scr_defer;
+	
+// step 4.
+	reg		[31:0]	next_data;
+	reg		[3:0]	next_datak;
+	reg				next_active;
+	
+////////////////////////////////////////////////////////////////////////
+	
 	// indicates presence of SKP at any symbol position
 	wire	[3:0]	skip	= {	(raw_data[31:24] == 8'h3C) & raw_datak[3], (raw_data[23:16] == 8'h3C) & raw_datak[2], 
 								(raw_data[15:8] == 8'h3C) & raw_datak[1],  (raw_data[7:0] == 8'h3C) & raw_datak[0] };
 	// indicates presence of COM at any symbol position (K28.5)
 	wire	[3:0]	comma	= {	(coll_data[31:24] == 8'hBC) & coll_datak[3], (coll_data[23:16] == 8'hBC) & coll_datak[2], 
 								(coll_data[15:8] == 8'hBC) & coll_datak[1],  (coll_data[7:0] == 8'hBC) & coll_datak[0] };
+
+////////////////////////////////////////////////////////////////////////
+//
+// data de-scrambling for RX
+//
+	reg		[31:0]	ds_delay;
+	reg		[31:0]	ds_last;
+	wire			ds_suppress = |comma || (scr_defer < 3);
+	wire			ds_enable = enable && !ds_suppress;
+	wire	[31:0]	ds_out_swap;
+	wire	[31:0]	ds_out = ds_enable ? 
+							{ds_out_swap[7:0], ds_out_swap[15:8], ds_out_swap[23:16], ds_out_swap[31:24]} 
+							: 0;
+////////////////////////////////////////////////////
 	
 // step 1.
 // collapse incoming stream to remove all SKP symbols.
 // these may be sent as 0x3C, 0x3C3C, 0x3C3C3C and so on.
-	
-	//reg		[5:0]	skr_status;
-	reg		[31:0]	skr_data;
-	reg		[3:0]	skr_datak; 
-	reg		[2:0]	skr_num; 
-	reg		[1:0]	skr_valid;
 
 always @(posedge local_clk) begin
 	
@@ -130,12 +167,6 @@ end
 // step 2.
 // accumulate these fragments and then squeeze them out
 // 32bits at a time.
-
-	reg		[5:0]	acc_status;
-	reg		[63:0]	acc_data;
-	reg		[7:0]	acc_datak; 
-	
-	reg		[2:0]	acc_depth; 
 	
 always @(posedge local_clk) begin
 
@@ -195,14 +226,6 @@ end
 // step 3.
 // handle descrambling LFSR, resetting upon COM with
 // proper symbol alignment.
-
-	reg		[31:0]	coll_data ;
-	reg		[3:0]	coll_datak;
-	reg				coll_active;
-	reg		[1:0]	coll_valid;
-	
-	reg		[2:0]	ds_align;
-	reg		[2:0]	scr_defer;
 	
 always @(posedge local_clk) begin
 	
@@ -256,10 +279,6 @@ end
 // step 4.
 // pipeline data to relax timing
 
-	reg		[31:0]	next_data;
-	reg		[3:0]	next_datak;
-	reg				next_active;
-
 always @(posedge local_clk) begin
 	proc_data <= next_data;
 	proc_datak <= next_datak;
@@ -269,14 +288,7 @@ end
 //
 // data de-scrambling for RX
 //
-	reg		[31:0]	ds_delay;
-	reg		[31:0]	ds_last;
-	wire			ds_suppress = |comma || (scr_defer < 3);
-	wire			ds_enable = enable && !ds_suppress;
-	wire	[31:0]	ds_out_swap;
-	wire	[31:0]	ds_out = ds_enable ? 
-							{ds_out_swap[7:0], ds_out_swap[15:8], ds_out_swap[23:16], ds_out_swap[31:24]} 
-							: 0;
+
 usb3_lfsr iu3srx(
 
 	.clock		( local_clk ),

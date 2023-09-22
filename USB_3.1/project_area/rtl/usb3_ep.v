@@ -50,6 +50,21 @@ input	wire	[1:0]	mode
 	reg		[10:0]	len_in;
 	reg				ready_in_a;
 	reg				ready_in_b;
+	
+	reg		[3:0]	dc;
+	reg		[5:0]	state_in;
+	
+	parameter [5:0]	ST_RST_0			= 6'd0,
+					ST_RST_1			= 6'd1,
+					ST_IDLE				= 6'd10,
+					ST_IN_COMMIT		= 6'd11,
+					ST_IN_SWAP			= 6'd12;
+					
+	reg		[5:0]	state_out;	
+	parameter [5:0]	ST_OUT_ARM			= 6'd11,
+					ST_OUT_SWAP			= 6'd12;
+	
+	
 	assign			buf_in_ready 		= 	ptr_in ? ready_in_b : ready_in_a;
 	assign			buf_in_commit_ack	= 	(state_in == ST_IN_COMMIT || state_in == ST_IN_SWAP);
 	
@@ -65,19 +80,7 @@ input	wire	[1:0]	mode
 					EP_MODE_ISOCH		= 2'd1,
 					EP_MODE_BULK		= 2'd2,
 					EP_MODE_INTERRUPT	= 2'd3;
-					
-	reg		[3:0]	dc;
-	
-	reg		[5:0]	state_in;
-	parameter [5:0]	ST_RST_0			= 6'd0,
-					ST_RST_1			= 6'd1,
-					ST_IDLE				= 6'd10,
-					ST_IN_COMMIT		= 6'd11,
-					ST_IN_SWAP			= 6'd12;
-					
-	reg		[5:0]	state_out;	
-	parameter [5:0]	ST_OUT_ARM			= 6'd11,
-					ST_OUT_SWAP			= 6'd12;	
+						
 	
 always @(posedge local_clk) begin
 

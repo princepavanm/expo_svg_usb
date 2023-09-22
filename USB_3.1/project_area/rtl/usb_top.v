@@ -16,7 +16,6 @@ input	wire			ext_clk,
 input	wire			reset_n,
 output	wire			reset_n_out,
 
-
 // signals specific to usb 3.0
 input	wire			phy_pipe_pclk,
 input	wire	[15:0]	phy_pipe_rx_data,

@@ -301,23 +301,23 @@ parameter	[3:0]	WR_HP_RESET		= 'd0,
 	
 	reg		[3:0]	in_header_pkt_queued;
 	reg		[1:0]	in_header_pkt_pick;
-	wire	[95:0]	in_header_pkt_mux = (	in_header_pkt_pick == 3 ? in_header_pkt_a :
-											in_header_pkt_pick == 2 ? in_header_pkt_b :
-											in_header_pkt_pick == 1 ? in_header_pkt_c : 
-											in_header_pkt_d );
 	reg		[95:0]	in_header_pkt_a;
 	reg		[95:0]	in_header_pkt_b;
 	reg		[95:0]	in_header_pkt_c;
 	reg		[95:0]	in_header_pkt_d;
+	reg		[95:0]	out_header_pkt_a;
+	reg		[95:0]	out_header_pkt_b;
+	reg		[95:0]	out_header_pkt_c;
+	reg		[95:0]	out_header_pkt_d;
+	wire	[95:0]	in_header_pkt_mux = (	in_header_pkt_pick == 3 ? in_header_pkt_a :
+											in_header_pkt_pick == 2 ? in_header_pkt_b :
+											in_header_pkt_pick == 1 ? in_header_pkt_c : 
+											in_header_pkt_d );
 	reg		[1:0]	out_header_pkt_pick;
 	wire	[95:0]	out_header_pkt_mux = (	out_header_pkt_pick == 0 ? out_header_pkt_a :
 											out_header_pkt_pick == 1 ? out_header_pkt_b :
 											out_header_pkt_pick == 2 ? out_header_pkt_c : 
 											out_header_pkt_d );
-	reg		[95:0]	out_header_pkt_a;
-	reg		[95:0]	out_header_pkt_b;
-	reg		[95:0]	out_header_pkt_c;
-	reg		[95:0]	out_header_pkt_d;
 	
 	/*
 	output	reg		[31:0]	out_data,
@@ -417,7 +417,72 @@ parameter	[3:0]	WR_HP_RESET		= 'd0,
 	
 	reg		[9:0]	rc;		// receive counter
 	reg		[9:0]	sc;		// send counter
+
+//
+// CRC-16 of Header Packet Headers
+//		rx
+	reg				crc_hprx_rst;
+	reg		[31:0]	crc_hprx_in;
+	wire	[15:0]	crc_hprx_out;
+//		tx
+	reg				crc_hptx_rst;
+	wire	[31:0]	crc_hptx_in = swap32(out_data_2);
+	wire	[15:0]	crc_hptx_out;
 	
+//
+// CRC-32 of Data Packet Payloads
+//
+	//wire	[31:0]	crc_dpprx_out = (in_dpp_length_remain_1 == 4) ? (swap32(crc_dpprx32_out)) :
+	//								(in_dpp_length_remain_1 == 3) ? (swap32(crc_dpprx24_out)) :
+	//								(in_dpp_length_remain_1 == 2) ? (swap32(crc_dpprx16_out)) :
+	//								(in_dpp_length_remain_1 == 1) ? (swap32(crc_dpprx8_out)) : (swap32(crc_dpprx32_out));
+									// TODO FIXUP FOR RX
+	wire	[31:0]	crc_dpprx_q;
+	reg				crc_dpprx_rst;
+	reg		[31:0]	crc_dpprx_in;
+	wire	[31:0]	crc_dpprx32_out;
+	wire	[31:0]	crc_dpprx24_out;
+	wire	[31:0]	crc_dpprx16_out;
+	wire	[31:0]	crc_dpprx8_out;
+	
+//			tx
+	wire	[31:0]	crc_dpptx32_out;
+	wire	[31:0]	crc_dpptx24_out;
+	wire	[31:0]	crc_dpptx16_out;
+	wire	[31:0]	crc_dpptx8_out;
+	wire	[31:0]	crc_dpptx_out = (out_dpp_length_remain_1 == 4) ? (swap32(crc_dpptx32_out)) :
+									(out_dpp_length_remain_1 == 3) ? (swap32(crc_dpptx24_out)) :
+									(out_dpp_length_remain_1 == 2) ? (swap32(crc_dpptx16_out)) :
+									(out_dpp_length_remain_1 == 1) ? (swap32(crc_dpptx8_out)) : (swap32(crc_dpptx32_out));
+	reg		[31:0]	crc_dpptx_out_1;
+	wire	[31:0]	crc_dpptx_q;
+	reg				crc_dpptx_rst;
+	reg		[31:0]	crc_dpptx_in;
+
+//
+// CRC-5 of Command Words
+//
+
+// RX
+//
+	wire	[10:0]	crc_cw1_in = in_link_command[26:16];
+	wire	[4:0]	crc_cw1_out;
+
+	wire	[10:0]	crc_cw2_in = in_link_command[10:0];
+	wire	[4:0]	crc_cw2_out;
+
+	wire	[10:0]	crc_cw3_in = in_header_cw[10:0];
+	wire	[4:0]	crc_cw3_out;
+
+	wire	[10:0]	crc_cw4_in = out_header_cw[10:0];
+	wire	[4:0]	crc_cw4_out;
+
+// TX
+//
+	reg		[10:0]	crc_lcmd_in;
+	wire	[4:0]	crc_lcmd_out;
+	
+///////////////////////////////////////////////////////////////////////////////	
 
 always @(posedge local_clk) begin
 
@@ -1704,13 +1769,7 @@ end
 	//								(in_dpp_length_remain_1 == 2) ? (swap32(crc_dpprx16_out)) :
 	//								(in_dpp_length_remain_1 == 1) ? (swap32(crc_dpprx8_out)) : (swap32(crc_dpprx32_out));
 									// TODO FIXUP FOR RX
-	wire	[31:0]	crc_dpprx_q;
-	reg				crc_dpprx_rst;
-	reg		[31:0]	crc_dpprx_in;
-	wire	[31:0]	crc_dpprx32_out;
-	wire	[31:0]	crc_dpprx24_out;
-	wire	[31:0]	crc_dpprx16_out;
-	wire	[31:0]	crc_dpprx8_out;
+
 usb3_crc_dpp32 iu3cdprx32 (
 	.clk		( local_clk ),
 	.rst		( crc_dpprx_rst ),
@@ -1735,18 +1794,8 @@ usb3_crc_dpp8 iu3cdprx8 (
 	.crc_out	( crc_dpprx8_out )
 );
 
-	wire	[31:0]	crc_dpptx_out = (out_dpp_length_remain_1 == 4) ? (swap32(crc_dpptx32_out)) :
-									(out_dpp_length_remain_1 == 3) ? (swap32(crc_dpptx24_out)) :
-									(out_dpp_length_remain_1 == 2) ? (swap32(crc_dpptx16_out)) :
-									(out_dpp_length_remain_1 == 1) ? (swap32(crc_dpptx8_out)) : (swap32(crc_dpptx32_out));
-	reg		[31:0]	crc_dpptx_out_1;
-	wire	[31:0]	crc_dpptx_q;
-	reg				crc_dpptx_rst;
-	reg		[31:0]	crc_dpptx_in;
-	wire	[31:0]	crc_dpptx32_out;
-	wire	[31:0]	crc_dpptx24_out;
-	wire	[31:0]	crc_dpptx16_out;
-	wire	[31:0]	crc_dpptx8_out;
+
+///////////////////////////////////////
 usb3_crc_dpp32 iu3cdptx32 (
 	.clk		( local_clk ),
 	.rst		( crc_dpptx_rst ),
@@ -1775,9 +1824,7 @@ usb3_crc_dpp8 iu3cdptx8 (
 //
 // CRC-16 of Header Packet Headers
 //
-	reg				crc_hprx_rst;
-	reg		[31:0]	crc_hprx_in;
-	wire	[15:0]	crc_hprx_out;
+
 usb3_crc_hp iu3chprx (
 	.clk		( local_clk ),
 	.rst		( crc_hprx_rst ),
@@ -1786,9 +1833,6 @@ usb3_crc_hp iu3chprx (
 	.crc_out	( crc_hprx_out )
 );
 
-	reg				crc_hptx_rst;
-	wire	[31:0]	crc_hptx_in = swap32(out_data_2);
-	wire	[15:0]	crc_hptx_out;
 usb3_crc_hp iu3chptx (
 	.clk		( local_clk ),
 	.rst		( crc_hptx_rst ),
@@ -1804,29 +1848,25 @@ usb3_crc_hp iu3chptx (
 
 // RX
 //
-	wire	[10:0]	crc_cw1_in = in_link_command[26:16];
-	wire	[4:0]	crc_cw1_out;
+
 usb3_crc_cw iu3ccw1 (
 	.di			( crc_cw1_in ),
 	.crc_out	( crc_cw1_out )
 );
 
-	wire	[10:0]	crc_cw2_in = in_link_command[10:0];
-	wire	[4:0]	crc_cw2_out;
+
 usb3_crc_cw iu3ccw2 (
 	.di			( crc_cw2_in ),
 	.crc_out	( crc_cw2_out )
 );
 
-	wire	[10:0]	crc_cw3_in = in_header_cw[10:0];
-	wire	[4:0]	crc_cw3_out;
+
 usb3_crc_cw iu3ccw3 (
 	.di			( crc_cw3_in ),
 	.crc_out	( crc_cw3_out )
 );
 
-	wire	[10:0]	crc_cw4_in = out_header_cw[10:0];
-	wire	[4:0]	crc_cw4_out;
+
 usb3_crc_cw iu3ccw5 (
 	.di			( crc_cw4_in ),
 	.crc_out	( crc_cw4_out )
@@ -1834,8 +1874,7 @@ usb3_crc_cw iu3ccw5 (
 
 // TX
 //
-	reg		[10:0]	crc_lcmd_in;
-	wire	[4:0]	crc_lcmd_out;
+
 usb3_crc_cw iu3ccw4 (
 	.di			( crc_lcmd_in ),
 	.crc_out	( crc_lcmd_out )
