@@ -61,7 +61,7 @@ module mf_usb3_ep0in (
 
 	wire [31:0] sub_wire0;
 	wire [31:0] q = sub_wire0[31:0];
-
+/*
 	altsyncram	altsyncram_component (
 				.address_a (wraddress),
 				.clock0 (clock),
@@ -106,7 +106,7 @@ module mf_usb3_ep0in (
 		altsyncram_component.width_a = 32,
 		altsyncram_component.width_b = 32,
 		altsyncram_component.width_byteena_a = 1;
-
+*/  //TODO ANGAPPAN
 
 endmodule
 

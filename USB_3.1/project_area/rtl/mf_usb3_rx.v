@@ -51,7 +51,7 @@ module mf_usb3_rx (
 	wire [23:0] sub_wire1;
 	wire [23:0] dataout_h = sub_wire0[23:0];
 	wire [23:0] dataout_l = sub_wire1[23:0];
-
+/*
 	altddio_in	ALTDDIO_IN_component (
 				.datain (datain),
 				.inclock (inclock),
@@ -69,7 +69,7 @@ module mf_usb3_rx (
 		ALTDDIO_IN_component.lpm_type = "altddio_in",
 		ALTDDIO_IN_component.power_up_high = "OFF",
 		ALTDDIO_IN_component.width = 24;
-
+*/ //TODO ANGAPPAN
 
 endmodule
 

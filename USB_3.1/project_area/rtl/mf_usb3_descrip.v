@@ -54,7 +54,7 @@ module mf_usb3_descrip (
 
 	wire [31:0] sub_wire0;
 	wire [31:0] q = sub_wire0[31:0];
-
+/*
 	defparam
 		altsyncram_component.address_aclr_a = "NONE",
 		altsyncram_component.clock_enable_input_a = "BYPASS",
@@ -96,7 +96,7 @@ module mf_usb3_descrip (
 				.wren_a (1'b0),
 				.wren_b (1'b0));
 	
-
+*/ //TODO ANGAPPAN
 endmodule
 
 // ============================================================

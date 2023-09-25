@@ -49,7 +49,7 @@ module mf_usb3_tx (
 
 	wire [23:0] sub_wire0;
 	wire [23:0] dataout = sub_wire0[23:0];
-
+/*
 	altddio_out	ALTDDIO_OUT_component (
 				.datain_h (datain_h),
 				.datain_l (datain_l),
@@ -72,7 +72,7 @@ module mf_usb3_tx (
 		ALTDDIO_OUT_component.power_up_high = "OFF",
 		ALTDDIO_OUT_component.width = 24;
 
-
+*/ //TODO ANGAPPAN
 endmodule
 
 // ============================================================

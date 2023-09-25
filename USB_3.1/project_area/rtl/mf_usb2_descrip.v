@@ -54,7 +54,7 @@ module mf_usb2_descrip (
 
 	wire [7:0] sub_wire0;
 	wire [7:0] q = sub_wire0[7:0];
-
+/*
 	altsyncram	altsyncram_component (
 				.address_a (address),
 				.clock0 (clock),
@@ -95,7 +95,7 @@ module mf_usb2_descrip (
 		altsyncram_component.width_a = 8,
 		altsyncram_component.width_byteena_a = 1;
 
-
+*/ //TODO ANGAPPAN
 endmodule
 
 // ============================================================
