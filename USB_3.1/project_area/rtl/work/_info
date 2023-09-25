@@ -4,6 +4,9 @@ z2
 Z0 !s99 nomlopt
 R0
 R0
+R0
+R0
+R0
 !s11f vlog 2021.1 2021.01, Jan 19 2021
 13
 !s112 1.1
@@ -32,6 +35,17 @@ R2
 R3
 R4
 n@_opt1
+R5
+R1
+T_opt2
+!s110 1695652536
+Vo0ZCE3M?`Ajb^IkP;lXf_3
+04 7 4 work usb_top fast 0
+=1-9c5c8e04122e-65119ab7-37c-2eac
+R2
+R3
+R4
+n@_opt2
 R5
 vmf_usb2_descrip
 Z6 !s110 1695643865
@@ -100,7 +114,7 @@ R12
 R13
 R4
 vmf_usb3_descrip
-Z14 !s110 1695643667
+Z14 !s110 1695652526
 !i10b 1
 !s100 6NgG9KV64?B7Nh62D@>nb1
 IankddOJB]e:IV>Z=`I^HX1
@@ -108,16 +122,16 @@ R7
 w1695659712
 8mf_usb3_descrip.v
 Fmf_usb3_descrip.v
-!i122 40
+!i122 45
 L0 39 62
 R8
 R9
 r1
 !s85 0
 31
-Z15 !s108 1695643667.000000
-Z16 !s107 mf_usb3_pll.v|usb3_protocol.v|usb_descrip.vh|usb3_ep0.v|mf_usb3_descrip.v|mf_usb3_ep0in.v|usb3_ep.v|mf_usb3_ep.v|usb3_link.v|usb3_crc.v|usb3_ltssm.v|usb3_pipe.v|mf_usb3_tx.v|mf_usb3_rx.v|usb3_scramble.v|usb3_const.vh|usb3_descramble.v|usb3_lfsr.v|usb3_top.v|
-Z17 !s90 usb3_top.v|
+Z15 !s108 1695652526.000000
+Z16 !s107 mf_usb3_pll.v|usb3_protocol.v|usb_descrip.vh|usb3_ep0.v|mf_usb3_descrip.v|mf_usb3_ep0in.v|usb3_ep.v|mf_usb3_ep.v|usb3_link.v|usb3_crc.v|usb3_ltssm.v|usb3_pipe.v|mf_usb3_tx.v|mf_usb3_rx.v|usb3_scramble.v|usb3_const.vh|usb3_descramble.v|usb3_lfsr.v|usb3_top.v|usb_top.v|
+Z17 !s90 usb_top.v|
 !i113 0
 R13
 R4
@@ -130,7 +144,7 @@ R7
 w1695659779
 8mf_usb3_ep.v
 Fmf_usb3_ep.v
-!i122 40
+!i122 45
 L0 39 74
 R8
 R9
@@ -152,7 +166,7 @@ R7
 w1695659865
 8mf_usb3_ep0in.v
 Fmf_usb3_ep0in.v
-!i122 40
+!i122 45
 L0 39 73
 R8
 R9
@@ -174,7 +188,7 @@ R7
 w1695659819
 8mf_usb3_pll.v
 Fmf_usb3_pll.v
-!i122 40
+!i122 45
 L0 39 147
 R8
 R9
@@ -196,7 +210,7 @@ R7
 w1695659585
 8mf_usb3_rx.v
 Fmf_usb3_rx.v
-!i122 40
+!i122 45
 L0 39 36
 R8
 R9
@@ -218,7 +232,7 @@ R7
 w1695659629
 8mf_usb3_tx.v
 Fmf_usb3_tx.v
-!i122 40
+!i122 45
 L0 39 38
 R8
 R9
@@ -416,7 +430,7 @@ R7
 Z23 w1695226155
 Z24 8usb3_crc.v
 Z25 Fusb3_crc.v
-!i122 40
+!i122 45
 L0 21 20
 R8
 R9
@@ -438,7 +452,7 @@ R7
 R23
 R24
 R25
-!i122 40
+!i122 45
 L0 227 53
 R8
 R9
@@ -460,7 +474,7 @@ R7
 R23
 R24
 R25
-!i122 40
+!i122 45
 L0 170 54
 R8
 R9
@@ -482,7 +496,7 @@ R7
 R23
 R24
 R25
-!i122 40
+!i122 45
 L0 99 68
 R8
 R9
@@ -504,7 +518,7 @@ R7
 R23
 R24
 R25
-!i122 40
+!i122 45
 L0 282 52
 R8
 R9
@@ -526,7 +540,7 @@ R7
 R23
 R24
 R25
-!i122 40
+!i122 45
 L0 47 46
 R8
 R9
@@ -548,7 +562,7 @@ R7
 Z26 w1695383680
 Fusb3_descramble.v
 Z27 Fusb3_const.vh
-!i122 40
+!i122 45
 L0 11 537
 R8
 R9
@@ -570,7 +584,7 @@ R7
 R26
 Fusb3_ep.v
 R27
-!i122 40
+!i122 45
 L0 11 471
 R8
 R9
@@ -593,7 +607,7 @@ R26
 Fusb3_ep0.v
 R27
 R21
-!i122 40
+!i122 45
 L0 11 720
 R8
 R9
@@ -615,7 +629,7 @@ R7
 Z28 w1695226156
 8usb3_lfsr.v
 Fusb3_lfsr.v
-!i122 40
+!i122 45
 L0 16 83
 R8
 R9
@@ -637,7 +651,7 @@ R7
 R26
 Fusb3_link.v
 R27
-!i122 40
+!i122 45
 L0 11 2115
 R8
 R9
@@ -659,7 +673,7 @@ R7
 R28
 Fusb3_ltssm.v
 R27
-!i122 40
+!i122 45
 L0 11 978
 R8
 R9
@@ -681,7 +695,7 @@ R7
 R26
 Fusb3_pipe.v
 R27
-!i122 40
+!i122 45
 L0 11 1189
 R8
 R9
@@ -703,7 +717,7 @@ R7
 R26
 Fusb3_protocol.v
 R27
-!i122 40
+!i122 45
 L0 11 799
 R8
 R9
@@ -725,7 +739,7 @@ R7
 R26
 Fusb3_scramble.v
 R27
-!i122 40
+!i122 45
 L0 11 433
 R8
 R9
@@ -739,16 +753,38 @@ R17
 R13
 R4
 vusb3_top
-!s110 1695643668
+R14
 !i10b 1
 !s100 AQ<Qic3BSJHPFeCU0Pk<51
 I]b33nXSlKfO1]9ZU9jE2`1
 R7
-R26
+w1695668546
 8usb3_top.v
 Fusb3_top.v
-!i122 40
+!i122 45
 L0 36 646
+R8
+R9
+r1
+!s85 0
+31
+R15
+R16
+R17
+!i113 0
+R13
+R4
+vusb_top
+R14
+!i10b 1
+!s100 SjRf2JHcfD8H5h91T`D_F3
+I]@oo2RkTo[KIa0QWJ40cT1
+R7
+w1695668722
+8usb_top.v
+Fusb_top.v
+!i122 45
+L0 12 136
 R8
 R9
 r1

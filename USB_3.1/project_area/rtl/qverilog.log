@@ -1,33 +1,111 @@
-Start time: 13:11:05 on Sep 25,2023
-qverilog usb2_top.v 
--- Compiling module usb2_ulpi
--- Compiling module usb2_crc5
--- Compiling module usb2_crc16
--- Compiling module usb2_packet
--- Compiling module mf_usb2_ep0in
--- Compiling module mf_usb2_descrip
--- Compiling module usb2_ep0
--- Compiling module mf_usb2_ep
--- Compiling module usb2_ep
--- Compiling module usb2_protocol
--- Compiling module usb2_top
+Start time: 15:35:26 on Sep 25,2023
+qverilog usb_top.v 
+-- Compiling module usb3_lfsr
+-- Compiling module usb3_descramble
+-- Compiling module usb3_scramble
+-- Compiling module mf_usb3_rx
+-- Compiling module mf_usb3_tx
+-- Compiling module usb3_pipe
+-- Compiling module usb3_ltssm
+-- Compiling module usb3_crc_cw
+-- Compiling module usb3_crc_hp
+-- Compiling module usb3_crc_dpp32
+-- Compiling module usb3_crc_dpp24
+-- Compiling module usb3_crc_dpp16
+-- Compiling module usb3_crc_dpp8
+-- Compiling module usb3_link
+-- Compiling module mf_usb3_ep
+-- Compiling module usb3_ep
+-- Compiling module mf_usb3_ep0in
+-- Compiling module mf_usb3_descrip
+-- Compiling module usb3_ep0
+-- Compiling module usb3_protocol
+-- Compiling module mf_usb3_pll
+-- Compiling module usb3_top
+-- Compiling module usb_top
 
 Top level modules:
-	usb2_top
-# vsim -lib work work.usb2_top -c -do "run -all; quit -f" -appendlog -l qverilog.log -vopt 
-# ** Note: (vsim-3812) Design is being optimized...
-# ** Warning: usb2_ep0.v(173): (vopt-2241) Connection width does not match width of port 'address'. The port definition is at: mf_usb2_descrip.v(40).
-# ** Warning: usb2_ep0.v(157): (vopt-2241) Connection width does not match width of port 'wraddress'. The port definition is at: mf_usb2_ep0in.v(44).
-# ** Warning: usb2_protocol.v(189): (vopt-2241) Connection width does not match width of port 'buf_in_addr'. The port definition is at: usb2_ep0.v(21).
-# ** Warning: usb2_protocol.v(189): (vopt-2241) Connection width does not match width of port 'buf_out_addr'. The port definition is at: usb2_ep0.v(29).
-# ** Warning: usb2_top.v(191): (vopt-2241) Connection width does not match width of port 'buf_out_addr'. The port definition is at: usb2_packet.v(39).
-# ** Warning: usb2_protocol.v(189): (vopt-2685) [TFMPC] - Too few port connections for 'iep0'.  Expected 24, found 23.
-# ** Warning: usb2_protocol.v(189): (vopt-2718) [TFMPC] - Missing connection for port 'buf_in_pid'.
-# ** Warning: usb2_top.v(129): (vopt-2685) [TFMPC] - Too few port connections for 'ia'.  Expected 25, found 24.
-# ** Warning: usb2_top.v(129): (vopt-2718) [TFMPC] - Missing connection for port 'se0_reset'.
-# ** Warning: usb2_top.v(191): (vopt-2685) [TFMPC] - Too few port connections for 'ip'.  Expected 34, found 33.
-# ** Warning: usb2_top.v(191): (vopt-2718) [TFMPC] - Missing connection for port 'dbg_pkt_type'.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=11.
+	usb_top
+# vsim -lib work work.usb_top -c -do "run -all; quit -f" -appendlog -l qverilog.log -vopt 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: usb3_ep0.v(458): (vopt-2241) Connection width does not match width of port 'address'. The port definition is at: mf_usb3_descrip.v(40).
+# ** Warning: usb3_ep0.v(449): (vopt-2241) Connection width does not match width of port 'wraddress'. The port definition is at: mf_usb3_ep0in.v(43).
+# ** Warning: usb3_top.v(436): (vopt-2241) Connection width does not match width of port 'buf_out_addr'. The port definition is at: usb3_link.v(108).
+# ** Warning: usb3_top.v(297): (vopt-2241) Connection width does not match width of port 'phy_tx_margin'. The port definition is at: usb3_pipe.v(39).
+# ** Warning: usb_top.v(94): (vopt-2241) Connection width does not match width of port 'buf_in_data'. The port definition is at: usb3_top.v(72).
+# ** Warning: usb_top.v(94): (vopt-2241) Connection width does not match width of port 'buf_in_commit_len'. The port definition is at: usb3_top.v(77).
+# ** Warning: usb_top.v(94): (vopt-2241) Connection width does not match width of port 'buf_out_q'. The port definition is at: usb3_top.v(81).
+# ** Warning: usb_top.v(94): (vopt-2241) Connection width does not match width of port 'buf_out_len'. The port definition is at: usb3_top.v(82).
+# ** Warning: usb3_descramble.v(292): (vopt-2685) [TFMPC] - Too few port connections for 'iu3srx'.  Expected 8, found 7.
+# ** Warning: usb3_descramble.v(292): (vopt-2718) [TFMPC] - Missing connection for port 'data_out'.
+# ** Warning: usb3_scramble.v(188): (vopt-2685) [TFMPC] - Too few port connections for 'iu3srx'.  Expected 8, found 7.
+# ** Warning: usb3_scramble.v(188): (vopt-2718) [TFMPC] - Missing connection for port 'data_out_reg'.
+# ** Warning: usb3_pipe.v(885): (vopt-2685) [TFMPC] - Too few port connections for 'iu3rds'.  Expected 13, found 11.
+# ** Warning: usb3_pipe.v(885): (vopt-2718) [TFMPC] - Missing connection for port 'err_skp_unexpected'.
+# ** Warning: usb3_pipe.v(885): (vopt-2718) [TFMPC] - Missing connection for port 'clock'.
+# ** Warning: usb3_pipe.v(906): (vopt-2685) [TFMPC] - Too few port connections for 'iu3ss'.  Expected 13, found 11.
+# ** Warning: usb3_pipe.v(906): (vopt-2718) [TFMPC] - Missing connection for port 'err_empty_accum'.
+# ** Warning: usb3_pipe.v(906): (vopt-2718) [TFMPC] - Missing connection for port 'clock'.
+# ** Warning: usb3_link.v(1781): (vopt-2685) [TFMPC] - Too few port connections for 'iu3cdprx24'.  Expected 5, found 3.
+# ** Warning: usb3_link.v(1781): (vopt-2718) [TFMPC] - Missing connection for port 'clk'.
+# ** Warning: usb3_link.v(1781): (vopt-2718) [TFMPC] - Missing connection for port 'rst'.
+# ** Warning: usb3_link.v(1786): (vopt-2685) [TFMPC] - Too few port connections for 'iu3cdprx16'.  Expected 5, found 3.
+# ** Warning: usb3_link.v(1786): (vopt-2718) [TFMPC] - Missing connection for port 'clk'.
+# ** Warning: usb3_link.v(1786): (vopt-2718) [TFMPC] - Missing connection for port 'rst'.
+# ** Warning: usb3_link.v(1791): (vopt-2685) [TFMPC] - Too few port connections for 'iu3cdprx8'.  Expected 5, found 3.
+# ** Warning: usb3_link.v(1791): (vopt-2718) [TFMPC] - Missing connection for port 'clk'.
+# ** Warning: usb3_link.v(1791): (vopt-2718) [TFMPC] - Missing connection for port 'rst'.
+# ** Warning: usb3_link.v(1807): (vopt-2685) [TFMPC] - Too few port connections for 'iu3cdptx24'.  Expected 5, found 3.
+# ** Warning: usb3_link.v(1807): (vopt-2718) [TFMPC] - Missing connection for port 'clk'.
+# ** Warning: usb3_link.v(1807): (vopt-2718) [TFMPC] - Missing connection for port 'rst'.
+# ** Warning: usb3_link.v(1812): (vopt-2685) [TFMPC] - Too few port connections for 'iu3cdptx16'.  Expected 5, found 3.
+# ** Warning: usb3_link.v(1812): (vopt-2718) [TFMPC] - Missing connection for port 'clk'.
+# ** Warning: usb3_link.v(1812): (vopt-2718) [TFMPC] - Missing connection for port 'rst'.
+# ** Warning: usb3_link.v(1817): (vopt-2685) [TFMPC] - Too few port connections for 'iu3cdptx8'.  Expected 5, found 3.
+# ** Warning: usb3_link.v(1817): (vopt-2718) [TFMPC] - Missing connection for port 'clk'.
+# ** Warning: usb3_link.v(1817): (vopt-2718) [TFMPC] - Missing connection for port 'rst'.
+# ** Warning: usb3_protocol.v(471): (vopt-2685) [TFMPC] - Too few port connections for 'iu3ep0'.  Expected 24, found 22.
+# ** Warning: usb3_protocol.v(471): (vopt-2718) [TFMPC] - Missing connection for port 'err_setup_pkt'.
+# ** Warning: usb3_protocol.v(471): (vopt-2718) [TFMPC] - Missing connection for port 'vend_req_index'.
+# ** Warning: usb3_protocol.v(509): (vopt-2685) [TFMPC] - Too few port connections for 'iu3ep1'.  Expected 20, found 19.
+# ** Warning: usb3_protocol.v(509): (vopt-2718) [TFMPC] - Missing connection for port 'buf_in_request'.
+# ** Warning: usb3_protocol.v(541): (vopt-2685) [TFMPC] - Too few port connections for 'iu3ep2'.  Expected 20, found 19.
+# ** Warning: usb3_protocol.v(541): (vopt-2718) [TFMPC] - Missing connection for port 'buf_in_request'.
+# ** Warning: usb3_top.v(297): (vopt-2685) [TFMPC] - Too few port connections for 'iu3p'.  Expected 64, found 61.
+# ** Warning: usb3_top.v(297): (vopt-2718) [TFMPC] - Missing connection for port 'ltssm_power_err'.
+# ** Warning: usb3_top.v(297): (vopt-2718) [TFMPC] - Missing connection for port 'link_out_skp_defer'.
+# ** Warning: usb3_top.v(297): (vopt-2718) [TFMPC] - Missing connection for port 'link_out_skp_inhibit'.
+# ** Warning: usb3_top.v(378): (vopt-2685) [TFMPC] - Too few port connections for 'iu3lt'.  Expected 44, found 38.
+# ** Warning: usb3_top.v(378): (vopt-2718) [TFMPC] - Missing connection for port 'lfps_send_u3'.
+# ** Warning: usb3_top.v(378): (vopt-2718) [TFMPC] - Missing connection for port 'lfps_send_u2lb'.
+# ** Warning: usb3_top.v(378): (vopt-2718) [TFMPC] - Missing connection for port 'lfps_send_u1'.
+# ** Warning: usb3_top.v(378): (vopt-2718) [TFMPC] - Missing connection for port 'lfps_send_ping'.
+# ** Warning: usb3_top.v(378): (vopt-2718) [TFMPC] - Missing connection for port 'lfps_send_poll'.
+# ** Warning: usb3_top.v(378): (vopt-2718) [TFMPC] - Missing connection for port 'lfps_send_ack'.
+# ** Warning: usb3_top.v(436): (vopt-2685) [TFMPC] - Too few port connections for 'iu3l'.  Expected 98, found 84.
+# ** Warning: usb3_top.v(436): (vopt-2718) [TFMPC] - Missing connection for port 'err_dpp_len_mismatch'.
+# ** Warning: usb3_top.v(436): (vopt-2718) [TFMPC] - Missing connection for port 'err_hp_type'.
+# ** Warning: usb3_top.v(436): (vopt-2718) [TFMPC] - Missing connection for port 'err_hp_seq'.
+# ** Warning: usb3_top.v(436): (vopt-2718) [TFMPC] - Missing connection for port 'err_hp_crc'.
+# ** Warning: usb3_top.v(436): (vopt-2718) [TFMPC] - Missing connection for port 'err_credit_hp'.
+# ** Warning: usb3_top.v(436): (vopt-2718) [TFMPC] - Missing connection for port 'err_pending_hp'.
+# ** Warning: usb3_top.v(436): (vopt-2718) [TFMPC] - Missing connection for port 'err_lgood_missed'.
+# ** Warning: usb3_top.v(436): (vopt-2718) [TFMPC] - Missing connection for port 'err_lgood_order'.
+# ** Warning: usb3_top.v(436): (vopt-2718) [TFMPC] - Missing connection for port 'err_lcrd_mismatch'.
+# ** Warning: usb3_top.v(436): (vopt-2718) [TFMPC] - Missing connection for port 'err_lcmd_undefined'.
+# ** Warning: usb3_top.v(436): (vopt-2718) [TFMPC] - Missing connection for port 'err_stuck_hpseq'.
+# ** Warning: usb3_top.v(436): (vopt-2718) [TFMPC] - Missing connection for port 'err_lbad_recv'.
+# ** Warning: usb3_top.v(436): (vopt-2718) [TFMPC] - Missing connection for port 'err_lbad'.
+# ** Warning: usb3_top.v(436): (vopt-2718) [TFMPC] - Missing connection for port 'slow_clk'.
+# ** Warning: usb3_top.v(545): (vopt-2685) [TFMPC] - Too few port connections for 'iu3r'.  Expected 98, found 93.
+# ** Warning: usb3_top.v(545): (vopt-2718) [TFMPC] - Missing connection for port 'err_missed_dpp_done'.
+# ** Warning: usb3_top.v(545): (vopt-2718) [TFMPC] - Missing connection for port 'err_missed_dpp_start'.
+# ** Warning: usb3_top.v(545): (vopt-2718) [TFMPC] - Missing connection for port 'err_tp_subtype'.
+# ** Warning: usb3_top.v(545): (vopt-2718) [TFMPC] - Missing connection for port 'err_miss_tx'.
+# ** Warning: usb3_top.v(545): (vopt-2718) [TFMPC] - Missing connection for port 'err_miss_rx'.
+# ** Warning: usb_top.v(94): (vopt-2685) [TFMPC] - Too few port connections for 'usb3_top_inst'.  Expected 46, found 45.
+# ** Warning: usb_top.v(94): (vopt-2718) [TFMPC] - Missing connection for port 'buf_in_request'.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=77.
 # //  Questa Sim-64
 # //  Version 2021.1 win64 Jan 19 2021
 # //
@@ -42,15 +120,15 @@ Top level modules:
 # //  is prohibited from disclosure under the Trade Secrets Act,
 # //  18 U.S.C. Section 1905.
 # //
-# Loading work.usb2_top(fast)
-# Loading work.mf_usb2_ep0in(fast)
-# Loading work.mf_usb2_descrip(fast)
-# Loading work.mf_usb2_ep(fast)
-# ** Warning: (vsim-3015) [PCDPC] - Port size (6) does not match connection size (9) for port 'wraddress'. The port definition is at: mf_usb2_ep0in.v(44).
-#    Time: 0 ps  Iteration: 0  Instance: /usb2_top/ipr/iep0/iu2ep0i File: usb2_ep0.v Line: 157
-# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (9) for port 'address'. The port definition is at: mf_usb2_descrip.v(40).
-#    Time: 0 ps  Iteration: 0  Instance: /usb2_top/ipr/iep0/iu2d File: usb2_ep0.v Line: 173
+# Loading work.usb_top(fast)
+# Loading work.mf_usb3_ep0in(fast)
+# Loading work.mf_usb3_descrip(fast)
+# Loading work.mf_usb3_ep(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (9) for port 'wraddress'. The port definition is at: mf_usb3_ep0in.v(43).
+#    Time: 0 ps  Iteration: 0  Instance: /usb_top/usb3_top_inst/iu3r/iu3ep0/iu3ep0i File: usb3_ep0.v Line: 449
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (9) for port 'address'. The port definition is at: mf_usb3_descrip.v(40).
+#    Time: 0 ps  Iteration: 0  Instance: /usb_top/usb3_top_inst/iu3r/iu3ep0/iu3d File: usb3_ep0.v Line: 458
 # run -all
 #  quit -f
-# End time: 13:11:20 on Sep 25,2023, Elapsed time: 0:00:15
-# Errors: 0, Warnings: 13
+# End time: 15:35:43 on Sep 25,2023, Elapsed time: 0:00:17
+# Errors: 0, Warnings: 79
