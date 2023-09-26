@@ -1,4 +1,4 @@
-Start time: 08:40:59 on Sep 26,2023
+Start time: 09:25:02 on Sep 26,2023
 qverilog usb_top.v 
 -- Compiling module usb3_lfsr
 -- Compiling module usb3_descramble
@@ -38,7 +38,7 @@ qverilog usb_top.v
 Top level modules:
 	usb_top
 # vsim -lib work work.usb_top -c -do "run -all; quit -f" -appendlog -l qverilog.log -vopt 
-# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # ** Warning: usb2_ep0.v(173): (vopt-2241) Connection width does not match width of port 'address'. The port definition is at: mf_usb2_descrip.v(40).
 # ** Warning: usb2_ep0.v(157): (vopt-2241) Connection width does not match width of port 'wraddress'. The port definition is at: mf_usb2_ep0in.v(44).
 # ** Warning: usb2_protocol.v(189): (vopt-2241) Connection width does not match width of port 'buf_in_addr'. The port definition is at: usb2_ep0.v(21).
@@ -163,5 +163,5 @@ Top level modules:
 #    Time: 0 ps  Iteration: 0  Instance: /usb_top/usb2_inst/ipr/iep0/iu2d File: usb2_ep0.v Line: 173
 # run -all
 #  quit -f
-# End time: 08:41:57 on Sep 26,2023, Elapsed time: 0:00:58
+# End time: 09:25:40 on Sep 26,2023, Elapsed time: 0:00:38
 # Errors: 0, Warnings: 96

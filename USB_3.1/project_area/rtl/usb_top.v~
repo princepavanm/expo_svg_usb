@@ -180,7 +180,7 @@ usb3_top usb3_top_inst (
 			.err_crc_pid(err_crc_pid),
 			.err_crc_tok(err_crc_tok),
 			.err_crc_pkt(err_crc_pkt),
-			.err_pid_out_of_seq(),
+			.err_pid_out_of_seq(err_pid_out_of_seq),
 			.err_setup_pkt(err_setup_pkt),
 			.dbg_frame_num(dbg_frame_num),
 			.dbg_linestate(dbg_linestate));

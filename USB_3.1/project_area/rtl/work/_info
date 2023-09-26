@@ -9,6 +9,7 @@ R0
 R0
 R0
 R0
+R0
 !s11f vlog 2021.1 2021.01, Jan 19 2021
 13
 !s112 1.1
@@ -29,10 +30,10 @@ n@_opt
 Z5 OL;O;2021.1;73
 R1
 T_opt1
-!s110 1695714095
-V7J?^XATeUhM2L<m@G;0GC2
+!s110 1695716727
+ViYRfA7b=2[<JBV>ThX]mK3
 Z6 04 7 4 work usb_top fast 0
-=1-204747ec90f9-65128b2e-94-2520
+=1-204747ec90f9-65129573-3ca-474
 R2
 R3
 R4
@@ -50,7 +51,7 @@ n@_opt2
 R5
 R1
 vmf_usb2_descrip
-Z7 !s110 1695714060
+Z7 !s110 1695716702
 !i10b 1
 !s100 Vz;@OT`H=cA[dfJe^M5DN0
 IGiHIWYh7NI8@lHk2X_@_W1
@@ -58,14 +59,14 @@ R1
 Z8 w1695660563
 8mf_usb2_descrip.v
 Fmf_usb2_descrip.v
-!i122 48
+!i122 49
 L0 39 61
 Z9 VDg1SIo80bB@j0V0VzS_@n1
 Z10 OL;L;2021.1;73
 r1
 !s85 0
 31
-Z11 !s108 1695714059.000000
+Z11 !s108 1695716702.000000
 Z12 !s107 mf_usb2_ep.v|usb2_ep.v|mf_usb2_descrip.v|mf_usb2_ep0in.v|usb2_ep0.v|usb2_protocol.v|usb2_crc.v|usb2_packet.v|usb2_ulpi.v|usb2_top.v|mf_usb3_pll.v|usb3_protocol.v|usb_descrip.vh|usb3_ep0.v|mf_usb3_descrip.v|mf_usb3_ep0in.v|usb3_ep.v|mf_usb3_ep.v|usb3_link.v|usb3_crc.v|usb3_ltssm.v|usb3_pipe.v|mf_usb3_tx.v|mf_usb3_rx.v|usb3_scramble.v|usb3_const.vh|usb3_descramble.v|usb3_lfsr.v|usb3_top.v|usb_top.v|
 Z13 !s90 usb_top.v|
 !i113 0
@@ -80,7 +81,7 @@ R1
 R8
 8mf_usb2_ep.v
 Fmf_usb2_ep.v
-!i122 48
+!i122 49
 L0 39 75
 R9
 R10
@@ -102,7 +103,7 @@ R1
 R8
 8mf_usb2_ep0in.v
 Fmf_usb2_ep0in.v
-!i122 48
+!i122 49
 L0 40 74
 R9
 R10
@@ -124,7 +125,7 @@ R1
 Z15 w1695660564
 8mf_usb3_descrip.v
 Fmf_usb3_descrip.v
-!i122 48
+!i122 49
 L0 39 62
 R9
 R10
@@ -146,7 +147,7 @@ R1
 R15
 8mf_usb3_ep.v
 Fmf_usb3_ep.v
-!i122 48
+!i122 49
 L0 39 74
 R9
 R10
@@ -168,7 +169,7 @@ R1
 R15
 8mf_usb3_ep0in.v
 Fmf_usb3_ep0in.v
-!i122 48
+!i122 49
 L0 39 73
 R9
 R10
@@ -190,7 +191,7 @@ R1
 R15
 8mf_usb3_pll.v
 Fmf_usb3_pll.v
-!i122 48
+!i122 49
 L0 39 147
 R9
 R10
@@ -204,7 +205,7 @@ R13
 R14
 R4
 vmf_usb3_rx
-Z16 !s110 1695714059
+R7
 !i10b 1
 !s100 R^GHVm9]7<kNSL=dRZSJb1
 IzfmST^BgA4`DIh9??FD7n0
@@ -212,7 +213,7 @@ R1
 R15
 8mf_usb3_rx.v
 Fmf_usb3_rx.v
-!i122 48
+!i122 49
 L0 39 36
 R9
 R10
@@ -226,7 +227,7 @@ R13
 R14
 R4
 vmf_usb3_tx
-R16
+R7
 !i10b 1
 !s100 ZQcb[2jQD8oS<o:o71e:l1
 I::L^=<3@2im@gO>_F8?JS0
@@ -234,7 +235,7 @@ R1
 R15
 8mf_usb3_tx.v
 Fmf_usb3_tx.v
-!i122 48
+!i122 49
 L0 39 38
 R9
 R10
@@ -253,10 +254,10 @@ R7
 !s100 _:F0K92?aK7HVViL1df`[3
 IzlY`fLH6;S2YhBhE8a]WN0
 R1
-Z17 w1695387474
-Z18 8usb2_crc.v
-Z19 Fusb2_crc.v
-!i122 48
+Z16 w1695387474
+Z17 8usb2_crc.v
+Z18 Fusb2_crc.v
+!i122 49
 L0 46 31
 R9
 R10
@@ -275,10 +276,10 @@ R7
 !s100 Yg5hNeh:WFF_6g>ZN]<:e3
 IaTaRj2PbDVFA0K;=?966D3
 R1
+R16
 R17
 R18
-R19
-!i122 48
+!i122 49
 L0 11 24
 R9
 R10
@@ -300,7 +301,7 @@ R1
 w1695388857
 8usb2_ep.v
 Fusb2_ep.v
-!i122 48
+!i122 49
 L0 11 237
 R9
 R10
@@ -321,8 +322,8 @@ I0g:Hg[9WL5jBXGhCCFb5l1
 R1
 w1695388705
 Fusb2_ep0.v
-Z20 Fusb_descrip.vh
-!i122 48
+Z19 Fusb_descrip.vh
+!i122 49
 L0 12 467
 R9
 R10
@@ -344,7 +345,7 @@ R1
 w1695638102
 8usb2_packet.v
 Fusb2_packet.v
-!i122 48
+!i122 49
 L0 12 571
 R9
 R10
@@ -366,7 +367,7 @@ R1
 w1695387826
 8usb2_protocol.v
 Fusb2_protocol.v
-!i122 48
+!i122 49
 L0 12 281
 R9
 R10
@@ -388,7 +389,7 @@ R1
 w1695387716
 8usb2_top.v
 Fusb2_top.v
-!i122 48
+!i122 49
 L0 12 295
 R9
 R10
@@ -410,7 +411,7 @@ R1
 w1695638106
 8usb2_ulpi.v
 Fusb2_ulpi.v
-!i122 48
+!i122 49
 L0 11 449
 R9
 R10
@@ -429,10 +430,10 @@ R7
 !s100 PlFlj[?QQF2WZHQ3aPoY?3
 IJJ6:kV?LjI9OD9SF7WAoG1
 R1
-Z21 w1695226230
-Z22 8usb3_crc.v
-Z23 Fusb3_crc.v
-!i122 48
+Z20 w1695226230
+Z21 8usb3_crc.v
+Z22 Fusb3_crc.v
+!i122 49
 L0 21 20
 R9
 R10
@@ -451,10 +452,10 @@ R7
 !s100 z4omGC>_PIJ5PI?5@@0b_1
 IHVJ1;AmDWPO;4Wmo6ldk82
 R1
+R20
 R21
 R22
-R23
-!i122 48
+!i122 49
 L0 227 53
 R9
 R10
@@ -473,10 +474,10 @@ R7
 !s100 ZLX6EUeEM9O9]jaGl2@NN0
 IG6]^;Dhlc[@Xj02_EEOEo3
 R1
+R20
 R21
 R22
-R23
-!i122 48
+!i122 49
 L0 170 54
 R9
 R10
@@ -495,10 +496,10 @@ R7
 !s100 ZQ_Pm:A9eBi<z:9>hmZSC0
 I9Jdd=kemf]1VW4XKR5oKK2
 R1
+R20
 R21
 R22
-R23
-!i122 48
+!i122 49
 L0 99 68
 R9
 R10
@@ -517,10 +518,10 @@ R7
 !s100 8=aYSJakXC2MLRdHAO<3I2
 I6EVJjNLNE^<9?E9:W7^oN1
 R1
+R20
 R21
 R22
-R23
-!i122 48
+!i122 49
 L0 282 52
 R9
 R10
@@ -539,10 +540,10 @@ R7
 !s100 T<0X1UXe7HHZ55aV8HF7F3
 IMdF<OKRQanH8_IMdS2fVC0
 R1
+R20
 R21
 R22
-R23
-!i122 48
+!i122 49
 L0 47 46
 R9
 R10
@@ -556,15 +557,15 @@ R13
 R14
 R4
 vusb3_descramble
-R16
+R7
 !i10b 1
 !s100 0Re_4bndZ[3EEH4Mg[6oc1
 IieM_^JEhKNJOF_aXP5XBD2
 R1
-Z24 w1695385358
+Z23 w1695385358
 Fusb3_descramble.v
-Z25 Fusb3_const.vh
-!i122 48
+Z24 Fusb3_const.vh
+!i122 49
 L0 11 537
 R9
 R10
@@ -583,10 +584,10 @@ R7
 !s100 MRo60LJ1^mTFJ9>f>FW5i0
 IHA0bZaKf8JSca_`_N_ZMK3
 R1
-R24
+R23
 Fusb3_ep.v
-R25
-!i122 48
+R24
+!i122 49
 L0 11 471
 R9
 R10
@@ -605,11 +606,11 @@ R7
 !s100 hk[flH@e6;XmGZ4_XhFg@3
 Ie7i6<PEoRhKfOY4m@A4_:0
 R1
-R24
+R23
 Fusb3_ep0.v
-R25
-R20
-!i122 48
+R24
+R19
+!i122 49
 L0 11 720
 R9
 R10
@@ -623,15 +624,15 @@ R13
 R14
 R4
 vusb3_lfsr
-R16
+R7
 !i10b 1
 !s100 F7`Rh10BDX:4^cN;S]`LR0
 IDYY6?28]eG_VeSR`O=e;g3
 R1
-R21
+R20
 8usb3_lfsr.v
 Fusb3_lfsr.v
-!i122 48
+!i122 49
 L0 16 83
 R9
 R10
@@ -650,10 +651,10 @@ R7
 !s100 oOa]f46I^@8?f^AQ=lENI0
 ID6fTFTMVTWzhPU9aYzkMC1
 R1
-R24
+R23
 Fusb3_link.v
-R25
-!i122 48
+R24
+!i122 49
 L0 11 2115
 R9
 R10
@@ -672,10 +673,10 @@ R7
 !s100 i7oYV<nW2??0dNak[h@`l3
 IiQFJ];k=QbgI8IdIV>U[62
 R1
-R21
+R20
 Fusb3_ltssm.v
-R25
-!i122 48
+R24
+!i122 49
 L0 11 978
 R9
 R10
@@ -689,15 +690,15 @@ R13
 R14
 R4
 vusb3_pipe
-R16
+R7
 !i10b 1
 !s100 YaR:FkXzMF;z518@1THN^0
 I^USLPX6@OIQ5gSzVaFjPK0
 R1
-R24
+R23
 Fusb3_pipe.v
-R25
-!i122 48
+R24
+!i122 49
 L0 11 1189
 R9
 R10
@@ -716,10 +717,10 @@ R7
 !s100 aYX;Z3HHBkZ1R=QcT`Q_92
 IXSFHW^6bn?5E5g`hoIPQA3
 R1
-R24
+R23
 Fusb3_protocol.v
-R25
-!i122 48
+R24
+!i122 49
 L0 11 799
 R9
 R10
@@ -733,15 +734,15 @@ R13
 R14
 R4
 vusb3_scramble
-R16
+R7
 !i10b 1
 !s100 7BS<j<z6Eha74VlWRgK?I2
 IniST3XA3ejP]29hF2:2[N3
 R1
-R24
+R23
 Fusb3_scramble.v
-R25
-!i122 48
+R24
+!i122 49
 L0 11 433
 R9
 R10
@@ -760,10 +761,10 @@ R7
 !s100 AQ<Qic3BSJHPFeCU0Pk<51
 I]b33nXSlKfO1]9ZU9jE2`1
 R1
-R24
+R23
 8usb3_top.v
 Fusb3_top.v
-!i122 48
+!i122 49
 L0 36 646
 R9
 R10
@@ -779,13 +780,13 @@ R4
 vusb_top
 R7
 !i10b 1
-!s100 `gP9`]Ll>?CmS32Y[:Zl`0
-I;:gNXh20IQ5<;G7Hl2R:P2
+!s100 @813YH[aDcO5e0Wm>31C@1
+IUg`Y;Nf6<jJfHP?S77<Z00
 R1
-w1695730255
+w1695732892
 8usb_top.v
 Fusb_top.v
-!i122 48
+!i122 49
 L0 14 176
 R9
 R10
