@@ -1,5 +1,7 @@
 `include "usb3_top.v"
 
+`include "usb2_top.v"
+
 //
 // usb 3.0 / 2.0 top-level
 //
@@ -142,7 +144,47 @@ usb3_top usb3_top_inst (
 	.vend_req_request 	       	(vend_req_request),  
 	.vend_req_val      	       	(vend_req_val));                              
 	             			
-	                                
+	usb2_top usb2_inst (
+
+			.ext_clk(ext_clk),
+			.reset_n(reset_n),
+			.reset_n_out(reset_n_out),
+			.phy_ulpi_clk(phy_ulpi_clk),
+		        .phy_ulpi_d(phy_ulpi_d),
+			.phy_ulpi_dir(phy_ulpi_dir),
+			.phy_ulpi_stp(phy_ulpi_stp),
+			.phy_ulpi_nxt(phy_ulpi_nxt),
+			.opt_disable_all(opt_disable_all),
+			.opt_enable_hs(opt_enable_hs),
+			.opt_ignore_vbus(opt_ignore_vbus),
+			.stat_connected(stat_connected),
+			.stat_fs(stat_fs),
+			.stat_hs(stat_hs),
+			.stat_configured(stat_configured),
+	        	.buf_in_addr(buf_in_addr),
+			.buf_in_data(buf_in_data),
+			.buf_in_wren(buf_in_wren),
+			.buf_in_ready(buf_in_ready),
+			.buf_in_commit(buf_in_commit),
+			.buf_in_commit_len(buf_in_commit_len),
+			.buf_in_commit_ack(buf_in_commit_ack),
+			.buf_out_addr(buf_out_addr),
+			.buf_out_q(buf_out_q),
+			.buf_out_len(buf_out_len),
+			.buf_out_hasdata(buf_out_hasdata),
+			.buf_out_arm(buf_out_arm),
+			.buf_out_arm_ack(buf_out_arm_ack),
+			.vend_req_act(vend_req_act),
+			.vend_req_request(vend_req_request),
+     			.vend_req_val(vend_req_val),
+			.err_crc_pid(err_crc_pid),
+			.err_crc_tok(err_crc_tok),
+			.err_crc_pkt(err_crc_pkt),
+			.err_pid_out_of_seq(),
+			.err_setup_pkt(err_setup_pkt),
+			.dbg_frame_num(dbg_frame_num),
+			.dbg_linestate(dbg_linestate));
+                                
                                         
 endmodule                               
 	

@@ -7,6 +7,8 @@ R0
 R0
 R0
 R0
+R0
+R0
 !s11f vlog 2021.1 2021.01, Jan 19 2021
 13
 !s112 1.1
@@ -27,772 +29,772 @@ n@_opt
 Z5 OL;O;2021.1;73
 R1
 T_opt1
-!s110 1695643874
-VTKlUmmlB[go>^TGkEB^e>0
-04 8 4 work usb2_top fast 0
-=1-9c5c8e04122e-651178e2-112-3a68
+!s110 1695714095
+V7J?^XATeUhM2L<m@G;0GC2
+Z6 04 7 4 work usb_top fast 0
+=1-204747ec90f9-65128b2e-94-2520
 R2
 R3
 R4
 n@_opt1
 R5
-R1
 T_opt2
 !s110 1695652536
 Vo0ZCE3M?`Ajb^IkP;lXf_3
-04 7 4 work usb_top fast 0
+R6
 =1-9c5c8e04122e-65119ab7-37c-2eac
 R2
 R3
 R4
 n@_opt2
 R5
+R1
 vmf_usb2_descrip
-Z6 !s110 1695643865
+Z7 !s110 1695714060
 !i10b 1
 !s100 Vz;@OT`H=cA[dfJe^M5DN0
 IGiHIWYh7NI8@lHk2X_@_W1
-Z7 dD:/USB_PROJECT/expo_svg_usb/USB_3.1/project_area/rtl
-w1695659979
+R1
+Z8 w1695660563
 8mf_usb2_descrip.v
 Fmf_usb2_descrip.v
-!i122 42
+!i122 48
 L0 39 61
-Z8 VDg1SIo80bB@j0V0VzS_@n1
-Z9 OL;L;2021.1;73
+Z9 VDg1SIo80bB@j0V0VzS_@n1
+Z10 OL;L;2021.1;73
 r1
 !s85 0
 31
-Z10 !s108 1695643865.000000
-Z11 !s107 mf_usb2_ep.v|usb2_ep.v|usb_descrip.vh|mf_usb2_descrip.v|mf_usb2_ep0in.v|usb2_ep0.v|usb2_protocol.v|usb2_crc.v|usb2_packet.v|usb2_ulpi.v|usb2_top.v|
-Z12 !s90 usb2_top.v|
+Z11 !s108 1695714059.000000
+Z12 !s107 mf_usb2_ep.v|usb2_ep.v|mf_usb2_descrip.v|mf_usb2_ep0in.v|usb2_ep0.v|usb2_protocol.v|usb2_crc.v|usb2_packet.v|usb2_ulpi.v|usb2_top.v|mf_usb3_pll.v|usb3_protocol.v|usb_descrip.vh|usb3_ep0.v|mf_usb3_descrip.v|mf_usb3_ep0in.v|usb3_ep.v|mf_usb3_ep.v|usb3_link.v|usb3_crc.v|usb3_ltssm.v|usb3_pipe.v|mf_usb3_tx.v|mf_usb3_rx.v|usb3_scramble.v|usb3_const.vh|usb3_descramble.v|usb3_lfsr.v|usb3_top.v|usb_top.v|
+Z13 !s90 usb_top.v|
 !i113 0
-Z13 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z14 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R4
 vmf_usb2_ep
-R6
+R7
 !i10b 1
 !s100 FMmb0G0ciHEOai3i4DY7?2
 IhTL8PLb=Yo98Y0oDM37V_3
-R7
-w1695660040
+R1
+R8
 8mf_usb2_ep.v
 Fmf_usb2_ep.v
-!i122 42
+!i122 48
 L0 39 75
-R8
 R9
+R10
 r1
 !s85 0
 31
-R10
 R11
 R12
-!i113 0
 R13
+!i113 0
+R14
 R4
 vmf_usb2_ep0in
-R6
+R7
 !i10b 1
 !s100 9WGAWhnC>l8:MoUE7NeeU3
 I6XJe82K]Xm9H7D=lVCX571
-R7
-w1695659743
+R1
+R8
 8mf_usb2_ep0in.v
 Fmf_usb2_ep0in.v
-!i122 42
+!i122 48
 L0 40 74
-R8
 R9
+R10
 r1
 !s85 0
 31
-R10
 R11
 R12
-!i113 0
 R13
+!i113 0
+R14
 R4
 vmf_usb3_descrip
-Z14 !s110 1695652526
+R7
 !i10b 1
 !s100 6NgG9KV64?B7Nh62D@>nb1
 IankddOJB]e:IV>Z=`I^HX1
-R7
-w1695659712
+R1
+Z15 w1695660564
 8mf_usb3_descrip.v
 Fmf_usb3_descrip.v
-!i122 45
+!i122 48
 L0 39 62
-R8
 R9
+R10
 r1
 !s85 0
 31
-Z15 !s108 1695652526.000000
-Z16 !s107 mf_usb3_pll.v|usb3_protocol.v|usb_descrip.vh|usb3_ep0.v|mf_usb3_descrip.v|mf_usb3_ep0in.v|usb3_ep.v|mf_usb3_ep.v|usb3_link.v|usb3_crc.v|usb3_ltssm.v|usb3_pipe.v|mf_usb3_tx.v|mf_usb3_rx.v|usb3_scramble.v|usb3_const.vh|usb3_descramble.v|usb3_lfsr.v|usb3_top.v|usb_top.v|
-Z17 !s90 usb_top.v|
-!i113 0
+R11
+R12
 R13
+!i113 0
+R14
 R4
 vmf_usb3_ep
-R14
+R7
 !i10b 1
 !s100 _XmD2=ZNczE<@><B9BkbP0
 I9o>?e?@ilzk?oWS<SH^]l0
-R7
-w1695659779
+R1
+R15
 8mf_usb3_ep.v
 Fmf_usb3_ep.v
-!i122 45
+!i122 48
 L0 39 74
-R8
 R9
+R10
 r1
 !s85 0
 31
-R15
-R16
-R17
-!i113 0
+R11
+R12
 R13
+!i113 0
+R14
 R4
 vmf_usb3_ep0in
-R14
+R7
 !i10b 1
 !s100 j]^PQVQU[cbB`Xz:56BY]1
 Ignhb5QMk9mTn^4hZbC`032
-R7
-w1695659865
+R1
+R15
 8mf_usb3_ep0in.v
 Fmf_usb3_ep0in.v
-!i122 45
+!i122 48
 L0 39 73
-R8
 R9
+R10
 r1
 !s85 0
 31
-R15
-R16
-R17
-!i113 0
+R11
+R12
 R13
+!i113 0
+R14
 R4
 vmf_usb3_pll
-R14
+R7
 !i10b 1
 !s100 :T4@`0<;4TT5TQgLR_9YF0
 I`O@RSA3?J4LJ7CREVm?KZ0
-R7
-w1695659819
+R1
+R15
 8mf_usb3_pll.v
 Fmf_usb3_pll.v
-!i122 45
+!i122 48
 L0 39 147
-R8
 R9
+R10
 r1
 !s85 0
 31
-R15
-R16
-R17
-!i113 0
+R11
+R12
 R13
+!i113 0
+R14
 R4
 vmf_usb3_rx
-R14
+Z16 !s110 1695714059
 !i10b 1
 !s100 R^GHVm9]7<kNSL=dRZSJb1
 IzfmST^BgA4`DIh9??FD7n0
-R7
-w1695659585
+R1
+R15
 8mf_usb3_rx.v
 Fmf_usb3_rx.v
-!i122 45
+!i122 48
 L0 39 36
-R8
 R9
+R10
 r1
 !s85 0
 31
-R15
-R16
-R17
-!i113 0
+R11
+R12
 R13
+!i113 0
+R14
 R4
 vmf_usb3_tx
-R14
+R16
 !i10b 1
 !s100 ZQcb[2jQD8oS<o:o71e:l1
 I::L^=<3@2im@gO>_F8?JS0
-R7
-w1695659629
+R1
+R15
 8mf_usb3_tx.v
 Fmf_usb3_tx.v
-!i122 45
+!i122 48
 L0 39 38
-R8
 R9
+R10
 r1
 !s85 0
 31
-R15
-R16
-R17
-!i113 0
+R11
+R12
 R13
+!i113 0
+R14
 R4
 vusb2_crc16
-R6
-!i10b 1
-!s100 fB^d1<?]>Xm@HcUezNWjG2
-I@nDmR4Eh9kJ6cC7LKmmO=2
 R7
-Z18 w1695390608
-Z19 8usb2_crc.v
-Z20 Fusb2_crc.v
-!i122 42
+!i10b 1
+!s100 _:F0K92?aK7HVViL1df`[3
+IzlY`fLH6;S2YhBhE8a]WN0
+R1
+Z17 w1695387474
+Z18 8usb2_crc.v
+Z19 Fusb2_crc.v
+!i122 48
 L0 46 31
-R8
 R9
+R10
 r1
 !s85 0
 31
-R10
 R11
 R12
-!i113 0
 R13
+!i113 0
+R14
 R4
 vusb2_crc5
-R6
-!i10b 1
-!s100 1198gIP@UN6hnV:@<NF?R3
-I<:HRCWol6`ihOlKdUQU7@3
 R7
+!i10b 1
+!s100 Yg5hNeh:WFF_6g>ZN]<:e3
+IaTaRj2PbDVFA0K;=?966D3
+R1
+R17
 R18
 R19
-R20
-!i122 42
+!i122 48
 L0 11 24
-R8
 R9
+R10
 r1
 !s85 0
 31
-R10
 R11
 R12
-!i113 0
 R13
+!i113 0
+R14
 R4
 vusb2_ep
-R6
+R7
 !i10b 1
 !s100 ZFR3YLz[H6R8kLEb]SHQf0
 IMZdaM[hZJTo89cZZMEfJC0
-R7
-R18
+R1
+w1695388857
 8usb2_ep.v
 Fusb2_ep.v
-!i122 42
+!i122 48
 L0 11 237
-R8
 R9
+R10
 r1
 !s85 0
 31
-R10
 R11
 R12
-!i113 0
 R13
+!i113 0
+R14
 R4
 vusb2_ep0
-R6
+R7
 !i10b 1
 !s100 Ofkl^=5IX]Sz1E8Jid?593
 I0g:Hg[9WL5jBXGhCCFb5l1
-R7
-R18
+R1
+w1695388705
 Fusb2_ep0.v
-Z21 Fusb_descrip.vh
-!i122 42
+Z20 Fusb_descrip.vh
+!i122 48
 L0 12 467
-R8
 R9
+R10
 r1
 !s85 0
 31
-R10
 R11
 R12
-!i113 0
 R13
+!i113 0
+R14
 R4
 vusb2_packet
-R6
-!i10b 1
-!s100 _1F0Llh@:m?m0dSEE7W7Z3
-I2LWAaJhOP5>mSULW7;IO<2
 R7
-R18
+!i10b 1
+!s100 Y[AG]Xn]nZejgKD1>Co4o3
+IE=7[I7g6N<f2KQG6WSBlT3
+R1
+w1695638102
 8usb2_packet.v
 Fusb2_packet.v
-!i122 42
+!i122 48
 L0 12 571
-R8
 R9
+R10
 r1
 !s85 0
 31
-R10
 R11
 R12
-!i113 0
 R13
+!i113 0
+R14
 R4
 vusb2_protocol
-R6
+R7
 !i10b 1
 !s100 hI;S3Wg]SK<1hgFmX8[>O0
 I4Ye:9I5lM7]Hl]S0Nea2T0
-R7
-R18
+R1
+w1695387826
 8usb2_protocol.v
 Fusb2_protocol.v
-!i122 42
+!i122 48
 L0 12 281
-R8
 R9
+R10
 r1
 !s85 0
 31
-R10
 R11
 R12
-!i113 0
 R13
+!i113 0
+R14
 R4
 vusb2_top
-R6
+R7
 !i10b 1
 !s100 d_FC<ObVh4]S>>L@_T[Wl1
 I[Z?5oF`_1OYRQ=5CHd_mf1
-R7
-Z22 w1695390609
+R1
+w1695387716
 8usb2_top.v
 Fusb2_top.v
-!i122 42
+!i122 48
 L0 12 295
-R8
 R9
+R10
 r1
 !s85 0
 31
-R10
 R11
 R12
-!i113 0
 R13
+!i113 0
+R14
 R4
 vusb2_ulpi
-R6
-!i10b 1
-!s100 fIXHIX_H6i0]BJd3kh=dT3
-IYjfl4c^=89[RiROg4;gbl2
 R7
-R22
+!i10b 1
+!s100 95D_=7M5]ONY^DQK73?0d1
+IUSzPA8<_oFQGEd5;XKhKb3
+R1
+w1695638106
 8usb2_ulpi.v
 Fusb2_ulpi.v
-!i122 42
+!i122 48
 L0 11 449
-R8
 R9
+R10
 r1
 !s85 0
 31
-R10
 R11
 R12
-!i113 0
 R13
+!i113 0
+R14
 R4
 vusb3_crc_cw
-R14
+R7
 !i10b 1
 !s100 PlFlj[?QQF2WZHQ3aPoY?3
 IJJ6:kV?LjI9OD9SF7WAoG1
-R7
-Z23 w1695226155
-Z24 8usb3_crc.v
-Z25 Fusb3_crc.v
-!i122 45
+R1
+Z21 w1695226230
+Z22 8usb3_crc.v
+Z23 Fusb3_crc.v
+!i122 48
 L0 21 20
-R8
 R9
+R10
 r1
 !s85 0
 31
-R15
-R16
-R17
-!i113 0
+R11
+R12
 R13
+!i113 0
+R14
 R4
 vusb3_crc_dpp16
-R14
+R7
 !i10b 1
 !s100 z4omGC>_PIJ5PI?5@@0b_1
 IHVJ1;AmDWPO;4Wmo6ldk82
-R7
+R1
+R21
+R22
 R23
-R24
-R25
-!i122 45
+!i122 48
 L0 227 53
-R8
 R9
+R10
 r1
 !s85 0
 31
-R15
-R16
-R17
-!i113 0
+R11
+R12
 R13
+!i113 0
+R14
 R4
 vusb3_crc_dpp24
-R14
+R7
 !i10b 1
 !s100 ZLX6EUeEM9O9]jaGl2@NN0
 IG6]^;Dhlc[@Xj02_EEOEo3
-R7
+R1
+R21
+R22
 R23
-R24
-R25
-!i122 45
+!i122 48
 L0 170 54
-R8
 R9
+R10
 r1
 !s85 0
 31
-R15
-R16
-R17
-!i113 0
+R11
+R12
 R13
+!i113 0
+R14
 R4
 vusb3_crc_dpp32
-R14
+R7
 !i10b 1
 !s100 ZQ_Pm:A9eBi<z:9>hmZSC0
 I9Jdd=kemf]1VW4XKR5oKK2
-R7
+R1
+R21
+R22
 R23
-R24
-R25
-!i122 45
+!i122 48
 L0 99 68
-R8
 R9
+R10
 r1
 !s85 0
 31
-R15
-R16
-R17
-!i113 0
+R11
+R12
 R13
+!i113 0
+R14
 R4
 vusb3_crc_dpp8
-R14
+R7
 !i10b 1
 !s100 8=aYSJakXC2MLRdHAO<3I2
 I6EVJjNLNE^<9?E9:W7^oN1
-R7
+R1
+R21
+R22
 R23
-R24
-R25
-!i122 45
+!i122 48
 L0 282 52
-R8
 R9
+R10
 r1
 !s85 0
 31
-R15
-R16
-R17
-!i113 0
+R11
+R12
 R13
+!i113 0
+R14
 R4
 vusb3_crc_hp
-R14
+R7
 !i10b 1
 !s100 T<0X1UXe7HHZ55aV8HF7F3
 IMdF<OKRQanH8_IMdS2fVC0
-R7
+R1
+R21
+R22
 R23
-R24
-R25
-!i122 45
+!i122 48
 L0 47 46
-R8
 R9
+R10
 r1
 !s85 0
 31
-R15
-R16
-R17
-!i113 0
+R11
+R12
 R13
+!i113 0
+R14
 R4
 vusb3_descramble
-R14
+R16
 !i10b 1
 !s100 0Re_4bndZ[3EEH4Mg[6oc1
 IieM_^JEhKNJOF_aXP5XBD2
-R7
-Z26 w1695383680
+R1
+Z24 w1695385358
 Fusb3_descramble.v
-Z27 Fusb3_const.vh
-!i122 45
+Z25 Fusb3_const.vh
+!i122 48
 L0 11 537
-R8
 R9
+R10
 r1
 !s85 0
 31
-R15
-R16
-R17
-!i113 0
+R11
+R12
 R13
+!i113 0
+R14
 R4
 vusb3_ep
-R14
+R7
 !i10b 1
 !s100 MRo60LJ1^mTFJ9>f>FW5i0
 IHA0bZaKf8JSca_`_N_ZMK3
-R7
-R26
+R1
+R24
 Fusb3_ep.v
-R27
-!i122 45
+R25
+!i122 48
 L0 11 471
-R8
 R9
+R10
 r1
 !s85 0
 31
-R15
-R16
-R17
-!i113 0
+R11
+R12
 R13
+!i113 0
+R14
 R4
 vusb3_ep0
-R14
+R7
 !i10b 1
 !s100 hk[flH@e6;XmGZ4_XhFg@3
 Ie7i6<PEoRhKfOY4m@A4_:0
-R7
-R26
+R1
+R24
 Fusb3_ep0.v
-R27
-R21
-!i122 45
+R25
+R20
+!i122 48
 L0 11 720
-R8
 R9
+R10
 r1
 !s85 0
 31
-R15
-R16
-R17
-!i113 0
+R11
+R12
 R13
+!i113 0
+R14
 R4
 vusb3_lfsr
-R14
+R16
 !i10b 1
 !s100 F7`Rh10BDX:4^cN;S]`LR0
 IDYY6?28]eG_VeSR`O=e;g3
-R7
-Z28 w1695226156
+R1
+R21
 8usb3_lfsr.v
 Fusb3_lfsr.v
-!i122 45
+!i122 48
 L0 16 83
-R8
 R9
+R10
 r1
 !s85 0
 31
-R15
-R16
-R17
-!i113 0
+R11
+R12
 R13
+!i113 0
+R14
 R4
 vusb3_link
-R14
+R7
 !i10b 1
 !s100 oOa]f46I^@8?f^AQ=lENI0
 ID6fTFTMVTWzhPU9aYzkMC1
-R7
-R26
+R1
+R24
 Fusb3_link.v
-R27
-!i122 45
+R25
+!i122 48
 L0 11 2115
-R8
 R9
+R10
 r1
 !s85 0
 31
-R15
-R16
-R17
-!i113 0
+R11
+R12
 R13
+!i113 0
+R14
 R4
 vusb3_ltssm
-R14
+R7
 !i10b 1
 !s100 i7oYV<nW2??0dNak[h@`l3
 IiQFJ];k=QbgI8IdIV>U[62
-R7
-R28
+R1
+R21
 Fusb3_ltssm.v
-R27
-!i122 45
+R25
+!i122 48
 L0 11 978
-R8
 R9
+R10
 r1
 !s85 0
 31
-R15
-R16
-R17
-!i113 0
+R11
+R12
 R13
+!i113 0
+R14
 R4
 vusb3_pipe
-R14
+R16
 !i10b 1
 !s100 YaR:FkXzMF;z518@1THN^0
 I^USLPX6@OIQ5gSzVaFjPK0
-R7
-R26
+R1
+R24
 Fusb3_pipe.v
-R27
-!i122 45
+R25
+!i122 48
 L0 11 1189
-R8
 R9
+R10
 r1
 !s85 0
 31
-R15
-R16
-R17
-!i113 0
+R11
+R12
 R13
+!i113 0
+R14
 R4
 vusb3_protocol
-R14
+R7
 !i10b 1
 !s100 aYX;Z3HHBkZ1R=QcT`Q_92
 IXSFHW^6bn?5E5g`hoIPQA3
-R7
-R26
+R1
+R24
 Fusb3_protocol.v
-R27
-!i122 45
+R25
+!i122 48
 L0 11 799
-R8
 R9
+R10
 r1
 !s85 0
 31
-R15
-R16
-R17
-!i113 0
+R11
+R12
 R13
+!i113 0
+R14
 R4
 vusb3_scramble
-R14
+R16
 !i10b 1
 !s100 7BS<j<z6Eha74VlWRgK?I2
 IniST3XA3ejP]29hF2:2[N3
-R7
-R26
+R1
+R24
 Fusb3_scramble.v
-R27
-!i122 45
+R25
+!i122 48
 L0 11 433
-R8
 R9
+R10
 r1
 !s85 0
 31
-R15
-R16
-R17
-!i113 0
+R11
+R12
 R13
+!i113 0
+R14
 R4
 vusb3_top
-R14
+R7
 !i10b 1
 !s100 AQ<Qic3BSJHPFeCU0Pk<51
 I]b33nXSlKfO1]9ZU9jE2`1
-R7
-w1695668546
+R1
+R24
 8usb3_top.v
 Fusb3_top.v
-!i122 45
+!i122 48
 L0 36 646
-R8
 R9
+R10
 r1
 !s85 0
 31
-R15
-R16
-R17
-!i113 0
+R11
+R12
 R13
+!i113 0
+R14
 R4
 vusb_top
-R14
-!i10b 1
-!s100 SjRf2JHcfD8H5h91T`D_F3
-I]@oo2RkTo[KIa0QWJ40cT1
 R7
-w1695668722
+!i10b 1
+!s100 `gP9`]Ll>?CmS32Y[:Zl`0
+I;:gNXh20IQ5<;G7Hl2R:P2
+R1
+w1695730255
 8usb_top.v
 Fusb_top.v
-!i122 45
-L0 12 136
-R8
+!i122 48
+L0 14 176
 R9
+R10
 r1
 !s85 0
 31
-R15
-R16
-R17
-!i113 0
+R11
+R12
 R13
+!i113 0
+R14
 R4
