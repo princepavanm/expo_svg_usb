@@ -1,6 +1,134 @@
 # vsim -c -sv_seed 10 -cvgperinstance -voptargs="+acc" -coverage -voptargs="+cover=all" -assertdebug -voptargs="+ASSERTION_ON" "+UVM_VERBOSITY=UVM_LOW" "+UVM_TESTNAME=usb_base_test" -l ../../../USB_3.1/scratch_area/log/usb_base_test_10/usb_base_test_10.log -do "coverage save -onexit ../../../USB_3.1/scratch_area/log/usb_base_test_10/usb_base_test_10.ucdb;run -all; exit" work.top 
-# Start time: 08:46:10 on Sep 29,2023
-# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Start time: 10:07:36 on Sep 29,2023
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'top', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'top_sv_unit', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'buff_intf', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'phy_intf', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usb_top', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usb3_top', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usb3_pipe', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usb3_descramble', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usb3_lfsr', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usb3_scramble', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'mf_usb3_rx', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'mf_usb3_tx', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usb3_ltssm', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usb3_link', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usb3_crc_dpp32', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usb3_crc_dpp24', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usb3_crc_dpp16', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usb3_crc_dpp8', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usb3_crc_hp', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usb3_crc_cw', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usb3_protocol', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usb3_ep0', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'mf_usb3_ep0in', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'mf_usb3_descrip', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usb3_ep', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'mf_usb3_ep', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'mf_usb3_pll', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usb2_top', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usb2_ulpi', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usb2_packet', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usb2_crc5', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usb2_crc16', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usb2_protocol', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usb2_ep0', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'mf_usb2_ep0in', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'mf_usb2_descrip', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usb2_ep', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'mf_usb2_ep', but was not detected by vopt. The vlog option will be ignored.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_link.v(1781): (vopt-2685) [TFMPC] - Too few port connections for 'iu3cdprx24'.  Expected 5, found 3.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_link.v(1781): (vopt-2718) [TFMPC] - Missing connection for port 'clk'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_link.v(1781): (vopt-2718) [TFMPC] - Missing connection for port 'rst'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_link.v(1786): (vopt-2685) [TFMPC] - Too few port connections for 'iu3cdprx16'.  Expected 5, found 3.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_link.v(1786): (vopt-2718) [TFMPC] - Missing connection for port 'clk'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_link.v(1786): (vopt-2718) [TFMPC] - Missing connection for port 'rst'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_link.v(1791): (vopt-2685) [TFMPC] - Too few port connections for 'iu3cdprx8'.  Expected 5, found 3.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_link.v(1791): (vopt-2718) [TFMPC] - Missing connection for port 'clk'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_link.v(1791): (vopt-2718) [TFMPC] - Missing connection for port 'rst'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_link.v(1807): (vopt-2685) [TFMPC] - Too few port connections for 'iu3cdptx24'.  Expected 5, found 3.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_link.v(1807): (vopt-2718) [TFMPC] - Missing connection for port 'clk'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_link.v(1807): (vopt-2718) [TFMPC] - Missing connection for port 'rst'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_link.v(1812): (vopt-2685) [TFMPC] - Too few port connections for 'iu3cdptx16'.  Expected 5, found 3.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_link.v(1812): (vopt-2718) [TFMPC] - Missing connection for port 'clk'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_link.v(1812): (vopt-2718) [TFMPC] - Missing connection for port 'rst'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_link.v(1817): (vopt-2685) [TFMPC] - Too few port connections for 'iu3cdptx8'.  Expected 5, found 3.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_link.v(1817): (vopt-2718) [TFMPC] - Missing connection for port 'clk'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_link.v(1817): (vopt-2718) [TFMPC] - Missing connection for port 'rst'.
+# ** Note: (vopt-143) Recognized 10 FSMs in module "usb3_link(fast)".
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_pipe.v(885): (vopt-2685) [TFMPC] - Too few port connections for 'iu3rds'.  Expected 13, found 11.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_pipe.v(885): (vopt-2718) [TFMPC] - Missing connection for port 'err_skp_unexpected'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_pipe.v(885): (vopt-2718) [TFMPC] - Missing connection for port 'clock'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_pipe.v(906): (vopt-2685) [TFMPC] - Too few port connections for 'iu3ss'.  Expected 13, found 11.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_pipe.v(906): (vopt-2718) [TFMPC] - Missing connection for port 'err_empty_accum'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_pipe.v(906): (vopt-2718) [TFMPC] - Missing connection for port 'clock'.
+# ** Note: (vopt-143) Recognized 5 FSMs in module "usb3_pipe(fast)".
+# ** Note: (vopt-143) Recognized 2 FSMs in module "usb3_ltssm(fast)".
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_protocol.v(471): (vopt-2685) [TFMPC] - Too few port connections for 'iu3ep0'.  Expected 24, found 22.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_protocol.v(471): (vopt-2718) [TFMPC] - Missing connection for port 'err_setup_pkt'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_protocol.v(471): (vopt-2718) [TFMPC] - Missing connection for port 'vend_req_index'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_protocol.v(509): (vopt-2685) [TFMPC] - Too few port connections for 'iu3ep1'.  Expected 20, found 19.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_protocol.v(509): (vopt-2718) [TFMPC] - Missing connection for port 'buf_in_request'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_protocol.v(541): (vopt-2685) [TFMPC] - Too few port connections for 'iu3ep2'.  Expected 20, found 19.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_protocol.v(541): (vopt-2718) [TFMPC] - Missing connection for port 'buf_in_request'.
+# ** Note: (vopt-143) Recognized 2 FSMs in module "usb3_protocol(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "usb2_packet(fast)".
+# ** Note: (vopt-143) Recognized 2 FSMs in module "usb3_ep0(fast)".
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_descramble.v(292): (vopt-2685) [TFMPC] - Too few port connections for 'iu3srx'.  Expected 8, found 7.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_descramble.v(292): (vopt-2718) [TFMPC] - Missing connection for port 'data_out'.
+# ** Note: (vopt-143) Recognized 1 FSM in module "usb2_ulpi(fast)".
+# ** Note: (vopt-143) Recognized 2 FSMs in module "usb2_ep0(fast)".
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(297): (vopt-2685) [TFMPC] - Too few port connections for 'iu3p'.  Expected 64, found 61.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(297): (vopt-2718) [TFMPC] - Missing connection for port 'ltssm_power_err'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(297): (vopt-2718) [TFMPC] - Missing connection for port 'link_out_skp_defer'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(297): (vopt-2718) [TFMPC] - Missing connection for port 'link_out_skp_inhibit'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(378): (vopt-2685) [TFMPC] - Too few port connections for 'iu3lt'.  Expected 44, found 38.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(378): (vopt-2718) [TFMPC] - Missing connection for port 'lfps_send_u3'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(378): (vopt-2718) [TFMPC] - Missing connection for port 'lfps_send_u2lb'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(378): (vopt-2718) [TFMPC] - Missing connection for port 'lfps_send_u1'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(378): (vopt-2718) [TFMPC] - Missing connection for port 'lfps_send_ping'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(378): (vopt-2718) [TFMPC] - Missing connection for port 'lfps_send_poll'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(378): (vopt-2718) [TFMPC] - Missing connection for port 'lfps_send_ack'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(436): (vopt-2685) [TFMPC] - Too few port connections for 'iu3l'.  Expected 98, found 84.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(436): (vopt-2718) [TFMPC] - Missing connection for port 'err_dpp_len_mismatch'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(436): (vopt-2718) [TFMPC] - Missing connection for port 'err_hp_type'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(436): (vopt-2718) [TFMPC] - Missing connection for port 'err_hp_seq'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(436): (vopt-2718) [TFMPC] - Missing connection for port 'err_hp_crc'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(436): (vopt-2718) [TFMPC] - Missing connection for port 'err_credit_hp'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(436): (vopt-2718) [TFMPC] - Missing connection for port 'err_pending_hp'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(436): (vopt-2718) [TFMPC] - Missing connection for port 'err_lgood_missed'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(436): (vopt-2718) [TFMPC] - Missing connection for port 'err_lgood_order'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(436): (vopt-2718) [TFMPC] - Missing connection for port 'err_lcrd_mismatch'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(436): (vopt-2718) [TFMPC] - Missing connection for port 'err_lcmd_undefined'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(436): (vopt-2718) [TFMPC] - Missing connection for port 'err_stuck_hpseq'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(436): (vopt-2718) [TFMPC] - Missing connection for port 'err_lbad_recv'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(436): (vopt-2718) [TFMPC] - Missing connection for port 'err_lbad'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(436): (vopt-2718) [TFMPC] - Missing connection for port 'slow_clk'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(545): (vopt-2685) [TFMPC] - Too few port connections for 'iu3r'.  Expected 98, found 93.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(545): (vopt-2718) [TFMPC] - Missing connection for port 'err_missed_dpp_done'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(545): (vopt-2718) [TFMPC] - Missing connection for port 'err_missed_dpp_start'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(545): (vopt-2718) [TFMPC] - Missing connection for port 'err_tp_subtype'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(545): (vopt-2718) [TFMPC] - Missing connection for port 'err_miss_tx'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(545): (vopt-2718) [TFMPC] - Missing connection for port 'err_miss_rx'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_scramble.v(188): (vopt-2685) [TFMPC] - Too few port connections for 'iu3srx'.  Expected 8, found 7.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb3_scramble.v(188): (vopt-2718) [TFMPC] - Missing connection for port 'data_out_reg'.
+# ** Note: (vopt-143) Recognized 2 FSMs in module "usb3_ep(fast)".
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb2_protocol.v(189): (vopt-2685) [TFMPC] - Too few port connections for 'iep0'.  Expected 24, found 23.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb2_protocol.v(189): (vopt-2718) [TFMPC] - Missing connection for port 'buf_in_pid'.
+# ** Note: (vopt-143) Recognized 1 FSM in module "usb2_protocol(fast)".
+# ** Note: (vopt-143) Recognized 2 FSMs in module "usb2_ep(fast)".
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb2_top.v(129): (vopt-2685) [TFMPC] - Too few port connections for 'ia'.  Expected 25, found 24.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb2_top.v(129): (vopt-2718) [TFMPC] - Missing connection for port 'se0_reset'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb2_top.v(191): (vopt-2685) [TFMPC] - Too few port connections for 'ip'.  Expected 34, found 33.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb2_top.v(191): (vopt-2718) [TFMPC] - Missing connection for port 'dbg_pkt_type'.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb_top.v(105): (vopt-2685) [TFMPC] - Too few port connections for 'usb3_top_inst'.  Expected 46, found 45.
+# ** Warning: ../../../USB_3.1/project_area/design/rtl/usb_top.v(105): (vopt-2718) [TFMPC] - Missing connection for port 'buf_in_request'.
+# ** Warning: ../../../USB_3.1/project_area/verif/tb/top.sv(54): (vopt-2685) [TFMPC] - Too few port connections for 'DUT'.  Expected 64, found 62.
+# ** Warning: ../../../USB_3.1/project_area/verif/tb/top.sv(54): (vopt-2718) [TFMPC] - Missing connection for port 'phy_pipe_pclk'.
+# ** Warning: ../../../USB_3.1/project_area/verif/tb/top.sv(54): (vopt-2718) [TFMPC] - Missing connection for port 'ext_clk'.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=116.
 # //  Questa Sim-64
 # //  Version 2021.1 win64 Jan 19 2021
 # //
@@ -240,5 +368,5 @@
 # ** Note: $finish    : C:/questasim64_2021.1/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
 #    Time: 0 ps  Iteration: 215  Instance: /top
 # Saving coverage database on exit...
-# End time: 08:46:44 on Sep 29,2023, Elapsed time: 0:00:34
-# Errors: 0, Warnings: 17
+# End time: 10:08:23 on Sep 29,2023, Elapsed time: 0:00:47
+# Errors: 0, Warnings: 133

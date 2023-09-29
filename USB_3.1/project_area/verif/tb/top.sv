@@ -22,7 +22,7 @@
   include "usb_list.svh";
 
   `include "usb_top.v"
-
+//******************************top**********************//
 module top;
 
 //Rst and clock declarations
