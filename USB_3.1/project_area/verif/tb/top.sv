@@ -21,6 +21,8 @@
   //include test library
   include "usb_list.svh";
 
+  `include "usb_top.v"
+
 module top;
 
 //Rst and clock declarations
@@ -48,7 +50,99 @@ module top;
   always #5.0 phy_pipe_pclk = ~phy_pipe_pclk;
 
 //DUT Instantiation
-//  usb dut();
+
+   usb_top DUT (
+	.clk_125_out    	  (phy_pif.clk_125_out),         
+	.reset_n  	          (phy_pif.reset_n),
+	.reset_n_out              (phy_pif.reset_n_out),
+	.phy_pipe_rx_data         (phy_pif.phy_pipe_rx_data),
+	.phy_pipe_rx_datak        (phy_pif.phy_pipe_rx_datak),
+	.phy_pipe_rx_valid        (phy_pif.phy_pipe_rx_valid),
+	.phy_pipe_tx_clk          (phy_pif.phy_pipe_tx_clk),
+	.phy_pipe_tx_data         (phy_pif.phy_pipe_tx_data),
+	.phy_pipe_tx_datak        (phy_pif.phy_pipe_tx_datak),
+                                
+	.phy_reset_n              (phy_pif.phy_reset_n),                        
+	.phy_out_enable           (phy_pif.phy_out_enable),
+	.phy_phy_reset_n          (phy_pif.phy_phy_reset_n),
+	.phy_tx_detrx_lpbk        (phy_pif.phy_tx_detrx_lpbk),
+	.phy_tx_elecidle          (phy_pif.phy_tx_elecidle),
+	.phy_rx_elecidle          (phy_pif.phy_rx_elecidle),
+	.phy_rx_status            (phy_pif.phy_rx_status),
+	.phy_power_down           (phy_pif.phy_power_down),
+	.phy_phy_status           (phy_pif.phy_phy_status),
+	.phy_pwrpresent           (phy_pif.phy_pwrpresent),   
+	.phy_tx_oneszeros         (phy_pif.phy_tx_oneszeros),                   
+	.phy_tx_deemph            (phy_pif.phy_tx_deemph),
+	.phy_tx_margin            (phy_pif.phy_tx_margin),
+	.phy_tx_swing             (phy_pif.phy_tx_swing),
+	.phy_rx_polarity          (phy_pif.phy_rx_polarity),
+	.phy_rx_termination       (phy_pif.phy_rx_termination),
+	.phy_rate                 (phy_pif.phy_rate),
+	.phy_elas_buf_mode        (phy_pif.phy_elas_buf_mode),
+                                 
+	.buf_in_addr		  (phy_pif.buf_in_addr),       	
+	.buf_in_data	          (phy_pif.buf_in_data),
+	.buf_in_wren	          (phy_pif.buf_in_wren),
+	.buf_in_ready	   	  (phy_pif.buf_in_ready),
+	.buf_in_commit	    	  (phy_pif.buf_in_commit),
+	.buf_in_commit_len	  (phy_pif.buf_in_commit_len),
+	.buf_in_commit_ack	  (phy_pif.buf_in_commit_ack),
+	                   	        
+	.buf_out_addr             (phy_pif.buf_out_addr),    
+	.buf_out_q        	  (phy_pif.buf_out_q),       
+	.buf_out_len      	  (phy_pif.buf_out_len),     
+	.buf_out_hasdata  	  (phy_pif.buf_out_hasdata), 
+	.buf_out_arm      	  (phy_pif.buf_out_arm),     
+	.buf_out_arm_ack  	  (phy_pif.buf_out_arm_ack),                    
+	                   	       	 
+	.vend_req_act             (phy_pif.vend_req_act),      
+	.vend_req_request 	  (phy_pif.vend_req_request),  
+	.vend_req_val      	  (phy_pif.vend_req_val),                            
+	             			
+/***************************usb2_top instatiation *************************/	
+
+//	.ext_clk				(buff_pif.ext_clk),
+//	.reset_n				(buff_pif.reset_n),
+//	.reset_n_out				(buff_pif.reset_n_out),
+	.phy_ulpi_clk				(buff_pif.phy_ulpi_clk),
+	.phy_ulpi_d				(buff_pif.phy_ulpi_d),
+	.phy_ulpi_dir				(buff_pif.phy_ulpi_dir),
+	.phy_ulpi_stp				(buff_pif.phy_ulpi_stp),
+	.phy_ulpi_nxt				(buff_pif.phy_ulpi_nxt),
+	.opt_disable_all			(buff_pif.opt_disable_all),
+	.opt_enable_hs				(buff_pif.opt_enable_hs),
+	.opt_ignore_vbus			(buff_pif.opt_ignore_vbus),
+	.stat_connected				(buff_pif.stat_connected),
+	.stat_fs				(buff_pif.stat_fs),
+	.stat_hs				(buff_pif.stat_hs),
+	.stat_configured			(buff_pif.stat_configured),
+//	.buf_in_addr				(buff_pif.buf_in_addr),
+//	.buf_in_data				(buff_pif.buf_in_data),
+//	.buf_in_wren				(buff_pif.buf_in_wren),
+//	.buf_in_ready				(buff_pif.buf_in_ready),
+//	.buf_in_commit				(buff_pif.buf_in_commit),
+//	.buf_in_commit_len			(buff_pif.buf_in_commit_len),
+//	.buf_in_commit_ack			(buff_pif.buf_in_commit_ack),
+//	.buf_out_addr				(buff_pif.buf_out_addr),
+//	.buf_out_q				(buff_pif.buf_out_q),
+//	.buf_out_len				(buff_pif.buf_out_len),
+//	.buf_out_hasdata			(buff_pif.buf_out_hasdata),
+//	.buf_out_arm				(buff_pif.buf_out_arm),
+//	.buf_out_arm_ack			(buff_pif.buf_out_arm_ack),
+//	.vend_req_act				(buff_pif.vend_req_act),
+//	.vend_req_request			(buff_pif.vend_req_request),
+ //     .vend_req_val				(buff_pif.vend_req_val),
+	.err_crc_pid				(buff_pif.err_crc_pid),
+	.err_crc_tok				(buff_pif.err_crc_tok),
+	.err_crc_pkt				(buff_pif.err_crc_pkt),
+	.err_pid_out_of_seq			(buff_pif.err_pid_out_of_seq),
+	.err_setup_pkt				(buff_pif.err_setup_pkt),
+	.dbg_frame_num				(buff_pif.dbg_frame_num),
+	.dbg_linestate				(buff_pif.dbg_linestate)
+	
+	);
+
 
 //Register interfaces to config_db
   initial begin

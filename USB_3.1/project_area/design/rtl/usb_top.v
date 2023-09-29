@@ -52,13 +52,19 @@ output	wire			phy_elas_buf_mode,
 
 
 // signals specific to usb 2.0
+//input	wire			ext_clk,
+//input	wire			reset_n,
+//output	wire			reset_n_out,
+
 input	wire			phy_ulpi_clk,
 inout	wire	[7:0]	phy_ulpi_d,
 input	wire			phy_ulpi_dir,
 output	wire			phy_ulpi_stp,
 input	wire			phy_ulpi_nxt,
 
+input	wire			opt_disable_all,
 input	wire			opt_enable_hs,
+input	wire			opt_ignore_vbus,
 output	wire			stat_connected,
 output	wire			stat_fs,
 output	wire			stat_hs,
@@ -86,7 +92,10 @@ output	wire			err_crc_pid,
 output	wire			err_crc_tok,
 output	wire			err_crc_pkt,
 output	wire			err_pid_out_of_seq,
-output	wire			err_setup_pkt
+output	wire			err_setup_pkt,
+
+output	wire	[10:0]	dbg_frame_num,
+output	wire	[1:0]	dbg_linestate
 
 );
 
