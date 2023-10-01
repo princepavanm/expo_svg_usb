@@ -35,7 +35,7 @@ class buff_slv_agent_mon extends uvm_monitor;
   virtual task run_phase(uvm_phase phase);
     super.run_phase(phase);
 
-    `uvm_info("buff_slv_agent_mon","Monitor Run Phase", UVM_LOW)
+    `uvm_info("buff_slv_agent_mon","Monitor Run Phase", UVM_HIGH)
 
   endtask:run_phase
 

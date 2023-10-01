@@ -7,7 +7,7 @@
 //      Module Name       :                                                                      //
 //      Project Name      :                                                                      //
 //      component name    :                                                                      //
-//      Description       :	This module provides a test to generate clocks                       //
+//      Description       :	This module provides a test to generate clocks                   //
 //                                                                                               //
 //                                                                                               //
 //      Additional Comments:                                                                     //
@@ -36,14 +36,14 @@ module top;
 //Rst and Clock generation
   initial begin
 
-    ext_clk = 0;
-    phy_pipe_pclk = 0;
+   ext_clk = 0;
+   phy_pipe_pclk = 0;
 
-    reset_n = 1;
-    #7.0;	reset_n = 0;
+   // reset_n = 1;
+   // #7.0;	reset_n = 0;
 
-    #500us;
-    $finish();
+    //#500us;
+    //$finish();
   end
 
   always #5.0 ext_clk = ~ext_clk;

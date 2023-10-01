@@ -16,5 +16,7 @@
 
 //List of Include Files
 
+  `include "usb_reset_seq.sv"
   `include "usb_base_seq.sv"
+  `include "phy_rx_seq.sv"
 

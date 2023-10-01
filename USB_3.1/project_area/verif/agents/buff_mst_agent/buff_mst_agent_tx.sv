@@ -15,15 +15,32 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 class buff_tx extends uvm_sequence_item;
+	
+  	rand bit         reset_n;
+  	rand bit [8:0]        buf_in_addr;
+	rand bit [7:0]        buf_in_data;
+        rand bit 	      buf_in_wren;
+       	rand bit              sop;
+  	rand bit              eop;
+	rand bit [10:0]       buf_in_commit_len;
+ 	rand bit [8:0]       buf_out_addr;                // interpacket gap
 
-  //rand bit [31:0] data;
 
   `uvm_object_utils_begin(buff_tx)
-    //`uvm_field_int(data, UVM_ALL_ON)
-  `uvm_object_utils_end
+    `uvm_field_int( reset_n    , UVM_DEFAULT )
+    `uvm_field_int( buf_in_addr    , UVM_DEFAULT )
+    `uvm_field_int( buf_in_data    , UVM_DEFAULT )
+    `uvm_field_int( buf_in_wren      , UVM_DEFAULT )
+     `uvm_field_int( sop             , UVM_DEFAULT )
+     `uvm_field_int( eop             , UVM_DEFAULT )
+     `uvm_field_int( buf_in_commit_len        , UVM_DEFAULT )
+     `uvm_field_int( buf_out_addr             , UVM_DEFAULT )
 
-  function new(string name="buff_tx");
+   `uvm_object_utils_end
+
+
+function new(input string name="buff_tx");
     super.new(name);
-  endfunction
+  endfunction : new
 
 endclass

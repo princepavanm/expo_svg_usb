@@ -15,16 +15,19 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 //List of Include Files
-
   `include "buff_mst_agent_intf.sv"
   `include "phy_rx_agent_intf.sv"
 
+  
   `include "buff_mst_agent_tx.sv"
   `include "buff_mst_agent_drv.sv"
   `include "buff_mst_agent_sqr.sv"
   `include "buff_mst_agent_cov.sv"
   `include "buff_mst_agent_mon.sv"
   `include "buff_mst_agent.sv"
+
+  `include "usb_reset_driver.sv"
+  `include "usb_reset_agent.sv"
 
   `include "phy_rx_agent_tx.sv"
   `include "phy_rx_agent_drv.sv"
@@ -40,10 +43,11 @@
   `include "phy_tx_agent.sv"
 
   `include "virtual_sqr.sv"
-
+     
 // Sequence List
   `include "../seqs/sequence_list.sv"
   `include "env.sv"
+  `include "virtual_sequence.sv"
 
 // Test List
   `include "../tests/test_list.sv"

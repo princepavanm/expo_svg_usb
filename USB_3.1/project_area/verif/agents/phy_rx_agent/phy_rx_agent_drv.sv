@@ -14,11 +14,11 @@
 //                                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-class phy_rx_agent_drv extends uvm_driver#(phy_tx);
+class phy_rx_agent_drv extends uvm_driver#(phy_rx);
 
   `uvm_component_utils(phy_rx_agent_drv)
 
-  phy_tx               tx_h;
+  phy_rx               tx_h;
 
   virtual phy_intf     vif;
 
@@ -35,13 +35,21 @@ class phy_rx_agent_drv extends uvm_driver#(phy_tx);
   task run_phase(uvm_phase phase);
 
      seq_item_port.get_next_item(req);
-       req.print();
-       drive_tx(req);
+     	
+     	//displaying randomly generated stimulus
+     		$display("\n");	
+		`uvm_info(get_full_name(),"\n\t\t\t********* stimulus generated at PHY_RX_AGENT side  ***********\n",UVM_MEDIUM)
+		req.print();
+     		$display("\n");	
+       
+	//calling task for driving signals
+		//drive_tx(req);
+
      seq_item_port.item_done();
 
   endtask:run_phase
 
-  task drive_tx(phy_tx     tx_h);
+  task drive_tx(phy_rx     tx_h);
 
      //Implement driving logic here
 

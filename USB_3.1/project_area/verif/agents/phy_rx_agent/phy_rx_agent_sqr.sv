@@ -14,7 +14,7 @@
 //                                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-class phy_rx_agent_sqr extends uvm_sequencer#(phy_tx);
+class phy_rx_agent_sqr extends uvm_sequencer#(phy_rx);
 
   `uvm_component_utils(phy_rx_agent_sqr)
 

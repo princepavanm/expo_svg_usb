@@ -17,6 +17,7 @@
 class usb_env extends uvm_env;
   `uvm_component_utils(usb_env)
 
+  usb_reset_agent	usb_reset_agent_h;
   buff_mst_agent	buff_mst_agent_h;
   phy_rx_agent	phy_rx_agent_h;
 
@@ -30,6 +31,7 @@ class usb_env extends uvm_env;
     super.build_phase(phase);
     v_sqr_h = usb_virtual_sqr::type_id::create("v_sqr_h", this);
 
+    usb_reset_agent_h = usb_reset_agent::type_id::create("usb_reset_agent_h", this);
     buff_mst_agent_h = buff_mst_agent::type_id::create("buff_mst_agent_h", this);
     phy_rx_agent_h = phy_rx_agent::type_id::create("phy_rx_agent_h", this);
 
@@ -37,38 +39,13 @@ class usb_env extends uvm_env;
 
   function void connect_phase(uvm_phase phase);
     super.connect_phase(phase);
+    v_sqr_h.reset_seqr_h = usb_reset_agent_h.reset_seqr_h;
     v_sqr_h.buff_mst_agent_sqr_h = buff_mst_agent_h.sqr_h;
     v_sqr_h.phy_rx_agent_sqr_h = phy_rx_agent_h.sqr_h;
 
   endfunction:connect_phase
 
-  function void report();
+  
 
-    uvm_report_server reportserver=uvm_report_server::get_server();
-
-    $display("**************************************************");
-    $display("****************** TEST Summary ******************");
-    $display("**************************************************");
-
-    if((reportserver.get_severity_count(UVM_FATAL)==0)&&(reportserver.get_severity_count(UVM_WARNING)==0)&&(reportserver.get_severity_count(UVM_ERROR)==0))  begin
-      $display("**************************************************");
-      $display("****************** TEST  PASSED ******************");
-      $display("**************************************************");
-    end//if_end
-
-    else begin
-      $display("**************************************************");
-      $display("                    \\ / ");
-      $display("                    oVo ");
-      $display("                \\___XXX___/ ");
-      $display("                 __XXXXX__ ");
-      $display("                /__XXXXX__\\ ");
-      $display("                /   XXX   \\ ");
-      $display("                     V ");
-      $display("                TEST  FAILED          ");
-      $display("**************************************************");
-    end//else_end
-
-  endfunction:report
-
+  
 endclass:usb_env

@@ -14,13 +14,13 @@
 //                                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-class phy_rx_agent_cov extends uvm_subscriber#(phy_tx);
+class phy_rx_agent_cov extends uvm_subscriber#(phy_rx);
 
   `uvm_component_utils(phy_rx_agent_cov)
 
-  uvm_analysis_imp#(phy_tx, phy_rx_agent_cov)       phy_rx_agent_cov_port;
+  uvm_analysis_imp#(phy_rx, phy_rx_agent_cov)       phy_rx_agent_cov_port;
 
-  phy_tx   tx_h;
+  phy_rx   tx_h;
 
   covergroup cg();
 
@@ -35,19 +35,19 @@ class phy_rx_agent_cov extends uvm_subscriber#(phy_tx);
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
     phy_rx_agent_cov_port = new("phy_rx_agent_cov_port", this);
-    tx_h = phy_tx::type_id::create("tx_h", this);
+    tx_h = phy_rx::type_id::create("tx_h", this);
   endfunction:build_phase
 
-  function void write(phy_tx   t);
+  function void write(phy_rx   t);
 
-    `uvm_info("phy_rx_agent_COV", "From Coverage Write function", UVM_LOW)
+    `uvm_info("phy_rx_agent_COV", "From Coverage Write function", UVM_HIGH)
 
   endfunction:write
 
   virtual task run_phase(uvm_phase phase);
     super.run_phase(phase);
 
-    `uvm_info("phy_rx_agent_COV","From Coverage Run Phase", UVM_LOW)
+    `uvm_info("phy_rx_agent_COV","From Coverage Run Phase", UVM_HIGH)
 
   endtask:run_phase
 

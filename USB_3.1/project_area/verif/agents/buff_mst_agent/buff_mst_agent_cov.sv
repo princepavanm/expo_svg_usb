@@ -40,14 +40,14 @@ class buff_mst_agent_cov extends uvm_subscriber#(buff_tx);
 
   function void write(buff_tx   t);
 
-    `uvm_info("buff_mst_agent_COV", "From Coverage Write function", UVM_LOW)
+    `uvm_info("buff_mst_agent_COV", "From Coverage Write function", UVM_HIGH)
 
   endfunction:write
 
   virtual task run_phase(uvm_phase phase);
     super.run_phase(phase);
 
-    `uvm_info("buff_mst_agent_COV","From Coverage Run Phase", UVM_LOW)
+    `uvm_info("buff_mst_agent_COV","From Coverage Run Phase", UVM_HIGH)
 
   endtask:run_phase
 
