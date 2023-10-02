@@ -14,12 +14,12 @@
 //                                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-`timescale 1ns/1ns;
+`timescale 1ns/1ns
   `include "uvm_macros.svh"
   import uvm_pkg::*;
 
   //include test library
-  include "usb_list.svh";
+  `include "usb_list.svh"
 
   `include "usb_top.v"
 //******************************top**********************//
@@ -36,14 +36,14 @@ module top;
 //Rst and Clock generation
   initial begin
 
-   ext_clk = 0;
-   phy_pipe_pclk = 0;
+    ext_clk = 0;
+    phy_pipe_pclk = 0;
 
-   // reset_n = 1;
-   // #7.0;	reset_n = 0;
+    reset_n = 1;
+    #7.0;	reset_n = 0;
 
-    //#500us;
-    //$finish();
+    #500us;
+    $finish();
   end
 
   always #5.0 ext_clk = ~ext_clk;
@@ -55,6 +55,7 @@ module top;
 	.clk_125_out    	  (phy_pif.clk_125_out),         
 	.reset_n  	          (phy_pif.reset_n),
 	.reset_n_out              (phy_pif.reset_n_out),
+	.phy_pipe_pclk		   (phy_pif.phy_pipe_pclk),
 	.phy_pipe_rx_data         (phy_pif.phy_pipe_rx_data),
 	.phy_pipe_rx_datak        (phy_pif.phy_pipe_rx_datak),
 	.phy_pipe_rx_valid        (phy_pif.phy_pipe_rx_valid),
@@ -101,8 +102,7 @@ module top;
 	.vend_req_val      	  (phy_pif.vend_req_val),                            
 	             			
 /***************************usb2_top instatiation *************************/	
-
-//	.ext_clk				(buff_pif.ext_clk),
+	.ext_clk				(buff_pif.ext_clk),
 //	.reset_n				(buff_pif.reset_n),
 //	.reset_n_out				(buff_pif.reset_n_out),
 	.phy_ulpi_clk				(buff_pif.phy_ulpi_clk),

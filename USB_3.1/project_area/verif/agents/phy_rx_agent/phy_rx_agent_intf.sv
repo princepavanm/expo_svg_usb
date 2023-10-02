@@ -21,7 +21,7 @@ interface phy_intf(input logic phy_pipe_pclk);
 	bit		clk_125_out;
 	bit		reset_n;
 	bit		reset_n_out;
-
+//	bit		phy_pipe_pclk
 	bit	[15:0]	phy_pipe_rx_data;
 	bit	[1:0]	phy_pipe_rx_datak;
 	bit		phy_pipe_rx_valid;
@@ -50,16 +50,16 @@ interface phy_intf(input logic phy_pipe_pclk);
 	bit		phy_elas_buf_mode;
 
 	bit	[8:0]	buf_in_addr;
-	bit	[31:0]	buf_in_data;
+	bit	[7:0]	buf_in_data;
 	bit		buf_in_wren;
 	bit		buf_in_request;
 	bit		buf_in_ready;
 	bit		buf_in_commit;
-	bit	[10:0]	buf_in_commit_len;
+	bit	[9:0]	buf_in_commit_len;
 	bit		buf_in_commit_ack;
 
 	bit	[8:0]	buf_out_addr;
-	bit	[31:0]	buf_out_q;
+	bit	[7:0]	buf_out_q;
 	bit	[10:0]	buf_out_len;
 	bit		buf_out_hasdata;
 	bit		buf_out_arm;
