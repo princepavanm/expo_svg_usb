@@ -26,8 +26,10 @@ class usb_reset_seq extends uvm_sequence#(buff_tx);
 
    	begin
 	`uvm_do_with(req,{req.reset_n==0;});
-	#5;
-       	`uvm_do_with(req,{req.reset_n==1;});
+	repeat(50)begin
+	`uvm_do_with(req,{req.reset_n==1;});
+	end
+//	`uvm_do_with(req,{req.reset_n==0;});
 	end
 	//req.print();
    // Functionality of sequence are coded here
@@ -36,3 +38,4 @@ class usb_reset_seq extends uvm_sequence#(buff_tx);
 
     
 endclass:usb_reset_seq
+

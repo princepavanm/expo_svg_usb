@@ -26,28 +26,42 @@
 module top;
 
 //Rst and clock declarations
-  reg ext_clk, reset_n;
-  reg phy_pipe_pclk;
-
+  logic ext_clk;
+  logic phy_pipe_pclk;
+  logic phy_ulpi_clk;
+  logic reset_n;
 //Interface instantation
-  buff_intf buff_pif(ext_clk, reset_n);
-  phy_intf phy_pif(phy_pipe_pclk);
+  
+buff_intf buff_pif(	.ext_clk(ext_clk), 
+			.reset_n(reset_n),
+			.phy_pipe_pclk(phy_pipe_pclk),
+			.phy_ulpi_clk(phy_ulpi_clk));  
 
+
+
+
+  phy_intf phy_pif(	.ext_clk(ext_clk),            
+	  		.reset_n(reset_n),
+                   	.phy_pipe_pclk(phy_pipe_pclk),
+                   	.phy_ulpi_clk(phy_ulpi_clk));  
+			
 //Rst and Clock generation
   initial begin
 
     ext_clk = 0;
     phy_pipe_pclk = 0;
+    phy_ulpi_clk=0;
+    
+    //reset_n = 1;  //we've separate agent for reset
+    //#7.0;	reset_n = 0;
 
-    reset_n = 1;
-    #7.0;	reset_n = 0;
-
-    #500us;
-    $finish();
+    //#500us;
+    //$finish();
   end
 
-  always #5.0 ext_clk = ~ext_clk;
-  always #5.0 phy_pipe_pclk = ~phy_pipe_pclk;
+  always #4.0       ext_clk = ~ext_clk;			//TODO need to check in rtl side (which frequency)
+  always #16.67     phy_ulpi_clk = ~phy_ulpi_clk;  //60MHz clock geneartion 
+  always #4.0       phy_pipe_pclk = ~phy_pipe_pclk;    //250MHz clock geneartion 
 
 //DUT Instantiation
 
@@ -158,3 +172,4 @@ module top;
   end
 
 endmodule:top
+

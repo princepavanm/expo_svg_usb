@@ -42,7 +42,17 @@ vsim:
 	rm -rf $(LOG_DIR)/$(TEST_NAME)_$(SEED)
 	rm -rf $(TEST_NAME)_$(SEED).ucdb
 	mkdir $(LOG_DIR)/$(TEST_NAME)_$(SEED)
-	vsim -c -sv_seed $(SEED) -cvgperinstance -voptargs=+acc -coverage -voptargs="+cover=all" -suppress 10016 -assertdebug -voptargs="+ASSERTION_ON" +UVM_VERBOSITY=UVM_MEDIUM +UVM_TESTNAME=$(TEST_NAME) -l $(LOG_DIR)/$(TEST_NAME)_$(SEED)/$(TEST_NAME)_$(SEED).log -do "coverage save -onexit $(LOG_DIR)/$(TEST_NAME)_$(SEED)/$(TEST_NAME)_$(SEED).ucdb;run -all; exit" work.top
+	vsim -c -sv_seed $(SEED) -cvgperinstance -voptargs=+acc -coverage -voptargs="+cover=all" -assertdebug -voptargs="+ASSERTION_ON" +UVM_VERBOSITY=UVM_MEDIUM +UVM_TESTNAME=$(TEST_NAME) -l $(LOG_DIR)/$(TEST_NAME)_$(SEED)/$(TEST_NAME)_$(SEED).log -do "coverage save -onexit $(LOG_DIR)/$(TEST_NAME)_$(SEED)/$(TEST_NAME)_$(SEED).ucdb;run -all; exit" work.top
+
+vsim_QS:
+	rm -rf $(LOG_DIR)/$(TEST_NAME)_$(SEED)
+	rm -rf $(TEST_NAME)_$(SEED).ucdb
+	mkdir $(LOG_DIR)/$(TEST_NAME)_$(SEED)
+	vsim -sv_seed $(SEED) -cvgperinstance -voptargs=+acc -coverage -voptargs="+cover=all" -assertdebug -voptargs="+ASSERTION_ON" +UVM_VERBOSITY=UVM_MEDIUM +UVM_TESTNAME=$(TEST_NAME) -l $(LOG_DIR)/$(TEST_NAME)_$(SEED)/$(TEST_NAME)_$(SEED).log -do "coverage save -onexit $(LOG_DIR)/$(TEST_NAME)_$(SEED)/$(TEST_NAME)_$(SEED).ucdb;" work.top
+
 
 run:	comp vsim
+
+#for opening questasim use this
+run_qs:	comp vsim_QS
 

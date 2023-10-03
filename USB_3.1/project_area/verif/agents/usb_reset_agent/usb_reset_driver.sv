@@ -21,6 +21,7 @@ class usb_reset_driver extends uvm_driver#(buff_tx);
   buff_tx               tx_h;
 
   virtual buff_intf     vif;
+  virtual phy_intf     phy_vif;
 
   function new(string name="usb_reset_driver", uvm_component parent=null);
     super.new(name, parent);
@@ -30,6 +31,9 @@ class usb_reset_driver extends uvm_driver#(buff_tx);
     super.build_phase(phase);
     if(!uvm_config_db#(virtual buff_intf)::get(this, " ", "buff_pif", vif))
       `uvm_fatal("DRV", "***** Could not get vif *****")
+    if(!uvm_config_db#(virtual phy_intf)::get(this, " ", "phy_pif", phy_vif))
+      `uvm_fatal("DRV", "***** Could not get phy_vif *****")
+
   endfunction:build_phase
 
   task run_phase(uvm_phase phase);
@@ -43,16 +47,21 @@ class usb_reset_driver extends uvm_driver#(buff_tx);
      		$display("\n");
        
 	//calling task for driving signals
-		//drive_tx(req);
+		drive_tx(req);
 
      seq_item_port.item_done();
 	end
   endtask:run_phase
 
   task drive_tx(buff_tx     tx_h);
+	@(vif.buff_driver_cb)
 
+	vif.reset_n<=req.reset_n;
+	vif.phy_ulpi_dir<=0;
+	phy_vif.reset_n<=req.reset_n;
      //Implement driving logic here
-
+	
   endtask:drive_tx
 
 endclass:usb_reset_driver
+

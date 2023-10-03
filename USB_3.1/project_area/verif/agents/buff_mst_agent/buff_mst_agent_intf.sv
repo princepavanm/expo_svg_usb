@@ -14,11 +14,13 @@
 //                                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-interface buff_intf(input logic ext_clk, reset_n);
+interface buff_intf(         ref logic  reset_n,
+                             input bit  ext_clk,
+                             input bit  phy_pipe_pclk,
+                             input bit  phy_ulpi_clk);
 	
   	logic		reset_n_out; 
 
- 	logic		phy_ulpi_clk;
  	wand    [7:0]	phy_ulpi_d;
  	logic		phy_ulpi_dir;
 	logic		phy_ulpi_stp;
@@ -64,7 +66,7 @@ interface buff_intf(input logic ext_clk, reset_n);
 
 //********* clocking blocks buff_Driver and buff_monitor ***********//
 
-  clocking buff_driver_cb@(posedge ext_clk);
+  clocking buff_driver_cb@(posedge phy_ulpi_clk);
     default input #1 output #1;
 
 	output		ext_clk;
@@ -114,7 +116,7 @@ interface buff_intf(input logic ext_clk, reset_n);
 
 endclocking
 
-     clocking buff_monitor_cb@(posedge ext_clk);
+     clocking buff_monitor_cb@(posedge phy_ulpi_clk);
    	 default input #1 output #1;
 
 	input		ext_clk;
@@ -172,3 +174,4 @@ endclocking
 
 
 endinterface:buff_intf
+

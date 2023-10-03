@@ -14,12 +14,14 @@
 //                                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-interface phy_intf(input logic phy_pipe_pclk);
+interface phy_intf(          ref logic  reset_n,
+                             input bit  ext_clk,
+                             input bit  phy_pipe_pclk,
+                             input bit  phy_ulpi_clk);
+
 
 	
-	bit		ext_clk;
 	bit		clk_125_out;
-	bit		reset_n;
 	bit		reset_n_out;
 //	bit		phy_pipe_pclk
 	bit	[15:0]	phy_pipe_rx_data;
@@ -197,3 +199,4 @@ interface phy_intf(input logic phy_pipe_pclk);
 
 
 endinterface:phy_intf
+
