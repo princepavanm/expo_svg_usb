@@ -1,6 +1,6 @@
-# vsim -c -sv_seed 10 -cvgperinstance -voptargs="+acc" -coverage -voptargs="+cover=all" -assertdebug -voptargs="+ASSERTION_ON" "+UVM_VERBOSITY=UVM_MEDIUM" "+UVM_TESTNAME=usb_base_test" -l ../../../USB_3.1/scratch_area/log/usb_base_test_10/usb_base_test_10.log -do "coverage save -onexit ../../../USB_3.1/scratch_area/log/usb_base_test_10/usb_base_test_10.ucdb;run -all; exit" work.top 
-# Start time: 13:24:54 on Oct 02,2023
-# ** Note: (vsim-8009) Loading existing optimized design _opt
+# vsim -c -sv_seed 10 -cvgperinstance -voptargs="+acc" -coverage -voptargs="+cover=all" -suppress 10016 -assertdebug -voptargs="+ASSERTION_ON" "+UVM_VERBOSITY=UVM_MEDIUM" "+UVM_TESTNAME=usb_base_test" -l ../../../USB_3.1/scratch_area/log/usb_base_test_10/usb_base_test_10.log -do "coverage save -onexit ../../../USB_3.1/scratch_area/log/usb_base_test_10/usb_base_test_10.ucdb;run -all; exit" work.top 
+# Start time: 06:57:29 on Oct 03,2023
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
 # //  Questa Sim-64
 # //  Version 2021.1 win64 Jan 19 2021
 # //
@@ -23,8 +23,71 @@
 # Loading work.buff_intf(fast__2)
 # Loading work.phy_intf(fast__2)
 # Loading work.usb_top(fast)
+# Loading work.usb3_top(fast)
+# Loading work.usb3_pipe(fast)
+# Loading work.usb3_descramble(fast)
+# Loading work.usb3_lfsr(fast)
+# Loading work.usb3_scramble(fast)
+# Loading work.mf_usb3_rx(fast)
+# Loading work.mf_usb3_tx(fast)
+# Loading work.usb3_ltssm(fast)
+# Loading work.usb3_link(fast)
+# Loading work.usb3_crc_dpp32(fast)
+# Loading work.usb3_crc_dpp24(fast)
+# Loading work.usb3_crc_dpp16(fast)
+# Loading work.usb3_crc_dpp8(fast)
+# Loading work.usb3_crc_hp(fast)
+# Loading work.usb3_crc_cw(fast)
+# Loading work.usb3_protocol(fast)
+# Loading work.usb3_ep0(fast)
+# Loading work.mf_usb3_ep0in(fast)
+# Loading work.mf_usb3_descrip(fast)
+# Loading work.usb3_ep(fast)
+# Loading work.mf_usb3_ep(fast)
+# Loading work.usb3_ep(fast__1)
+# Loading work.mf_usb3_ep(fast__1)
+# Loading work.mf_usb3_pll(fast)
+# Loading work.usb2_top(fast)
+# Loading work.usb2_ulpi(fast)
+# Loading work.usb2_packet(fast)
+# Loading work.usb2_crc5(fast)
+# Loading work.usb2_crc16(fast)
+# Loading work.usb2_protocol(fast)
+# Loading work.usb2_ep0(fast)
+# Loading work.mf_usb2_ep0in(fast)
+# Loading work.mf_usb2_descrip(fast)
+# Loading work.usb2_ep(fast)
+# Loading work.mf_usb2_ep(fast)
+# Loading work.usb2_ep(fast__1)
+# Loading work.mf_usb2_ep(fast__1)
 # Loading work.buff_intf(fast)
 # Loading work.phy_intf(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (8) for port 'buf_in_data'. The port definition is at: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(72).
+#    Time: 0 ps  Iteration: 0  Instance: /top/DUT/usb3_top_inst File: ../../../USB_3.1/project_area/design/rtl/usb_top.v Line: 103
+# ** Warning: (vsim-3015) [PCDPC] - Port size (11) does not match connection size (10) for port 'buf_in_commit_len'. The port definition is at: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(77).
+#    Time: 0 ps  Iteration: 0  Instance: /top/DUT/usb3_top_inst File: ../../../USB_3.1/project_area/design/rtl/usb_top.v Line: 103
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (8) for port 'buf_out_q'. The port definition is at: ../../../USB_3.1/project_area/design/rtl/usb3_top.v(81).
+#    Time: 0 ps  Iteration: 0  Instance: /top/DUT/usb3_top_inst File: ../../../USB_3.1/project_area/design/rtl/usb_top.v Line: 103
+# ** Warning: (vsim-3015) [PCDPC] - Port size (3) does not match connection size (2) for port 'phy_tx_margin'. The port definition is at: ../../../USB_3.1/project_area/design/rtl/usb3_pipe.v(39).
+#    Time: 0 ps  Iteration: 0  Instance: /top/DUT/usb3_top_inst/iu3p File: ../../../USB_3.1/project_area/design/rtl/usb3_top.v Line: 297
+# ** Warning: (vsim-3015) [PCDPC] - Port size (10) does not match connection size (9) for port 'buf_out_addr'. The port definition is at: ../../../USB_3.1/project_area/design/rtl/usb3_link.v(108).
+#    Time: 0 ps  Iteration: 0  Instance: /top/DUT/usb3_top_inst/iu3l File: ../../../USB_3.1/project_area/design/rtl/usb3_top.v Line: 436
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (9) for port 'wraddress'. The port definition is at: ../../../USB_3.1/project_area/design/rtl/mf_usb3_ep0in.v(43).
+#    Time: 0 ps  Iteration: 0  Instance: /top/DUT/usb3_top_inst/iu3r/iu3ep0/iu3ep0i File: ../../../USB_3.1/project_area/design/rtl/usb3_ep0.v Line: 449
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (9) for port 'address'. The port definition is at: ../../../USB_3.1/project_area/design/rtl/mf_usb3_descrip.v(40).
+#    Time: 0 ps  Iteration: 0  Instance: /top/DUT/usb3_top_inst/iu3r/iu3ep0/iu3d File: ../../../USB_3.1/project_area/design/rtl/usb3_ep0.v Line: 458
+# ** Warning: (vsim-3015) [PCDPC] - Port size (10) does not match connection size (11) for port 'buf_out_len'. The port definition is at: ../../../USB_3.1/project_area/design/rtl/usb2_top.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /top/DUT/usb2_inst File: ../../../USB_3.1/project_area/design/rtl/usb_top.v Line: 156
+# ** Warning: (vsim-3015) [PCDPC] - Port size (10) does not match connection size (9) for port 'buf_out_addr'. The port definition is at: ../../../USB_3.1/project_area/design/rtl/usb2_packet.v(39).
+#    Time: 0 ps  Iteration: 0  Instance: /top/DUT/usb2_inst/ip File: ../../../USB_3.1/project_area/design/rtl/usb2_top.v Line: 191
+# ** Warning: (vsim-3015) [PCDPC] - Port size (9) does not match connection size (6) for port 'buf_in_addr'. The port definition is at: ../../../USB_3.1/project_area/design/rtl/usb2_ep0.v(21).
+#    Time: 0 ps  Iteration: 0  Instance: /top/DUT/usb2_inst/ipr/iep0 File: ../../../USB_3.1/project_area/design/rtl/usb2_protocol.v Line: 189
+# ** Warning: (vsim-3015) [PCDPC] - Port size (9) does not match connection size (8) for port 'buf_out_addr'. The port definition is at: ../../../USB_3.1/project_area/design/rtl/usb2_ep0.v(29).
+#    Time: 0 ps  Iteration: 0  Instance: /top/DUT/usb2_inst/ipr/iep0 File: ../../../USB_3.1/project_area/design/rtl/usb2_protocol.v Line: 189
+# ** Warning: (vsim-3015) [PCDPC] - Port size (6) does not match connection size (9) for port 'wraddress'. The port definition is at: ../../../USB_3.1/project_area/design/rtl/mf_usb2_ep0in.v(44).
+#    Time: 0 ps  Iteration: 0  Instance: /top/DUT/usb2_inst/ipr/iep0/iu2ep0i File: ../../../USB_3.1/project_area/design/rtl/usb2_ep0.v Line: 157
+# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (9) for port 'address'. The port definition is at: ../../../USB_3.1/project_area/design/rtl/mf_usb2_descrip.v(40).
+#    Time: 0 ps  Iteration: 0  Instance: /top/DUT/usb2_inst/ipr/iep0/iu2d File: ../../../USB_3.1/project_area/design/rtl/usb2_ep0.v Line: 173
 # Loading C:/questasim64_2021.1/uvm-1.1d\win64\uvm_dpi.dll
 # coverage save -onexit ../../../USB_3.1/scratch_area/log/usb_base_test_10/usb_base_test_10.ucdb
 # run -all
@@ -244,5 +307,5 @@
 # ** Note: $finish    : C:/questasim64_2021.1/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
 #    Time: 35 ns  Iteration: 54  Instance: /top
 # Saving coverage database on exit...
-# End time: 13:25:29 on Oct 02,2023, Elapsed time: 0:00:35
-# Errors: 0, Warnings: 0
+# End time: 06:58:03 on Oct 03,2023, Elapsed time: 0:00:34
+# Errors: 0, Warnings: 13
