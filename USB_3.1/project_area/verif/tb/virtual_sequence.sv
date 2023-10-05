@@ -27,6 +27,7 @@ class usb_virtual_sequence extends uvm_sequence #(uvm_sequence_item);
 
   usb_env		    env_h;
 
+<<<<<<< HEAD
   //Default constructor
   function new(string name="usb_virtual_sequence");
     super.new(name);
@@ -59,5 +60,31 @@ class usb_virtual_sequence extends uvm_sequence #(uvm_sequence_item);
     if ( (starting_phase!=null) && (get_parent_sequence()==null) )
       starting_phase.drop_objection( this );
   endtask : post_body
+=======
+	virtual task body();
+		
+		usb_reset_seq_h=usb_reset_seq::type_id::create("usb_reset_seq_h");
+		usb_base_seq_h=	usb_base_seq::type_id::create("usb_base_seq_h");
+		usb_phy_rx_seq_h=usb_phy_rx_seq::type_id::create("usb_phy_rx_seq_h");
+		
+		if(!$cast(v_seqr,m_sequencer)) begin:B1
+			`uvm_error(get_full_name(),"Virtual cast pointer cast failed")
+		end:B1
+		
+		//oject assignment of sequencers
+		reset_seqr_h=v_seqr.reset_seqr_h;
+		buff_mst_agent_sqr_h=v_seqr.buff_mst_agent_sqr_h;
+		phy_rx_agent_sqr_h=v_seqr.phy_rx_agent_sqr_h;
+		
+		//sequence start here
+		begin
+		usb_reset_seq_h.start(reset_seqr_h);
+		#55000;
+		usb_base_seq_h.start(buff_mst_agent_sqr_h);
+		usb_phy_rx_seq_h.start(phy_rx_agent_sqr_h);
+		end	
+	endtask
+>>>>>>> 552930072af2aac20aed076c35e4a406c897fdcd
 
 endclass
+
