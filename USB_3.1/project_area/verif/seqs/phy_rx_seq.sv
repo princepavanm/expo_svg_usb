@@ -33,10 +33,9 @@ class usb_phy_rx_seq extends uvm_sequence#(phy_rx);
   endtask:pre_body
 
   virtual task body();
-	`uvm_do(req);
-	//req.print();
-   // Functionality of sequence are coded here
-
+    `uvm_do(req);
+    // req.print();
+    // Functionality of sequence are coded here
   endtask:body
 
   virtual task post_body();

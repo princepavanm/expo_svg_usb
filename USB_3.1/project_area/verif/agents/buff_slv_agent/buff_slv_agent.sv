@@ -20,7 +20,6 @@ class buff_slv_agent extends uvm_agent;
 
   virtual buff_intf     buff_pif;
 
-
   `uvm_component_utils(buff_slv_agent)
 
   function new(string name="buff_slv_agent", uvm_component parent=null);
@@ -32,12 +31,10 @@ class buff_slv_agent extends uvm_agent;
 
      mon_h = buff_slv_agent_mon::type_id::create("mon_h", this);
 
-
   endfunction:build_phase
 
   function void connect_phase(uvm_phase phase);
     super.connect_phase(phase);
-
   endfunction:connect_phase
 
 endclass:buff_slv_agent

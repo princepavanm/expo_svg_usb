@@ -20,7 +20,6 @@ class phy_tx_agent extends uvm_agent;
 
   virtual phy_intf     phy_pif;
 
-
   `uvm_component_utils(phy_tx_agent)
 
   function new(string name="phy_tx_agent", uvm_component parent=null);
@@ -29,15 +28,11 @@ class phy_tx_agent extends uvm_agent;
 
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-
-     mon_h = phy_tx_agent_mon::type_id::create("mon_h", this);
-
-
+    mon_h = phy_tx_agent_mon::type_id::create("mon_h", this);
   endfunction:build_phase
 
   function void connect_phase(uvm_phase phase);
     super.connect_phase(phase);
-
   endfunction:connect_phase
 
 endclass:phy_tx_agent

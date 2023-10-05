@@ -2,45 +2,51 @@
 //      Company:  Expolog Technologies.                                                          //
 //           Copyright (c) 2023 by Expolog Technologies, Inc. All rights reserved.               //
 //                                                                                               //
-//      Engineer          :ANGAPPAN                                                              //
+//      Engineer          :                                                                      //
 //      Revision tag      :                                                                      //
-//      Module Name       :usb_reset_agent                                                       //
-//      Project Name      :USB_3.1                                                               //
+//      Module Name       :                                                                      //
+//      Project Name      :                                                                      //
 //      component name    :                                                                      //
-//      Description       :	This module provides a test to generate clocks                   //
+//      Description       :	This module provides a test to generate clocks                       //
 //                                                                                               //
 //                                                                                               //
 //      Additional Comments:                                                                     //
 //                                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-class usb_reset_agent extends uvm_agent;
+typedef uvm_sequencer#(reset_tr) reset_sqr;
 
-  usb_reset_driver      drv_h; 
+class reset_agent extends uvm_agent;
 
-  uvm_sequencer #(buff_tx) 	reset_seqr_h;
+  `uvm_component_utils(reset_agent)
+  
+  //reset_mon      	  reset_mon_h; 
 
-  virtual buff_intf     buff_pif;
+  virtual reset_intf      reset_pif;
 
+  reset_drv       	  reset_drv_h; 
+  reset_sqr     	  reset_sqr_h;
 
-  `uvm_component_utils(usb_reset_agent)
-
-  function new(string name="usb_reset_agent", uvm_component parent=null);
+  function new(string name="reset_agent", uvm_component parent=null);
     super.new(name, parent);
   endfunction:new
 
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
+    
+    //reset_mon_h = reset_mon::type_id::create("reset_mon_h", this);
+    reset_drv_h = reset_drv::type_id::create("reset_drv_h", this);
+    reset_sqr_h = reset_sqr::type_id::create("reset_sqr_h", this);
 
-     drv_h = usb_reset_driver::type_id::create("drv_h", this);
-     reset_seqr_h = uvm_sequencer #(buff_tx)::type_id::create("reset_seqr_h", this);
+    if(!uvm_config_db#(virtual reset_intf)::get(this,"","reset_pif",reset_pif))
+      `uvm_fatal("RESET_AGENT", "***** Could not get reset_pif *****")
 
-
+    uvm_config_db#(virtual reset_intf)::set(this,"*","reset_pif",reset_pif);
   endfunction:build_phase
 
   function void connect_phase(uvm_phase phase);
     super.connect_phase(phase);
-	drv_h.seq_item_port.connect(reset_seqr_h.seq_item_export);
+      reset_drv_h.seq_item_port.connect(reset_sqr_h.seq_item_export);
   endfunction:connect_phase
 
-endclass:usb_reset_agent
+endclass:reset_agent

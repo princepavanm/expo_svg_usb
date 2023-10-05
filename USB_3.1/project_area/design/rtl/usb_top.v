@@ -1,5 +1,4 @@
 `include "usb3_top.v"
-
 `include "usb2_top.v"
 
 //
@@ -95,8 +94,6 @@ output		[10:0]	dbg_frame_num,
 output		[1:0]	dbg_linestate
 
 );   
-
-
 
 /***************************usb3_top instatiation *************************/
 

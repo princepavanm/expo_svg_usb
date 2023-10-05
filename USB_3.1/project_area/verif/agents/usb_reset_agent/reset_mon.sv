@@ -14,54 +14,53 @@
 //                                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-class usb_reset_driver extends uvm_driver#(buff_tx);
+class reset_mon extends uvm_monitor;
 
-  `uvm_component_utils(usb_reset_driver)
+  `uvm_component_utils(reset_mon)
 
-  buff_tx               tx_h;
+  virtual reset_intf     vif;
+  
+  uvm_analysis_port #(reset_tr)       reset_mon_port;
+  
+  uvm_event reset_event = uvm_event_pool::get_global("reset_n");
 
-  virtual buff_intf     vif;
-  virtual phy_intf     phy_vif;
-
-  function new(string name="usb_reset_driver", uvm_component parent=null);
+  function new(string name="reset_mon", uvm_component parent=null);
     super.new(name, parent);
   endfunction:new
 
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    if(!uvm_config_db#(virtual buff_intf)::get(this, " ", "buff_pif", vif))
+
+    if(!uvm_config_db#(virtual reset_intf)::get(this, " ", "vif", vif))
       `uvm_fatal("DRV", "***** Could not get vif *****")
-    if(!uvm_config_db#(virtual phy_intf)::get(this, " ", "phy_pif", phy_vif))
-      `uvm_fatal("DRV", "***** Could not get phy_vif *****")
+
+    reset_mon_port = new("reset_mon_port", this);
 
   endfunction:build_phase
 
-  task run_phase(uvm_phase phase);
-	forever begin
-     seq_item_port.get_next_item(req);
+  virtual task run_phase(uvm_phase phase);
+    super.run_phase(phase);
 
-     	//displaying randomly generated stimulus
-     		$display("\n");
-		`uvm_info(get_full_name(), "\n\t\t\t********* stimulus generated at RESET_DRIVER ***********\n",UVM_HIGH)
-		`uvm_info(get_name(), $psprintf ("RESET=%0b",req.reset_n),UVM_MEDIUM)
-     		$display("\n");
-       
-	//calling task for driving signals
-		drive_tx(req);
-
-     seq_item_port.item_done();
-	end
+    `uvm_info("reset_mon","Monitor Run Phase", UVM_LOW)
+    forever begin
+      reset_tr tr = reset_tr::type_id::create("tr",this);
+      //detect(tr);
+      analysis_port.write(tr);
+    end
   endtask:run_phase
+  
+  virtual task detect(reset_tr tr);
+    `uvm_info("reset_mon_detect","From Monitor Detect task ", UVM_HIGH)
+    @(vif.reset_n);
+    assert(!isunknown(vif.reset_n));
+    if (vif.reset_n == 1'b0) begin
+      tr.kind = reset_tr:: ASSERT;
+      reset_event.trigger();
+    end
+    else begin
+      tr.kind = reset_tr::DEASSERT;
+      reset_event.reset(.wakeup(1));
+    end
+  endtask: detect
 
-  task drive_tx(buff_tx     tx_h);
-	@(vif.buff_driver_cb)
-
-	vif.reset_n<=req.reset_n;
-	vif.phy_ulpi_dir<=0;
-	phy_vif.reset_n<=req.reset_n;
-     //Implement driving logic here
-	
-  endtask:drive_tx
-
-endclass:usb_reset_driver
-
+endclass:reset_mon

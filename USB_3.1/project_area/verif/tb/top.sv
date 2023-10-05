@@ -15,65 +15,74 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 `timescale 1ns/1ns
+ 
   `include "uvm_macros.svh"
   import uvm_pkg::*;
 
-  //include test library
+  //include test library:
   `include "usb_list.svh"
 
   `include "usb_top.v"
+
 //******************************top**********************//
 module top;
 
-//Rst and clock declarations
+  //Rst and clock declarations
   logic ext_clk;
   logic phy_pipe_pclk;
   logic phy_ulpi_clk;
   logic reset_n;
-//Interface instantation
+  //logic temp_c0;
+  //logic temp_c1;
   
-buff_intf buff_pif(	.ext_clk(ext_clk), 
-			.reset_n(reset_n),
+  //Interface instantation  
+  
+  reset_intf reset_pif( .ext_clk(ext_clk));//.reset_n(reset_n)),
+  
+  buff_intf buff_pif(	.ext_clk(ext_clk), 
+			.reset_n(reset_pif.reset_n),
 			.phy_pipe_pclk(phy_pipe_pclk),
 			.phy_ulpi_clk(phy_ulpi_clk));  
 
-
-
-
   phy_intf phy_pif(	.ext_clk(ext_clk),            
-	  		.reset_n(reset_n),
+	  		.reset_n(reset_pif.reset_n),
                    	.phy_pipe_pclk(phy_pipe_pclk),
                    	.phy_ulpi_clk(phy_ulpi_clk));  
 			
-//Rst and Clock generation
+  //Rst and Clock generation
   initial begin
-
     ext_clk = 0;
     phy_pipe_pclk = 0;
     phy_ulpi_clk=0;
+	
+	 
     
     //reset_n = 1;  //we've separate agent for reset
     //#7.0;	reset_n = 0;
 
-    //#500us;
+    //#500000us;
     //$finish();
+	//assign top.DUT.iu3pll.c0 = temp_c0;
+	//assign top.DUT.iu3pll.c1 = temp_c1;
   end
 
-  always #4.0       ext_clk = ~ext_clk;			//TODO need to check in rtl side (which frequency)
-  always #16.67     phy_ulpi_clk = ~phy_ulpi_clk;  //60MHz clock geneartion 
-  always #4.0       phy_pipe_pclk = ~phy_pipe_pclk;    //250MHz clock geneartion 
+  always #2.0       ext_clk = ~ext_clk;			//TODO need to check in rtl side (which frequency)
+  always #8.33      phy_ulpi_clk = ~phy_ulpi_clk;  	//60MHz clock geneartion 
+  always #2.0       phy_pipe_pclk = ~phy_pipe_pclk;    	//250MHz clock geneartion
+  
+  //always #8			temp_c0 = ~ temp_c0;	// 62.5mhz
+  //always #4			temp_c1 = ~ temp_c1;	// 125 mhz
 
-//DUT Instantiation
-
-   usb_top DUT (
-	.clk_125_out    	  (phy_pif.clk_125_out),         
-	.reset_n  	          (phy_pif.reset_n),
-	.reset_n_out              (phy_pif.reset_n_out),
-	.phy_pipe_pclk		   (phy_pif.phy_pipe_pclk),
-	.phy_pipe_rx_data         (phy_pif.phy_pipe_rx_data),
-	.phy_pipe_rx_datak        (phy_pif.phy_pipe_rx_datak),
-	.phy_pipe_rx_valid        (phy_pif.phy_pipe_rx_valid),
-	.phy_pipe_tx_clk          (phy_pif.phy_pipe_tx_clk),
+  //DUT Instantiation
+  usb_top DUT (
+	.clk_125_out    	  		(phy_pif.clk_125_out),         
+	.reset_n  	          		(phy_pif.reset_n),
+	.reset_n_out              	(phy_pif.reset_n_out),
+	.phy_pipe_pclk		   		(phy_pif.phy_pipe_pclk),
+	.phy_pipe_rx_data         	(phy_pif.phy_pipe_rx_data),
+	.phy_pipe_rx_datak        	(phy_pif.phy_pipe_rx_datak),
+	.phy_pipe_rx_valid        	(phy_pif.phy_pipe_rx_valid),
+	.phy_pipe_tx_clk          	(phy_pif.phy_pipe_tx_clk),
 	.phy_pipe_tx_data         (phy_pif.phy_pipe_tx_data),
 	.phy_pipe_tx_datak        (phy_pif.phy_pipe_tx_datak),
                                 
@@ -146,7 +155,7 @@ buff_intf buff_pif(	.ext_clk(ext_clk),
 //	.buf_out_arm_ack			(buff_pif.buf_out_arm_ack),
 //	.vend_req_act				(buff_pif.vend_req_act),
 //	.vend_req_request			(buff_pif.vend_req_request),
- //     .vend_req_val				(buff_pif.vend_req_val),
+//      .vend_req_val				(buff_pif.vend_req_val),
 	.err_crc_pid				(buff_pif.err_crc_pid),
 	.err_crc_tok				(buff_pif.err_crc_tok),
 	.err_crc_pkt				(buff_pif.err_crc_pkt),
@@ -157,13 +166,12 @@ buff_intf buff_pif(	.ext_clk(ext_clk),
 	
 	);
 
-
 //Register interfaces to config_db
   initial begin
-
+	//uvm_resource_db#(virtual reset_intf)::set("reset_vif","",top.reset_pif);
+	uvm_config_db#(virtual reset_intf)::set(null,"*","reset_pif",reset_pif);
     uvm_config_db#(virtual buff_intf)::set(null,"*","buff_pif",buff_pif);
     uvm_config_db#(virtual phy_intf)::set(null,"*","phy_pif",phy_pif);
-
   end
 
 //Run test

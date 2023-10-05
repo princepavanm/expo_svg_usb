@@ -33,10 +33,9 @@ class usb_base_seq extends uvm_sequence#(buff_tx);
   endtask:pre_body
 
   virtual task body();
-	`uvm_do(req);
-	//req.print();
-   // Functionality of sequence are coded here
-
+    `uvm_do(req);
+    // req.print();
+    // Functionality of sequence are coded here
   endtask:body
 
   virtual task post_body();

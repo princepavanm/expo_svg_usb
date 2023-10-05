@@ -33,11 +33,11 @@ class phy_rx_agent extends uvm_agent;
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
 
-     mon_h = phy_rx_agent_mon::type_id::create("mon_h", this);
+    mon_h = phy_rx_agent_mon::type_id::create("mon_h", this);
 
-     drv_h = phy_rx_agent_drv::type_id::create("drv_h", this);
-     sqr_h = phy_rx_agent_sqr::type_id::create("sqr_h", this);
-     cov_h = phy_rx_agent_cov::type_id::create("cov_h", this);
+    drv_h = phy_rx_agent_drv::type_id::create("drv_h", this);
+    sqr_h = phy_rx_agent_sqr::type_id::create("sqr_h", this);
+    cov_h = phy_rx_agent_cov::type_id::create("cov_h", this);
 
     if(!uvm_config_db#(virtual phy_intf)::get(this," ","phy_pif",phy_pif))
       `uvm_fatal("AGENT", "***** Could not get vif *****")

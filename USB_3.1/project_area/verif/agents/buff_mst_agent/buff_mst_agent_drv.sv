@@ -33,20 +33,18 @@ class buff_mst_agent_drv extends uvm_driver#(buff_tx);
   endfunction:build_phase
 
   task run_phase(uvm_phase phase);
-	begin
-     seq_item_port.get_next_item(req);
-
+    begin
+      seq_item_port.get_next_item(req);
      	//displaying randomly generated stimulus
-     		$display("\n");
-		`uvm_info(get_full_name(), "\n\t\t\t********* stimulus generated at BUFF_MASTER_SIDE   ***********\n",UVM_MEDIUM)
-		req.print();
-     		$display("\n");
+     	$display("\n");
+	`uvm_info(get_full_name(), "\n\t\t\t********* stimulus generated at BUFF_MASTER_SIDE   ***********\n",UVM_MEDIUM)
+	req.print();
+     	$display("\n");
        
 	//calling task for driving signals
-		//drive_tx(req);
-
-     seq_item_port.item_done();
-	end
+	//drive_tx(req);
+      seq_item_port.item_done();
+    end
   endtask:run_phase
 
   task drive_tx(buff_tx     tx_h);

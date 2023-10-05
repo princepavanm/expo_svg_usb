@@ -41,6 +41,7 @@ class buff_mst_agent extends uvm_agent;
 
     if(!uvm_config_db#(virtual buff_intf)::get(this," ","buff_pif",buff_pif))
       `uvm_fatal("AGENT", "***** Could not get vif *****")
+
     uvm_config_db#(virtual buff_intf)::set(this,"*","buff_pif",buff_pif);
 
   endfunction:build_phase

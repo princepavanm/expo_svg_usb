@@ -33,20 +33,15 @@ class phy_rx_agent_drv extends uvm_driver#(phy_rx);
   endfunction:build_phase
 
   task run_phase(uvm_phase phase);
-
-     seq_item_port.get_next_item(req);
-     	
-     	//displaying randomly generated stimulus
-     		$display("\n");	
-		`uvm_info(get_full_name(),"\n\t\t\t********* stimulus generated at PHY_RX_AGENT side  ***********\n",UVM_MEDIUM)
-		req.print();
-     		$display("\n");	
-       
-	//calling task for driving signals
-		//drive_tx(req);
-
-     seq_item_port.item_done();
-
+    seq_item_port.get_next_item(req);
+      //displaying randomly generated stimulus
+      $display("\n");	
+      `uvm_info(get_full_name(),"\n\t\t\t********* stimulus generated at PHY_RX_AGENT side  ***********\n",UVM_MEDIUM)
+      req.print();
+      $display("\n");	 
+      //calling task for driving signals
+      //drive_tx(req);
+    seq_item_port.item_done();
   endtask:run_phase
 
   task drive_tx(phy_rx     tx_h);

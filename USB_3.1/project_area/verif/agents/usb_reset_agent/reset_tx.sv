@@ -2,40 +2,32 @@
 //      Company:  Expolog Technologies.                                                          //
 //           Copyright (c) 2023 by Expolog Technologies, Inc. All rights reserved.               //
 //                                                                                               //
-//      Engineer          :ANGAPPAN                                                              //
+//      Engineer          :                                                                      //
 //      Revision tag      :                                                                      //
-//      Module Name       :usb_reset_seq                                                         //
-//      Project Name      :USB_3.1                                                               //
+//      Module Name       :                                                                      //
+//      Project Name      :                                                                      //
 //      component name    :                                                                      //
-//      Description       :	This module provides a test to generate clocks                   //
+//      Description       :	This module provides a test to generate clocks                       //
 //                                                                                               //
 //                                                                                               //
 //      Additional Comments:                                                                     //
 //                                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-class usb_reset_seq extends uvm_sequence#(buff_tx);
-
-  `uvm_object_utils(usb_reset_seq)
-
-  function new(string name="usb_reset_seq");
+class reset_tr extends uvm_sequence_item;
+  
+  typedef enum {ASSERT, DEASSERT} kind_e;
+  rand kind_e kind;
+  rand int unsigned cycles =1;
+  
+  `uvm_object_utils_begin(reset_tr)
+    `uvm_field_enum(kind_e, kind, UVM_ALL_ON)
+    `uvm_field_int(cycles, UVM_ALL_ON)
+  `uvm_object_utils_end
+  
+  function new(string name = "reset_tr");
     super.new(name);
+    `uvm_info("RESET_TX",$sformatf("%m"),UVM_HIGH);
   endfunction
-
-   virtual task body();
-
-   	begin
-	`uvm_do_with(req,{req.reset_n==0;});
-	repeat(50)begin
-	`uvm_do_with(req,{req.reset_n==1;});
-	end
-//	`uvm_do_with(req,{req.reset_n==0;});
-	end
-	//req.print();
-   // Functionality of sequence are coded here
-
-  endtask:body
-
-    
-endclass:usb_reset_seq
-
+ 
+endclass

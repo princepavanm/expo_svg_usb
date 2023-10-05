@@ -69,16 +69,16 @@ output	wire			phy_rate,
 output	wire			phy_elas_buf_mode,
 
 input	wire	[8:0]	buf_in_addr,
-input	wire	[31:0]	buf_in_data,
+input	wire	[7:0]	buf_in_data,//[31:0]	buf_in_data,
 input	wire			buf_in_wren,
 output	wire			buf_in_request,
 output	wire			buf_in_ready,
 input	wire			buf_in_commit,
-input	wire	[10:0]	buf_in_commit_len,
+input	wire	[9:0]	buf_in_commit_len,//[10:0]	buf_in_commit_len,
 output	wire			buf_in_commit_ack,
 
 input	wire	[8:0]	buf_out_addr,
-output	wire	[31:0]	buf_out_q,
+output	wire	[7:0]	buf_out_q,//[31:0]	buf_out_q,
 output	wire	[10:0]	buf_out_len,
 output	wire			buf_out_hasdata,
 input	wire			buf_out_arm,
@@ -671,10 +671,10 @@ mf_usb3_pll	 iu3pll (
 	.c0 		( local_pclk_quarter ),		// 62.5mhz
 	.c1 		( local_pclk_half ),		// 125mhz
 	.c2 		( local_pclk_half_phase ),	// 125mhz 90 phase shift
-	.c3			( local_tx_clk ),			// 250mhz 0 phase shift
-	.c4			( local_tx_clk_phase ),		// 250mhz 90 phase shift
+	.c3		( local_tx_clk ),		// 250mhz 0 phase shift
+	.c4		( local_tx_clk_phase ),		// 250mhz 90 phase shift
 	
-	.locked 	( pll_locked )				// valid high
+	.locked 	( pll_locked )			// valid high
 );
 
 

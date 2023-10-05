@@ -1,0 +1,339 @@
+# vsim -c -sv_seed 10 -cvgperinstance -voptargs="+acc" -coverage -voptargs="+cover=all" -suppress 10016 -suppress 2685 -suppress 2718 -assertdebug -voptargs="+ASSERTION_ON" "+UVM_VERBOSITY=UVM_MEDIUM" "+UVM_TESTNAME=usb_base_test" -l ../../../USB_3.1/scratch_area/log/usb_base_test_10/usb_base_test_10.log -do "coverage save -onexit ../../../USB_3.1/scratch_area/log/usb_base_test_10/usb_base_test_10.ucdb;run -all; exit" work.top 
+# Start time: 07:02:08 on Oct 05,2023
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vopt-143) Recognized 10 FSMs in module "usb3_link(fast)".
+# ** Note: (vopt-143) Recognized 5 FSMs in module "usb3_pipe(fast)".
+# ** Note: (vopt-143) Recognized 2 FSMs in module "usb3_ltssm(fast)".
+# ** Note: (vopt-143) Recognized 2 FSMs in module "usb3_protocol(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "usb2_packet(fast)".
+# ** Note: (vopt-143) Recognized 2 FSMs in module "usb3_ep0(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "usb2_ulpi(fast)".
+# ** Note: (vopt-143) Recognized 2 FSMs in module "usb2_ep0(fast)".
+# ** Note: (vopt-143) Recognized 2 FSMs in module "usb3_ep(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "usb2_protocol(fast)".
+# ** Note: (vopt-143) Recognized 2 FSMs in module "usb2_ep(fast)".
+# //  Questa Sim-64
+# //  Version 10.7c win64 Aug 18 2018
+# //
+# //  Copyright 1991-2018 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg
+# Loading work.top_sv_unit(fast)
+# Loading work.top(fast)
+# Loading work.reset_intf(fast)
+# Loading work.buff_intf(fast)
+# Loading work.phy_intf(fast)
+# Loading work.usb_top(fast)
+# Loading work.usb3_top(fast)
+# Loading work.usb3_pipe(fast)
+# Loading work.usb3_descramble(fast)
+# Loading work.usb3_lfsr(fast)
+# Loading work.usb3_scramble(fast)
+# Loading work.mf_usb3_rx(fast)
+# Loading work.mf_usb3_tx(fast)
+# Loading work.usb3_ltssm(fast)
+# Loading work.usb3_link(fast)
+# Loading work.usb3_crc_dpp32(fast)
+# Loading work.usb3_crc_dpp24(fast)
+# Loading work.usb3_crc_dpp16(fast)
+# Loading work.usb3_crc_dpp8(fast)
+# Loading work.usb3_crc_hp(fast)
+# Loading work.usb3_crc_cw(fast)
+# Loading work.usb3_protocol(fast)
+# Loading work.usb3_ep0(fast)
+# Loading work.mf_usb3_ep0in(fast)
+# Loading work.mf_usb3_descrip(fast)
+# Loading work.usb3_ep(fast)
+# Loading work.mf_usb3_ep(fast)
+# Loading work.mf_usb3_pll(fast)
+# Loading work.usb2_top(fast)
+# Loading work.usb2_ulpi(fast)
+# Loading work.usb2_packet(fast)
+# Loading work.usb2_crc5(fast)
+# Loading work.usb2_crc16(fast)
+# Loading work.usb2_protocol(fast)
+# Loading work.usb2_ep0(fast)
+# Loading work.mf_usb2_ep0in(fast)
+# Loading work.mf_usb2_descrip(fast)
+# Loading work.usb2_ep(fast)
+# Loading work.mf_usb2_ep(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.reset_intf(fast)
+# Loading work.buff_intf(fast)
+# Loading work.phy_intf(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (3) does not match connection size (2) for port 'phy_tx_margin'. The port definition is at: ../../../USB_3.1/project_area/design/rtl/usb3_pipe.v(39).
+#    Time: 0 ps  Iteration: 0  Instance: /top/DUT/usb3_top_inst/iu3p File: ../../../USB_3.1/project_area/design/rtl/usb3_top.v Line: 297
+# ** Warning: (vsim-3015) [PCDPC] - Port size (10) does not match connection size (9) for port 'buf_out_addr'. The port definition is at: ../../../USB_3.1/project_area/design/rtl/usb3_link.v(108).
+#    Time: 0 ps  Iteration: 0  Instance: /top/DUT/usb3_top_inst/iu3l File: ../../../USB_3.1/project_area/design/rtl/usb3_top.v Line: 436
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (8) for port 'ext_buf_in_data'. The port definition is at: ../../../USB_3.1/project_area/design/rtl/usb3_protocol.v(98).
+#    Time: 0 ps  Iteration: 0  Instance: /top/DUT/usb3_top_inst/iu3r File: ../../../USB_3.1/project_area/design/rtl/usb3_top.v Line: 545
+# ** Warning: (vsim-3015) [PCDPC] - Port size (11) does not match connection size (10) for port 'ext_buf_in_commit_len'. The port definition is at: ../../../USB_3.1/project_area/design/rtl/usb3_protocol.v(103).
+#    Time: 0 ps  Iteration: 0  Instance: /top/DUT/usb3_top_inst/iu3r File: ../../../USB_3.1/project_area/design/rtl/usb3_top.v Line: 545
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (8) for port 'ext_buf_out_q'. The port definition is at: ../../../USB_3.1/project_area/design/rtl/usb3_protocol.v(107).
+#    Time: 0 ps  Iteration: 0  Instance: /top/DUT/usb3_top_inst/iu3r File: ../../../USB_3.1/project_area/design/rtl/usb3_top.v Line: 545
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (9) for port 'wraddress'. The port definition is at: ../../../USB_3.1/project_area/design/rtl/mf_usb3_ep0in.v(43).
+#    Time: 0 ps  Iteration: 0  Instance: /top/DUT/usb3_top_inst/iu3r/iu3ep0/iu3ep0i File: ../../../USB_3.1/project_area/design/rtl/usb3_ep0.v Line: 449
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (9) for port 'address'. The port definition is at: ../../../USB_3.1/project_area/design/rtl/mf_usb3_descrip.v(40).
+#    Time: 0 ps  Iteration: 0  Instance: /top/DUT/usb3_top_inst/iu3r/iu3ep0/iu3d File: ../../../USB_3.1/project_area/design/rtl/usb3_ep0.v Line: 458
+# ** Warning: (vsim-3015) [PCDPC] - Port size (10) does not match connection size (11) for port 'buf_out_len'. The port definition is at: ../../../USB_3.1/project_area/design/rtl/usb2_top.v(41).
+#    Time: 0 ps  Iteration: 0  Instance: /top/DUT/usb2_inst File: ../../../USB_3.1/project_area/design/rtl/usb_top.v Line: 153
+# ** Warning: (vsim-3015) [PCDPC] - Port size (10) does not match connection size (9) for port 'buf_out_addr'. The port definition is at: ../../../USB_3.1/project_area/design/rtl/usb2_packet.v(39).
+#    Time: 0 ps  Iteration: 0  Instance: /top/DUT/usb2_inst/ip File: ../../../USB_3.1/project_area/design/rtl/usb2_top.v Line: 191
+# ** Warning: (vsim-3015) [PCDPC] - Port size (9) does not match connection size (6) for port 'buf_in_addr'. The port definition is at: ../../../USB_3.1/project_area/design/rtl/usb2_ep0.v(21).
+#    Time: 0 ps  Iteration: 0  Instance: /top/DUT/usb2_inst/ipr/iep0 File: ../../../USB_3.1/project_area/design/rtl/usb2_protocol.v Line: 189
+# ** Warning: (vsim-3015) [PCDPC] - Port size (9) does not match connection size (8) for port 'buf_out_addr'. The port definition is at: ../../../USB_3.1/project_area/design/rtl/usb2_ep0.v(29).
+#    Time: 0 ps  Iteration: 0  Instance: /top/DUT/usb2_inst/ipr/iep0 File: ../../../USB_3.1/project_area/design/rtl/usb2_protocol.v Line: 189
+# ** Warning: (vsim-3015) [PCDPC] - Port size (6) does not match connection size (9) for port 'wraddress'. The port definition is at: ../../../USB_3.1/project_area/design/rtl/mf_usb2_ep0in.v(44).
+#    Time: 0 ps  Iteration: 0  Instance: /top/DUT/usb2_inst/ipr/iep0/iu2ep0i File: ../../../USB_3.1/project_area/design/rtl/usb2_ep0.v Line: 157
+# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (9) for port 'address'. The port definition is at: ../../../USB_3.1/project_area/design/rtl/mf_usb2_descrip.v(40).
+#    Time: 0 ps  Iteration: 0  Instance: /top/DUT/usb2_inst/ipr/iep0/iu2d File: ../../../USB_3.1/project_area/design/rtl/usb2_ep0.v Line: 173
+# ** Warning: (vsim-3838) Variable '/top/buff_pif/ext_clk' written by continuous and procedural assignments. 
+# One of the assignments is implicit. See ../../../USB_3.1/project_area/verif/tb/top.sv(42).
+#    Time: 0 ps  Iteration: 0  Instance: /top/buff_pif File: ../../../USB_3.1/project_area/verif/agents/buff_mst_agent/buff_mst_agent_intf.sv Line: 18
+# ** Warning: (vsim-3838) Variable '/top/buff_pif/phy_ulpi_clk' written by continuous and procedural assignments. 
+# One of the assignments is implicit. See ../../../USB_3.1/project_area/verif/tb/top.sv(42).
+#    Time: 0 ps  Iteration: 0  Instance: /top/buff_pif File: ../../../USB_3.1/project_area/verif/agents/buff_mst_agent/buff_mst_agent_intf.sv Line: 20
+# Loading C:/questasim64_10.7c/uvm-1.1d\win64\uvm_dpi.dll
+# coverage save -onexit ../../../USB_3.1/scratch_area/log/usb_base_test_10/usb_base_test_10.ucdb
+# run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(216) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test usb_base_test...
+# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+# --------------------------------------------------------------------
+# Name                             Type                    Size  Value
+# --------------------------------------------------------------------
+# uvm_test_top                     usb_base_test           -     @481 
+#   env_h                          usb_env                 -     @488 
+#     buff_mst_agent_h             buff_mst_agent          -     @740 
+#       cov_h                      buff_mst_agent_cov      -     @894 
+#         analysis_imp             uvm_analysis_imp        -     @901 
+#         buff_mst_agent_cov_port  uvm_analysis_imp        -     @912 
+#       drv_h                      buff_mst_agent_drv      -     @762 
+#         rsp_port                 uvm_analysis_port       -     @777 
+#         seq_item_port            uvm_seq_item_pull_port  -     @769 
+#       mon_h                      buff_mst_agent_mon      -     @755 
+#         buff_mst_agent_mon_port  uvm_analysis_port       -     @925 
+#       sqr_h                      buff_mst_agent_sqr      -     @785 
+#         rsp_export               uvm_analysis_export     -     @792 
+#         seq_item_export          uvm_seq_item_pull_imp   -     @886 
+#         arbitration_queue        array                   0     -    
+#         lock_queue               array                   0     -    
+#         num_last_reqs            integral                32    'd1  
+#         num_last_rsps            integral                32    'd1  
+#     phy_rx_agent_h               phy_rx_agent            -     @747 
+#       cov_h                      phy_rx_agent_cov        -     @1082
+#         analysis_imp             uvm_analysis_imp        -     @1089
+#         phy_rx_agent_cov_port    uvm_analysis_imp        -     @1100
+#       drv_h                      phy_rx_agent_drv        -     @950 
+#         rsp_port                 uvm_analysis_port       -     @965 
+#         seq_item_port            uvm_seq_item_pull_port  -     @957 
+#       mon_h                      phy_rx_agent_mon        -     @943 
+#         phy_rx_agent_mon_port    uvm_analysis_port       -     @1113
+#       sqr_h                      phy_rx_agent_sqr        -     @973 
+#         rsp_export               uvm_analysis_export     -     @980 
+#         seq_item_export          uvm_seq_item_pull_imp   -     @1074
+#         arbitration_queue        array                   0     -    
+#         lock_queue               array                   0     -    
+#         num_last_reqs            integral                32    'd1  
+#         num_last_rsps            integral                32    'd1  
+#     reset_agent_h                reset_agent             -     @733 
+#       reset_drv_h                reset_drv               -     @1131
+#         rsp_port                 uvm_analysis_port       -     @1146
+#         seq_item_port            uvm_seq_item_pull_port  -     @1138
+#       reset_sqr_h                uvm_sequencer           -     @1154
+#         rsp_export               uvm_analysis_export     -     @1161
+#         seq_item_export          uvm_seq_item_pull_imp   -     @1255
+#         arbitration_queue        array                   0     -    
+#         lock_queue               array                   0     -    
+#         num_last_reqs            integral                32    'd1  
+#         num_last_rsps            integral                32    'd1  
+#     v_sqr_h                      usb_virtual_sqr         -     @624 
+#       buff_mst_agent_sqr_h       buff_mst_agent_sqr      -     @1386
+#         rsp_export               uvm_analysis_export     -     @1393
+#         seq_item_export          uvm_seq_item_pull_imp   -     @1487
+#         arbitration_queue        array                   0     -    
+#         lock_queue               array                   0     -    
+#         num_last_reqs            integral                32    'd1  
+#         num_last_rsps            integral                32    'd1  
+#       phy_rx_agent_sqr_h         phy_rx_agent_sqr        -     @1495
+#         rsp_export               uvm_analysis_export     -     @1502
+#         seq_item_export          uvm_seq_item_pull_imp   -     @1596
+#         arbitration_queue        array                   0     -    
+#         lock_queue               array                   0     -    
+#         num_last_reqs            integral                32    'd1  
+#         num_last_rsps            integral                32    'd1  
+#       reset_sqr_h                uvm_sequencer           -     @1277
+#         rsp_export               uvm_analysis_export     -     @1284
+#         seq_item_export          uvm_seq_item_pull_imp   -     @1378
+#         arbitration_queue        array                   0     -    
+#         lock_queue               array                   0     -    
+#         num_last_reqs            integral                32    'd1  
+#         num_last_rsps            integral                32    'd1  
+#       rsp_export                 uvm_analysis_export     -     @631 
+#       seq_item_export            uvm_seq_item_pull_imp   -     @725 
+#       arbitration_queue          array                   0     -    
+#       lock_queue                 array                   0     -    
+#       num_last_reqs              integral                32    'd1  
+#       num_last_rsps              integral                32    'd1  
+#   v_sqr_h                        usb_virtual_sqr         -     @495 
+#     buff_mst_agent_sqr_h         buff_mst_agent_sqr      -     @1733
+#       rsp_export                 uvm_analysis_export     -     @1740
+#       seq_item_export            uvm_seq_item_pull_imp   -     @1834
+#       arbitration_queue          array                   0     -    
+#       lock_queue                 array                   0     -    
+#       num_last_reqs              integral                32    'd1  
+#       num_last_rsps              integral                32    'd1  
+#     phy_rx_agent_sqr_h           phy_rx_agent_sqr        -     @1842
+#       rsp_export                 uvm_analysis_export     -     @1849
+#       seq_item_export            uvm_seq_item_pull_imp   -     @1943
+#       arbitration_queue          array                   0     -    
+#       lock_queue                 array                   0     -    
+#       num_last_reqs              integral                32    'd1  
+#       num_last_rsps              integral                32    'd1  
+#     reset_sqr_h                  uvm_sequencer           -     @1624
+#       rsp_export                 uvm_analysis_export     -     @1631
+#       seq_item_export            uvm_seq_item_pull_imp   -     @1725
+#       arbitration_queue          array                   0     -    
+#       lock_queue                 array                   0     -    
+#       num_last_reqs              integral                32    'd1  
+#       num_last_rsps              integral                32    'd1  
+#     rsp_export                   uvm_analysis_export     -     @502 
+#     seq_item_export              uvm_seq_item_pull_imp   -     @596 
+#     arbitration_queue            array                   0     -    
+#     lock_queue                   array                   0     -    
+#     num_last_reqs                integral                32    'd1  
+#     num_last_rsps                integral                32    'd1  
+# --------------------------------------------------------------------
+# 
+# -------------------------------------------------------------------------------------------------------
+# Name                           Type      Size  Value                                                   
+# -------------------------------------------------------------------------------------------------------
+# req                            reset_tr  -     @2002                                                   
+#   kind                         kind_e    32    ASSERT                                                  
+#   cycles                       integral  32    'h2                                                     
+#   begin_time                   time      64    0                                                       
+#   depth                        int       32    'd2                                                     
+#   parent sequence (name)       string    11    reset_seq_h                                             
+#   parent sequence (full name)  string    56    uvm_test_top.env_h.reset_agent_h.reset_sqr_h.reset_seq_h
+#   sequencer                    string    44    uvm_test_top.env_h.reset_agent_h.reset_sqr_h            
+# -------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------
+# Name                           Type      Size  Value                                                   
+# -------------------------------------------------------------------------------------------------------
+# req                            reset_tr  -     @2271                                                   
+#   kind                         kind_e    32    DEASSERT                                                
+#   cycles                       integral  32    'h1                                                     
+#   begin_time                   time      64    6                                                       
+#   depth                        int       32    'd2                                                     
+#   parent sequence (name)       string    11    reset_seq_h                                             
+#   parent sequence (full name)  string    56    uvm_test_top.env_h.reset_agent_h.reset_sqr_h.reset_seq_h
+#   sequencer                    string    44    uvm_test_top.env_h.reset_agent_h.reset_sqr_h            
+# -------------------------------------------------------------------------------------------------------
+# 
+# 
+# UVM_INFO ../../../USB_3.1/project_area/verif/agents/buff_mst_agent/buff_mst_agent_drv.sv(40) @ 55000010: uvm_test_top.env_h.buff_mst_agent_h.drv_h [uvm_test_top.env_h.buff_mst_agent_h.drv_h] 
+# 			********* stimulus generated at BUFF_MASTER_SIDE   ***********
+# 
+# -------------------------------------------------------------------------------------------------------
+# Name                           Type      Size  Value                                                   
+# -------------------------------------------------------------------------------------------------------
+# req                            buff_tx   -     @2276                                                   
+#   reset_n                      integral  1     'h0                                                     
+#   buf_in_addr                  integral  9     'h1ec                                                   
+#   buf_in_data                  integral  8     'h46                                                    
+#   buf_in_wren                  integral  1     'h0                                                     
+#   sop                          integral  1     'h0                                                     
+#   eop                          integral  1     'h0                                                     
+#   buf_in_commit_len            integral  11    'h7d1                                                   
+#   buf_out_addr                 integral  9     'ha                                                     
+#   begin_time                   time      64    55000010                                                
+#   depth                        int       32    'd2                                                     
+#   parent sequence (name)       string    14    usb_base_seq_h                                          
+#   parent sequence (full name)  string    56    uvm_test_top.env_h.buff_mst_agent_h.sqr_h.usb_base_seq_h
+#   sequencer                    string    41    uvm_test_top.env_h.buff_mst_agent_h.sqr_h               
+# -------------------------------------------------------------------------------------------------------
+# 
+# 
+# 
+# 
+# UVM_INFO ../../../USB_3.1/project_area/verif/agents/phy_rx_agent/phy_rx_agent_drv.sv(39) @ 55000010: uvm_test_top.env_h.phy_rx_agent_h.drv_h [uvm_test_top.env_h.phy_rx_agent_h.drv_h] 
+# 			********* stimulus generated at PHY_RX_AGENT side  ***********
+# 
+# -------------------------------------------------------------------------------------------------------
+# Name                           Type      Size  Value                                                   
+# -------------------------------------------------------------------------------------------------------
+# req                            phy_rx    -     @2282                                                   
+#   phy_pipe_rx_data             integral  16    'h773a                                                  
+#   phy_pipe_rx_datak            integral  2     'h2                                                     
+#   phy_pipe_rx_valid            integral  1     'h1                                                     
+#   phy_rx_status                integral  3     'h7                                                     
+#   phy_pwrpresent               integral  1     'h0                                                     
+#   begin_time                   time      64    55000010                                                
+#   depth                        int       32    'd2                                                     
+#   parent sequence (name)       string    16    usb_phy_rx_seq_h                                        
+#   parent sequence (full name)  string    56    uvm_test_top.env_h.phy_rx_agent_h.sqr_h.usb_phy_rx_seq_h
+#   sequencer                    string    39    uvm_test_top.env_h.phy_rx_agent_h.sqr_h                 
+# -------------------------------------------------------------------------------------------------------
+# 
+# 
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 55000510: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# 
+# 
+# 								**************************************************
+# 								**                 TEST Summary                 **
+# 								**************************************************
+# 								**************************************************
+# 								**                 TEST  PASSED                 **
+# 								**************************************************
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :    7
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [Questa UVM]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# [UVMTOP]     1
+# [uvm_test_top.env_h.buff_mst_agent_h.drv_h]     1
+# [uvm_test_top.env_h.phy_rx_agent_h.drv_h]     1
+# ** Note: $finish    : C:/questasim64_10.7c/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 55000510 ps  Iteration: 53  Instance: /top
+# Saving coverage database on exit...
+# End time: 07:03:32 on Oct 05,2023, Elapsed time: 0:01:24
+# Errors: 0, Warnings: 15, Suppressed Warnings: 114

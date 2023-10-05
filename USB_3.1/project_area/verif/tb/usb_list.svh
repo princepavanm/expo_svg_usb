@@ -15,19 +15,21 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 //List of Include Files
+  `include "reset_intf.sv"
   `include "buff_mst_agent_intf.sv"
   `include "phy_rx_agent_intf.sv"
-
   
+  `include "reset_tx.sv"
+  //`include "reset_mon.sv"
+  `include "reset_driver.sv"
+  `include "reset_agent.sv"
+
   `include "buff_mst_agent_tx.sv"
   `include "buff_mst_agent_drv.sv"
   `include "buff_mst_agent_sqr.sv"
   `include "buff_mst_agent_cov.sv"
   `include "buff_mst_agent_mon.sv"
   `include "buff_mst_agent.sv"
-
-  `include "usb_reset_driver.sv"
-  `include "usb_reset_agent.sv"
 
   `include "phy_rx_agent_tx.sv"
   `include "phy_rx_agent_drv.sv"
