@@ -16,13 +16,15 @@
 
 class reset_tr extends uvm_sequence_item;
   
-  typedef enum {ASSERT, DEASSERT} kind_e;
+  typedef enum {DEASSERT, ASSERT} kind_e;
   rand kind_e kind;
   rand int unsigned cycles =1;
+  rand bit  phy_ulpi_dir;
   
   `uvm_object_utils_begin(reset_tr)
     `uvm_field_enum(kind_e, kind, UVM_ALL_ON)
     `uvm_field_int(cycles, UVM_ALL_ON)
+    `uvm_field_int(phy_ulpi_dir, UVM_ALL_ON)
   `uvm_object_utils_end
   
   function new(string name = "reset_tr");
@@ -31,3 +33,4 @@ class reset_tr extends uvm_sequence_item;
   endfunction
  
 endclass
+

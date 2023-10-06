@@ -38,8 +38,11 @@ class reset_sequence extends uvm_sequence #(reset_tr);
   endtask:pre_body
 	
   virtual task body();
-    `uvm_do_with(req, {kind == ASSERT; cycles == 2;});
-    `uvm_do_with(req, {kind == DEASSERT; cycles == 1;});
+  begin
+    `uvm_do_with(req, {kind == DEASSERT; cycles == 2;phy_ulpi_dir == 0;});
+    `uvm_do_with(req, {kind == ASSERT; cycles == 512010;phy_ulpi_dir == 0;}); //510000 not work
+    `uvm_do_with(req, {kind == ASSERT; cycles == 1;phy_ulpi_dir == 1;});
+    end
     //`uvm_do_with(req, {kind == ASSERT; cycles == 5;}); //TODO after FSM study
   endtask: body
   
@@ -54,3 +57,4 @@ class reset_sequence extends uvm_sequence #(reset_tr);
   endtask:post_body
 	
 endclass: reset_sequence
+

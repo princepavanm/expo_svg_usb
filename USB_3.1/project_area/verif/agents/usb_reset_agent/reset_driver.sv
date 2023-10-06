@@ -43,7 +43,7 @@ class reset_drv extends uvm_driver#(reset_tr);
 
   virtual task drive_tx(reset_tr     tr_h);
 
-    if(tr_h.kind == reset_tr::ASSERT) begin
+    if(tr_h.kind == reset_tr::DEASSERT) begin
       reset_pif.reset_n = 1'b0;
       repeat (tr_h.cycles) @(reset_pif.reset_cb);
     end
@@ -52,7 +52,9 @@ class reset_drv extends uvm_driver#(reset_tr);
 	  
       repeat(tr_h.cycles) @(reset_pif.reset_cb);
     end
-	top.buff_pif.phy_ulpi_dir <= 0;
+	top.buff_pif.phy_ulpi_dir <= req.phy_ulpi_dir;
+	top.buff_pif.phy_ulpi_nxt <= 1;
   endtask:drive_tx
 
 endclass:reset_drv
+

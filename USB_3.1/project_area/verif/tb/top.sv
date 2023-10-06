@@ -37,7 +37,7 @@ module top;
   
   //Interface instantation  
   
-  reset_intf reset_pif( .ext_clk(ext_clk));//.reset_n(reset_n)),
+  reset_intf reset_pif( .phy_ulpi_clk(phy_ulpi_clk)); //changed ext clock --> phy_ulpi_ck
   
   buff_intf buff_pif(	.ext_clk(ext_clk), 
 			.reset_n(reset_pif.reset_n),
@@ -180,4 +180,5 @@ module top;
   end
 
 endmodule:top
+
 

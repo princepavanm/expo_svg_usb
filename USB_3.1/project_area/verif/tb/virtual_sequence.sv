@@ -48,7 +48,7 @@ class usb_virtual_sequence extends uvm_sequence #(uvm_sequence_item);
     //sequence start here
     begin
       reset_seq_h.start(env_h.v_sqr_h.reset_sqr_h);
-	  #55000;
+	#1000;
       usb_base_seq_h.start(env_h.v_sqr_h.buff_mst_agent_sqr_h);
       usb_phy_rx_seq_h.start(env_h.v_sqr_h.phy_rx_agent_sqr_h);
     end	

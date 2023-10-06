@@ -1,8 +1,8 @@
-interface reset_intf(input ext_clk);
+interface reset_intf(input phy_ulpi_clk);
 
   logic			reset_n;
 
-  clocking reset_cb@(posedge ext_clk);
+  clocking reset_cb@(posedge phy_ulpi_clk);
     default input #1 output #1;
     output reset_n;
   endclocking : reset_cb
@@ -10,3 +10,4 @@ interface reset_intf(input ext_clk);
   modport DUT (clocking reset_cb);
   
 endinterface: reset_intf
+
