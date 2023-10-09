@@ -2,16 +2,14 @@
 //      Company:  Expolog Technologies.                                                          //
 //           Copyright (c) 2023 by Expolog Technologies, Inc. All rights reserved.               //
 //                                                                                               //
-//      Engineer          :                                                                      //
-//      Revision tag      :                                                                      //
-//      Module Name       :                                                                      //
-//      Project Name      :                                                                      //
-//      component name    :                                                                      //
-//      Description       :	This module provides a test to generate clocks                       //
-//                                                                                               //
-//                                                                                               //
-//      Additional Comments:                                                                     //
-//                                                                                               //
+//      Engineer          :  ANGAPPAN MOHAMMED_KHADEER LOKESH MADHURA                            //
+//      Revision tag      :  06/10/2023                                                          //
+//      Module Name       :  buff_mst_agent_mon                                                  //
+//      Project Name      :  USB 3.1                                                             //
+//      component name    :  Monitor                                                             //
+//      Description       :  This module a passive component used to capture DUT signals using a //
+//                           virtual interface and translate them into a sequence item format    //
+//     Additional Comments:                                                                      //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 class buff_mst_agent_mon extends uvm_monitor;

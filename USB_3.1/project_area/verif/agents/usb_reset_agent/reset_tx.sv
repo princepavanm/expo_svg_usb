@@ -1,18 +1,16 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-//      Company:  Expolog Technologies.                                                          //
+//    Company:  Expolog Technologies.                                                            //
 //           Copyright (c) 2023 by Expolog Technologies, Inc. All rights reserved.               //
 //                                                                                               //
-//      Engineer          :                                                                      //
-//      Revision tag      :                                                                      //
-//      Module Name       :                                                                      //
-//      Project Name      :                                                                      //
-//      component name    :                                                                      //
-//      Description       :	This module provides a test to generate clocks                       //
-//                                                                                               //
-//                                                                                               //
-//      Additional Comments:                                                                     //
-//                                                                                               //
-///////////////////////////////////////////////////////////////////////////////////////////////////
+//      Engineer          : ANGAPPAN, MOHAMMAD_KHADEER, LOKESH AND MADHURA.                      //
+//      Revision tag      : 06/10/2023                                                           //
+//      Module Name       : reset_tr                                                              //
+//      Project Name      : USB 3.1                                                              //
+//      component name    : Sequence_item                                                        //
+//      Description       : This module having the signals declarations and field declarations.  //           
+//     Additional Comments:                                                                      //
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 class reset_tr extends uvm_sequence_item;
   

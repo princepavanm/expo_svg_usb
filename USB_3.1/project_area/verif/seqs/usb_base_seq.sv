@@ -2,14 +2,14 @@
 //      Company:  Expolog Technologies.                                                          //
 //           Copyright (c) 2023 by Expolog Technologies, Inc. All rights reserved.               //
 //                                                                                               //
-//      Engineer          :                                                                      //
-//      Revision tag      :                                                                      //
-//      Module Name       :                                                                      //
-//      Project Name      :                                                                      //
-//      component name    :                                                                      //
-//      Description       :	This module provides a test to generate clocks                       //
+//      Engineer          :  Angappan,Mohammad_Khadeer,Lokesh, Madhura.                          //     
+//      Revision tag      :  06/10/2023                                                          //     
+//      Module Name       :  usb_base_seq                                                        //     
+//      Project Name      :  USB 3.1                                                             //
+//      component name    :  Sequence                                                            //
+//      Description       :  This module base sequence for all sequences                 	 //
 //                                                                                               //
-//                                                                                               //
+//                                                                                               //                                                 
 //      Additional Comments:                                                                     //
 //                                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////////////////////

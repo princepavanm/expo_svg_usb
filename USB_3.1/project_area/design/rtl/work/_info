@@ -1,0 +1,264 @@
+m255
+K4
+z2
+!s99 nomlopt
+!s11f vlog 2021.1 2021.01, Jan 19 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/LOKESH/Documents/GitHub/expo_svg_usb/USB_3.1/project_area/design/rtl
+T_opt
+!s110 1696329360
+V[G85idd1T;1QYedh[nmBG1
+04 8 4 work usb2_top fast 0
+=1-204747ec90f9-651bee8a-25c-153c
+!s124 OEM100
+o-quiet -auto_acc_if_foreign -work work -debugdb
+Z1 tCvgOpt 0
+n@_opt
+OL;O;2021.1;73
+vmf_usb2_descrip
+Z2 !s110 1696329280
+!i10b 1
+!s100 Vz;@OT`H=cA[dfJe^M5DN0
+IGiHIWYh7NI8@lHk2X_@_W1
+R0
+Z3 w1696335684
+8mf_usb2_descrip.v
+Fmf_usb2_descrip.v
+!i122 0
+L0 39 61
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+Z5 OL;L;2021.1;73
+r1
+!s85 0
+31
+Z6 !s108 1696329279.000000
+Z7 !s107 mf_usb2_ep.v|usb2_ep.v|usb_descrip.vh|mf_usb2_descrip.v|mf_usb2_ep0in.v|usb2_ep0.v|usb2_protocol.v|usb2_crc.v|usb2_packet.v|usb2_ulpi.v|usb2_top.v|
+Z8 !s90 usb2_top.v|
+!i113 0
+Z9 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+vmf_usb2_ep
+R2
+!i10b 1
+!s100 FMmb0G0ciHEOai3i4DY7?2
+IhTL8PLb=Yo98Y0oDM37V_3
+R0
+R3
+8mf_usb2_ep.v
+Fmf_usb2_ep.v
+!i122 0
+L0 39 75
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1
+vmf_usb2_ep0in
+R2
+!i10b 1
+!s100 9WGAWhnC>l8:MoUE7NeeU3
+I6XJe82K]Xm9H7D=lVCX571
+R0
+R3
+8mf_usb2_ep0in.v
+Fmf_usb2_ep0in.v
+!i122 0
+L0 40 74
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1
+vusb2_crc16
+R2
+!i10b 1
+!s100 fB^d1<?]>Xm@HcUezNWjG2
+I@nDmR4Eh9kJ6cC7LKmmO=2
+R0
+R3
+Z10 8usb2_crc.v
+Z11 Fusb2_crc.v
+!i122 0
+L0 46 31
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1
+vusb2_crc5
+R2
+!i10b 1
+!s100 1198gIP@UN6hnV:@<NF?R3
+I<:HRCWol6`ihOlKdUQU7@3
+R0
+R3
+R10
+R11
+!i122 0
+L0 11 24
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1
+vusb2_ep
+R2
+!i10b 1
+!s100 ZFR3YLz[H6R8kLEb]SHQf0
+IMZdaM[hZJTo89cZZMEfJC0
+R0
+Z12 w1696335685
+8usb2_ep.v
+Fusb2_ep.v
+!i122 0
+L0 11 237
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1
+vusb2_ep0
+R2
+!i10b 1
+!s100 Ofkl^=5IX]Sz1E8Jid?593
+I0g:Hg[9WL5jBXGhCCFb5l1
+R0
+R12
+Fusb2_ep0.v
+Fusb_descrip.vh
+!i122 0
+L0 12 467
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1
+vusb2_packet
+R2
+!i10b 1
+!s100 _1F0Llh@:m?m0dSEE7W7Z3
+I2LWAaJhOP5>mSULW7;IO<2
+R0
+R12
+8usb2_packet.v
+Fusb2_packet.v
+!i122 0
+L0 12 571
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1
+vusb2_protocol
+R2
+!i10b 1
+!s100 hI;S3Wg]SK<1hgFmX8[>O0
+I4Ye:9I5lM7]Hl]S0Nea2T0
+R0
+R12
+8usb2_protocol.v
+Fusb2_protocol.v
+!i122 0
+L0 12 281
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1
+vusb2_top
+R2
+!i10b 1
+!s100 d_FC<ObVh4]S>>L@_T[Wl1
+I[Z?5oF`_1OYRQ=5CHd_mf1
+R0
+R12
+8usb2_top.v
+Fusb2_top.v
+!i122 0
+L0 12 295
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1
+vusb2_ulpi
+R2
+!i10b 1
+!s100 fIXHIX_H6i0]BJd3kh=dT3
+IYjfl4c^=89[RiROg4;gbl2
+R0
+w1696340901
+8usb2_ulpi.v
+Fusb2_ulpi.v
+!i122 0
+L0 11 449
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1

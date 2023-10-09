@@ -2,15 +2,13 @@
 //      Company:  Expolog Technologies.                                                          //
 //           Copyright (c) 2023 by Expolog Technologies, Inc. All rights reserved.               //
 //                                                                                               //
-//      Engineer          :                                                                      //
-//      Revision tag      :                                                                      //
-//      Module Name       :                                                                      //
-//      Project Name      :                                                                      //
-//      component name    :                                                                      //
-//      Description       :	This module provides a test to generate clocks                       //
-//                                                                                               //
-//                                                                                               //
-//      Additional Comments:                                                                     //
+//      Engineer          :  ANGAPPAN, MOHAMMED_KHADEER, LOKESH, MADHURA.                        //
+//      Revision tag      :  06/10/2023                                                          //
+//      Module Name       :  usb_base_test                                                       //
+//      Project Name      :  USB 3.1                                                             //
+//      component name    : test_list                                                            //
+//      Description       :                      			                 	 //
+//     Additional Comments:                                                                      //
 //                                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 

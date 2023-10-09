@@ -2,12 +2,13 @@
 //      Company:  Expolog Technologies.                                                          //
 //           Copyright (c) 2023 by Expolog Technologies, Inc. All rights reserved.               //
 //                                                                                               //
-//      Engineer          :                                                                      //
-//      Revision tag      :                                                                      //
-//      Module Name       :                                                                      //
-//      Project Name      :                                                                      //
-//      component name    :                                                                      //
-//      Description       :	This module provides a test to generate clocks                   //
+//      Engineer          :  Angappan	Mohammad_Khadeer Lokesh Madhura                          //     
+//      Revision tag      :  06/10/2023                                                          //     
+//      Module Name       :  Reset_sequence                                                      //     
+//      Project Name      :  USB 3.1                                                             //
+//      component name    :  Sequence                                                            //
+//      Description       : This module provides uvm_sequence_items which are                   //
+//                          sent to the driver via the sequencer.                        	 //
 //                                                                                               //
 //                                                                                               //
 //      Additional Comments:                                                                     //

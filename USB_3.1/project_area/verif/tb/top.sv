@@ -2,12 +2,16 @@
 //      Company:  Expolog Technologies.                                                          //
 //           Copyright (c) 2023 by Expolog Technologies, Inc. All rights reserved.               //
 //                                                                                               //
-//      Engineer          :                                                                      //
-//      Revision tag      :                                                                      //
-//      Module Name       :                                                                      //
-//      Project Name      :                                                                      //
-//      component name    :                                                                      //
-//      Description       :	This module provides a test to generate clocks                   //
+//      Engineer          :  Angappan	Mohammad_Khadeer Lokesh Madhura                          //     
+//      Revision tag      :  06/10/2023                                                          //     
+//      Module Name       :  top                                                                 //     
+//      Project Name      :  USB 3.1                                                             //
+//      component name    :  TOP                                                                 //
+//      Description       : TestBench top is the module, it connects the DUT and                 //
+//      		    Verification environment components.Typical Testbench_top            //
+//      		    contains, DUT instance,interface instance, run_test() method,        //
+//     			    virtual interface set config_db,clock nand reset generation          //
+//     			     logic and wave dump logic.                                          //
 //                                                                                               //
 //                                                                                               //
 //      Additional Comments:                                                                     //

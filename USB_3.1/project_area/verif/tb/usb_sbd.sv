@@ -2,15 +2,14 @@
 //      Company:  Expolog Technologies.                                                          //
 //           Copyright (c) 2023 by Expolog Technologies, Inc. All rights reserved.               //
 //                                                                                               //
-//      Engineer          :                                                                      //
-//      Revision tag      :                                                                      //
-//      Module Name       :                                                                      //
-//      Project Name      :                                                                      //
-//      component name    :                                                                      //
-//      Description       :	This module provides a test to generate clocks                       //
-//                                                                                               //
-//                                                                                               //
-//      Additional Comments:                                                                     //
+//      Engineer          :  ANGAPPAN, MOHAMMED_KHADEER, LOKESH, MADHURA.                        //
+//      Revision tag      :  06/10/2023                                                          //
+//      Module Name       :  usb_sbd                                                             //
+//      Project Name      :  USB 3.1                                                             //
+//      component name    :  Scoreboard                                                          //
+//      Description       :  scoreboard will check the correctness of the DUT by                 //
+//                           comparing the DUT output with the expected values                   //
+//     Additional Comments:                                                                      //
 //                                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 

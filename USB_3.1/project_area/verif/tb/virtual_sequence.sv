@@ -2,17 +2,20 @@
 //      Company:  Expolog Technologies.                                                          //
 //           Copyright (c) 2023 by Expolog Technologies, Inc. All rights reserved.               //
 //                                                                                               //
-//      Engineer          :  Angappan                                                            //
-//      Revision tag      :                                                                      //
-//      Module Name       :  usb_virtual_sequence                                                //
-//      Project Name      :                                                                      //
-//      component name    :                                                                      //
-//      Description       :	This module provides a test to generate clocks                   //
+//      Engineer          :  ANGAPPAN, MOHAMMAD_KHADEER, LOKESH, MADHURA.                        //
+//      Revision tag      :  06/10/2023.                                                         //
+//      Module Name       :  usb_virtual_sequence.                                               //
+//      Project Name      :  USB 3.1                                                             //
+//      component name    :  Virtual_sequence                                                    //
+//      Description       :  This module virtual sequence to start multiple sequences            //
+//                           on different sequencer.                                             //
 //                                                                                               //
 //                                                                                               //
 //      Additional Comments:                                                                     //
 //                                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 class usb_virtual_sequence extends uvm_sequence #(uvm_sequence_item);
  

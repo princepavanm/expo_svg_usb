@@ -2,17 +2,24 @@
 //      Company:  Expolog Technologies.                                                          //
 //           Copyright (c) 2023 by Expolog Technologies, Inc. All rights reserved.               //
 //                                                                                               //
-//      Engineer          :                                                                      //
-//      Revision tag      :                                                                      //
-//      Module Name       :                                                                      //
-//      Project Name      :                                                                      //
-//      component name    :                                                                      //
-//      Description       :	This module provides a test to generate clocks                       //
+//      Engineer          :  ANGAPPAN MOHAMMED_KHADEER LOKESH MADHURA                            //
+//      Revision tag      :  06/10/2023                                                          //
+//      Module Name       :  reset_drv                                                           //
+//      Project Name      :  USB 3.1                                                             //
+//      component name    :   Driver                                                             //
+//      Description       :  This module drives the all signals to DUT                           //
+//     Additional Comments:                                                                      //
 //                                                                                               //
 //                                                                                               //
-//      Additional Comments:                                                                     //
 //                                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
 
 class reset_drv extends uvm_driver#(reset_tr);
 
