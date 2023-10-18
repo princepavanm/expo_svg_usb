@@ -54,7 +54,8 @@ output	wire			err_pid_out_of_seq,
 output	wire			err_setup_pkt,
 
 output	wire	[10:0]	dbg_frame_num,
-output	wire	[1:0]	dbg_linestate
+output	wire	[1:0]	dbg_linestate,
+output	wire		se0_reset
 
 );
 ////////////////////////////////////////////////////////////
@@ -170,7 +171,8 @@ usb2_ulpi 	ia (
 	.pkt_in_latch	( ulpi_in_latch ),
 	.pkt_in_stp		( ulpi_in_stp ),
 	
-	.dbg_linestate 	( dbg_linestate )
+	.dbg_linestate 	( dbg_linestate ),
+	.se0_reset 	( se0_reset )
 );
 
 
@@ -304,3 +306,4 @@ usb2_protocol ipr (
 
 
 endmodule
+

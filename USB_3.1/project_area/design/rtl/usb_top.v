@@ -91,7 +91,8 @@ output				err_pid_out_of_seq,
 output				err_setup_pkt,
 
 output		[10:0]	dbg_frame_num,
-output		[1:0]	dbg_linestate
+output		[1:0]	dbg_linestate,
+output	se0_reset
 
 );   
 
@@ -189,7 +190,8 @@ usb2_top usb2_inst (
 	.err_pid_out_of_seq			(err_pid_out_of_seq),
 	.err_setup_pkt				(err_setup_pkt),
 	.dbg_frame_num				(dbg_frame_num),
-	.dbg_linestate				(dbg_linestate)
+	.dbg_linestate				(dbg_linestate),
+	.se0_reset				(se0_reset)
 	
 	);
                                 
@@ -197,3 +199,4 @@ usb2_top usb2_inst (
 endmodule                               
 	                              
 	
+

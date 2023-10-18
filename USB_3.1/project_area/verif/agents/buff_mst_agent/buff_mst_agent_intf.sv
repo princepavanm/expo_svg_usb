@@ -60,6 +60,7 @@ interface buff_intf(  input logic  reset_n,
   
   logic  [10:0] dbg_frame_num;
   logic  [1:0]  dbg_linestate;
+  logic  	se0_reset;
 
 //*********  clocking blocks buff_Driver  ***********//
 
@@ -110,6 +111,7 @@ interface buff_intf(  input logic  reset_n,
     
     input       dbg_frame_num;
     input       dbg_linestate;
+    input 		se0_reset;
 
   endclocking
 
@@ -162,6 +164,7 @@ interface buff_intf(  input logic  reset_n,
     
     input       dbg_frame_num;
     input       dbg_linestate;
+    input   	se0_reset;
 
   endclocking
 
@@ -172,4 +175,3 @@ interface buff_intf(  input logic  reset_n,
   modport BUFF_MONITOR(clocking buff_monitor_cb);
 
 endinterface:buff_intf
-

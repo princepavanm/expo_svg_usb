@@ -142,7 +142,8 @@ module top;
 	.err_pid_out_of_seq			(buff_pif.err_pid_out_of_seq),
 	.err_setup_pkt				(buff_pif.err_setup_pkt),
 	.dbg_frame_num				(buff_pif.dbg_frame_num),
-	.dbg_linestate				(buff_pif.dbg_linestate)
+	.dbg_linestate				(buff_pif.dbg_linestate),
+	.se0_reset				(buff_pif.se0_reset)
 	
 	);
 
@@ -160,5 +161,3 @@ module top;
   end
 
 endmodule:top
-
-

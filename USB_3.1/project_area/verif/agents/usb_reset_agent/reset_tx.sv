@@ -18,10 +18,23 @@ class reset_tr extends uvm_sequence_item;
   rand kind_e kind;
   rand int unsigned cycles =1;
   rand bit  phy_ulpi_dir;
+  rand bit[7:0] phy_ulpi_d;
+  rand bit phy_ulpi_nxt; 
+  rand bit opt_enable_hs; 
+  rand bit dbg_linestate; 
+  rand bit se0_reset; 
+  rand bit phy_stp_out; 
   
-  `uvm_object_utils_begin(reset_tr)
+ 
+ `uvm_object_utils_begin(reset_tr)
     `uvm_field_enum(kind_e, kind, UVM_ALL_ON)
     `uvm_field_int(cycles, UVM_ALL_ON)
+    `uvm_field_int(phy_ulpi_nxt, UVM_ALL_ON)
+    `uvm_field_int(phy_ulpi_d, UVM_ALL_ON)
+    `uvm_field_int(dbg_linestate, UVM_ALL_ON)
+    `uvm_field_int(se0_reset, UVM_ALL_ON)
+    `uvm_field_int(phy_stp_out, UVM_ALL_ON)
+    `uvm_field_int(opt_enable_hs, UVM_ALL_ON)
     `uvm_field_int(phy_ulpi_dir, UVM_ALL_ON)
   `uvm_object_utils_end
   
@@ -31,4 +44,5 @@ class reset_tr extends uvm_sequence_item;
   endfunction
  
 endclass
+
 
