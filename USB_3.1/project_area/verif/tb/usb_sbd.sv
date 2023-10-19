@@ -6,9 +6,10 @@
 //      Revision tag      :  06/10/2023                                                          //
 //      Module Name       :  usb_sbd                                                             //
 //      Project Name      :  USB 3.1                                                             //
-//      component name    :  Scoreboard                                                          //
+//      component name    :  uvm_scoreboard                                                      //
 //      Description       :  scoreboard will check the correctness of the DUT by                 //
 //                           comparing the DUT output with the expected values                   //
+//                                                                                               //
 //     Additional Comments:                                                                      //
 //                                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////////////////////

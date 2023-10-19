@@ -3,12 +3,14 @@
 //           Copyright (c) 2023 by Expolog Technologies, Inc. All rights reserved.               //
 //                                                                                               //
 //      Engineer          :  ANGAPPAN, MOHAMMED_KHADEER, LOKESH, MADHURA.                        //
-//      Revision tag      :  06/10/2023                                                          //
+//      Revision Tag      :  06/10/2023                                                          //
 //      Module Name       :  buff_slv_agent_mon                                                  //
 //      Project Name      :  USB 3.1                                                             //
-//      component name    :  slave agent                                                         //
+//      Component Name    :  uvm_monitor                                                         //
 //      Description       :  This module monitor the buffer slave side output.                   //
-//     Additional Comments:                                                                      //
+//                                                                                               //
+//                                                                                               //
+//      Additional Comments:                                                                     //
 //                                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 

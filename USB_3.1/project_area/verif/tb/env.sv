@@ -2,12 +2,12 @@
 //      Company:  Expolog Technologies.                                                          //
 //           Copyright (c) 2023 by Expolog Technologies, Inc. All rights reserved.               //
 //                                                                                               //
-//      Engineer          :  Angappan	Mohammad_Khadeer Lokesh Madhura                          //     
+//      Engineer          :  ANGAPPAN, MOHAMMAD_KHADEER, LOKESH, MADHURA.                        //     
 //      Revision tag      :  06/10/2023                                                          //     
 //      Module Name       :  usb_env                                                             //     
 //      Project Name      :  USB 3.1                                                             //
 //      component name    :  Environment                                                         //
-//      Description       : This module covered all agents and virtual sequencer.                //
+//      Description       :  This module covered all agents and virtual sequencer.               //
 //                                                                                               //
 //                                                                                               //
 //      Additional Comments:                                                                     //
@@ -43,7 +43,6 @@ class usb_env extends uvm_env;
     v_sqr_h.reset_sqr_h 	      = reset_agent_h.reset_sqr_h;
     v_sqr_h.buff_mst_agent_sqr_h  = buff_mst_agent_h.sqr_h;
     v_sqr_h.phy_rx_agent_sqr_h    = phy_rx_agent_h.sqr_h;
-	
   endfunction:connect_phase
 
 endclass:usb_env

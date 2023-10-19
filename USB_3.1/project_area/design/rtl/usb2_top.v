@@ -306,4 +306,3 @@ usb2_protocol ipr (
 
 
 endmodule
-

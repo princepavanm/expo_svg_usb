@@ -6,12 +6,15 @@
 //      Revision tag      :  06/10/2023                                                          //                                                   
 //      Project Name      :  USB 3.1                                                             //
 //      component name    :  usb_list                                                            //
-//      Description       :  all sequence files are listed.                                      //   
+//      Description       :  All sequence files are listed.                                      //  
+//                                                                                               //
+//                                                                                               //
+//                                                                                               //
 //     Additional Comments:                                                                      //
 //                                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-//List of Include Files
+  //List of Include Files
   `include "reset_intf.sv"
   `include "buff_mst_agent_intf.sv"
   `include "phy_rx_agent_intf.sv"

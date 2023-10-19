@@ -51,7 +51,7 @@ interface phy_intf( input logic  reset_n,
   //*********  clocking blocks phy_rx_Driver  ***********//
 
   clocking phy_rx_driver_cb@(posedge ext_clk);
-    default input #1 output #1;
+    default input #1 output #0;
 
     output	ext_clk;
     input	clk_125_out;

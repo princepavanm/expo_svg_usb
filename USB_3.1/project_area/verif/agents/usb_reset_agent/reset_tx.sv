@@ -2,15 +2,17 @@
 //    Company:  Expolog Technologies.                                                            //
 //           Copyright (c) 2023 by Expolog Technologies, Inc. All rights reserved.               //
 //                                                                                               //
-//      Engineer          : ANGAPPAN, MOHAMMAD_KHADEER, LOKESH AND MADHURA.                      //
-//      Revision tag      : 06/10/2023                                                           //
-//      Module Name       : reset_tr                                                              //
+//      Engineer          : ANGAPPAN, MOHAMMED_KHADEER, LOKESH, MADHURA.                         //
+//      Revision Tag      : 06/10/2023                                                           //
+//      Module Name       : reset_tr                                                             //
 //      Project Name      : USB 3.1                                                              //
-//      component name    : Sequence_item                                                        //
-//      Description       : This module having the signals declarations and field declarations.  //           
-//     Additional Comments:                                                                      //
-//////////////////////////////////////////////////////////////////////////////////////////////////
-
+//      Component Name    : uvm_sequence_item                                                    //
+//      Description       : This module having the signals declarations and field declarations.  //
+//                                                                                               //
+//                                                                                               //           
+//      Additional Comments:                                                                     //
+//                                                                                               //
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
 class reset_tr extends uvm_sequence_item;
   
@@ -44,5 +46,4 @@ class reset_tr extends uvm_sequence_item;
   endfunction
  
 endclass
-
 

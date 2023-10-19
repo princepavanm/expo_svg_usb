@@ -3,14 +3,14 @@
 //           Copyright (c) 2023 by Expolog Technologies, Inc. All rights reserved.               //
 //                                                                                               //
 //      Engineer          :  ANGAPPAN, MOHAMMED_KHADEER, LOKESH, MADHURA.                        //
-//      Revision tag      :  06/10/2023                                                          //
+//      Revision Tag      :  06/10/2023                                                          //
 //      Module Name       :  usb_phy_rx_seq                                                      //
 //      Project Name      :  USB 3.1                                                             //
-//      component name    :  Sequence                                                            //
-//      Description       :  a sequence is parameterized with the type of sequence_item,         //
+//      Component Name    :  Sequence                                                            //
+//      Description       :  A sequence is parameterized with the type of sequence_item,         //
 //                           this defines the type of the item sequence that will send/receive   //
-//                           to/from the driver.                     				 //
-//     Additional Comments:                                                                      //
+//                           to/from the driver.                     				             //
+//      Additional Comments:                                                                     //
 //                                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 

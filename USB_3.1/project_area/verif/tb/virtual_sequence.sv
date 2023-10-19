@@ -6,7 +6,7 @@
 //      Revision tag      :  06/10/2023.                                                         //
 //      Module Name       :  usb_virtual_sequence.                                               //
 //      Project Name      :  USB 3.1                                                             //
-//      component name    :  Virtual_sequence                                                    //
+//      component name    :  uvm_sequence ( Virtual_sequence )                                   //
 //      Description       :  This module virtual sequence to start multiple sequences            //
 //                           on different sequencer.                                             //
 //                                                                                               //
@@ -37,7 +37,7 @@ class usb_virtual_sequence extends uvm_sequence #(uvm_sequence_item);
 
   virtual task pre_body();
     super.pre_body();
-    if ( (starting_phase!=null) && (get_parent_sequence()==null) )
+    if ( (starting_phase != null) && (get_parent_sequence() == null) )
       starting_phase.raise_objection( this );
   endtask : pre_body
 
@@ -51,7 +51,7 @@ class usb_virtual_sequence extends uvm_sequence #(uvm_sequence_item);
     //sequence start here
     begin
       reset_seq_h.start(env_h.v_sqr_h.reset_sqr_h);
-	#1000;
+	  #1000;
       usb_base_seq_h.start(env_h.v_sqr_h.buff_mst_agent_sqr_h);
       usb_phy_rx_seq_h.start(env_h.v_sqr_h.phy_rx_agent_sqr_h);
     end	
@@ -59,7 +59,7 @@ class usb_virtual_sequence extends uvm_sequence #(uvm_sequence_item);
 
   virtual task post_body();
     super.post_body();
-    if ( (starting_phase!=null) && (get_parent_sequence()==null) )
+    if ( (starting_phase != null) && (get_parent_sequence() == null) )
       starting_phase.drop_objection( this );
   endtask : post_body
 

@@ -15,8 +15,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 interface buff_intf(  input logic  reset_n,
-                      input bit  ext_clk,
-                      input bit  phy_ulpi_clk  );
+                      input logic  ext_clk,
+                      input logic  phy_ulpi_clk  );
 	
   logic		reset_n_out; 
   
@@ -118,7 +118,7 @@ interface buff_intf(  input logic  reset_n,
 //*********  clocking blocks buff_monitor  ***********//
 
   clocking buff_monitor_cb@(posedge phy_ulpi_clk);
-    default input #1 output #1;
+    default input #0 output #0;
 
     input       ext_clk;
     input       reset_n;

@@ -37,18 +37,6 @@ module top;
   logic reset_n;
   //logic temp_c0;
   //logic temp_c1;
-  
-  //Interface instantation  
-  
-  reset_intf reset_pif( .phy_ulpi_clk(phy_ulpi_clk)); //changed ext clock --> phy_ulpi_ck
-  
-  buff_intf buff_pif(	.ext_clk(ext_clk), 
-			.reset_n(reset_pif.reset_n),
-			.phy_ulpi_clk(phy_ulpi_clk));  
-
-  phy_intf phy_pif(	.ext_clk(ext_clk),            
-	  		.reset_n(reset_pif.reset_n),
-                   	.phy_pipe_pclk(phy_pipe_pclk));  
 			
   //Rst and Clock generation
   initial begin
@@ -56,8 +44,6 @@ module top;
     phy_pipe_pclk = 0;
     phy_ulpi_clk=0;
 	
-	 
-    
     //reset_n = 1;  //we've separate agent for reset
     //#7.0;	reset_n = 0;
 
@@ -73,6 +59,18 @@ module top;
   
   //always #8			temp_c0 = ~ temp_c0;	// 62.5mhz
   //always #4			temp_c1 = ~ temp_c1;	// 125 mhz
+  
+  //Interface instantation  
+  
+  reset_intf reset_pif( .phy_ulpi_clk(phy_ulpi_clk)); //changed ext clock --> phy_ulpi_ck
+  
+  buff_intf buff_pif(	.ext_clk(ext_clk), 
+			            .reset_n(reset_pif.reset_n),
+			            .phy_ulpi_clk(phy_ulpi_clk));  
+
+  phy_intf phy_pif(	.ext_clk(ext_clk),            
+	  		        .reset_n(reset_pif.reset_n),
+                   	.phy_pipe_pclk(phy_pipe_pclk));  
 
   //DUT Instantiation
   usb_top DUT (

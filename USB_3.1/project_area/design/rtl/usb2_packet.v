@@ -12,8 +12,8 @@
 module usb2_packet (
 
 // top-level interface
-input	wire			phy_clk,
-input	wire			reset_n,
+input	wire	    phy_clk,
+input	wire		reset_n,
 
 // ULPI
 input	wire			in_act,

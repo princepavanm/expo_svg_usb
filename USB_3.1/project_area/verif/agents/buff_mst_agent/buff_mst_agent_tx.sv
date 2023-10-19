@@ -2,14 +2,17 @@
 //    Company:  Expolog Technologies.                                                            //
 //           Copyright (c) 2023 by Expolog Technologies, Inc. All rights reserved.               //
 //                                                                                               //
-//      Engineer          : ANGAPPAN, MOHAMMAD_KHADEER, LOKESH AND MADHURA.                      //
-//      Revision tag      : 06/10/2023                                                           //
-//      Module Name       : buff_tx                                                              //
-//      Project Name      : USB 3.1                                                              //
-//      component name    : Sequence_item                                                        //
-//      Description       : This module having the signals declarations and field declarations.  //           
-//     Additional Comments:                                                                      //
-//////////////////////////////////////////////////////////////////////////////////////////////////
+//      Engineer          :  ANGAPPAN, MOHAMMED_KHADEER, LOKESH, MADHURA.                        //
+//      Revision Tag      :  06/10/2023                                                          //
+//      Module Name       :  buff_tx                                                             //
+//      Project Name      :  USB 3.1                                                             //
+//      Component Name    :  uvm_sequence_item                                                   //
+//      Description       :  This module having the signals declarations and field declarations. //
+//                                                                                               //
+//                                                                                               //
+//      Additional Comments:                                                                     //
+//                                                                                               //
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
 class buff_tx extends uvm_sequence_item;
 	

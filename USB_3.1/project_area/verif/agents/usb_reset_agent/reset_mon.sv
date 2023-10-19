@@ -2,13 +2,15 @@
 //      Company:  Expolog Technologies.                                                          //
 //           Copyright (c) 2023 by Expolog Technologies, Inc. All rights reserved.               //
 //                                                                                               //
-//      Engineer          :  ANGAPPAN MOHAMMED_KHADEER LOKESH MADHURA                            //
+//      Engineer          :  ANGAPPAN, MOHAMMED_KHADEER, LOKESH, MADHURA.                        //
 //      Revision tag      :  06/10/2023                                                          //
 //      Module Name       :  reset_mon                                                           //
 //      Project Name      :  USB 3.1                                                             //
-//      component name    :  Monitor                                                             //
-//      Description       :  This module a passive component used to capture signals.            // 
-//     Additional Comments:                                                                      //
+//      component name    :  uvm_monitor                                                         //
+//      Description       :  This module a passive component used to capture signals.            //
+//                                                                                               //
+//                                                                                               //
+//      Additional Comments:                                                                     //
 //                                                                                               //                                                               
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 

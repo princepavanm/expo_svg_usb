@@ -2,13 +2,15 @@
 //      Company:  Expolog Technologies.                                                          //
 //           Copyright (c) 2023 by Expolog Technologies, Inc. All rights reserved.               //
 //                                                                                               //
-//      Engineer          :  ANGAPPAN MOHAMMED_KHADEER LOKESH MADHURA                            //
-//      Revision tag      :  06/10/2023                                                          //
+//      Engineer          :  ANGAPPAN, MOHAMMED_KHADEER, LOKESH, MADHURA.                        //
+//      Revision Tag      :  06/10/2023                                                          //
 //      Module Name       :  buff_slv_agent                                                      //
 //      Project Name      :  USB 3.1                                                             //
-//      component name    :  slave agent                                                         //
+//      Component Name    :  uvm_agent                                                           //
 //      Description       :  This module creations for functional coverage                       //
-//     Additional Comments:                                                                      //
+//                                                                                               //
+//                                                                                               //
+//      Additional Comments:                                                                     //
 //                                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 

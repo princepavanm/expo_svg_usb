@@ -3,16 +3,18 @@
 //           Copyright (c) 2023 by Expolog Technologies, Inc. All rights reserved.               //
 //                                                                                               //
 //      Engineer          :  ANGAPPAN, MOHAMMED_KHADEER, LOKESH, MADHURA.                        //
-//      Revision tag      :  06/10/2023                                                          //
-//      Module Name       :  usb_base_test                                                       //
+//      Revision Tag      :  06/10/2023                                                          //
+//      Module Name       :  Test_list                                                           //
 //      Project Name      :  USB 3.1                                                             //
-//      component name    : test_list                                                            //
-//      Description       :                      			                 	 //
+//      Component Name    :  test_list                                                           //
+//      Description       :  In this file all test bench files are included.                     //
+//                                                                                               //
+//                                                                                               //
 //     Additional Comments:                                                                      //
 //                                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-//List of Include Files
+  //List of Include Files
 
   `include "usb_base_test.sv"
 
