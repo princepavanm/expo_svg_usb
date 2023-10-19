@@ -22,14 +22,44 @@ class buff_mst_agent_cov extends uvm_subscriber#(buff_tx);
 
   buff_tx   tx_h;
 
-  covergroup cg();
 
-    // Implement Cover bins here
+	  	covergroup usb_buffer_cover;
 
-  endgroup:cg
+	
+	  	usb_addr:coverpoint tx_h.buf_in_addr { bins low={[0:171]};
+						       bins Medium={[172:343]};    // 9bit
+					               bins high={[344:515]};}
+					           
+		usb_data:coverpoint tx_h.buf_in_data { bins low={[0:85]};
+	                                               bins high= {[85:170]};      //8bit
+					               bins Medium={[171:257]};}
+
+                usb_addr_out:coverpoint tx_h.buf_out_addr{bins low={[0:171]};
+						       bins Medium={[172:343]};    // 9bit
+					               bins high={[344:515]};}
+                          
+         	usb_commit_len:coverpoint tx_h.buf_in_commit_len{bins low={[0:683]};
+						       bins high={[684:1366]};   // 11bit
+						       bins Medium={[1367:2050]};}
+
+        	usb_wren:coverpoint tx_h.buf_in_wren{bins low={0};   
+				    	              bins high={1};}
+
+		usb_sop:coverpoint tx_h.sop{bins low={0};
+				    	     bins high={1};}
+
+	        usb_eop:coverpoint tx_h.eop {bins low={0};
+				    	     bins high={1};}
+
+
+
+
+	
+   endgroup
 
   function new(string name="buff_mst_agent_cov", uvm_component parent=null);
     super.new(name, parent);
+    usb_buffer_cover= new();
   endfunction:new
 
   function void build_phase(uvm_phase phase);
@@ -40,15 +70,20 @@ class buff_mst_agent_cov extends uvm_subscriber#(buff_tx);
 
   function void write(buff_tx   t);
 
-    `uvm_info("buff_mst_agent_COV", "From Coverage Write function", UVM_HIGH)
+    `uvm_info("buff_mst_agent_COV", "From Coverage Write function", UVM_LOW)
+    t.print();
 
   endfunction:write
 
   virtual task run_phase(uvm_phase phase);
     super.run_phase(phase);
+    
+    usb_buffer_cover.sample();
 
     `uvm_info("buff_mst_agent_COV","From Coverage Run Phase", UVM_HIGH)
 
   endtask:run_phase
+
+
 
 endclass:buff_mst_agent_cov

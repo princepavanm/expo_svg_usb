@@ -43,7 +43,7 @@ class buff_mst_agent_drv extends uvm_driver#(buff_tx);
      	$display("\n");
        
 	//calling task for driving signals
-	//drive_tx(req);
+//	drive_tx(req);
       seq_item_port.item_done();
     end
   endtask:run_phase
@@ -51,7 +51,7 @@ class buff_mst_agent_drv extends uvm_driver#(buff_tx);
   task drive_tx(buff_tx     tx_h);
 
      //Implement driving logic here
-
+//top.vif.buff_driver_cb.buf_in_addr <=9'hFF;
   endtask:drive_tx
 
 endclass:buff_mst_agent_drv

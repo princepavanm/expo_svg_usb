@@ -19,7 +19,7 @@
 class phy_rx_agent_mon extends uvm_monitor;
 
   `uvm_component_utils(phy_rx_agent_mon)
-
+ virtual phy_intf     vif;
   phy_rx   tx_h;
 
   uvm_analysis_port #(phy_rx)       phy_rx_agent_mon_port;
@@ -30,7 +30,8 @@ class phy_rx_agent_mon extends uvm_monitor;
 
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-
+if(!uvm_config_db#(virtual phy_intf)::get(this, " ", "phy_pif", vif))
+      `uvm_fatal("mon", "***** Could not get vif *****")
     phy_rx_agent_mon_port = new("phy_rx_agent_mon_port", this);
     tx_h = phy_rx::type_id::create("tx_h", this);
 
@@ -38,9 +39,19 @@ class phy_rx_agent_mon extends uvm_monitor;
 
   virtual task run_phase(uvm_phase phase);
     super.run_phase(phase);
+    begin
+	    collect_data();
+    end
 
     `uvm_info("phy_rx_agent_mon","Monitor Run Phase", UVM_HIGH)
 
   endtask:run_phase
 
-endclass:phy_rx_agent_mon
+virtual task collect_data();
+tx_h= phy_rx::type_id::create("tx_h");
+begin
+phy_rx_agent_mon_port.write(tx_h);
+end
+endtask
+endclass
+
