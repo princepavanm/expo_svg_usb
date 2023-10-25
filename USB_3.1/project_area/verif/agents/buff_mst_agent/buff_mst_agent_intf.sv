@@ -65,7 +65,7 @@ interface buff_intf(  input logic  reset_n,
 //*********  clocking blocks buff_Driver  ***********//
 
   clocking buff_driver_cb@(posedge phy_ulpi_clk);
-    default input #1 output #1;
+    default input #1 output #100ps;
 
     output      ext_clk;
     output      reset_n;
@@ -118,7 +118,7 @@ interface buff_intf(  input logic  reset_n,
 //*********  clocking blocks buff_monitor  ***********//
 
   clocking buff_monitor_cb@(posedge phy_ulpi_clk);
-    default input #0 output #0;
+    default input #1 output #100ps;
 
     input       ext_clk;
     input       reset_n;
