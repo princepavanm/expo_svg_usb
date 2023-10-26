@@ -17,13 +17,20 @@
 class buff_tx extends uvm_sequence_item;
 	
   rand bit         reset_n;
+  rand bit	   phy_ulpi_dir;
+  rand bit         phy_ulpi_nxt;
+  rand bit	   opt_disable_all;
+  rand bit	   opt_enable_hs;
+  rand bit         opt_ignore_vbus;
   rand bit [8:0]   buf_in_addr;
   rand bit [7:0]   buf_in_data;
   rand bit 	   buf_in_wren;
+  rand bit         buf_in_commit;
   rand bit         sop;
   rand bit         eop;
   rand bit [10:0]  buf_in_commit_len;
-  rand bit [8:0]   buf_out_addr;                // interpacket gap
+  rand bit [8:0]   buf_out_addr;  // interpacket gap
+  rand bit         buf_out_arm;
 
   `uvm_object_utils_begin(buff_tx)
     `uvm_field_int( reset_n           , UVM_DEFAULT )

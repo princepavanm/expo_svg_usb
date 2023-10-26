@@ -22,25 +22,29 @@ class phy_rx_agent_cov extends uvm_subscriber#(phy_rx);
 
   phy_rx   tx_h;
 
-  covergroup usb_phyrx_cover;
+ covergroup usb_phyrx_cover;
 
-		usb_rx_addr:coverpoint tx_h.phy_pipe_rx_datak { bins low={[0:1]};
-								bins Medium={[2:3]};
-							        bins high= {[4:5]};}  
+		 
 					           
 		usb_rx_data:coverpoint tx_h.phy_pipe_rx_data {  bins data_phtrx={[0:21845]};
 							        bins Medium={[21846:43691]};   // 16bit 65536
 						                bins high={[43692:65537]};} 
+
+		usb_rx_addr:coverpoint tx_h.phy_pipe_rx_datak { bins low={[0:1]};
+								bins Medium={[2:3]};
+							        bins high= {[4:5]};} 						
                                           
 		usb_phypipe:coverpoint tx_h.phy_pipe_rx_valid { bins low = {0};
 				    	                        bins high = {1};}  
 
+	
+	        usb_status:coverpoint tx_h.phy_rx_status { bins low={[0:2]};
+                                                               bins Medium={[3:5]};
+					                       bins high ={[6:8]};}
+
 		usb_pwrpresent:coverpoint tx_h.phy_pwrpresent { bins low = {0};
 				    	                        bins high = {1};}
-
-	    usb_status:coverpoint tx_h.phy_rx_status { bins low={[0:2]};
-                                                       bins Medium={[3:5]};
-					               bins high ={[6:8]};}
+				       
 
    endgroup
 

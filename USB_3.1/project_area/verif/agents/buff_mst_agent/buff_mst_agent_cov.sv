@@ -22,10 +22,24 @@ class buff_mst_agent_cov extends uvm_subscriber#(buff_tx);
 
   buff_tx   tx_h;
 
+	covergroup usb_buffer_cover;
 
-	  	covergroup usb_buffer_cover;
 
-	
+		usb_phy_ulpi_dir:coverpoint tx_h.phy_ulpi_dir{bins low={0};
+				    	    		      bins high={1};}
+
+                usb_phy_ulpi_nxt:coverpoint tx_h.phy_ulpi_nxt{bins low={0};
+				    	    		      bins high={1};}
+
+		usb_opt_disable_all:coverpoint tx_h.opt_disable_all{bins low={0};
+				    	    		            bins high={1};}
+								    
+		usb_opt_enable_hs:coverpoint tx_h.opt_enable_hs{bins low={0};
+				    	    		        bins high={1};}	
+
+		usb_opt_ignore_vbus:coverpoint tx_h.opt_ignore_vbus{bins low={0};
+				    	    		            bins high={1};}								
+
 	  	usb_addr:coverpoint tx_h.buf_in_addr { bins low={[0:171]};
 						       bins Medium={[172:343]};    // 9bit
 					               bins high={[344:515]};}
@@ -34,23 +48,30 @@ class buff_mst_agent_cov extends uvm_subscriber#(buff_tx);
 	                                               bins high= {[85:170]};      //8bit
 					               bins Medium={[171:257]};}
 
+		usb_wren:coverpoint tx_h.buf_in_wren{bins low={0};   
+				    	              bins high={1};}
+
+		usb_buf_in_commit:coverpoint tx_h.buf_in_commit{bins low={0};   
+				    	              bins high={1};}
+
+		usb_commit_len:coverpoint tx_h.buf_in_commit_len{bins low={[0:683]};
+						       bins high={[684:1366]};   // 11bit
+						       bins Medium={[1367:2050]};}
+				      
                 usb_addr_out:coverpoint tx_h.buf_out_addr{bins low={[0:171]};
 						       bins Medium={[172:343]};    // 9bit
 					               bins high={[344:515]};}
-                          
-         	usb_commit_len:coverpoint tx_h.buf_in_commit_len{bins low={[0:683]};
-						       bins high={[684:1366]};   // 11bit
-						       bins Medium={[1367:2050]};}
 
-        	usb_wren:coverpoint tx_h.buf_in_wren{bins low={0};   
-				    	              bins high={1};}
-
+                usb_buf_out_arm:coverpoint tx_h.buf_out_arm{bins low={0};
+				    	     bins high={1};}
+          
+         
+        	
 		usb_sop:coverpoint tx_h.sop{bins low={0};
 				    	     bins high={1};}
 
 	        usb_eop:coverpoint tx_h.eop {bins low={0};
 				    	     bins high={1};}
-
 
 
 
