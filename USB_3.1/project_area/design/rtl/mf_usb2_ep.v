@@ -32,7 +32,7 @@
 //Altera or its authorized distributors.  Please refer to the 
 //applicable agreement for further details.
 
-
+`include "altsyncram.v"
 // synopsys translate_off
 `timescale 1 ps / 1 ps
 // synopsys translate_on
@@ -63,7 +63,7 @@ module mf_usb2_ep (
 
 	wire [7:0] sub_wire0;
 	wire [7:0] q = sub_wire0[7:0];
-/*
+
 	defparam
 		altsyncram_component.address_aclr_b = "NONE",
 		altsyncram_component.address_reg_b = "CLOCK1",
@@ -109,7 +109,7 @@ module mf_usb2_ep (
 				.rden_b (1'b1),
 				.wren_b (1'b0));
 	
-*/ //TODO ANGAPPAN
+
 endmodule
 
 // ============================================================
