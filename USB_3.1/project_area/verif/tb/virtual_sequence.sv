@@ -25,6 +25,7 @@ class usb_virtual_sequence extends uvm_sequence #(uvm_sequence_item);
 
   //sequences_list
   reset_sequence 	reset_seq_h;
+  mid_reset_sequence	mid_reset_seq_h;
   usb_base_seq 		usb_base_seq_h;
   usb_phy_rx_seq 	usb_phy_rx_seq_h;
 
@@ -43,20 +44,33 @@ class usb_virtual_sequence extends uvm_sequence #(uvm_sequence_item);
 
   virtual task body();
     reset_seq_h=reset_sequence::type_id::create("reset_seq_h");
+    mid_reset_seq_h=mid_reset_sequence::type_id::create("mid_reset_seq_h");
     usb_base_seq_h=usb_base_seq::type_id::create("usb_base_seq_h");
     usb_phy_rx_seq_h=usb_phy_rx_seq::type_id::create("usb_phy_rx_seq_h");
 
     if(!$cast(env_h, uvm_top.find("uvm_test_top.env_h"))) `uvm_error(get_name(), "env is not found");
 
     //sequence start here
-    begin
+  /*  begin
       reset_seq_h.start(env_h.v_sqr_h.reset_sqr_h);
+       mid_reset_seq_h.start(env_h.v_sqr_h.reset_sqr_h);
+
 	  #1000;
       usb_base_seq_h.start(env_h.v_sqr_h.buff_mst_agent_sqr_h);
       usb_phy_rx_seq_h.start(env_h.v_sqr_h.phy_rx_agent_sqr_h);
-    end	
+end*/	
+
+
+// mid_reset_test
+begin
+    mid_reset_seq_h.start(env_h.v_sqr_h.reset_sqr_h);
+ end	
+
+
+
   endtask
 
+  
   virtual task post_body();
     super.post_body();
     if ( (starting_phase != null) && (get_parent_sequence() == null) )

@@ -15,6 +15,7 @@
 ###################################################################################################
 
 TEST_NAME=usb_base_test
+TEST_NAME2=mid_reset_test
 MODULE_PATH=../../../USB_3.1
 
 SEED=10
@@ -39,16 +40,16 @@ comp:
 	vlog -coveropt 3 +cover -L $(QUESTA_HOME)/uvm-1.2 +define+$(DUMP_OPTS) $(INC_DIR) $(DUT_FILE) $(TOP_FILE)
 
 vsim:
-	rm -rf $(LOG_DIR)/$(TEST_NAME)_$(SEED)
-	rm -rf $(TEST_NAME)_$(SEED).ucdb
-	mkdir $(LOG_DIR)/$(TEST_NAME)_$(SEED)
-	vsim -c -sv_seed $(SEED) -cvgperinstance -voptargs=+acc -coverage -voptargs="+cover=all" -suppress 10016 -suppress 2685 -suppress 2718 -assertdebug -voptargs="+ASSERTION_ON" +UVM_VERBOSITY=UVM_MEDIUM +UVM_TESTNAME=$(TEST_NAME) -l $(LOG_DIR)/$(TEST_NAME)_$(SEED)/$(TEST_NAME)_$(SEED).log -do "coverage save -onexit $(LOG_DIR)/$(TEST_NAME)_$(SEED)/$(TEST_NAME)_$(SEED).ucdb;run -all; exit" work.top
+	rm -rf $(LOG_DIR)/$(TEST_NAME2)_$(SEED)
+	rm -rf $(TEST_NAME2)_$(SEED).ucdb
+	mkdir $(LOG_DIR)/$(TEST_NAME2)_$(SEED)
+	vsim -c -sv_seed $(SEED) -cvgperinstance -voptargs=+acc -coverage -voptargs="+cover=all" -suppress 10016 -suppress 2685 -suppress 2718 -assertdebug -voptargs="+ASSERTION_ON" +UVM_VERBOSITY=UVM_MEDIUM +UVM_TESTNAME=$(TEST_NAME2) -l $(LOG_DIR)/$(TEST_NAME2)_$(SEED)/$(TEST_NAME2)_$(SEED).log -do "coverage save -onexit $(LOG_DIR)/$(TEST_NAME2)_$(SEED)/$(TEST_NAME2)_$(SEED).ucdb;run -all; exit" work.top
 
 vsim_QS:
-	rm -rf $(LOG_DIR)/$(TEST_NAME)_$(SEED)
-	rm -rf $(TEST_NAME)_$(SEED).ucdb
-	mkdir $(LOG_DIR)/$(TEST_NAME)_$(SEED)
-	vsim -sv_seed $(SEED) -cvgperinstance -voptargs=+acc -coverage -voptargs="+cover=all" -assertdebug -voptargs="+ASSERTION_ON" +UVM_VERBOSITY=UVM_MEDIUM +UVM_TESTNAME=$(TEST_NAME) -l $(LOG_DIR)/$(TEST_NAME)_$(SEED)/$(TEST_NAME)_$(SEED).log -do "coverage save -onexit $(LOG_DIR)/$(TEST_NAME)_$(SEED)/$(TEST_NAME)_$(SEED).ucdb;do $(SIM_DIR)/wave.do;run -all;" work.top
+	rm -rf $(LOG_DIR)/$(TEST_NAME2)_$(SEED)
+	rm -rf $(TEST_NAME2)_$(SEED).ucdb
+	mkdir $(LOG_DIR)/$(TEST_NAME2)_$(SEED)
+	vsim -sv_seed $(SEED) -cvgperinstance -voptargs=+acc -coverage -voptargs="+cover=all" -assertdebug -voptargs="+ASSERTION_ON" +UVM_VERBOSITY=UVM_MEDIUM +UVM_TESTNAME=$(TEST_NAME2) -l $(LOG_DIR)/$(TEST_NAME2)_$(SEED)/$(TEST_NAME2)_$(SEED).log -do "coverage save -onexit $(LOG_DIR)/$(TEST_NAME2)_$(SEED)/$(TEST_NAME2)_$(SEED).ucdb;do $(SIM_DIR)/wave.do;run -all;" work.top
 
 
 run:	comp vsim
