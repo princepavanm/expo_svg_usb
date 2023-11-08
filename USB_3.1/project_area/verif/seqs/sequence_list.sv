@@ -17,7 +17,10 @@
   //List of Include Files
 
   `include "reset_sequence.sv"
+  `include "mid_reset_seq.sv"
+  `include "debug_sof_seq.sv"
   `include "usb_base_seq.sv"
+  `include "speed_neg_hs_seq.sv"
   //`include "speed_neg_seq.sv"
   `include "phy_rx_seq.sv"
 

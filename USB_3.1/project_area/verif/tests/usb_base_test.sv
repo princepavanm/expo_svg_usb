@@ -25,7 +25,7 @@ class usb_base_test extends uvm_test;
   usb_base_seq 		        usb_base_seq_h;
   usb_phy_rx_seq	        usb_phy_rx_seq_h;
   usb_virtual_sequence      virtual_seq_h;
-  
+ 
   //virtual reset_intf		reset_pif;
 
   function new(string name="usb_base_test", uvm_component parent=null);
@@ -54,21 +54,7 @@ class usb_base_test extends uvm_test;
     uvm_top.print_topology();
     //factory.print();
   endfunction:end_of_elaboration_phase
- /* 
-  function void connect_phase(uvm_phase phase);
-    super.connect_phase(phase);
-    virtual_seq_h.reset_seq_h 	      = reset_seq_h;
-    virtual_seq_h.usb_base_seq_h  	  = usb_base_seq_h;
-    virtual_seq_h.usb_phy_rx_seq_h    = usb_phy_rx_seq_h;
-  endfunction:connect_phase
-  */
-/*  
-  task reset_phase (uvm_phase phase);
-    phase.raise_objection(this);
-    reset_seq_h.start(env_h.v_sqr_h.reset_sqr_h);
-    phase.drop_objection(this);
-  endtask: reset_phase
-*/
+
   task run_phase (uvm_phase phase);
     super.run_phase(phase);
     `uvm_info(get_name(), "run_phase", UVM_HIGH)

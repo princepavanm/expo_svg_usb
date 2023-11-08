@@ -15,6 +15,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
   //List of Include Files
- `include "usb_base_test.sv"
-`include "usb_mid_reset_test.sv"
-  
+  	`include "usb_base_test.sv"
+	`include "usb_mid_reset_test.sv"
+   	`include "speed_neg_hs_test.sv" 
+   	`include "debug_sof_test.sv" 
