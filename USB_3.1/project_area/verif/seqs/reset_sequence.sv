@@ -41,8 +41,8 @@ class reset_sequence extends uvm_sequence #(reset_tr);
   begin
   	`uvm_info("[SEQUENCWE_NAME] :","reset_sequence",UVM_LOW);
 	  
-    `uvm_do_with(req, {kind == ASSERT; cycles == 2;phy_ulpi_dir == 0;phy_ulpi_nxt==0;phy_ulpi_d==8'h01;opt_enable_hs==0;});    
-    
+  //  `uvm_do_with(req, {kind == ASSERT; cycles == 2;phy_ulpi_dir == 0;phy_ulpi_nxt==0;phy_ulpi_d==8'h01;opt_enable_hs==0;});    
+    reset_design_signals();
     `uvm_do_with(req, {kind == DEASSERT; cycles == 100;phy_ulpi_dir == 0;phy_ulpi_nxt==0;phy_ulpi_d==8'h01;opt_enable_hs==0;});
     
     `uvm_do_with(req, {kind == ASSERT; cycles == 512010;phy_ulpi_dir == 0;phy_ulpi_nxt==0;phy_ulpi_d==8'h01;opt_enable_hs==0;}); 
@@ -63,6 +63,24 @@ endtask: body
       starting_phase.drop_objection(this);
     end
   endtask:post_body
+
+  task reset_design_signals();
+    //top.buff_pif.phy_ulpi_d        = 0;
+    top.buff_pif.phy_ulpi_dir      = 0;
+    top.buff_pif.phy_ulpi_nxt      = 0;
+   
+    top.buff_pif.opt_disable_all   = 0;
+    top.buff_pif.opt_enable_hs     = 0;
+    top.buff_pif.opt_ignore_vbus   = 0;
+    
+    top.buff_pif.buf_in_addr       = 0;
+    top.buff_pif.buf_in_data       = 0;
+    top.buff_pif.buf_in_wren       = 0;
+    top.buff_pif.buf_in_commit     = 0;
+    top.buff_pif.buf_in_commit_len = 0;
+    top.buff_pif.buf_out_addr      = 0;
+    top.buff_pif.buf_out_arm       = 0;
+  endtask
 	
 endclass: reset_sequence
 

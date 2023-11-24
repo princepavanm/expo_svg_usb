@@ -63,7 +63,7 @@ reset_test:
 	rm -rf $(LOG_DIR)/usb_base_test_$(SEED)
 	rm -rf usb_base_test_$(SEED).ucdb
 	mkdir $(LOG_DIR)/usb_base_test_$(SEED)
-	vsim -sv_seed $(SEED) -cvgperinstance -voptargs=+acc -coverage -voptargs="+cover=all" -assertdebug -voptargs="+ASSERTION_ON" +UVM_VERBOSITY=UVM_MEDIUM +UVM_TESTNAME=usb_base_test -l $(LOG_DIR)/usb_base_test_$(SEED)/usb_base_test_$(SEED).log -do "coverage save -onexit $(LOG_DIR)/usb_base_test_$(SEED)/usb_base_test_$(SEED).ucdb;do $(SIM_DIR)/wave.do;run -all;" work.top
+	vsim -sv_seed $(SEED) -cvgperinstance -voptargs=+acc -coverage -voptargs="+cover=all" -assertdebug -voptargs="+ASSERTION_ON" +UVM_VERBOSITY=UVM_MEDIUM +UVM_TESTNAME=usb_base_test -l $(LOG_DIR)/usb_base_test_$(SEED)/usb_base_test_$(SEED).log -do "coverage save -onexit $(LOG_DIR)/usb_base_test_$(SEED)/usb_base_test_$(SEED).ucdb;do $(SIM_DIR)/wave.do;do $(SIM_DIR)/assertion.do;run -all;" work.top
 
 mid_reset_test: 
 	vlog -coveropt 3 +cover -L $(QUESTA_HOME)/uvm-1.2 +define+$(DUMP_OPTS) $(INC_DIR) $(DUT_FILE) $(TOP_FILE) +define+MID_RESET_SEQ
@@ -77,7 +77,7 @@ speed_neg_hs_test:
 	rm -rf $(LOG_DIR)/speed_neg_hs_test_$(SEED)
 	rm -rf speed_neg_hs_test_$(SEED).ucdb
 	mkdir $(LOG_DIR)/speed_neg_hs_test_$(SEED)
-	vsim -sv_seed $(SEED) -cvgperinstance -voptargs=+acc -coverage -voptargs="+cover=all" -assertdebug -voptargs="+ASSERTION_ON" +UVM_VERBOSITY=UVM_MEDIUM +UVM_TESTNAME=speed_neg_hs_test -l $(LOG_DIR)/speed_neg_hs_test_$(SEED)/speed_neg_hs_test_$(SEED).log -do "coverage save -onexit $(LOG_DIR)/speed_neg_hs_test_$(SEED)/speed_neg_hs_test_$(SEED).ucdb;do $(SIM_DIR)/wave.do;run -all;" work.top
+	vsim -sv_seed $(SEED) -cvgperinstance -voptargs=+acc -coverage -voptargs="+cover=all" -assertdebug -voptargs="+ASSERTION_ON" +UVM_VERBOSITY=UVM_MEDIUM +UVM_TESTNAME=speed_neg_hs_test -l $(LOG_DIR)/speed_neg_hs_test_$(SEED)/speed_neg_hs_test_$(SEED).log -do "coverage save -onexit $(LOG_DIR)/speed_neg_hs_test_$(SEED)/speed_neg_hs_test_$(SEED).ucdb;do $(SIM_DIR)/wave.do;do $(SIM_DIR)/assertion.do;run -all;" work.top
 
 
 debug_sof_test:

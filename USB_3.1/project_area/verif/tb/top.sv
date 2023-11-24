@@ -17,7 +17,7 @@
 //                                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-`timescale 1ns/1ns
+`timescale 1ps/1ps
  
   `include "uvm_macros.svh"
   import uvm_pkg::*;
@@ -26,7 +26,7 @@
   `include "usb_list.svh"
 
   `include "usb_top.v"
-
+`include "assertion.sv"
 //******************************top**********************//
 module top;
 
@@ -35,8 +35,6 @@ module top;
   logic phy_pipe_pclk;
   logic phy_ulpi_clk;
   logic reset_n;
-  //logic temp_c0;
-  //logic temp_c1;
 			
   //Rst and Clock generation
   initial begin
@@ -44,21 +42,13 @@ module top;
     phy_pipe_pclk = 0;
     phy_ulpi_clk=0;
 	
-    //reset_n = 1;  //we've separate agent for reset
-    //#7.0;	reset_n = 0;
 
-    //#500000us;
-    //$finish();
-	//assign top.DUT.iu3pll.c0 = temp_c0;
-	//assign top.DUT.iu3pll.c1 = temp_c1;
   end
 
-  always #2.0       ext_clk = ~ext_clk;			//TODO need to check in rtl side (which frequency)
-  always #8.33      phy_ulpi_clk = ~phy_ulpi_clk;  	//60MHz clock geneartion 
-  always #2.0       phy_pipe_pclk = ~phy_pipe_pclk;    	//250MHz clock geneartion
+  always #2000    ext_clk = ~ext_clk;			//TODO need to check in rtl side (which frequency)
+  always #8333     phy_ulpi_clk = ~phy_ulpi_clk;  	//60MHz clock geneartion 
+  always #2000      phy_pipe_pclk = ~phy_pipe_pclk;    	//250MHz clock geneartion
   
-  //always #8			temp_c0 = ~ temp_c0;	// 62.5mhz
-  //always #4			temp_c1 = ~ temp_c1;	// 125 mhz
   
   //Interface instantation  
   
@@ -72,6 +62,30 @@ module top;
 	  		        .reset_n(reset_pif.reset_n),
                    	.phy_pipe_pclk(phy_pipe_pclk));  
 
+		
+/******************************* Binding_Assertions*****************/ 
+
+  bind DUT assertion_2_buff  assertion_2_buff_h (
+	.reset_n  	          		(reset_n),
+	.ext_clk				(ext_clk),
+	.phy_pipe_pclk		   		(phy_pif.phy_pipe_pclk),
+
+	.phy_ulpi_clk				(phy_ulpi_clk),
+	.phy_ulpi_d				(buff_pif.phy_ulpi_d),
+	.phy_ulpi_dir				(buff_pif.phy_ulpi_dir),
+	.phy_ulpi_nxt				(buff_pif.phy_ulpi_nxt),
+	.opt_disable_all			(buff_pif.opt_disable_all),
+	.opt_enable_hs				(buff_pif.opt_enable_hs),
+	.opt_ignore_vbus			(buff_pif.opt_ignore_vbus),
+	.buf_in_addr				(buff_pif.buf_in_addr),
+	.buf_in_data				(buff_pif.buf_in_data),
+	.buf_in_wren				(buff_pif.buf_in_wren),
+	.buf_in_commit				(buff_pif.buf_in_commit),
+	.buf_in_commit_len			(buff_pif.buf_in_commit_len),
+	.buf_out_addr				(buff_pif.buf_out_addr),
+	.buf_out_arm				(buff_pif.buf_out_arm));
+	
+/************************************************************/
   //DUT Instantiation
   usb_top DUT (
 	.clk_125_out    	  		(phy_pif.clk_125_out),         
