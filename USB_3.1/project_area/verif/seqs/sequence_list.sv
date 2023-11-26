@@ -21,6 +21,6 @@
   `include "debug_sof_seq.sv"
   `include "usb_base_seq.sv"
   `include "speed_neg_hs_seq.sv"
-  //`include "speed_neg_seq.sv"
   `include "phy_rx_seq.sv"
+  `include "token_in_seq.sv"
 

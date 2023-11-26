@@ -26,8 +26,13 @@
   `include "usb_list.svh"
 
   `include "usb_top.v"
-`include "assertion.sv"
-//******************************top**********************//
+
+  
+`ifdef ASSERTION_ON
+	`include "assertion.sv"
+`endif
+
+  //******************************top**********************//
 module top;
 
   //Rst and clock declarations
@@ -64,7 +69,7 @@ module top;
 
 		
 /******************************* Binding_Assertions*****************/ 
-
+ `ifdef ASSERTION_ON
   bind DUT assertion_2_buff  assertion_2_buff_h (
 	.reset_n  	          		(reset_n),
 	.ext_clk				(ext_clk),
@@ -84,7 +89,7 @@ module top;
 	.buf_in_commit_len			(buff_pif.buf_in_commit_len),
 	.buf_out_addr				(buff_pif.buf_out_addr),
 	.buf_out_arm				(buff_pif.buf_out_arm));
-	
+  `endif
 /************************************************************/
   //DUT Instantiation
   usb_top DUT (

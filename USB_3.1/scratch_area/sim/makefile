@@ -59,7 +59,7 @@ run_qs:	comp vsim_QS
 ###################################################################### individual test cases #######################################################################
 
 reset_test: 
-	vlog -coveropt 3 +cover -L $(QUESTA_HOME)/uvm-1.2 +define+$(DUMP_OPTS) $(INC_DIR) $(DUT_FILE) $(TOP_FILE) +define+RESET_SEQ
+	vlog -coveropt 3 +cover -L $(QUESTA_HOME)/uvm-1.2 +define+$(DUMP_OPTS) $(INC_DIR) $(DUT_FILE) $(TOP_FILE) +define+RESET_SEQ +define+ASSERTION_ON
 	rm -rf $(LOG_DIR)/usb_base_test_$(SEED)
 	rm -rf usb_base_test_$(SEED).ucdb
 	mkdir $(LOG_DIR)/usb_base_test_$(SEED)
@@ -86,5 +86,12 @@ debug_sof_test:
 	rm -rf debug_sof_test_$(SEED).ucdb
 	mkdir $(LOG_DIR)/debug_sof_test_$(SEED)
 	vsim -sv_seed $(SEED) -cvgperinstance -voptargs=+acc -coverage -voptargs="+cover=all" -assertdebug -voptargs="+ASSERTION_ON" +UVM_VERBOSITY=UVM_MEDIUM +UVM_TESTNAME=debug_sof_test -l $(LOG_DIR)/debug_sof_test_$(SEED)/debug_sof_test_$(SEED).log -do "coverage save -onexit $(LOG_DIR)/debug_sof_test_$(SEED)/debug_sof_test_$(SEED).ucdb;do $(SIM_DIR)/wave.do;run -all;" work.top
+
+token_in_test:
+	vlog -coveropt 3 +cover -L $(QUESTA_HOME)/uvm-1.2 +define+$(DUMP_OPTS) $(INC_DIR) $(DUT_FILE) $(TOP_FILE) +define+TOKEN_IN_SEQ       	
+	rm -rf $(LOG_DIR)/token_in_test_$(SEED)
+	rm -rf token_in_test_$(SEED).ucdb
+	mkdir $(LOG_DIR)/token_in_test_$(SEED)
+	vsim -sv_seed $(SEED) -cvgperinstance -voptargs=+acc -coverage -voptargs="+cover=all" -assertdebug -voptargs="+ASSERTION_ON" +UVM_VERBOSITY=UVM_MEDIUM +UVM_TESTNAME=token_in_test -l $(LOG_DIR)/token_in_test_$(SEED)/token_in_test_$(SEED).log -do "coverage save -onexit $(LOG_DIR)/token_in_test_$(SEED)/token_in_test_$(SEED).ucdb;do $(SIM_DIR)/wave.do;run -all;" work.top
 
 

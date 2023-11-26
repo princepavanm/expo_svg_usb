@@ -78,8 +78,10 @@ output			phy_rate,
 output			phy_elas_buf_mode);
 
 /**************************** Unknown Check *********************************/
-
-//property
+initial begin
+	$display ("######################### ASSERTION ENABLED ###########################");
+end
+	//property
 property unknown_check(signals);
   @(posedge top.ext_clk) disable iff(top.reset_n) not ($isunknown(signals));
 endproperty

@@ -1538,7 +1538,6 @@ add wave -noupdate -expand -group ULPI(ai)_SIGNALS -group OUTPUT /top/DUT/usb2_i
 add wave -noupdate -expand -group ULPI(ai)_SIGNALS -group OUTPUT /top/DUT/usb2_inst/ia/stat_connected
 add wave -noupdate -expand -group ULPI(ai)_SIGNALS -group OUTPUT /top/DUT/usb2_inst/ia/stat_fs
 add wave -noupdate -expand -group ULPI(ai)_SIGNALS -group OUTPUT /top/DUT/usb2_inst/ia/stat_hs
-add wave -noupdate -expand -group ULPI(ai)_SIGNALS -group OUTPUT /top/DUT/usb2_inst/ia/phy_d_out_mux
 add wave -noupdate -expand -group ULPI(ai)_SIGNALS -group OUTPUT /top/DUT/usb2_inst/ia/phy_d_oe
 add wave -noupdate -expand -group ULPI(ai)_SIGNALS -group OUTPUT /top/DUT/usb2_inst/ia/phy_stp
 add wave -noupdate -expand -group ULPI(ai)_SIGNALS -group OUTPUT /top/DUT/usb2_inst/ia/pkt_out_act
@@ -1856,7 +1855,6 @@ add wave -noupdate -expand -group ULPI(ai)_SIGNALS -group INTERNAL_SIGNALS /top/
 add wave -noupdate -expand -group ULPI(ai)_SIGNALS -group INTERNAL_SIGNALS /top/DUT/usb2_inst/ia/dc
 add wave -noupdate -expand -group ULPI(ai)_SIGNALS -group INTERNAL_SIGNALS /top/DUT/usb2_inst/ia/dc_wrap
 add wave -noupdate -expand -group ULPI(ai)_SIGNALS -group INTERNAL_SIGNALS /top/DUT/usb2_inst/ia/se0_bus_reset
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/phy_clk
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/reset_n
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/in_act
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/in_byte
@@ -1870,51 +1868,6 @@ add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_hasdata
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_arm_ack
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/endp_mode
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/data_toggle
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/dev_addr
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/phy_clk
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/reset_n
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/in_act
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/in_byte
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/in_latch
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/out_cts
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/out_nxt
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_in_ready
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_in_commit_ack
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_q
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_len
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_hasdata
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_arm_ack
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/endp_mode
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/data_toggle
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/dev_addr
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/phy_clk
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/reset_n
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/in_byte
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/out_cts
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/out_nxt
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_in_ready
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_in_commit_ack
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_q
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_len
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_hasdata
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_arm_ack
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/endp_mode
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/data_toggle
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/dev_addr
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/phy_clk
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/reset_n
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/in_act
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/out_cts
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/out_nxt
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_in_ready
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_in_commit_ack
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_q
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_len
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_hasdata
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_arm_ack
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/endp_mode
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/data_toggle
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/dev_addr
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/phy_clk
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/reset_n
@@ -1943,6 +1896,49 @@ add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_len
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_hasdata
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_arm_ack
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/data_toggle
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/dev_addr
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/phy_clk
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/reset_n
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/in_act
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/out_cts
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/out_nxt
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_in_ready
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_in_commit_ack
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_q
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_len
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_hasdata
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_arm_ack
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/endp_mode
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/data_toggle
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/dev_addr
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/phy_clk
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/reset_n
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/in_act
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/in_byte
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/in_latch
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/out_cts
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/out_nxt
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_in_ready
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_in_commit_ack
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_q
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_len
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_hasdata
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_arm_ack
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/endp_mode
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/data_toggle
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/dev_addr
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/phy_clk
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/reset_n
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/in_byte
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/out_cts
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/out_nxt
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_in_ready
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_in_commit_ack
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_q
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_len
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_hasdata
+add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/buf_out_arm_ack
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/endp_mode
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/data_toggle
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_inst/ip/dev_addr
@@ -1963,7 +1959,6 @@ add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INPUT /top/DUT/usb2_
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group OUTPUT /top/DUT/usb2_inst/ip/out_byte
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group OUTPUT /top/DUT/usb2_inst/ip/out_latch
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group OUTPUT /top/DUT/usb2_inst/ip/out_stp
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group OUTPUT /top/DUT/usb2_inst/ip/sel_endp
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group OUTPUT /top/DUT/usb2_inst/ip/buf_in_addr
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group OUTPUT /top/DUT/usb2_inst/ip/buf_in_data
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group OUTPUT /top/DUT/usb2_inst/ip/buf_in_wren
@@ -2098,14 +2093,9 @@ add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INTERNAL_SIGNALS /to
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INTERNAL_SIGNALS /top/DUT/usb2_inst/ip/pkt_type
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INTERNAL_SIGNALS /top/DUT/usb2_inst/ip/packet_crc
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INTERNAL_SIGNALS /top/DUT/usb2_inst/ip/packet_token
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INTERNAL_SIGNALS /top/DUT/usb2_inst/ip/packet_token_addr
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INTERNAL_SIGNALS /top/DUT/usb2_inst/ip/packet_token_addr_stored
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INTERNAL_SIGNALS /top/DUT/usb2_inst/ip/packet_token_endp
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INTERNAL_SIGNALS /top/DUT/usb2_inst/ip/packet_token_crc5
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INTERNAL_SIGNALS /top/DUT/usb2_inst/ip/packet_token_frame
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INTERNAL_SIGNALS /top/DUT/usb2_inst/ip/dc
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INTERNAL_SIGNALS /top/DUT/usb2_inst/ip/bc
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INTERNAL_SIGNALS /top/DUT/usb2_inst/ip/local_dev_addr
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INTERNAL_SIGNALS /top/DUT/usb2_inst/ip/crc16
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INTERNAL_SIGNALS /top/DUT/usb2_inst/ip/crc16_1
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INTERNAL_SIGNALS /top/DUT/usb2_inst/ip/crc16_2
@@ -2378,7 +2368,6 @@ add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INTERNAL_SIGNALS /to
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INTERNAL_SIGNALS /top/DUT/usb2_inst/ip/crc16_2
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INTERNAL_SIGNALS /top/DUT/usb2_inst/ip/crc16_fix
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INTERNAL_SIGNALS /top/DUT/usb2_inst/ip/crc16_fix_out
-add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INTERNAL_SIGNALS /top/DUT/usb2_inst/ip/data_pid
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INTERNAL_SIGNALS /top/DUT/usb2_inst/ip/buf_in_addr_2
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INTERNAL_SIGNALS /top/DUT/usb2_inst/ip/buf_in_addr_1
 add wave -noupdate -expand -group PACKET(ip)_SIGNALS -group INTERNAL_SIGNALS /top/DUT/usb2_inst/ip/buf_in_addr_0
@@ -2936,51 +2925,62 @@ add wave -noupdate -group PROTOCOL(ipr)_SIGNALS -group INTERNAL_SIGNALS /top/DUT
 add wave -noupdate -group PROTOCOL(ipr)_SIGNALS -group INTERNAL_SIGNALS /top/DUT/usb2_inst/ipr/ep2_buf_in_commit_ack
 add wave -noupdate -group PROTOCOL(ipr)_SIGNALS -group INTERNAL_SIGNALS /top/DUT/usb2_inst/ipr/ep2_data_toggle_act
 add wave -noupdate -group PROTOCOL(ipr)_SIGNALS -group INTERNAL_SIGNALS /top/DUT/usb2_inst/ipr/ep2_data_toggle
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ia/phy_d_in
-add wave -noupdate -group Token_packet -radix decimal /top/DUT/usb2_inst/ia/state
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ia/phy_nxt
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ia/phy_dir
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ia/in_rx_cmd
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ia/rx_active
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ia/pkt_out_byte
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ia/pkt_out_act
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ia/pkt_out_latch
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ia/know_recv_packet
-add wave -noupdate -group Token_packet -radix decimal /top/DUT/usb2_inst/ip/state
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ip/in_act
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ip/in_latch
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ip/pid_valid
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ip/in_latch
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ip/pkt_type
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ip/bc
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ip/in_byte
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ip/packet_token
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ia/phy_d_in
-add wave -noupdate -group Token_packet -radix decimal /top/DUT/usb2_inst/ia/state
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ia/phy_nxt
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ia/phy_dir
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ia/in_rx_cmd
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ia/rx_active
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ia/pkt_out_byte
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ia/pkt_out_act
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ia/pkt_out_latch
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ia/know_recv_packet
-add wave -noupdate -group Token_packet -radix decimal /top/DUT/usb2_inst/ip/state
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ip/in_act
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ip/in_latch
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ip/pid_valid
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ip/in_latch
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ip/pkt_type
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ip/bc
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ip/in_byte
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ip/packet_token
-add wave -noupdate -group Token_packet /top/DUT/usb2_inst/ip/dbg_frame_num
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ip/phy_clk
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ia/phy_dir
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ia/phy_nxt
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ip/in_act
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ia/phy_d_in
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ip/pid_valid
+add wave -noupdate -expand -group Token_packet -radix unsigned /top/DUT/usb2_inst/ip/state
+add wave -noupdate -expand -group Token_packet -radix decimal /top/DUT/usb2_inst/ia/state
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ia/in_rx_cmd
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ip/in_latch
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ip/in_byte
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ip/packet_token
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ip/packet_token_addr
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ip/local_dev_addr
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ia/rx_active
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ia/pkt_out_byte
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ia/pkt_out_act
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ia/pkt_out_latch
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ia/know_recv_packet
+add wave -noupdate -expand -group Token_packet -radix decimal /top/DUT/usb2_inst/ip/state
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ip/in_latch
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ip/pkt_type
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ip/bc
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ia/phy_d_in
+add wave -noupdate -expand -group Token_packet -radix decimal /top/DUT/usb2_inst/ia/state
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ia/phy_nxt
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ia/phy_dir
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ia/in_rx_cmd
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ia/rx_active
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ia/pkt_out_byte
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ia/pkt_out_act
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ia/pkt_out_latch
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ia/know_recv_packet
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ip/in_act
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ip/in_latch
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ip/pid_valid
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ip/in_latch
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ip/pkt_type
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ip/bc
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ip/in_byte
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ip/packet_token
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ip/packet_token_addr_stored
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ip/dbg_frame_num
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ip/sel_endp
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ip/packet_token_endp
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ip/data_toggle
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ip/data_pid
+add wave -noupdate -expand -group Token_packet -radix unsigned /top/DUT/usb2_inst/ip/dc
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ip/endp_mode
+add wave -noupdate -expand -group Token_packet /top/DUT/usb2_inst/ia/phy_d_out_mux
 TreeUpdate [SetDefaultTree]
 quietly WaveActivateNextPane
-WaveRestoreCursors {{Cursor 1} {8194873 ps} 0}
+WaveRestoreCursors {{Cursor 4} {8536871169 ps} 0}
 quietly wave cursor active 1
-configure wave -namecolwidth 356
-configure wave -valuecolwidth 100
+configure wave -namecolwidth 243
+configure wave -valuecolwidth 63
 configure wave -justifyvalue left
 configure wave -signalnamewidth 0
 configure wave -snapdistance 10
@@ -2993,4 +2993,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {8193822 ps} {8195924 ps}
+WaveRestoreZoom {8535939265 ps} {8538779889 ps}
