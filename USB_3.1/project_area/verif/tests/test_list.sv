@@ -20,3 +20,4 @@
    	`include "speed_neg_hs_test.sv" 
    	`include "token_in_test.sv" 
    	`include "debug_sof_test.sv" 
+   	`include "token_out_ep1_test.sv" 

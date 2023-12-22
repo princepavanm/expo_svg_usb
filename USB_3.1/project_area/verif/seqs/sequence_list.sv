@@ -23,4 +23,4 @@
   `include "speed_neg_hs_seq.sv"
   `include "phy_rx_seq.sv"
   `include "token_in_seq.sv"
-
+`include "token_out_ep1_seq.sv"

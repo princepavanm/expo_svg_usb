@@ -31,8 +31,8 @@ class usb_virtual_sequence extends uvm_sequence #(uvm_sequence_item);
   debug_sof_seq 	debug_sof_seq_h;
   usb_base_seq 		usb_base_seq_h;
   token_in_seq 		token_in_seq_h;
-  
-  
+  token_out_ep1_seq      token_out_ep1_h; 
+
   
   usb_phy_rx_seq 	usb_phy_rx_seq_h;
 
@@ -56,6 +56,7 @@ class usb_virtual_sequence extends uvm_sequence #(uvm_sequence_item);
     debug_sof_seq_h=debug_sof_seq::type_id::create("debug_sof_seq_h");
     speed_neg_hs_seq_h=speed_neg_hs_seq::type_id::create("speed_neg_hs_seq_h");
     token_in_seq_h=token_in_seq::type_id::create("token_in_seq_h");
+    token_out_ep1_h=token_out_ep1_seq::type_id::create("token_out_ep1_h");
 
     usb_base_seq_h=usb_base_seq::type_id::create("usb_base_seq_h");
     usb_phy_rx_seq_h=usb_phy_rx_seq::type_id::create("usb_phy_rx_seq_h");
@@ -87,6 +88,10 @@ class usb_virtual_sequence extends uvm_sequence #(uvm_sequence_item);
 
    `ifdef TOKEN_IN_SEQ
       token_in_seq_h.start(env_h.v_sqr_h.reset_sqr_h);
+   `endif
+
+   `ifdef TOKEN_OUT_EP1_SEQ
+      token_out_ep1_h.start(env_h.v_sqr_h.reset_sqr_h);
    `endif
 
 

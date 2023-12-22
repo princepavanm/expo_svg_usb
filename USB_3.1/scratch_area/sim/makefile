@@ -94,4 +94,11 @@ token_in_test:
 	mkdir $(LOG_DIR)/token_in_test_$(SEED)
 	vsim -sv_seed $(SEED) -cvgperinstance -voptargs=+acc -coverage -voptargs="+cover=all" -assertdebug -voptargs="+ASSERTION_ON" +UVM_VERBOSITY=UVM_MEDIUM +UVM_TESTNAME=token_in_test -l $(LOG_DIR)/token_in_test_$(SEED)/token_in_test_$(SEED).log -do "coverage save -onexit $(LOG_DIR)/token_in_test_$(SEED)/token_in_test_$(SEED).ucdb;do $(SIM_DIR)/wave.do;run -all;" work.top
 
+token_out_ep1_test:
+	vlog -coveropt 3 +cover -L $(QUESTA_HOME)/uvm-1.2 +define+$(DUMP_OPTS) $(INC_DIR) $(DUT_FILE) $(TOP_FILE) +define+TOKEN_OUT_EP1_SEQ       	
+	rm -rf $(LOG_DIR)/token_out_ep1_test_$(SEED)
+	rm -rf token_out_ep1_test_$(SEED).ucdb
+	mkdir $(LOG_DIR)/token_out_ep1_test_$(SEED)
+	vsim -sv_seed $(SEED) -cvgperinstance -voptargs=+acc -coverage -voptargs="+cover=all" -assertdebug -voptargs="+ASSERTION_ON" +UVM_VERBOSITY=UVM_MEDIUM +UVM_TESTNAME=token_out_ep1_test -l $(LOG_DIR)/token_out_ep1_test_$(SEED)/token_out_ep1_test_$(SEED).log -do "coverage save -onexit $(LOG_DIR)/token_out_ep1_test_$(SEED)/token_out_ep1_test_$(SEED).ucdb;do $(SIM_DIR)/wave.do;run -all;" work.top
+
 
