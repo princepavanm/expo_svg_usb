@@ -1,5 +1,0 @@
-interface utmi_intf(input logic utmi_clk, utmi_rst);
-
-  //Implement Modpot and clocking block here
-
-endinterface:utmi_intf
