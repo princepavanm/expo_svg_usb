@@ -38,16 +38,49 @@
 
 //  CVS Log
 //
-//  $Id: usbf_defines.v,v 1.6 2003-10-17 02:36:57 rudi Exp $
+//  $Id: usbf_defines.v,v 1.6 2007/05/15 12:40:05 ramarao Exp $
 //
-//  $Date: 2003-10-17 02:36:57 $
+//  $Date: 2007/05/15 12:40:05 $
 //  $Revision: 1.6 $
-//  $Author: rudi $
+//  $Author: ramarao $
 //  $Locker:  $
 //  $State: Exp $
 //
 // Change History:
-//               $Log: not supported by cvs2svn $
+//               $Log: usbf_defines.v,v $
+//               Revision 1.6  2007/05/15 12:40:05  ramarao
+//               added redused sim for 100us
+//
+//               Revision 1.5  2007/05/14 12:19:37  pratish
+//               modifed defines for suspend
+//
+//               Revision 1.5  2007/05/11 06:32:43  pratish
+//               corrected/modified some defines for suspend mode.
+//
+//               Revision 1.4  2007/05/11 06:32:43  pratish
+//               reduced defines for speed neg
+//
+//               Revision 1.4  2007/05/11 04:41:49  Pratish
+//               Modified defines for reduced simulation for speed neg
+//
+//               Revision 1.3  2007/05/03 04:41:49  sreddy
+//               Added defines for reduced simulation
+//
+//               Revision 1.2  2007/03/13 08:50:31  ramarao
+//               enabled all the endpoints
+//
+//               Revision 1.1  2007/01/12 11:17:20  kartik
+//               Initial check in ...Source usb core from opencores.org
+//
+//               Revision 1.6  2003/10/17 02:36:57  rudi
+//               - Disabling bit stuffing and NRZI encoding during speed negotiation
+//               - Now the core can send zero size packets
+//               - Fixed register addresses for some of the higher endpoints
+//                 (conversion between decimal/hex was wrong)
+//               - The core now does properly evaluate the function address to
+//                 determine if the packet was intended for it.
+//               - Various other minor bugs and typos
+//
 //               Revision 1.5  2001/11/04 12:22:43  rudi
 //
 //               - Fixed previous fix (brocke something else ...)
@@ -121,6 +154,18 @@
 		`define	USBF_HAVE_EP1	1
 		`define	USBF_HAVE_EP2	1
 		`define	USBF_HAVE_EP3	1
+		`define	USBF_HAVE_EP4	1
+		`define	USBF_HAVE_EP5	1
+		`define	USBF_HAVE_EP6	1
+		`define	USBF_HAVE_EP7	1
+		`define	USBF_HAVE_EP8	1
+		`define	USBF_HAVE_EP9	1
+		`define	USBF_HAVE_EP10	1
+		`define	USBF_HAVE_EP11	1
+		`define	USBF_HAVE_EP12	1
+		`define	USBF_HAVE_EP13	1
+		`define	USBF_HAVE_EP14	1
+		`define	USBF_HAVE_EP15	1
 `else
 		// Modify this section to suit your implementation
 		`define	USBF_HAVE_EP1	1
@@ -237,13 +282,21 @@
 `define	USBF_T1_PS_250_NS	4'd13
 
 // uS counter representation of 2.5uS (2.5/0.25=10)
+`ifdef REDUCED_SIM
+`define	USBF_T1_C_2_5_US	8'd1 // Changed
+`else
 `define	USBF_T1_C_2_5_US	8'd10
+`endif
 
 // uS counter clear value
 // The uS counter counts the time in 0.25uS intervals. It also generates
 // a count enable to the mS counter, every 62.5 uS.
 // The clear value is 62.5uS/0.25uS=250 cycles.
+`ifdef REDUCED_SIM
+`define	USBF_T1_C_62_5_US	8'd100 // 62.5uS is equivalent to 25uS
+`else
 `define USBF_T1_C_62_5_US	8'd250
+`endif
 
 // mS counter representation of 3.0mS (3.0/0.0625=48)
 `define USBF_T1_C_3_0_MS	8'd48
@@ -260,7 +313,11 @@
 
 // Generate 0.5mS period from the 2.5 uS clock
 // 500/2.5 = 200
+`ifdef REDUCED_SIM
+`define	USBF_T2_C_0_5_MS	8'd4
+`else
 `define	USBF_T2_C_0_5_MS	8'd200
+`endif
 
 // Indicate when internal wakeup has completed
 // me_cnt counts 0.5 mS intervals. E.g.: 5.0mS are (5/0.5) 10 ticks
@@ -269,7 +326,13 @@
 
 // Indicate when 100uS have passed
 // me_ps2 counts 2.5uS intervals. 100uS are (100/2.5) 40 ticks
+//as ps2 scale is reduced from 2.5uS to 0.5uS, it resets after 4tickes, 
+//so we have to give a value less than 4.
+`ifdef REDUCED_SIM
+`define USBF_T2_C_100_US	8'd2
+`else
 `define USBF_T2_C_100_US	8'd40
+`endif
 
 // Indicate when 1.0 mS have passed
 // me_cnt counts 0.5 mS intervals. 1.0mS are (1/0.5) 2 ticks
@@ -281,5 +344,8 @@
 
 // Indicate when 100 mS have passed
 // me_cnt counts 0.5 mS intervals. 100mS are (100/0.5) 200 ticks
+`ifdef REDUCED_SIM
+`define USBF_T2_C_100_MS	8'd4
+`else
 `define USBF_T2_C_100_MS	8'd200
-
+`endif

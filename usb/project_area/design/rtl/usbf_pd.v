@@ -38,16 +38,28 @@
 
 //  CVS Log
 //
-//  $Id: usbf_pd.v,v 1.7 2003-10-17 02:36:57 rudi Exp $
+//  $Id: usbf_pd.v,v 1.1 2007/01/12 11:17:48 kartik Exp $
 //
-//  $Date: 2003-10-17 02:36:57 $
-//  $Revision: 1.7 $
-//  $Author: rudi $
+//  $Date: 2007/01/12 11:17:48 $
+//  $Revision: 1.1 $
+//  $Author: kartik $
 //  $Locker:  $
 //  $State: Exp $
 //
 // Change History:
-//               $Log: not supported by cvs2svn $
+//               $Log: usbf_pd.v,v $
+//               Revision 1.1  2007/01/12 11:17:48  kartik
+//               Initial check in ...Source usb core from opencores.org
+//
+//               Revision 1.7  2003/10/17 02:36:57  rudi
+//               - Disabling bit stuffing and NRZI encoding during speed negotiation
+//               - Now the core can send zero size packets
+//               - Fixed register addresses for some of the higher endpoints
+//                 (conversion between decimal/hex was wrong)
+//               - The core now does properly evaluate the function address to
+//                 determine if the packet was intended for it.
+//               - Various other minor bugs and typos
+//
 //               Revision 1.5  2001/11/03 03:26:22  rudi
 //
 //               - Fixed several interrupt and error condition reporting bugs
@@ -90,8 +102,7 @@
 //
 
 `include "usbf_defines.v"
-`include "usbf_crc5.v"
-`include "usbf_crc16.v"
+//`include "usb_defines.v"
 
 module usbf_pd(	clk, rst,
 
@@ -337,7 +348,8 @@ usbf_crc16 u1(
 	.crc_out(	crc16_out		) );
 
 // Verify against polynomial 
-assign crc16_err = data_done & (crc16_sum != 16'h800d);
+//TODO MK assign crc16_err = data_done & (crc16_sum != 16'h800d);
+assign crc16_err = data_done & (crc16_sum != 16'h0000);
 
 ///////////////////////////////////////////////////////////////////
 //

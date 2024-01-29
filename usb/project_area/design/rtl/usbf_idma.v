@@ -38,16 +38,35 @@
 
 //  CVS Log
 //
-//  $Id: usbf_idma.v,v 1.8 2003-10-17 02:36:57 rudi Exp $
+//  $Id: usbf_idma.v,v 1.3 2007/03/16 10:14:48 sreddy Exp $
 //
-//  $Date: 2003-10-17 02:36:57 $
-//  $Revision: 1.8 $
-//  $Author: rudi $
+//  $Date: 2007/03/16 10:14:48 $
+//  $Revision: 1.3 $
+//  $Author: sreddy $
 //  $Locker:  $
 //  $State: Exp $
 //
 // Change History:
-//               $Log: not supported by cvs2svn $
+//               $Log: usbf_idma.v,v $
+//               Revision 1.3  2007/03/16 10:14:48  sreddy
+//               Latency in read enable signal corrected - Kartik
+//
+//               Revision 1.2  2007/03/15 06:59:39  kartik
+//               Bug for SRAM REad corrected. Prev it was tied to 1 always.
+//               Now Logic for read enable for the SRAM  is added.
+//
+//               Revision 1.1  2007/01/12 11:17:38  kartik
+//               Initial check in ...Source usb core from opencores.org
+//
+//               Revision 1.8  2003/10/17 02:36:57  rudi
+//               - Disabling bit stuffing and NRZI encoding during speed negotiation
+//               - Now the core can send zero size packets
+//               - Fixed register addresses for some of the higher endpoints
+//                 (conversion between decimal/hex was wrong)
+//               - The core now does properly evaluate the function address to
+//                 determine if the packet was intended for it.
+//               - Various other minor bugs and typos
+//
 //               Revision 1.7  2001/11/04 12:22:45  rudi
 //
 //               - Fixed previous fix (brocke something else ...)
@@ -116,7 +135,7 @@ module usbf_idma(	clk, rst,
 		adr, size, sizu_c,
 
 		// Memory Arb interface
-		madr, mdout, mdin, mwe, mreq, mack
+		madr, mdout, mdin, mwe, mre,mreq, mack
 		);
 
 parameter	SSRAM_HADR = 14;
@@ -149,6 +168,7 @@ output	[SSRAM_HADR:0]	madr;	// word address
 output	[31:0]	mdout;
 input	[31:0]	mdin;
 output		mwe;
+output		mre;
 output		mreq;
 input		mack;
 
@@ -191,6 +211,7 @@ reg		mreq_d;			// Memory request from State Machine
 reg	[31:0]	dtmp_r;			// Temp data assembly register
 reg	[31:0]	dout_r;			// Data output register
 reg		mwe_d;			// Memory Write enable
+reg		mre_d;			// Memory Read enable
 reg		dtmp_sel;		// Selects tmp data register for pre-fetch
 
 reg		sizd_is_zero;		// Indicates when all bytes have been
@@ -214,6 +235,7 @@ reg		wr_done;
 reg		wr_done_r;
 reg		dtmp_sel_r;
 reg		mwe;
+wire     	mre;
 reg		rx_data_done_r2;
 wire		fill_buf0, fill_buf1;
 wire		adrb_is_3;
@@ -240,6 +262,9 @@ assign madr = adr_cw;
 
 always @(posedge clk)
 	mwe <= mwe_d;
+
+//always @(posedge clk)
+assign	mre = mre_d;
 
 always @(posedge clk)
 	mack_r <= mreq & mack;
@@ -282,6 +307,13 @@ always @(posedge clk)
 always @(dma_en or adrw_next or last_buf_adr)
 	if(adrw_next == last_buf_adr && dma_en)	adrw_next1 = {SSRAM_HADR+1{1'b0}};
 	else					adrw_next1 = adrw_next;
+
+/*
+always @(posedge clk)
+begin
+    $display("adrw_next1 = %h, adrw_next = %h", adrw_next1, adrw_next);
+end
+*/
 
 always @(adr_incw or adr_cw)
 	if(adr_incw)	adrw_next = adr_cw + {{SSRAM_HADR{1'b0}}, 1'b1};
@@ -446,6 +478,7 @@ always @(state or mack_r or abort or rx_dma_en_r or tx_dma_en_r or
 	next_state = state;	// Default do not change state
 	mreq_d = 1'b0;
 	mwe_d = 1'b0;
+	mre_d = 1'b0;
 	rd_first = 1'b0;
 	dtmp_sel = 1'b0;
 	wr_last_en = 1'b0;
@@ -498,6 +531,7 @@ if(mack_r === 1'bx)	$display("ERROR: IDMA: WAIT_MRD: mack_r is unknown. (%t)", $
 			   begin
 				dtmp_sel = 1'b1;
 				mreq_d = 1'b1;
+			        mre_d = 1'b1;
 			   end
 		   end
 
@@ -577,6 +611,7 @@ if(mack_r === 1'bx)	$display("ERROR: IDMA: MEM_RD1: mack_r is unknown. (%t)", $t
 // synopsys translate_on
 
 			mreq_d = 1'b1;
+			mre_d = 1'b1;
 			if(mack_r)		rd_first = 1'b1;
 			if(abort)		next_state = IDLE;
 			else
@@ -596,6 +631,7 @@ if(mack_r === 1'bx)	$display("ERROR: IDMA: MEM_RD2: mack_r is unknown. (%t)", $t
 // synopsys translate_on
 
 			mreq_d = 1'b1;
+			mre_d = 1'b1;
 			if(abort)		next_state = IDLE;
 			else
 			if(mack_r)		next_state = MEM_RD3;

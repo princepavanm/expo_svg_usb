@@ -20,7 +20,7 @@ class reset_drv extends uvm_driver#(reset_tr);
 
   reset_tr               tr_h;
 
-  virtual reset_intf     reset_pif;
+  virtual reset_intf     reset_vif;
 
   function new(string name="reset_drv", uvm_component parent=null);
     super.new(name, parent);
@@ -28,8 +28,8 @@ class reset_drv extends uvm_driver#(reset_tr);
 
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    if(!uvm_config_db#(virtual reset_intf)::get(this, " ", "reset_pif", reset_pif))
-      `uvm_fatal("RESET_DRIVER", "***** Could not get reset_pif *****")
+    if(!uvm_config_db#(virtual reset_intf)::get(this, " ", "reset_vif", reset_vif))
+      `uvm_fatal("RESET_DRIVER", "***** Could not get reset_vif *****")
   endfunction:build_phase
 
   virtual task run_phase(uvm_phase phase);
@@ -43,30 +43,30 @@ class reset_drv extends uvm_driver#(reset_tr);
 
   virtual task drive_tx(reset_tr     tr_h);
     if(tr_h.kind == reset_tr::DEASSERT) begin
-      reset_pif.reset_n = 1'b0;
+      reset_vif.reset_n = 1'b0;
       reset_input_signals();
-      repeat (tr_h.cycles) @(reset_pif.reset_cb);
+      repeat (tr_h.cycles) @(reset_vif.reset_cb);
     end
     else begin
-      reset_pif.reset_n <= '1;
-      repeat(tr_h.cycles) @(reset_pif.reset_cb);
+      reset_vif.reset_n <= '1;
+      repeat(tr_h.cycles) @(reset_vif.reset_cb);
     end
   endtask
 
   task reset_input_signals();
 	  /*
-    top.buff_pif.phy_ulpi_dir      = 0;
-    top.buff_pif.phy_ulpi_nxt      = 0;
-    top.buff_pif.opt_disable_all   = 0;
-    top.buff_pif.opt_enable_hs     = 0;
-    top.buff_pif.opt_ignore_vbus   = 0;
-    top.buff_pif.buf_in_addr       = 0;
-    top.buff_pif.buf_in_data       = 0;
-    top.buff_pif.buf_in_wren       = 0;
-    top.buff_pif.buf_in_commit     = 0;
-    top.buff_pif.buf_in_commit_len = 0;
-    top.buff_pif.buf_out_addr      = 0;
-    top.buff_pif.buf_out_arm       = 0;
+    top.buff_vif.phy_ulpi_dir      = 0;
+    top.buff_vif.phy_ulpi_nxt      = 0;
+    top.buff_vif.opt_disable_all   = 0;
+    top.buff_vif.opt_enable_hs     = 0;
+    top.buff_vif.opt_ignore_vbus   = 0;
+    top.buff_vif.buf_in_addr       = 0;
+    top.buff_vif.buf_in_data       = 0;
+    top.buff_vif.buf_in_wren       = 0;
+    top.buff_vif.buf_in_commit     = 0;
+    top.buff_vif.buf_in_commit_len = 0;
+    top.buff_vif.buf_out_addr      = 0;
+    top.buff_vif.buf_out_arm       = 0;
 */  
 endtask
 endclass:reset_drv

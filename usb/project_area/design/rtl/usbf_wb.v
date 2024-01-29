@@ -83,8 +83,6 @@
 //
 //
 
-`include "usbf_defines.v"
-
 module usbf_wb(	// WISHBONE Interface
 		wb_clk, phy_clk, rst, wb_addr_i, wb_data_i, wb_data_o, 
 		wb_ack_o, wb_we_i, wb_stb_i, wb_cyc_i,

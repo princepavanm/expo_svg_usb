@@ -14,11 +14,11 @@
 //                                                                                               //
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-interface reset_intf(input phy_ulpi_clk);
+interface reset_intf(input clk_i);
 
   logic			reset_n;
 
-  clocking reset_cb@(posedge phy_ulpi_clk);
+  clocking reset_cb@(posedge clk_i);
     default input #1 output #1;
     output reset_n;
   endclocking : reset_cb

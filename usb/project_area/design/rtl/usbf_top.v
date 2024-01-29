@@ -38,16 +38,26 @@
 
 //  CVS Log
 //
-//  $Id: usbf_top.v,v 1.7 2003-11-11 07:15:16 rudi Exp $
+//  $Id: usbf_top.v,v 1.2 2007/03/15 06:59:45 kartik Exp $
 //
-//  $Date: 2003-11-11 07:15:16 $
-//  $Revision: 1.7 $
-//  $Author: rudi $
+//  $Date: 2007/03/15 06:59:45 $
+//  $Revision: 1.2 $
+//  $Author: kartik $
 //  $Locker:  $
 //  $State: Exp $
 //
 // Change History:
-//               $Log: not supported by cvs2svn $
+//               $Log: usbf_top.v,v $
+//               Revision 1.2  2007/03/15 06:59:45  kartik
+//               Bug for SRAM REad corrected. Prev it was tied to 1 always.
+//               Now Logic for read enable for the SRAM  is added.
+//
+//               Revision 1.1  2007/01/12 11:17:51  kartik
+//               Initial check in ...Source usb core from opencores.org
+//
+//               Revision 1.7  2003/11/11 07:15:16  rudi
+//               Fixed Resume signaling and initial attachment
+//
 //               Revision 1.6  2003/10/17 02:36:57  rudi
 //               - Disabling bit stuffing and NRZI encoding during speed negotiation
 //               - Now the core can send zero size packets
@@ -105,15 +115,6 @@
 //
 
 `include "usbf_defines.v"
-`include "usbf_utmi_if.v"
-`include "usbf_pl.v"
-`include "usbf_mem_arb.v"
-`include "usbf_rf.v"
-`include "usbf_wb.v"
-
-
-
-
 
 module usbf_top(// WISHBONE Interface
 		clk_i, rst_i, wb_addr_i, wb_data_i, wb_data_o,
@@ -207,6 +208,7 @@ wire	[SSRAM_HADR:0]	madr;		// word address
 wire	[31:0]	mdout;
 wire	[31:0]	mdin;
 wire		mwe;
+wire		mre;
 wire		mreq;
 wire		mack;
 wire		rst;
@@ -354,6 +356,7 @@ usbf_pl #(SSRAM_HADR)
 		.mdout(			mdout			),
 		.mdin(			mdin			),
 		.mwe(			mwe			),
+		.mre(			mre			),
 		.mreq(			mreq			),
 		.mack(			mack			),
 		.fa(			funct_adr		),
@@ -399,6 +402,7 @@ usbf_mem_arb	#(SSRAM_HADR)
 		.mdout(		mdin		),
 		.mdin(		mdout		),
 		.mwe(		mwe		),
+		.mre(		mre		),
 		.mreq(		mreq		),
 		.mack(		mack		),
 

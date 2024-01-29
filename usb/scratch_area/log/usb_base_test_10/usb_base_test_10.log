@@ -1,27 +1,15 @@
-# //  Questa Sim-64
-# //  Version 2021.1 win64 Jan 19 2021
-# //
-# //  Copyright 1991-2021 Mentor Graphics Corporation
-# //  All Rights Reserved.
-# //
-# //  QuestaSim and its associated documentation contain trade
-# //  secrets and commercial or financial information that are the property of
-# //  Mentor Graphics Corporation and are privileged, confidential,
-# //  and exempt from disclosure under the Freedom of Information Act,
-# //  5 U.S.C. Section 552. Furthermore, this information
-# //  is prohibited from disclosure under the Trade Secrets Act,
-# //  18 U.S.C. Section 1905.
-# //
-# vsim -vopt -sv_seed 10 -voptargs="+acc=npr" -assertdebug "+UVM_VERBOSITY=UVM_LOW" "+UVM_TESTNAME=usb_base_test" -l ../../../usb/scratch_area/log/usb_base_test_10/usb_base_test_10.log -sva -coverage -do "coverage save -onexit ../../../usb/scratch_area/log/usb_base_test_10/usb_base_test_10.ucdb;" work.top 
-# Start time: 07:17:21 on Jan 25,2024
+# vsim -c -vopt -sv_seed 10 -voptargs=""+acc=npr"" -assertdebug "+UVM_VERBOSITY=UVM_LOW" "+UVM_TESTNAME=usb_base_test" -l ../../../usb/scratch_area/log/usb_base_test_10/usb_base_test_10.log -sva -coverage -do "coverage save -onexit ../../../usb/scratch_area/log/usb_base_test_10/usb_base_test_10.ucdb;do ../../../usb/scratch_area/sim/wave.do;run -all;" work.top 
+# Start time: 16:22:44 on Jan 29,2024
 # ** Note: (vsim-3812) Design is being optimized...
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'top', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'top_sv_unit', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'reset_intf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'wb_intf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'utmi_intf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'sram_intf', but was not detected by vopt. The vlog option will be ignored.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=6.
+# ** Warning: ../../../usb/project_area/verif/agents/utmi_agent/base_pkt.sv(20): (vopt-2250) Function "calc_crc5" has no return value assignment.
+# ** Warning: ../../../usb/project_area/verif/agents/utmi_agent/base_pkt.sv(25): (vopt-2250) Function "calc_crc16" has no return value assignment.
+# ** Note: (vopt-143) Recognized 1 FSM in module "usbf_pe(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "usbf_utmi_ls(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "usbf_idma(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "usbf_pd(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "usbf_pa(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "usbf_wb(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=2.
 # Loading sv_std.std
 # Loading mtiUvm.uvm_pkg(fast)
 # Loading work.top_sv_unit(fast)
@@ -31,237 +19,20 @@
 # Loading work.wb_intf(fast__2)
 # Loading work.utmi_intf(fast__2)
 # Loading work.sram_intf(fast__2)
-# Loading work.reset_intf(fast)
-# Loading work.wb_intf(fast)
-# Loading work.utmi_intf(fast)
-# Loading work.sram_intf(fast)
-# Loading C:/questasim64_2021.1/uvm-1.1d\win64\uvm_dpi.dll
-# coverage save -onexit ../../../usb/scratch_area/log/usb_base_test_10/usb_base_test_10.ucdb
-# 
-add wave -position insertpoint sim:/top/reset_pif/*
-add wave -position insertpoint sim:/top/wb_pif/*
-add wave -position insertpoint sim:/top/utmi_pif/*
-add wave -position insertpoint sim:/top/sram_pif/*
-run -all
-# ----------------------------------------------------------------
-# UVM-1.1d
-# (C) 2007-2013 Mentor Graphics Corporation
-# (C) 2007-2013 Cadence Design Systems, Inc.
-# (C) 2006-2013 Synopsys, Inc.
-# (C) 2011-2013 Cypress Semiconductor Corp.
-# ----------------------------------------------------------------
-# 
-#   ***********       IMPORTANT RELEASE NOTES         ************
-# 
-#   You are using a version of the UVM library that has been compiled
-#   with `UVM_NO_DEPRECATED undefined.
-#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
-# 
-#   You are using a version of the UVM library that has been compiled
-#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
-#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
-# 
-#       (Specify +UVM_NO_RELNOTES to turn off this notice)
-# 
-# UVM_INFO @ 0: reporter [RNTST] Running test usb_base_test...
-# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
-# ----------------------------------------------------------------
-# Name                         Type                    Size  Value
-# ----------------------------------------------------------------
-# uvm_test_top                 usb_base_test           -     @486 
-#   env_h                      usb_env                 -     @493 
-#     sram_agent_h             sram_agent              -     @623 
-#       cov_h                  sram_agent_cov          -     @770 
-#         analysis_imp         uvm_analysis_imp        -     @777 
-#         sram_agent_cov_port  uvm_analysis_imp        -     @788 
-#       drv_h                  sram_agent_drv          -     @638 
-#         rsp_port             uvm_analysis_port       -     @653 
-#         seq_item_port        uvm_seq_item_pull_port  -     @645 
-#       mon_h                  sram_agent_mon          -     @631 
-#         sram_agent_mon_port  uvm_analysis_port       -     @801 
-#       sqr_h                  sram_agent_sqr          -     @661 
-#         rsp_export           uvm_analysis_export     -     @668 
-#         seq_item_export      uvm_seq_item_pull_imp   -     @762 
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#     utmi_agent_h             utmi_agent              -     @616 
-#       cov_h                  utmi_agent_cov          -     @958 
-#         analysis_imp         uvm_analysis_imp        -     @965 
-#         utmi_agent_cov_port  uvm_analysis_imp        -     @976 
-#       drv_h                  utmi_agent_drv          -     @826 
-#         rsp_port             uvm_analysis_port       -     @841 
-#         seq_item_port        uvm_seq_item_pull_port  -     @833 
-#       mon_h                  utmi_agent_mon          -     @819 
-#         utmi_agent_mon_port  uvm_analysis_port       -     @989 
-#       sqr_h                  utmi_agent_sqr          -     @849 
-#         rsp_export           uvm_analysis_export     -     @856 
-#         seq_item_export      uvm_seq_item_pull_imp   -     @950 
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#     v_sqr_h                  usb_virtual_sqr         -     @500 
-#       rsp_export             uvm_analysis_export     -     @507 
-#       seq_item_export        uvm_seq_item_pull_imp   -     @601 
-#       sram_agent_sqr_h       sram_agent_sqr          -     @1229
-#         rsp_export           uvm_analysis_export     -     @1236
-#         seq_item_export      uvm_seq_item_pull_imp   -     @1330
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#       utmi_agent_sqr_h       utmi_agent_sqr          -     @1120
-#         rsp_export           uvm_analysis_export     -     @1127
-#         seq_item_export      uvm_seq_item_pull_imp   -     @1221
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#       wb_agent_sqr_h         wb_agent_sqr            -     @1011
-#         rsp_export           uvm_analysis_export     -     @1018
-#         seq_item_export      uvm_seq_item_pull_imp   -     @1112
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#       arbitration_queue      array                   0     -    
-#       lock_queue             array                   0     -    
-#       num_last_reqs          integral                32    'd1  
-#       num_last_rsps          integral                32    'd1  
-#     wb_agent_h               wb_agent                -     @609 
-#       cov_h                  wb_agent_cov            -     @1493
-#         analysis_imp         uvm_analysis_imp        -     @1500
-#         wb_agent_cov_port    uvm_analysis_imp        -     @1511
-#       drv_h                  wb_agent_drv            -     @1361
-#         rsp_port             uvm_analysis_port       -     @1376
-#         seq_item_port        uvm_seq_item_pull_port  -     @1368
-#       mon_h                  wb_agent_mon            -     @1354
-#         wb_agent_mon_port    uvm_analysis_port       -     @1524
-#       sqr_h                  wb_agent_sqr            -     @1384
-#         rsp_export           uvm_analysis_export     -     @1391
-#         seq_item_export      uvm_seq_item_pull_imp   -     @1485
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-# ----------------------------------------------------------------
-# 
-# 
-#### Factory Configuration (*)
-# 
-#   No instance or type overrides are registered with this factory
-# 
-# All types registered with the factory: 66 total
-# (types without type names will not be printed)
-# 
-#   Type Name
-#   ---------
-#   questa_uvm_recorder
-#   reset_agent
-#   reset_drv
-#   reset_tr
-#   sram_agent
-#   sram_agent_cov
-#   sram_agent_drv
-#   sram_agent_mon
-#   sram_agent_sqr
-#   sram_tx
-#   usb_base_seq
-#   usb_base_test
-#   usb_env
-#   usb_virtual_sqr
-#   utmi_agent
-#   utmi_agent_cov
-#   utmi_agent_drv
-#   utmi_agent_mon
-#   utmi_agent_sqr
-#   utmi_tx
-#   wb_agent
-#   wb_agent_cov
-#   wb_agent_drv
-#   wb_agent_mon
-#   wb_agent_sqr
-#   wb_tx
-# (*) Types with no associated type name will be printed as <unknown>
-# 
-####
-# 
-# UVM_INFO ../../../usb/project_area/verif/agents/wb_agent/wb_agent_mon.sv(24) @ 0: uvm_test_top.env_h.wb_agent_h.mon_h [wb_agent_mon] Monitor Run Phase
-# UVM_INFO ../../../usb/project_area/verif/agents/wb_agent/wb_agent_cov.sv(34) @ 0: uvm_test_top.env_h.wb_agent_h.cov_h [wb_agent_COV] From Coverage Run Phase
-# UVM_INFO ../../../usb/project_area/verif/agents/utmi_agent/utmi_agent_mon.sv(24) @ 0: uvm_test_top.env_h.utmi_agent_h.mon_h [utmi_agent_mon] Monitor Run Phase
-# UVM_INFO ../../../usb/project_area/verif/agents/utmi_agent/utmi_agent_cov.sv(34) @ 0: uvm_test_top.env_h.utmi_agent_h.cov_h [utmi_agent_COV] From Coverage Run Phase
-# UVM_INFO ../../../usb/project_area/verif/agents/sram_agent/sram_agent_mon.sv(24) @ 0: uvm_test_top.env_h.sram_agent_h.mon_h [sram_agent_mon] Monitor Run Phase
-# UVM_INFO ../../../usb/project_area/verif/agents/sram_agent/sram_agent_cov.sv(34) @ 0: uvm_test_top.env_h.sram_agent_h.cov_h [sram_agent_COV] From Coverage Run Phase
-# **************************************************
-# ****************** TEST Summary ******************
-# **************************************************
-# **************************************************
-# ****************** TEST  PASSED ******************
-# **************************************************
-# 
-# --- UVM Report Summary ---
-# 
-# ** Report counts by severity
-# UVM_INFO :    8
-# UVM_WARNING :    0
-# UVM_ERROR :    0
-# UVM_FATAL :    0
-# ** Report counts by id
-# [RNTST]     1
-# [UVMTOP]     1
-# [sram_agent_COV]     1
-# [sram_agent_mon]     1
-# [utmi_agent_COV]     1
-# [utmi_agent_mon]     1
-# [wb_agent_COV]     1
-# [wb_agent_mon]     1
-# ** Note: $finish    : C:/questasim64_2021.1/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 0 ns  Iteration: 215  Instance: /top
-# 1
-# Break in Task uvm_pkg/uvm_root::run_test at C:/questasim64_2021.1/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
-# Can't move the Now cursor.
-write format wave -window .main_pane.wave.interior.cs.body.pw.wf D:/usb2.0/usb/scratch_area/sim/wave.do
-do run.do
-# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
-# Start time: 07:22:53 on Jan 25,2024
-# vlog -reportprogress 300 -sv "+acc" "+cover" "+fcover" -L /uvm-1.2 "+define+DUMP_ON" "+incdir+../../../usb/project_area/design/rtl" "+incdir+../../../usb/project_area/verif/agents" "+incdir+../../../usb/project_area/verif/agents/wb_agent" "+incdir+../../../usb/project_area/verif/agents/utmi_agent" "+incdir+../../../usb/project_area/verif/agents/sram_agent" "+incdir+../../../usb/project_area/verif/agents/reset_agent" "+incdir+../../../usb/project_area/verif/tests" "+incdir+../../../usb/project_area/verif/seqs" "+incdir+../../../usb/project_area/verif/tb" "+incdir+../../../usb/scratch_area/log" "+incdir+../../../usb/scratch_area/sim" ../../../usb/project_area/verif/tb/top.sv 
-# ** Note: (vlog-2286) ../../../usb/project_area/verif/tb/top.sv(1): Using implicit +incdir+C:/questasim64_2021.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
-# -- Compiling package top_sv_unit
-# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
-# -- Compiling interface reset_intf
-# -- Compiling interface wb_intf
-# -- Compiling interface utmi_intf
-# -- Compiling interface sram_intf
-# -- Compiling module top
-# 
-# Top level modules:
-# 	top
-# End time: 07:22:53 on Jan 25,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Saving coverage database on exit...
-# End time: 07:22:59 on Jan 25,2024, Elapsed time: 0:05:38
-# Errors: 0, Warnings: 6
-# vsim -vopt -sv_seed 10 -voptargs=""+acc=npr"" -assertdebug "+UVM_VERBOSITY=UVM_LOW" "+UVM_TESTNAME=usb_base_test" -l ../../../usb/scratch_area/log/usb_base_test_10/usb_base_test_10.log -sva -coverage -do "coverage save -onexit ../../../usb/scratch_area/log/usb_base_test_10/usb_base_test_10.ucdb;do ../../../usb/scratch_area/sim/wave.do;run -all; exit" work.top 
-# Start time: 07:22:59 on Jan 25,2024
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'top', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'top_sv_unit', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'reset_intf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'wb_intf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'utmi_intf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'sram_intf', but was not detected by vopt. The vlog option will be ignored.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=6.
-# Loading sv_std.std
-# Loading mtiUvm.uvm_pkg(fast)
-# Loading work.top_sv_unit(fast)
-# Loading mtiUvm.questa_uvm_pkg(fast)
-# Loading work.top(fast)
-# Loading work.reset_intf(fast__2)
-# Loading work.wb_intf(fast__2)
-# Loading work.utmi_intf(fast__2)
-# Loading work.sram_intf(fast__2)
+# Loading work.usbf_top(fast)
+# Loading work.usbf_utmi_if(fast)
+# Loading work.usbf_utmi_ls(fast)
+# Loading work.usbf_pl(fast)
+# Loading work.usbf_pd(fast)
+# Loading work.usbf_crc5(fast)
+# Loading work.usbf_crc16(fast)
+# Loading work.usbf_pa(fast)
+# Loading work.usbf_idma(fast)
+# Loading work.usbf_pe(fast)
+# Loading work.usbf_mem_arb(fast)
+# Loading work.usbf_rf(fast)
+# Loading work.usbf_ep_rf(fast)
+# Loading work.usbf_wb(fast)
 # Loading work.reset_intf(fast)
 # Loading work.wb_intf(fast)
 # Loading work.utmi_intf(fast)
@@ -290,232 +61,151 @@ do run.do
 # 
 #       (Specify +UVM_NO_RELNOTES to turn off this notice)
 # 
-# ** Note: $finish    : ../../../usb/project_area/verif/tb/top.sv(35)
-#    Time: 500 us  Iteration: 0  Instance: /top
-# 1
-# Break in Module top at ../../../usb/project_area/verif/tb/top.sv line 35
-#  exit
-do run.do
-# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
-# Start time: 07:26:55 on Jan 25,2024
-# vlog -reportprogress 300 -sv "+acc" "+cover" "+fcover" -L /uvm-1.2 "+define+DUMP_ON" "+incdir+../../../usb/project_area/design/rtl" "+incdir+../../../usb/project_area/verif/agents" "+incdir+../../../usb/project_area/verif/agents/wb_agent" "+incdir+../../../usb/project_area/verif/agents/utmi_agent" "+incdir+../../../usb/project_area/verif/agents/sram_agent" "+incdir+../../../usb/project_area/verif/agents/reset_agent" "+incdir+../../../usb/project_area/verif/tests" "+incdir+../../../usb/project_area/verif/seqs" "+incdir+../../../usb/project_area/verif/tb" "+incdir+../../../usb/scratch_area/log" "+incdir+../../../usb/scratch_area/sim" ../../../usb/project_area/verif/tb/top.sv 
-# ** Note: (vlog-2286) ../../../usb/project_area/verif/tb/top.sv(1): Using implicit +incdir+C:/questasim64_2021.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
-# -- Compiling package top_sv_unit
-# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
-# ** Error: ../../../usb/project_area/verif/tests/usb_base_test.sv(18): (vlog-13114) Timing control in function is illegal.
-# -- Compiling interface reset_intf
-# ** Error: ../../../usb/project_area/verif/tests/usb_base_test.sv(18): (vlog-13114) Timing control in function is illegal.
-# -- Compiling interface wb_intf
-# -- Compiling interface utmi_intf
-# -- Compiling interface sram_intf
-# -- Compiling module top
-# End time: 07:26:55 on Jan 25,2024, Elapsed time: 0:00:00
-# Errors: 2, Warnings: 0
-# ** Error: C:/questasim64_2021.1/win64/vlog failed.
-# Error in macro ./run.do line 1
-# C:/questasim64_2021.1/win64/vlog failed.
-#     while executing
-# "vlog -sv "+acc" "+cover" "+fcover" -L /uvm-1.2 "+define+DUMP_ON" "+incdir+../../../usb/project_area/design/rtl" "+incdir+../../../usb/project_area/ver..."
-do run.do
-# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
-# Start time: 07:27:58 on Jan 25,2024
-# vlog -reportprogress 300 -sv "+acc" "+cover" "+fcover" -L /uvm-1.2 "+define+DUMP_ON" "+incdir+../../../usb/project_area/design/rtl" "+incdir+../../../usb/project_area/verif/agents" "+incdir+../../../usb/project_area/verif/agents/wb_agent" "+incdir+../../../usb/project_area/verif/agents/utmi_agent" "+incdir+../../../usb/project_area/verif/agents/sram_agent" "+incdir+../../../usb/project_area/verif/agents/reset_agent" "+incdir+../../../usb/project_area/verif/tests" "+incdir+../../../usb/project_area/verif/seqs" "+incdir+../../../usb/project_area/verif/tb" "+incdir+../../../usb/scratch_area/log" "+incdir+../../../usb/scratch_area/sim" ../../../usb/project_area/verif/tb/top.sv 
-# ** Note: (vlog-2286) ../../../usb/project_area/verif/tb/top.sv(1): Using implicit +incdir+C:/questasim64_2021.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
-# -- Compiling package top_sv_unit
-# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
-# -- Compiling interface reset_intf
-# -- Compiling interface wb_intf
-# -- Compiling interface utmi_intf
-# -- Compiling interface sram_intf
-# -- Compiling module top
 # 
-# Top level modules:
-# 	top
-# End time: 07:27:58 on Jan 25,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Saving coverage database on exit...
-# End time: 07:28:07 on Jan 25,2024, Elapsed time: 0:05:08
-# Errors: 1, Warnings: 6
-# vsim -vopt -sv_seed 10 -voptargs=""+acc=npr"" -assertdebug "+UVM_VERBOSITY=UVM_LOW" "+UVM_TESTNAME=usb_base_test" -l ../../../usb/scratch_area/log/usb_base_test_10/usb_base_test_10.log -sva -coverage -do "coverage save -onexit ../../../usb/scratch_area/log/usb_base_test_10/usb_base_test_10.ucdb;do ../../../usb/scratch_area/sim/wave.do;run -all; exit" work.top 
-# Start time: 07:28:07 on Jan 25,2024
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'top', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'top_sv_unit', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'reset_intf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'wb_intf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'utmi_intf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'sram_intf', but was not detected by vopt. The vlog option will be ignored.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=6.
-# Loading sv_std.std
-# Loading mtiUvm.uvm_pkg(fast)
-# Loading work.top_sv_unit(fast)
-# Loading mtiUvm.questa_uvm_pkg(fast)
-# Loading work.top(fast)
-# Loading work.reset_intf(fast__2)
-# Loading work.wb_intf(fast__2)
-# Loading work.utmi_intf(fast__2)
-# Loading work.sram_intf(fast__2)
-# Loading work.reset_intf(fast)
-# Loading work.wb_intf(fast)
-# Loading work.utmi_intf(fast)
-# Loading work.sram_intf(fast)
-# Loading C:/questasim64_2021.1/uvm-1.1d\win64\uvm_dpi.dll
-# coverage save -onexit ../../../usb/scratch_area/log/usb_base_test_10/usb_base_test_10.ucdb
-# do ../../../usb/scratch_area/sim/wave.do
-# run -all
-# ----------------------------------------------------------------
-# UVM-1.1d
-# (C) 2007-2013 Mentor Graphics Corporation
-# (C) 2007-2013 Cadence Design Systems, Inc.
-# (C) 2006-2013 Synopsys, Inc.
-# (C) 2011-2013 Cypress Semiconductor Corp.
-# ----------------------------------------------------------------
 # 
-#   ***********       IMPORTANT RELEASE NOTES         ************
 # 
-#   You are using a version of the UVM library that has been compiled
-#   with `UVM_NO_DEPRECATED undefined.
-#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
-# 
-#   You are using a version of the UVM library that has been compiled
-#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
-#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
-# 
-#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# INFO: USB Function core instantiated (top.dut)
+#       Supported Endpoints: 16 (0 through 15)
+#       WISHBONE Address bus size: A17:0
+#       SSRAM Address bus size: A14:0
+#       Buffer Memory Size: 131072 bytes
 # 
 # UVM_INFO @ 0: reporter [RNTST] Running test usb_base_test...
+# include_coverage not located
+#   did you mean recording_detail?
 # UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
-# ----------------------------------------------------------------
-# Name                         Type                    Size  Value
-# ----------------------------------------------------------------
-# uvm_test_top                 usb_base_test           -     @486 
-#   env_h                      usb_env                 -     @493 
-#     sram_agent_h             sram_agent              -     @623 
-#       cov_h                  sram_agent_cov          -     @770 
-#         analysis_imp         uvm_analysis_imp        -     @777 
-#         sram_agent_cov_port  uvm_analysis_imp        -     @788 
-#       drv_h                  sram_agent_drv          -     @638 
-#         rsp_port             uvm_analysis_port       -     @653 
-#         seq_item_port        uvm_seq_item_pull_port  -     @645 
-#       mon_h                  sram_agent_mon          -     @631 
-#         sram_agent_mon_port  uvm_analysis_port       -     @801 
-#       sqr_h                  sram_agent_sqr          -     @661 
-#         rsp_export           uvm_analysis_export     -     @668 
-#         seq_item_export      uvm_seq_item_pull_imp   -     @762 
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#     utmi_agent_h             utmi_agent              -     @616 
-#       cov_h                  utmi_agent_cov          -     @958 
-#         analysis_imp         uvm_analysis_imp        -     @965 
-#         utmi_agent_cov_port  uvm_analysis_imp        -     @976 
-#       drv_h                  utmi_agent_drv          -     @826 
-#         rsp_port             uvm_analysis_port       -     @841 
-#         seq_item_port        uvm_seq_item_pull_port  -     @833 
-#       mon_h                  utmi_agent_mon          -     @819 
-#         utmi_agent_mon_port  uvm_analysis_port       -     @989 
-#       sqr_h                  utmi_agent_sqr          -     @849 
-#         rsp_export           uvm_analysis_export     -     @856 
-#         seq_item_export      uvm_seq_item_pull_imp   -     @950 
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#     v_sqr_h                  usb_virtual_sqr         -     @500 
-#       rsp_export             uvm_analysis_export     -     @507 
-#       seq_item_export        uvm_seq_item_pull_imp   -     @601 
-#       sram_agent_sqr_h       sram_agent_sqr          -     @1229
-#         rsp_export           uvm_analysis_export     -     @1236
-#         seq_item_export      uvm_seq_item_pull_imp   -     @1330
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#       utmi_agent_sqr_h       utmi_agent_sqr          -     @1120
-#         rsp_export           uvm_analysis_export     -     @1127
-#         seq_item_export      uvm_seq_item_pull_imp   -     @1221
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#       wb_agent_sqr_h         wb_agent_sqr            -     @1011
-#         rsp_export           uvm_analysis_export     -     @1018
-#         seq_item_export      uvm_seq_item_pull_imp   -     @1112
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#       arbitration_queue      array                   0     -    
-#       lock_queue             array                   0     -    
-#       num_last_reqs          integral                32    'd1  
-#       num_last_rsps          integral                32    'd1  
-#     wb_agent_h               wb_agent                -     @609 
-#       cov_h                  wb_agent_cov            -     @1493
-#         analysis_imp         uvm_analysis_imp        -     @1500
-#         wb_agent_cov_port    uvm_analysis_imp        -     @1511
-#       drv_h                  wb_agent_drv            -     @1361
-#         rsp_port             uvm_analysis_port       -     @1376
-#         seq_item_port        uvm_seq_item_pull_port  -     @1368
-#       mon_h                  wb_agent_mon            -     @1354
-#         wb_agent_mon_port    uvm_analysis_port       -     @1524
-#       sqr_h                  wb_agent_sqr            -     @1384
-#         rsp_export           uvm_analysis_export     -     @1391
-#         seq_item_export      uvm_seq_item_pull_imp   -     @1485
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-# ----------------------------------------------------------------
+# --------------------------------------------------------------
+# Name                       Type                    Size  Value
+# --------------------------------------------------------------
+# uvm_test_top               usb_base_test           -     @487 
+#   env_h                    usb_env                 -     @494 
+#     reset_agent_h          reset_agent             -     @618 
+#       reset_drv_h          reset_drv               -     @1441
+#         rsp_port           uvm_analysis_port       -     @1456
+#         seq_item_port      uvm_seq_item_pull_port  -     @1448
+#       reset_sqr_h          uvm_sequencer           -     @1464
+#         rsp_export         uvm_analysis_export     -     @1471
+#         seq_item_export    uvm_seq_item_pull_imp   -     @1565
+#         arbitration_queue  array                   0     -    
+#         lock_queue         array                   0     -    
+#         num_last_reqs      integral                32    'd1  
+#         num_last_rsps      integral                32    'd1  
+#     sram_agent_h           sram_agent              -     @639 
+#       sram_cov_h           sram_cov                -     @1722
+#         analysis_imp       uvm_analysis_imp        -     @1729
+#         sram_cov_port      uvm_analysis_imp        -     @1740
+#       sram_drv_h           sram_drv                -     @1590
+#         rsp_port           uvm_analysis_port       -     @1605
+#         seq_item_port      uvm_seq_item_pull_port  -     @1597
+#       sram_mon_h           sram_mon                -     @1583
+#         sram_mon_port      uvm_analysis_port       -     @1753
+#       sram_sqr_h           sram_sqr                -     @1613
+#         rsp_export         uvm_analysis_export     -     @1620
+#         seq_item_export    uvm_seq_item_pull_imp   -     @1714
+#         arbitration_queue  array                   0     -    
+#         lock_queue         array                   0     -    
+#         num_last_reqs      integral                32    'd1  
+#         num_last_rsps      integral                32    'd1  
+#     utmi_agent_h           utmi_agent              -     @632 
+#       utmi_cov_h           utmi_cov                -     @1910
+#         analysis_imp       uvm_analysis_imp        -     @1917
+#         utmi_cov_port      uvm_analysis_imp        -     @1928
+#       utmi_drv_h           utmi_drv                -     @1778
+#         rsp_port           uvm_analysis_port       -     @1793
+#         seq_item_port      uvm_seq_item_pull_port  -     @1785
+#       utmi_mon_h           utmi_mon                -     @1771
+#         utmi_mon_port      uvm_analysis_port       -     @1941
+#       utmi_sqr_h           utmi_sqr                -     @1801
+#         rsp_export         uvm_analysis_export     -     @1808
+#         seq_item_export    uvm_seq_item_pull_imp   -     @1902
+#         arbitration_queue  array                   0     -    
+#         lock_queue         array                   0     -    
+#         num_last_reqs      integral                32    'd1  
+#         num_last_rsps      integral                32    'd1  
+#     v_sqr_h                usb_virtual_sqr         -     @509 
+#       reset_sqr_h          uvm_sequencer           -     @1963
+#         rsp_export         uvm_analysis_export     -     @1970
+#         seq_item_export    uvm_seq_item_pull_imp   -     @2064
+#         arbitration_queue  array                   0     -    
+#         lock_queue         array                   0     -    
+#         num_last_reqs      integral                32    'd1  
+#         num_last_rsps      integral                32    'd1  
+#       rsp_export           uvm_analysis_export     -     @516 
+#       seq_item_export      uvm_seq_item_pull_imp   -     @610 
+#       sram_sqr_h           sram_sqr                -     @2290
+#         rsp_export         uvm_analysis_export     -     @2297
+#         seq_item_export    uvm_seq_item_pull_imp   -     @2391
+#         arbitration_queue  array                   0     -    
+#         lock_queue         array                   0     -    
+#         num_last_reqs      integral                32    'd1  
+#         num_last_rsps      integral                32    'd1  
+#       utmi_sqr_h           utmi_sqr                -     @2181
+#         rsp_export         uvm_analysis_export     -     @2188
+#         seq_item_export    uvm_seq_item_pull_imp   -     @2282
+#         arbitration_queue  array                   0     -    
+#         lock_queue         array                   0     -    
+#         num_last_reqs      integral                32    'd1  
+#         num_last_rsps      integral                32    'd1  
+#       wb_sqr_h             wb_sqr                  -     @2072
+#         rsp_export         uvm_analysis_export     -     @2079
+#         seq_item_export    uvm_seq_item_pull_imp   -     @2173
+#         arbitration_queue  array                   0     -    
+#         lock_queue         array                   0     -    
+#         num_last_reqs      integral                32    'd1  
+#         num_last_rsps      integral                32    'd1  
+#       arbitration_queue    array                   0     -    
+#       lock_queue           array                   0     -    
+#       num_last_reqs        integral                32    'd1  
+#       num_last_rsps        integral                32    'd1  
+#     wb_agent_h             wb_agent                -     @625 
+#       wb_cov_h             wb_cov                  -     @2559
+#         analysis_imp       uvm_analysis_imp        -     @2566
+#         wb_cov_port        uvm_analysis_imp        -     @2577
+#       wb_drv_h             wb_drv                  -     @2427
+#         rsp_port           uvm_analysis_port       -     @2442
+#         seq_item_port      uvm_seq_item_pull_port  -     @2434
+#       wb_mon_h             wb_mon                  -     @2420
+#         wb_mon_port        uvm_analysis_port       -     @2590
+#       wb_sqr_h             wb_sqr                  -     @2450
+#         rsp_export         uvm_analysis_export     -     @2457
+#         seq_item_export    uvm_seq_item_pull_imp   -     @2551
+#         arbitration_queue  array                   0     -    
+#         lock_queue         array                   0     -    
+#         num_last_reqs      integral                32    'd1  
+#         num_last_rsps      integral                32    'd1  
+# --------------------------------------------------------------
 # 
-# 
-#### Factory Configuration (*)
-# 
-#   No instance or type overrides are registered with this factory
-# 
-# All types registered with the factory: 66 total
-# (types without type names will not be printed)
-# 
-#   Type Name
-#   ---------
-#   questa_uvm_recorder
-#   reset_agent
-#   reset_drv
-#   reset_tr
-#   sram_agent
-#   sram_agent_cov
-#   sram_agent_drv
-#   sram_agent_mon
-#   sram_agent_sqr
-#   sram_tx
-#   usb_base_seq
-#   usb_base_test
-#   usb_env
-#   usb_virtual_sqr
-#   utmi_agent
-#   utmi_agent_cov
-#   utmi_agent_drv
-#   utmi_agent_mon
-#   utmi_agent_sqr
-#   utmi_tx
-#   wb_agent
-#   wb_agent_cov
-#   wb_agent_drv
-#   wb_agent_mon
-#   wb_agent_sqr
-#   wb_tx
-# (*) Types with no associated type name will be printed as <unknown>
-# 
-####
-# 
-# UVM_INFO ../../../usb/project_area/verif/tests/usb_base_test.sv(26) @ 0: uvm_test_top [] 88888888888888888888888888888888888888888888
-# UVM_INFO ../../../usb/project_area/verif/agents/wb_agent/wb_agent_mon.sv(24) @ 0: uvm_test_top.env_h.wb_agent_h.mon_h [wb_agent_mon] Monitor Run Phase
-# UVM_INFO ../../../usb/project_area/verif/agents/wb_agent/wb_agent_cov.sv(34) @ 0: uvm_test_top.env_h.wb_agent_h.cov_h [wb_agent_COV] From Coverage Run Phase
-# UVM_INFO ../../../usb/project_area/verif/agents/utmi_agent/utmi_agent_mon.sv(24) @ 0: uvm_test_top.env_h.utmi_agent_h.mon_h [utmi_agent_mon] Monitor Run Phase
-# UVM_INFO ../../../usb/project_area/verif/agents/utmi_agent/utmi_agent_cov.sv(34) @ 0: uvm_test_top.env_h.utmi_agent_h.cov_h [utmi_agent_COV] From Coverage Run Phase
-# UVM_INFO ../../../usb/project_area/verif/agents/sram_agent/sram_agent_mon.sv(24) @ 0: uvm_test_top.env_h.sram_agent_h.mon_h [sram_agent_mon] Monitor Run Phase
-# UVM_INFO ../../../usb/project_area/verif/agents/sram_agent/sram_agent_cov.sv(34) @ 0: uvm_test_top.env_h.sram_agent_h.cov_h [sram_agent_COV] From Coverage Run Phase
-# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 1000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO ../../../usb/project_area/verif/agents/wb_agent/wb_mon.sv(24) @ 0: uvm_test_top.env_h.wb_agent_h.wb_mon_h [wb_mon] Monitor Run Phase
+# UVM_INFO ../../../usb/project_area/verif/agents/wb_agent/wb_cov.sv(34) @ 0: uvm_test_top.env_h.wb_agent_h.wb_cov_h [wb_agent_COV] From Coverage Run Phase
+# UVM_INFO ../../../usb/project_area/verif/agents/utmi_agent/utmi_mon.sv(24) @ 0: uvm_test_top.env_h.utmi_agent_h.utmi_mon_h [utmi_mon] Monitor Run Phase
+# UVM_INFO ../../../usb/project_area/verif/agents/utmi_agent/utmi_cov.sv(34) @ 0: uvm_test_top.env_h.utmi_agent_h.utmi_cov_h [utmi_agent_COV] From Coverage Run Phase
+# UVM_INFO ../../../usb/project_area/verif/agents/sram_agent/sram_mon.sv(24) @ 0: uvm_test_top.env_h.sram_agent_h.sram_mon_h [sram_mon] Monitor Run Phase
+# UVM_INFO ../../../usb/project_area/verif/agents/sram_agent/sram_cov.sv(34) @ 0: uvm_test_top.env_h.sram_agent_h.sram_cov_h [sram_agent_COV] From Coverage Run Phase
+# -------------------------------------------------------------------------------------------------------
+# Name                           Type      Size  Value                                                   
+# -------------------------------------------------------------------------------------------------------
+# req                            reset_tr  -     @2626                                                   
+#   kind                         kind_e    32    DEASSERT                                                
+#   cycles                       integral  32    'ha                                                     
+#   begin_time                   time      64    0                                                       
+#   depth                        int       32    'd2                                                     
+#   parent sequence (name)       string    11    reset_seq_h                                             
+#   parent sequence (full name)  string    56    uvm_test_top.env_h.reset_agent_h.reset_sqr_h.reset_seq_h
+#   sequencer                    string    44    uvm_test_top.env_h.reset_agent_h.reset_sqr_h            
+# -------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------
+# Name                           Type      Size  Value                                                   
+# -------------------------------------------------------------------------------------------------------
+# req                            reset_tr  -     @2847                                                   
+#   kind                         kind_e    32    ASSERT                                                  
+#   cycles                       integral  32    'h2                                                     
+#   begin_time                   time      64    9500                                                    
+#   depth                        int       32    'd2                                                     
+#   parent sequence (name)       string    11    reset_seq_h                                             
+#   parent sequence (full name)  string    56    uvm_test_top.env_h.reset_agent_h.reset_sqr_h.reset_seq_h
+#   sequencer                    string    44    uvm_test_top.env_h.reset_agent_h.reset_sqr_h            
+# -------------------------------------------------------------------------------------------------------
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 11500: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
 # **************************************************
 # ****************** TEST Summary ******************
 # **************************************************
@@ -526,1171 +216,54 @@ do run.do
 # --- UVM Report Summary ---
 # 
 # ** Report counts by severity
-# UVM_INFO :   10
+# UVM_INFO :    9
 # UVM_WARNING :    0
 # UVM_ERROR :    0
 # UVM_FATAL :    0
 # ** Report counts by id
-# []     1
 # [RNTST]     1
 # [TEST_DONE]     1
 # [UVMTOP]     1
 # [sram_agent_COV]     1
-# [sram_agent_mon]     1
+# [sram_mon]     1
 # [utmi_agent_COV]     1
-# [utmi_agent_mon]     1
+# [utmi_mon]     1
 # [wb_agent_COV]     1
-# [wb_agent_mon]     1
+# [wb_mon]     1
 # ** Note: $finish    : C:/questasim64_2021.1/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 1 us  Iteration: 54  Instance: /top
+#    Time: 115 ns  Iteration: 62  Instance: /top
 # 1
 # Break in Task uvm_pkg/uvm_root::run_test at C:/questasim64_2021.1/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
-#  exit
-do run.do
+# 
+do reg.do
 # QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
-# Start time: 07:44:34 on Jan 25,2024
-# vlog -reportprogress 300 -sv "+acc" "+cover" "+fcover" -L /uvm-1.2 "+define+DUMP_ON" "+incdir+../../../usb/project_area/design/rtl" "+incdir+../../../usb/project_area/verif/agents" "+incdir+../../../usb/project_area/verif/agents/wb_agent" "+incdir+../../../usb/project_area/verif/agents/utmi_agent" "+incdir+../../../usb/project_area/verif/agents/sram_agent" "+incdir+../../../usb/project_area/verif/agents/reset_agent" "+incdir+../../../usb/project_area/verif/tests" "+incdir+../../../usb/project_area/verif/seqs" "+incdir+../../../usb/project_area/verif/tb" "+incdir+../../../usb/scratch_area/log" "+incdir+../../../usb/scratch_area/sim" ../../../usb/project_area/verif/tb/top.sv 
-# ** Note: (vlog-2286) ../../../usb/project_area/verif/tb/top.sv(1): Using implicit +incdir+C:/questasim64_2021.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
-# ** Error: ** while parsing file included at ../../../usb/project_area/verif/tb/top.sv(5)
-# ** while parsing file included at ../../../usb/project_area/verif/tb/usb_list.svh(34)
-# ** at ../../../usb/project_area/verif/tb/virtual_sqr.sv(4): Invalid type 'reset_agent_sqr'. Please check the type of the variable 'reset_agent_sqr_h'.
-# ** Error: ** while parsing file included at ../../../usb/project_area/verif/tb/top.sv(5)
-# ** while parsing file included at ../../../usb/project_area/verif/tb/usb_list.svh(34)
-# ** at ../../../usb/project_area/verif/tb/virtual_sqr.sv(17): (vlog-2730) Undefined variable: 'reset_agent_sqr_h'.
-# ** Error: ** while parsing file included at ../../../usb/project_area/verif/tb/top.sv(5)
-# ** while parsing file included at ../../../usb/project_area/verif/tb/usb_list.svh(34)
-# ** at ../../../usb/project_area/verif/tb/virtual_sqr.sv(17): (vlog-2164) Class or package 'reset_agent_sqr' not found.
-# ** Error: ** while parsing file included at ../../../usb/project_area/verif/tb/top.sv(5)
-# ** while parsing file included at ../../../usb/project_area/verif/tb/usb_list.svh(34)
-# ** at ../../../usb/project_area/verif/tb/virtual_sqr.sv(17): (vlog-2730) Undefined variable: 'reset_agent_sqr'.
-# ** Error: (vlog-13069) ** while parsing file included at ../../../usb/project_area/verif/tb/top.sv(5)
-# ** while parsing file included at ../../../usb/project_area/verif/tb/usb_list.svh(34)
-# ** at ../../../usb/project_area/verif/tb/virtual_sqr.sv(17): near "::": syntax error, unexpected ::, expecting ';'.
-# End time: 07:44:34 on Jan 25,2024, Elapsed time: 0:00:00
-# Errors: 5, Warnings: 0
-# ** Error: C:/questasim64_2021.1/win64/vlog failed.
-# Error in macro ./run.do line 1
-# C:/questasim64_2021.1/win64/vlog failed.
-#     while executing
-# "vlog -sv "+acc" "+cover" "+fcover" -L /uvm-1.2 "+define+DUMP_ON" "+incdir+../../../usb/project_area/design/rtl" "+incdir+../../../usb/project_area/ver..."
-do run.do
-# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
-# Start time: 07:48:02 on Jan 25,2024
-# vlog -reportprogress 300 -sv "+acc" "+cover" "+fcover" -L /uvm-1.2 "+define+DUMP_ON" "+incdir+../../../usb/project_area/design/rtl" "+incdir+../../../usb/project_area/verif/agents" "+incdir+../../../usb/project_area/verif/agents/wb_agent" "+incdir+../../../usb/project_area/verif/agents/utmi_agent" "+incdir+../../../usb/project_area/verif/agents/sram_agent" "+incdir+../../../usb/project_area/verif/agents/reset_agent" "+incdir+../../../usb/project_area/verif/tests" "+incdir+../../../usb/project_area/verif/seqs" "+incdir+../../../usb/project_area/verif/tb" "+incdir+../../../usb/scratch_area/log" "+incdir+../../../usb/scratch_area/sim" ../../../usb/project_area/verif/tb/top.sv 
-# ** Note: (vlog-2286) ../../../usb/project_area/verif/tb/top.sv(1): Using implicit +incdir+C:/questasim64_2021.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
-# -- Compiling package top_sv_unit
-# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
-# -- Compiling interface reset_intf
-# -- Compiling interface wb_intf
-# -- Compiling interface utmi_intf
-# -- Compiling interface sram_intf
-# -- Compiling module top
-# 
-# Top level modules:
-# 	top
-# End time: 07:48:02 on Jan 25,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# Saving coverage database on exit...
-# End time: 07:48:09 on Jan 25,2024, Elapsed time: 0:20:02
-# Errors: 1, Warnings: 6
-# vsim -vopt -sv_seed 10 -voptargs=""+acc=npr"" -assertdebug "+UVM_VERBOSITY=UVM_LOW" "+UVM_TESTNAME=usb_base_test" -l ../../../usb/scratch_area/log/usb_base_test_10/usb_base_test_10.log -sva -coverage -do "coverage save -onexit ../../../usb/scratch_area/log/usb_base_test_10/usb_base_test_10.ucdb;do ../../../usb/scratch_area/sim/wave.do;run -all; exit" work.top 
-# Start time: 07:48:09 on Jan 25,2024
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'top', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'top_sv_unit', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'reset_intf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'wb_intf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'utmi_intf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'sram_intf', but was not detected by vopt. The vlog option will be ignored.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=6.
-# Loading sv_std.std
-# Loading mtiUvm.uvm_pkg(fast)
-# Loading work.top_sv_unit(fast)
-# Loading mtiUvm.questa_uvm_pkg(fast)
-# Loading work.top(fast)
-# Loading work.reset_intf(fast__2)
-# Loading work.wb_intf(fast__2)
-# Loading work.utmi_intf(fast__2)
-# Loading work.sram_intf(fast__2)
-# Loading work.reset_intf(fast)
-# Loading work.wb_intf(fast)
-# Loading work.utmi_intf(fast)
-# Loading work.sram_intf(fast)
-# Loading C:/questasim64_2021.1/uvm-1.1d\win64\uvm_dpi.dll
-# coverage save -onexit ../../../usb/scratch_area/log/usb_base_test_10/usb_base_test_10.ucdb
-# do ../../../usb/scratch_area/sim/wave.do
-# run -all
-# ----------------------------------------------------------------
-# UVM-1.1d
-# (C) 2007-2013 Mentor Graphics Corporation
-# (C) 2007-2013 Cadence Design Systems, Inc.
-# (C) 2006-2013 Synopsys, Inc.
-# (C) 2011-2013 Cypress Semiconductor Corp.
-# ----------------------------------------------------------------
-# 
-#   ***********       IMPORTANT RELEASE NOTES         ************
-# 
-#   You are using a version of the UVM library that has been compiled
-#   with `UVM_NO_DEPRECATED undefined.
-#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
-# 
-#   You are using a version of the UVM library that has been compiled
-#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
-#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
-# 
-#       (Specify +UVM_NO_RELNOTES to turn off this notice)
-# 
-# UVM_INFO @ 0: reporter [RNTST] Running test usb_base_test...
-# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
-# ----------------------------------------------------------------
-# Name                         Type                    Size  Value
-# ----------------------------------------------------------------
-# uvm_test_top                 usb_base_test           -     @486 
-#   env_h                      usb_env                 -     @493 
-#     reset_agent_h            reset_agent             -     @613 
-#       reset_drv_h            reset_drv               -     @642 
-#         rsp_port             uvm_analysis_port       -     @657 
-#         seq_item_port        uvm_seq_item_pull_port  -     @649 
-#       reset_sqr_h            uvm_sequencer           -     @665 
-#         rsp_export           uvm_analysis_export     -     @672 
-#         seq_item_export      uvm_seq_item_pull_imp   -     @766 
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#     sram_agent_h             sram_agent              -     @634 
-#       cov_h                  sram_agent_cov          -     @923 
-#         analysis_imp         uvm_analysis_imp        -     @930 
-#         sram_agent_cov_port  uvm_analysis_imp        -     @941 
-#       drv_h                  sram_agent_drv          -     @791 
-#         rsp_port             uvm_analysis_port       -     @806 
-#         seq_item_port        uvm_seq_item_pull_port  -     @798 
-#       mon_h                  sram_agent_mon          -     @784 
-#         sram_agent_mon_port  uvm_analysis_port       -     @954 
-#       sqr_h                  sram_agent_sqr          -     @814 
-#         rsp_export           uvm_analysis_export     -     @821 
-#         seq_item_export      uvm_seq_item_pull_imp   -     @915 
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#     utmi_agent_h             utmi_agent              -     @627 
-#       cov_h                  utmi_agent_cov          -     @1111
-#         analysis_imp         uvm_analysis_imp        -     @1118
-#         utmi_agent_cov_port  uvm_analysis_imp        -     @1129
-#       drv_h                  utmi_agent_drv          -     @979 
-#         rsp_port             uvm_analysis_port       -     @994 
-#         seq_item_port        uvm_seq_item_pull_port  -     @986 
-#       mon_h                  utmi_agent_mon          -     @972 
-#         utmi_agent_mon_port  uvm_analysis_port       -     @1142
-#       sqr_h                  utmi_agent_sqr          -     @1002
-#         rsp_export           uvm_analysis_export     -     @1009
-#         seq_item_export      uvm_seq_item_pull_imp   -     @1103
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#     v_sqr_h                  usb_virtual_sqr         -     @504 
-#       reset_sqr_h            uvm_sequencer           -     @1164
-#         rsp_export           uvm_analysis_export     -     @1171
-#         seq_item_export      uvm_seq_item_pull_imp   -     @1265
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#       rsp_export             uvm_analysis_export     -     @511 
-#       seq_item_export        uvm_seq_item_pull_imp   -     @605 
-#       sram_agent_sqr_h       sram_agent_sqr          -     @1491
-#         rsp_export           uvm_analysis_export     -     @1498
-#         seq_item_export      uvm_seq_item_pull_imp   -     @1592
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#       utmi_agent_sqr_h       utmi_agent_sqr          -     @1382
-#         rsp_export           uvm_analysis_export     -     @1389
-#         seq_item_export      uvm_seq_item_pull_imp   -     @1483
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#       wb_agent_sqr_h         wb_agent_sqr            -     @1273
-#         rsp_export           uvm_analysis_export     -     @1280
-#         seq_item_export      uvm_seq_item_pull_imp   -     @1374
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#       arbitration_queue      array                   0     -    
-#       lock_queue             array                   0     -    
-#       num_last_reqs          integral                32    'd1  
-#       num_last_rsps          integral                32    'd1  
-#     wb_agent_h               wb_agent                -     @620 
-#       cov_h                  wb_agent_cov            -     @1760
-#         analysis_imp         uvm_analysis_imp        -     @1767
-#         wb_agent_cov_port    uvm_analysis_imp        -     @1778
-#       drv_h                  wb_agent_drv            -     @1628
-#         rsp_port             uvm_analysis_port       -     @1643
-#         seq_item_port        uvm_seq_item_pull_port  -     @1635
-#       mon_h                  wb_agent_mon            -     @1621
-#         wb_agent_mon_port    uvm_analysis_port       -     @1791
-#       sqr_h                  wb_agent_sqr            -     @1651
-#         rsp_export           uvm_analysis_export     -     @1658
-#         seq_item_export      uvm_seq_item_pull_imp   -     @1752
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-# ----------------------------------------------------------------
-# 
-# 
-#### Factory Configuration (*)
-# 
-#   No instance or type overrides are registered with this factory
-# 
-# All types registered with the factory: 67 total
-# (types without type names will not be printed)
-# 
-#   Type Name
-#   ---------
-#   questa_uvm_recorder
-#   reset_agent
-#   reset_drv
-#   reset_sequence
-#   reset_tr
-#   sram_agent
-#   sram_agent_cov
-#   sram_agent_drv
-#   sram_agent_mon
-#   sram_agent_sqr
-#   sram_tx
-#   usb_base_seq
-#   usb_base_test
-#   usb_env
-#   usb_virtual_sqr
-#   utmi_agent
-#   utmi_agent_cov
-#   utmi_agent_drv
-#   utmi_agent_mon
-#   utmi_agent_sqr
-#   utmi_tx
-#   wb_agent
-#   wb_agent_cov
-#   wb_agent_drv
-#   wb_agent_mon
-#   wb_agent_sqr
-#   wb_tx
-# (*) Types with no associated type name will be printed as <unknown>
-# 
-####
-# 
-# UVM_INFO ../../../usb/project_area/verif/agents/wb_agent/wb_agent_mon.sv(24) @ 0: uvm_test_top.env_h.wb_agent_h.mon_h [wb_agent_mon] Monitor Run Phase
-# UVM_INFO ../../../usb/project_area/verif/agents/wb_agent/wb_agent_cov.sv(34) @ 0: uvm_test_top.env_h.wb_agent_h.cov_h [wb_agent_COV] From Coverage Run Phase
-# UVM_INFO ../../../usb/project_area/verif/agents/utmi_agent/utmi_agent_mon.sv(24) @ 0: uvm_test_top.env_h.utmi_agent_h.mon_h [utmi_agent_mon] Monitor Run Phase
-# UVM_INFO ../../../usb/project_area/verif/agents/utmi_agent/utmi_agent_cov.sv(34) @ 0: uvm_test_top.env_h.utmi_agent_h.cov_h [utmi_agent_COV] From Coverage Run Phase
-# UVM_INFO ../../../usb/project_area/verif/agents/sram_agent/sram_agent_mon.sv(24) @ 0: uvm_test_top.env_h.sram_agent_h.mon_h [sram_agent_mon] Monitor Run Phase
-# UVM_INFO ../../../usb/project_area/verif/agents/sram_agent/sram_agent_cov.sv(34) @ 0: uvm_test_top.env_h.sram_agent_h.cov_h [sram_agent_COV] From Coverage Run Phase
-# ----------------------------------------------------------------------------------------------------------
-# Name                           Type      Size  Value                                                      
-# ----------------------------------------------------------------------------------------------------------
-# req                            reset_tr  -     @1867                                                      
-#   kind                         kind_e    32    ASSERT                                                     
-#   cycles                       integral  32    'h2                                                        
-#   begin_time                   time      64    0                                                          
-#   depth                        int       32    'd2                                                        
-#   parent sequence (name)       string    14    reset_sequence                                             
-#   parent sequence (full name)  string    59    uvm_test_top.env_h.reset_agent_h.reset_sqr_h.reset_sequence
-#   sequencer                    string    44    uvm_test_top.env_h.reset_agent_h.reset_sqr_h               
-# ----------------------------------------------------------------------------------------------------------
-# ----------------------------------------------------------------------------------------------------------
-# Name                           Type      Size  Value                                                      
-# ----------------------------------------------------------------------------------------------------------
-# req                            reset_tr  -     @1872                                                      
-#   kind                         kind_e    32    DEASSERT                                                   
-#   cycles                       integral  32    'h2                                                        
-#   begin_time                   time      64    15                                                         
-#   depth                        int       32    'd2                                                        
-#   parent sequence (name)       string    14    reset_sequence                                             
-#   parent sequence (full name)  string    59    uvm_test_top.env_h.reset_agent_h.reset_sqr_h.reset_sequence
-#   sequencer                    string    44    uvm_test_top.env_h.reset_agent_h.reset_sqr_h               
-# ----------------------------------------------------------------------------------------------------------
-# **************************************************
-# ****************** TEST Summary ******************
-# **************************************************
-# **************************************************
-# ****************** TEST  PASSED ******************
-# **************************************************
-# 
-# --- UVM Report Summary ---
-# 
-# ** Report counts by severity
-# UVM_INFO :    8
-# UVM_WARNING :    0
-# UVM_ERROR :    0
-# UVM_FATAL :    0
-# ** Report counts by id
-# [RNTST]     1
-# [UVMTOP]     1
-# [sram_agent_COV]     1
-# [sram_agent_mon]     1
-# [utmi_agent_COV]     1
-# [utmi_agent_mon]     1
-# [wb_agent_COV]     1
-# [wb_agent_mon]     1
-# ** Note: $finish    : C:/questasim64_2021.1/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 35 ns  Iteration: 162  Instance: /top
-# 1
-# Break in Task uvm_pkg/uvm_root::run_test at C:/questasim64_2021.1/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
-#  exit
-wa
-# ambiguous command name "wa": warn_image watch_file wave waveCursorWidget waveEditAddToCommandList waveMessageWidget waveWidget wave_edit_clipboard wave_edit_command wave_edit_create wave_edit_edge_drag wave_edit_edge_end wave_edit_edge_start wave_edit_edit wave_edit_enabled wave_edit_export wave_edit_import wave_edit_map wave_edit_modify wave_edit_move_end wave_edit_move_motion wave_edit_move_start wave_edit_multi_select_end wave_edit_multi_select_motion wave_edit_multi_select_start wave_edit_select_end wave_edit_select_motion wave_edit_select_start wave_edit_write wave_getDutfromSignal
-do run.do
-# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
-# Start time: 08:05:56 on Jan 25,2024
-# vlog -reportprogress 300 -sv "+acc" "+cover" "+fcover" -L /uvm-1.2 "+define+DUMP_ON" "+incdir+../../../usb/project_area/design/rtl" "+incdir+../../../usb/project_area/verif/agents" "+incdir+../../../usb/project_area/verif/agents/wb_agent" "+incdir+../../../usb/project_area/verif/agents/utmi_agent" "+incdir+../../../usb/project_area/verif/agents/sram_agent" "+incdir+../../../usb/project_area/verif/agents/reset_agent" "+incdir+../../../usb/project_area/verif/tests" "+incdir+../../../usb/project_area/verif/seqs" "+incdir+../../../usb/project_area/verif/tb" "+incdir+../../../usb/scratch_area/log" "+incdir+../../../usb/scratch_area/sim" ../../../usb/project_area/verif/tb/top.sv 
-# ** Note: (vlog-2286) ../../../usb/project_area/verif/tb/top.sv(1): Using implicit +incdir+C:/questasim64_2021.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
-# ** Error: ** while parsing file included at ../../../usb/project_area/verif/tb/top.sv(5)
-# ** while parsing file included at ../../../usb/project_area/verif/tb/usb_list.svh(4)
-# ** at ../../../usb/project_area/verif/agents/wb_agent/wb_agent_intf.sv(4): (vlog-2163) Macro `USBF_UFC_HADR is undefined.
-# ** Error: (vlog-13069) ** while parsing file included at ../../../usb/project_area/verif/tb/top.sv(5)
-# ** while parsing file included at ../../../usb/project_area/verif/tb/usb_list.svh(4)
-# ** at ../../../usb/project_area/verif/agents/wb_agent/wb_agent_intf.sv(4): near ":": syntax error, unexpected ':'.
-# End time: 08:05:57 on Jan 25,2024, Elapsed time: 0:00:01
-# Errors: 2, Warnings: 0
-# ** Error: C:/questasim64_2021.1/win64/vlog failed.
-# Error in macro ./run.do line 1
-# C:/questasim64_2021.1/win64/vlog failed.
-#     while executing
-# "vlog -sv "+acc" "+cover" "+fcover" -L /uvm-1.2 "+define+DUMP_ON" "+incdir+../../../usb/project_area/design/rtl" "+incdir+../../../usb/project_area/ver..."
-do run.do
-# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
-# Start time: 08:06:43 on Jan 25,2024
-# vlog -reportprogress 300 -sv "+acc" "+cover" "+fcover" -L /uvm-1.2 "+define+DUMP_ON" "+incdir+../../../usb/project_area/design/rtl" "+incdir+../../../usb/project_area/verif/agents" "+incdir+../../../usb/project_area/verif/agents/wb_agent" "+incdir+../../../usb/project_area/verif/agents/utmi_agent" "+incdir+../../../usb/project_area/verif/agents/sram_agent" "+incdir+../../../usb/project_area/verif/agents/reset_agent" "+incdir+../../../usb/project_area/verif/tests" "+incdir+../../../usb/project_area/verif/seqs" "+incdir+../../../usb/project_area/verif/tb" "+incdir+../../../usb/scratch_area/log" "+incdir+../../../usb/scratch_area/sim" ../../../usb/project_area/verif/tb/top.sv 
-# ** Note: (vlog-2286) ../../../usb/project_area/verif/tb/top.sv(1): Using implicit +incdir+C:/questasim64_2021.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
-# ** Warning: ../../../usb/project_area/verif/tb/top.sv(6): (vlog-2283) Extra semicolon in $unit (global) scope.
-# -- Compiling package top_sv_unit
-# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
-# -- Compiling interface reset_intf
-# -- Compiling interface wb_intf
-# -- Compiling interface utmi_intf
-# -- Compiling interface sram_intf
+# Start time: 16:23:22 on Jan 29,2024
+# vlog -reportprogress 300 -sv "+acc" "+cover" "+fcover" "+define+DUMP_ON" "+incdir+../../../usb/project_area/design/rtl" "+incdir+../../../usb/project_area/verif/agents" "+incdir+../../../usb/project_area/verif/agents/wb_agent" "+incdir+../../../usb/project_area/verif/agents/utmi_agent" "+incdir+../../../usb/project_area/verif/agents/sram_agent" "+incdir+../../../usb/project_area/verif/agents/reset_agent" "+incdir+../../../usb/project_area/verif/tests" "+incdir+../../../usb/project_area/verif/seqs" "+incdir+../../../usb/project_area/verif/seqs/wb_sequences" "+incdir+../../../usb/project_area/verif/seqs/utmi_sequences" "+incdir+../../../usb/project_area/verif/seqs/sram_sequences" "+incdir+../../../usb/project_area/verif/tb" "+incdir+../../../usb/scratch_area/log" "+incdir+../../../usb/scratch_area/sim" ../../../usb/project_area/design/rtl/usb_rtl_file.svh ../../../usb/project_area/verif/tb/top.sv 
+# -- Compiling module usbf_crc16
+# -- Compiling module usbf_crc5
 # -- Compiling module usbf_utmi_ls
 # -- Compiling module usbf_utmi_if
-# -- Compiling module usbf_crc5
-# -- Compiling module usbf_crc16
-# -- Compiling module usbf_pd
-# -- Compiling module usbf_pa
 # -- Compiling module usbf_idma
+# -- Compiling module usbf_pa
+# -- Compiling module usbf_pd
 # -- Compiling module usbf_pe
 # -- Compiling module usbf_pl
 # -- Compiling module usbf_mem_arb
 # -- Compiling module usbf_ep_rf
-# -- Compiling module usbf_ep_rf_dummy
 # -- Compiling module usbf_rf
 # -- Compiling module usbf_wb
 # -- Compiling module usbf_top
-# -- Compiling module top
-# 
-# Top level modules:
-# 	top
-# End time: 08:06:44 on Jan 25,2024, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 1
-# Saving coverage database on exit...
-# End time: 08:06:56 on Jan 25,2024, Elapsed time: 0:18:47
-# Errors: 1, Warnings: 6
-# vsim -vopt -sv_seed 10 -voptargs=""+acc=npr"" -assertdebug "+UVM_VERBOSITY=UVM_LOW" "+UVM_TESTNAME=usb_base_test" -l ../../../usb/scratch_area/log/usb_base_test_10/usb_base_test_10.log -sva -coverage -do "coverage save -onexit ../../../usb/scratch_area/log/usb_base_test_10/usb_base_test_10.ucdb;do ../../../usb/scratch_area/sim/wave.do;run -all; exit" work.top 
-# Start time: 08:06:56 on Jan 25,2024
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'top', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'top_sv_unit', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'reset_intf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'wb_intf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'utmi_intf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'sram_intf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_top', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_utmi_if', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_utmi_ls', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_pl', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_pd', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_crc5', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_crc16', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_pa', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_idma', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_pe', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_mem_arb', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_rf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_ep_rf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_ep_rf_dummy', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_wb', but was not detected by vopt. The vlog option will be ignored.
-# ** Error (suppressible): ../../../usb/project_area/verif/tb/top.sv(36): (vopt-7063) Failed to find 'clk_i' in hierarchical name 'wb_pif.clk_i'.
-#         Region: top
-# ** Error (suppressible): ../../../usb/project_area/verif/tb/top.sv(36): (vopt-7063) Failed to find 'rst_i' in hierarchical name 'wb_pif.rst_i'.
-#         Region: top
-# ** Error (suppressible): ../../../usb/project_area/verif/tb/top.sv(41): (vopt-7063) Failed to find 'phy_clk_i' in hierarchical name 'utmi_pif.phy_clk_i'.
-#         Region: top
-# Optimization failed
-# ** Warning: (vopt-31) Unable to unlink file "D:/usb2.0/usb/scratch_area/sim/work/@_opt1/_lib.qdb".
-# ** Warning: (vopt-31) Unable to unlink file "D:/usb2.0/usb/scratch_area/sim/work/@_opt1/_lib3_0.qdb".
-# The process cannot access the file because it is being used by another process. (GetLastError() = 32)
-# ** Warning: (vopt-31) Unable to unlink file "D:/usb2.0/usb/scratch_area/sim/work/@_opt1/_lib3_0.qpg".
-# The process cannot access the file because it is being used by another process. (GetLastError() = 32)
-# ** Warning: (vopt-31) Unable to unlink file "D:/usb2.0/usb/scratch_area/sim/work/@_opt1/_lib3_0.qtl".
-# The process cannot access the file because it is being used by another process. (GetLastError() = 32)
-# ** Warning: (vopt-133) Unable to remove directory "D:/usb2.0/usb/scratch_area/sim/work/@_opt1".
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=3, Warnings=26.
-# Error loading design
-# Error: Error loading design
-#        Pausing macro execution
-# MACRO ./run.do PAUSED at line 2
-do run.do
-# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
-# Start time: 08:08:58 on Jan 25,2024
-# vlog -reportprogress 300 -sv "+acc" "+cover" "+fcover" -L /uvm-1.2 "+define+DUMP_ON" "+incdir+../../../usb/project_area/design/rtl" "+incdir+../../../usb/project_area/verif/agents" "+incdir+../../../usb/project_area/verif/agents/wb_agent" "+incdir+../../../usb/project_area/verif/agents/utmi_agent" "+incdir+../../../usb/project_area/verif/agents/sram_agent" "+incdir+../../../usb/project_area/verif/agents/reset_agent" "+incdir+../../../usb/project_area/verif/tests" "+incdir+../../../usb/project_area/verif/seqs" "+incdir+../../../usb/project_area/verif/tb" "+incdir+../../../usb/scratch_area/log" "+incdir+../../../usb/scratch_area/sim" ../../../usb/project_area/verif/tb/top.sv 
-# ** Note: (vlog-2286) ../../../usb/project_area/verif/tb/top.sv(1): Using implicit +incdir+C:/questasim64_2021.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
-# ** Warning: ../../../usb/project_area/verif/tb/top.sv(6): (vlog-2283) Extra semicolon in $unit (global) scope.
-# -- Compiling package top_sv_unit
-# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
-# -- Compiling interface reset_intf
-# -- Compiling interface wb_intf
-# -- Compiling interface utmi_intf
-# -- Compiling interface sram_intf
-# -- Compiling module usbf_utmi_ls
-# -- Compiling module usbf_utmi_if
-# -- Compiling module usbf_crc5
-# -- Compiling module usbf_crc16
-# -- Compiling module usbf_pd
-# -- Compiling module usbf_pa
-# -- Compiling module usbf_idma
-# -- Compiling module usbf_pe
-# -- Compiling module usbf_pl
-# -- Compiling module usbf_mem_arb
-# -- Compiling module usbf_ep_rf
-# -- Compiling module usbf_ep_rf_dummy
-# -- Compiling module usbf_rf
-# -- Compiling module usbf_wb
-# -- Compiling module usbf_top
-# -- Compiling module top
-# 
-# Top level modules:
-# 	top
-# End time: 08:08:58 on Jan 25,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 1
-# vsim -vopt -sv_seed 10 -voptargs=""+acc=npr"" -assertdebug "+UVM_VERBOSITY=UVM_LOW" "+UVM_TESTNAME=usb_base_test" -l ../../../usb/scratch_area/log/usb_base_test_10/usb_base_test_10.log -sva -coverage -do "coverage save -onexit ../../../usb/scratch_area/log/usb_base_test_10/usb_base_test_10.ucdb;do ../../../usb/scratch_area/sim/wave.do;run -all; exit" work.top 
-# Start time: 08:06:56 on Jan 25,2024
-# ** Note: (vsim-3812) Design is being optimized...
-# ** Warning: (vopt-31) Unable to unlink file "D:/usb2.0/usb/scratch_area/sim/work/@_opt1/_lib3_0.qpg".
-# ** Warning: (vopt-31) Unable to unlink file "D:/usb2.0/usb/scratch_area/sim/work/@_opt1/_lib3_0.qtl".
-# The process cannot access the file because it is being used by another process. (GetLastError() = 32)
-# ** Warning: (vopt-133) Unable to remove directory "D:/usb2.0/usb/scratch_area/sim/work/@_opt1".
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'top', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'top_sv_unit', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'reset_intf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'wb_intf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'utmi_intf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'sram_intf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_top', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_utmi_if', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_utmi_ls', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_pl', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_pd', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_crc5', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_crc16', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_pa', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_idma', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_pe', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_mem_arb', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_rf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_ep_rf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_ep_rf_dummy', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_wb', but was not detected by vopt. The vlog option will be ignored.
-# ** Note: (vopt-143) Recognized 1 FSM in module "usbf_pe(fast)".
-# ** Note: (vopt-143) Recognized 1 FSM in module "usbf_utmi_ls(fast)".
-# ** Note: (vopt-143) Recognized 1 FSM in module "usbf_idma(fast)".
-# ** Note: (vopt-143) Recognized 1 FSM in module "usbf_pd(fast)".
-# ** Note: (vopt-143) Recognized 1 FSM in module "usbf_pa(fast)".
-# ** Note: (vopt-143) Recognized 1 FSM in module "usbf_wb(fast)".
-# ** Warning: ../../../usb/project_area/verif/tb/top.sv(34): (vopt-2685) [TFMPC] - Too few port connections for 'dut'.  Expected 38, found 33.
-# ** Warning: ../../../usb/project_area/verif/tb/top.sv(34): (vopt-2718) [TFMPC] - Missing connection for port 'sram_we_o'.
-# ** Warning: ../../../usb/project_area/verif/tb/top.sv(34): (vopt-2718) [TFMPC] - Missing connection for port 'sram_re_o'.
-# ** Warning: ../../../usb/project_area/verif/tb/top.sv(34): (vopt-2718) [TFMPC] - Missing connection for port 'sram_data_o'.
-# ** Warning: ../../../usb/project_area/verif/tb/top.sv(34): (vopt-2718) [TFMPC] - Missing connection for port 'sram_data_i'.
-# ** Warning: ../../../usb/project_area/verif/tb/top.sv(34): (vopt-2718) [TFMPC] - Missing connection for port 'sram_adr_o'.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=3, Warnings=56.
-# Loading sv_std.std
-# Loading mtiUvm.uvm_pkg(fast)
-# Loading work.top_sv_unit(fast)
-# Loading mtiUvm.questa_uvm_pkg(fast)
-# Loading work.top(fast)
-# Loading work.reset_intf(fast__2)
-# ** Error (suppressible): (vsim-3009) [TSCALE] - Module 'reset_intf' does not have a timeunit/timeprecision specification in effect, but other modules do.
-#    Time: 0 ns  Iteration: 0  Instance: /top/reset_pif File: ../../../usb/project_area/verif/agents/reset_agent/reset_intf.sv
-# Loading work.wb_intf(fast__2)
-# Loading work.utmi_intf(fast__2)
-# Loading work.sram_intf(fast__2)
-# Loading work.usbf_top(fast)
-# Loading work.usbf_utmi_if(fast)
-# Loading work.usbf_utmi_ls(fast)
-# Loading work.usbf_pl(fast)
-# Loading work.usbf_pd(fast)
-# Loading work.usbf_crc5(fast)
-# Loading work.usbf_crc16(fast)
-# Loading work.usbf_pa(fast)
-# Loading work.usbf_idma(fast)
-# Loading work.usbf_pe(fast)
-# Loading work.usbf_mem_arb(fast)
-# Loading work.usbf_rf(fast)
-# Loading work.usbf_ep_rf(fast)
-# Loading work.usbf_ep_rf_dummy(fast)
-# Loading work.usbf_wb(fast)
-# Error loading design
-# Error: Error loading design
-#        Pausing macro execution
-# MACRO ./run.do PAUSED at line 2
-do run.do
-# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
-# Start time: 08:11:50 on Jan 25,2024
-# vlog -reportprogress 300 -sv "+acc" "+cover" "+fcover" -L /uvm-1.2 "+define+DUMP_ON" "+incdir+../../../usb/project_area/design/rtl" "+incdir+../../../usb/project_area/verif/agents" "+incdir+../../../usb/project_area/verif/agents/wb_agent" "+incdir+../../../usb/project_area/verif/agents/utmi_agent" "+incdir+../../../usb/project_area/verif/agents/sram_agent" "+incdir+../../../usb/project_area/verif/agents/reset_agent" "+incdir+../../../usb/project_area/verif/tests" "+incdir+../../../usb/project_area/verif/seqs" "+incdir+../../../usb/project_area/verif/tb" "+incdir+../../../usb/scratch_area/log" "+incdir+../../../usb/scratch_area/sim" ../../../usb/project_area/verif/tb/top.sv 
 # ** Note: (vlog-2286) ../../../usb/project_area/verif/tb/top.sv(3): Using implicit +incdir+C:/questasim64_2021.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
-# ** Warning: ../../../usb/project_area/verif/tb/top.sv(8): (vlog-2283) Extra semicolon in $unit (global) scope.
+# ** Warning: ../../../usb/project_area/verif/tb/top.sv(4): (vlog-13233) Design unit "top_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
 # -- Compiling package top_sv_unit
 # -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
 # -- Compiling interface reset_intf
 # -- Compiling interface wb_intf
 # -- Compiling interface utmi_intf
 # -- Compiling interface sram_intf
-# -- Compiling module usbf_utmi_ls
-# -- Compiling module usbf_utmi_if
-# -- Compiling module usbf_crc5
-# -- Compiling module usbf_crc16
-# -- Compiling module usbf_pd
-# -- Compiling module usbf_pa
-# -- Compiling module usbf_idma
-# -- Compiling module usbf_pe
-# -- Compiling module usbf_pl
-# -- Compiling module usbf_mem_arb
-# -- Compiling module usbf_ep_rf
-# -- Compiling module usbf_ep_rf_dummy
-# -- Compiling module usbf_rf
-# -- Compiling module usbf_wb
-# -- Compiling module usbf_top
 # -- Compiling module top
 # 
 # Top level modules:
 # 	top
-# End time: 08:11:50 on Jan 25,2024, Elapsed time: 0:00:00
+# End time: 16:23:22 on Jan 29,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 1
-# vsim -vopt -sv_seed 10 -voptargs=""+acc=npr"" -assertdebug "+UVM_VERBOSITY=UVM_LOW" "+UVM_TESTNAME=usb_base_test" -l ../../../usb/scratch_area/log/usb_base_test_10/usb_base_test_10.log -sva -coverage -do "coverage save -onexit ../../../usb/scratch_area/log/usb_base_test_10/usb_base_test_10.ucdb;do ../../../usb/scratch_area/sim/wave.do;run -all; exit" work.top 
-# Start time: 08:06:56 on Jan 25,2024
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'top', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'top_sv_unit', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'reset_intf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'wb_intf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'utmi_intf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'sram_intf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_top', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_utmi_if', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_utmi_ls', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_pl', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_pd', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_crc5', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_crc16', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_pa', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_idma', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_pe', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_mem_arb', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_rf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_ep_rf', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_ep_rf_dummy', but was not detected by vopt. The vlog option will be ignored.
-# ** Warning: (vopt-10016) Option '-L /uvm-1.2' was detected by vlog for design-unit 'usbf_wb', but was not detected by vopt. The vlog option will be ignored.
-# ** Note: (vopt-143) Recognized 1 FSM in module "usbf_pe(fast)".
-# ** Note: (vopt-143) Recognized 1 FSM in module "usbf_utmi_ls(fast)".
-# ** Note: (vopt-143) Recognized 1 FSM in module "usbf_idma(fast)".
-# ** Note: (vopt-143) Recognized 1 FSM in module "usbf_pd(fast)".
-# ** Note: (vopt-143) Recognized 1 FSM in module "usbf_pa(fast)".
-# ** Note: (vopt-143) Recognized 1 FSM in module "usbf_wb(fast)".
-# ** Warning: ../../../usb/project_area/verif/tb/top.sv(36): (vopt-2685) [TFMPC] - Too few port connections for 'dut'.  Expected 38, found 33.
-# ** Warning: ../../../usb/project_area/verif/tb/top.sv(36): (vopt-2718) [TFMPC] - Missing connection for port 'sram_we_o'.
-# ** Warning: ../../../usb/project_area/verif/tb/top.sv(36): (vopt-2718) [TFMPC] - Missing connection for port 'sram_re_o'.
-# ** Warning: ../../../usb/project_area/verif/tb/top.sv(36): (vopt-2718) [TFMPC] - Missing connection for port 'sram_data_o'.
-# ** Warning: ../../../usb/project_area/verif/tb/top.sv(36): (vopt-2718) [TFMPC] - Missing connection for port 'sram_data_i'.
-# ** Warning: ../../../usb/project_area/verif/tb/top.sv(36): (vopt-2718) [TFMPC] - Missing connection for port 'sram_adr_o'.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=4, Warnings=83.
-# Loading sv_std.std
-# Loading mtiUvm.uvm_pkg(fast)
-# Loading work.top_sv_unit(fast)
-# Loading mtiUvm.questa_uvm_pkg(fast)
-# Loading work.top(fast)
-# Loading work.reset_intf(fast__2)
-# Loading work.wb_intf(fast__2)
-# Loading work.utmi_intf(fast__2)
-# Loading work.sram_intf(fast__2)
-# Loading work.usbf_top(fast)
-# Loading work.usbf_utmi_if(fast)
-# Loading work.usbf_utmi_ls(fast)
-# Loading work.usbf_pl(fast)
-# Loading work.usbf_pd(fast)
-# Loading work.usbf_crc5(fast)
-# Loading work.usbf_crc16(fast)
-# Loading work.usbf_pa(fast)
-# Loading work.usbf_idma(fast)
-# Loading work.usbf_pe(fast)
-# Loading work.usbf_mem_arb(fast)
-# Loading work.usbf_rf(fast)
-# Loading work.usbf_ep_rf(fast)
-# Loading work.usbf_ep_rf_dummy(fast)
-# Loading work.usbf_wb(fast)
-# Loading work.reset_intf(fast)
-# Loading work.wb_intf(fast)
-# Loading work.utmi_intf(fast)
-# Loading work.sram_intf(fast)
-# ** Warning: (vsim-3015) [PCDPC] - Port size (18) does not match connection size (17) for port 'wb_addr_i'. The port definition is at: ../../../usb/project_area/design/rtl/usbf_top.v(119).
-#    Time: 0 ps  Iteration: 0  Instance: /top/dut File: ../../../usb/project_area/verif/tb/top.sv Line: 36
-# Loading C:/questasim64_2021.1/uvm-1.1d\win64\uvm_dpi.dll
-# coverage save -onexit ../../../usb/scratch_area/log/usb_base_test_10/usb_base_test_10.ucdb
-# do ../../../usb/scratch_area/sim/wave.do
-# run -all
-# ----------------------------------------------------------------
-# UVM-1.1d
-# (C) 2007-2013 Mentor Graphics Corporation
-# (C) 2007-2013 Cadence Design Systems, Inc.
-# (C) 2006-2013 Synopsys, Inc.
-# (C) 2011-2013 Cypress Semiconductor Corp.
-# ----------------------------------------------------------------
-# 
-#   ***********       IMPORTANT RELEASE NOTES         ************
-# 
-#   You are using a version of the UVM library that has been compiled
-#   with `UVM_NO_DEPRECATED undefined.
-#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
-# 
-#   You are using a version of the UVM library that has been compiled
-#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
-#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
-# 
-#       (Specify +UVM_NO_RELNOTES to turn off this notice)
-# 
-# 
-# 
-# 
-# INFO: USB Function core instantiated (top.dut)
-#       Supported Endpoints: 4 (0 through 3)
-#       WISHBONE Address bus size: A17:0
-#       SSRAM Address bus size: A14:0
-#       Buffer Memory Size: 131072 bytes
-# 
-# UVM_INFO @ 0: reporter [RNTST] Running test usb_base_test...
-# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
-# ----------------------------------------------------------------
-# Name                         Type                    Size  Value
-# ----------------------------------------------------------------
-# uvm_test_top                 usb_base_test           -     @486 
-#   env_h                      usb_env                 -     @493 
-#     reset_agent_h            reset_agent             -     @613 
-#       reset_drv_h            reset_drv               -     @642 
-#         rsp_port             uvm_analysis_port       -     @657 
-#         seq_item_port        uvm_seq_item_pull_port  -     @649 
-#       reset_sqr_h            uvm_sequencer           -     @665 
-#         rsp_export           uvm_analysis_export     -     @672 
-#         seq_item_export      uvm_seq_item_pull_imp   -     @766 
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#     sram_agent_h             sram_agent              -     @634 
-#       cov_h                  sram_agent_cov          -     @923 
-#         analysis_imp         uvm_analysis_imp        -     @930 
-#         sram_agent_cov_port  uvm_analysis_imp        -     @941 
-#       drv_h                  sram_agent_drv          -     @791 
-#         rsp_port             uvm_analysis_port       -     @806 
-#         seq_item_port        uvm_seq_item_pull_port  -     @798 
-#       mon_h                  sram_agent_mon          -     @784 
-#         sram_agent_mon_port  uvm_analysis_port       -     @954 
-#       sqr_h                  sram_agent_sqr          -     @814 
-#         rsp_export           uvm_analysis_export     -     @821 
-#         seq_item_export      uvm_seq_item_pull_imp   -     @915 
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#     utmi_agent_h             utmi_agent              -     @627 
-#       cov_h                  utmi_agent_cov          -     @1111
-#         analysis_imp         uvm_analysis_imp        -     @1118
-#         utmi_agent_cov_port  uvm_analysis_imp        -     @1129
-#       drv_h                  utmi_agent_drv          -     @979 
-#         rsp_port             uvm_analysis_port       -     @994 
-#         seq_item_port        uvm_seq_item_pull_port  -     @986 
-#       mon_h                  utmi_agent_mon          -     @972 
-#         utmi_agent_mon_port  uvm_analysis_port       -     @1142
-#       sqr_h                  utmi_agent_sqr          -     @1002
-#         rsp_export           uvm_analysis_export     -     @1009
-#         seq_item_export      uvm_seq_item_pull_imp   -     @1103
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#     v_sqr_h                  usb_virtual_sqr         -     @504 
-#       reset_sqr_h            uvm_sequencer           -     @1164
-#         rsp_export           uvm_analysis_export     -     @1171
-#         seq_item_export      uvm_seq_item_pull_imp   -     @1265
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#       rsp_export             uvm_analysis_export     -     @511 
-#       seq_item_export        uvm_seq_item_pull_imp   -     @605 
-#       sram_agent_sqr_h       sram_agent_sqr          -     @1491
-#         rsp_export           uvm_analysis_export     -     @1498
-#         seq_item_export      uvm_seq_item_pull_imp   -     @1592
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#       utmi_agent_sqr_h       utmi_agent_sqr          -     @1382
-#         rsp_export           uvm_analysis_export     -     @1389
-#         seq_item_export      uvm_seq_item_pull_imp   -     @1483
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#       wb_agent_sqr_h         wb_agent_sqr            -     @1273
-#         rsp_export           uvm_analysis_export     -     @1280
-#         seq_item_export      uvm_seq_item_pull_imp   -     @1374
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#       arbitration_queue      array                   0     -    
-#       lock_queue             array                   0     -    
-#       num_last_reqs          integral                32    'd1  
-#       num_last_rsps          integral                32    'd1  
-#     wb_agent_h               wb_agent                -     @620 
-#       cov_h                  wb_agent_cov            -     @1760
-#         analysis_imp         uvm_analysis_imp        -     @1767
-#         wb_agent_cov_port    uvm_analysis_imp        -     @1778
-#       drv_h                  wb_agent_drv            -     @1628
-#         rsp_port             uvm_analysis_port       -     @1643
-#         seq_item_port        uvm_seq_item_pull_port  -     @1635
-#       mon_h                  wb_agent_mon            -     @1621
-#         wb_agent_mon_port    uvm_analysis_port       -     @1791
-#       sqr_h                  wb_agent_sqr            -     @1651
-#         rsp_export           uvm_analysis_export     -     @1658
-#         seq_item_export      uvm_seq_item_pull_imp   -     @1752
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-# ----------------------------------------------------------------
-# 
-# 
-#### Factory Configuration (*)
-# 
-#   No instance or type overrides are registered with this factory
-# 
-# All types registered with the factory: 67 total
-# (types without type names will not be printed)
-# 
-#   Type Name
-#   ---------
-#   questa_uvm_recorder
-#   reset_agent
-#   reset_drv
-#   reset_sequence
-#   reset_tr
-#   sram_agent
-#   sram_agent_cov
-#   sram_agent_drv
-#   sram_agent_mon
-#   sram_agent_sqr
-#   sram_tx
-#   usb_base_seq
-#   usb_base_test
-#   usb_env
-#   usb_virtual_sqr
-#   utmi_agent
-#   utmi_agent_cov
-#   utmi_agent_drv
-#   utmi_agent_mon
-#   utmi_agent_sqr
-#   utmi_tx
-#   wb_agent
-#   wb_agent_cov
-#   wb_agent_drv
-#   wb_agent_mon
-#   wb_agent_sqr
-#   wb_tx
-# (*) Types with no associated type name will be printed as <unknown>
-# 
-####
-# 
-# UVM_INFO ../../../usb/project_area/verif/agents/wb_agent/wb_agent_mon.sv(24) @ 0: uvm_test_top.env_h.wb_agent_h.mon_h [wb_agent_mon] Monitor Run Phase
-# UVM_INFO ../../../usb/project_area/verif/agents/wb_agent/wb_agent_cov.sv(34) @ 0: uvm_test_top.env_h.wb_agent_h.cov_h [wb_agent_COV] From Coverage Run Phase
-# UVM_INFO ../../../usb/project_area/verif/agents/utmi_agent/utmi_agent_mon.sv(24) @ 0: uvm_test_top.env_h.utmi_agent_h.mon_h [utmi_agent_mon] Monitor Run Phase
-# UVM_INFO ../../../usb/project_area/verif/agents/utmi_agent/utmi_agent_cov.sv(34) @ 0: uvm_test_top.env_h.utmi_agent_h.cov_h [utmi_agent_COV] From Coverage Run Phase
-# UVM_INFO ../../../usb/project_area/verif/agents/sram_agent/sram_agent_mon.sv(24) @ 0: uvm_test_top.env_h.sram_agent_h.mon_h [sram_agent_mon] Monitor Run Phase
-# UVM_INFO ../../../usb/project_area/verif/agents/sram_agent/sram_agent_cov.sv(34) @ 0: uvm_test_top.env_h.sram_agent_h.cov_h [sram_agent_COV] From Coverage Run Phase
-# ----------------------------------------------------------------------------------------------------------
-# Name                           Type      Size  Value                                                      
-# ----------------------------------------------------------------------------------------------------------
-# req                            reset_tr  -     @1867                                                      
-#   kind                         kind_e    32    ASSERT                                                     
-#   cycles                       integral  32    'h2                                                        
-#   begin_time                   time      64    0                                                          
-#   depth                        int       32    'd2                                                        
-#   parent sequence (name)       string    14    reset_sequence                                             
-#   parent sequence (full name)  string    59    uvm_test_top.env_h.reset_agent_h.reset_sqr_h.reset_sequence
-#   sequencer                    string    44    uvm_test_top.env_h.reset_agent_h.reset_sqr_h               
-# ----------------------------------------------------------------------------------------------------------
-# ----------------------------------------------------------------------------------------------------------
-# Name                           Type      Size  Value                                                      
-# ----------------------------------------------------------------------------------------------------------
-# req                            reset_tr  -     @1872                                                      
-#   kind                         kind_e    32    DEASSERT                                                   
-#   cycles                       integral  32    'h2                                                        
-#   begin_time                   time      64    15000                                                      
-#   depth                        int       32    'd2                                                        
-#   parent sequence (name)       string    14    reset_sequence                                             
-#   parent sequence (full name)  string    59    uvm_test_top.env_h.reset_agent_h.reset_sqr_h.reset_sequence
-#   sequencer                    string    44    uvm_test_top.env_h.reset_agent_h.reset_sqr_h               
-# ----------------------------------------------------------------------------------------------------------
-# **************************************************
-# ****************** TEST Summary ******************
-# **************************************************
-# **************************************************
-# ****************** TEST  PASSED ******************
-# **************************************************
-# 
-# --- UVM Report Summary ---
-# 
-# ** Report counts by severity
-# UVM_INFO :    8
-# UVM_WARNING :    0
-# UVM_ERROR :    0
-# UVM_FATAL :    0
-# ** Report counts by id
-# [RNTST]     1
-# [UVMTOP]     1
-# [sram_agent_COV]     1
-# [sram_agent_mon]     1
-# [utmi_agent_COV]     1
-# [utmi_agent_mon]     1
-# [wb_agent_COV]     1
-# [wb_agent_mon]     1
-# ** Note: $finish    : C:/questasim64_2021.1/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 35 ns  Iteration: 163  Instance: /top
-# 1
-# Break in Task uvm_pkg/uvm_root::run_test at C:/questasim64_2021.1/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
-#  exit
-add wave -position insertpoint sim:/top/dut/*
-write format wave -window .main_pane.wave.interior.cs.body.pw.wf D:/usb2.0/usb/scratch_area/sim/wave.do
-add wave -position insertpoint sim:/top/dut/u0/*
-add wave -position insertpoint sim:/top/dut/u1/*
-add wave -position insertpoint sim:/top/dut/u2/*
-add wave -position insertpoint sim:/top/dut/u4/*
-add wave -position insertpoint sim:/top/dut/u5/*
-add wave -position insertpoint sim:/top/dut/*
-write format wave -window .main_pane.wave.interior.cs.body.pw.wf D:/usb2.0/usb/scratch_area/sim/wave.do
-do run.do
-# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
-# Start time: 08:20:16 on Jan 25,2024
-# vlog -reportprogress 300 -sv "+acc" "+cover" "+fcover" -L /uvm-1.2 "+define+DUMP_ON" "+incdir+../../../usb/project_area/design/rtl" "+incdir+../../../usb/project_area/verif/agents" "+incdir+../../../usb/project_area/verif/agents/wb_agent" "+incdir+../../../usb/project_area/verif/agents/utmi_agent" "+incdir+../../../usb/project_area/verif/agents/sram_agent" "+incdir+../../../usb/project_area/verif/agents/reset_agent" "+incdir+../../../usb/project_area/verif/tests" "+incdir+../../../usb/project_area/verif/seqs" "+incdir+../../../usb/project_area/verif/tb" "+incdir+../../../usb/scratch_area/log" "+incdir+../../../usb/scratch_area/sim" ../../../usb/project_area/verif/tb/top.sv 
-# ** Note: (vlog-2286) ../../../usb/project_area/verif/tb/top.sv(3): Using implicit +incdir+C:/questasim64_2021.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
-# ** Warning: ../../../usb/project_area/verif/tb/top.sv(8): (vlog-2283) Extra semicolon in $unit (global) scope.
-# -- Compiling package top_sv_unit
-# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
-# -- Compiling interface reset_intf
-# -- Compiling interface wb_intf
-# -- Compiling interface utmi_intf
-# -- Compiling interface sram_intf
-# -- Compiling module usbf_utmi_ls
-# -- Compiling module usbf_utmi_if
-# -- Compiling module usbf_crc5
-# -- Compiling module usbf_crc16
-# -- Compiling module usbf_pd
-# -- Compiling module usbf_pa
-# -- Compiling module usbf_idma
-# -- Compiling module usbf_pe
-# -- Compiling module usbf_pl
-# -- Compiling module usbf_mem_arb
-# -- Compiling module usbf_ep_rf
-# -- Compiling module usbf_ep_rf_dummy
-# -- Compiling module usbf_rf
-# -- Compiling module usbf_wb
-# -- Compiling module usbf_top
-# -- Compiling module top
-# 
-# Top level modules:
-# 	top
-# End time: 08:20:17 on Jan 25,2024, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 1
-# Saving coverage database on exit...
-# End time: 08:20:23 on Jan 25,2024, Elapsed time: 0:13:27
-# Errors: 4, Warnings: 84
-# vsim -vopt -sv_seed 10 -voptargs=""+acc=npr"" -assertdebug "+UVM_VERBOSITY=UVM_LOW" "+UVM_TESTNAME=usb_base_test" -l ../../../usb/scratch_area/log/usb_base_test_10/usb_base_test_10.log -sva -coverage -do "coverage save -onexit ../../../usb/scratch_area/log/usb_base_test_10/usb_base_test_10.ucdb;do ../../../usb/scratch_area/sim/wave.do;run -all; exit" work.top 
-# Start time: 08:20:23 on Jan 25,2024
-# ** Note: (vsim-8009) Loading existing optimized design _opt1
-# Loading sv_std.std
-# Loading mtiUvm.uvm_pkg(fast)
-# Loading work.top_sv_unit(fast)
-# Loading mtiUvm.questa_uvm_pkg(fast)
-# Loading work.top(fast)
-# Loading work.reset_intf(fast__2)
-# Loading work.wb_intf(fast__2)
-# Loading work.utmi_intf(fast__2)
-# Loading work.sram_intf(fast__2)
-# Loading work.usbf_top(fast)
-# Loading work.usbf_utmi_if(fast)
-# Loading work.usbf_utmi_ls(fast)
-# Loading work.usbf_pl(fast)
-# Loading work.usbf_pd(fast)
-# Loading work.usbf_crc5(fast)
-# Loading work.usbf_crc16(fast)
-# Loading work.usbf_pa(fast)
-# Loading work.usbf_idma(fast)
-# Loading work.usbf_pe(fast)
-# Loading work.usbf_mem_arb(fast)
-# Loading work.usbf_rf(fast)
-# Loading work.usbf_ep_rf(fast)
-# Loading work.usbf_ep_rf_dummy(fast)
-# Loading work.usbf_wb(fast)
-# Loading work.reset_intf(fast)
-# Loading work.wb_intf(fast)
-# Loading work.utmi_intf(fast)
-# Loading work.sram_intf(fast)
-# ** Warning: (vsim-3015) [PCDPC] - Port size (18) does not match connection size (17) for port 'wb_addr_i'. The port definition is at: ../../../usb/project_area/design/rtl/usbf_top.v(119).
-#    Time: 0 ps  Iteration: 0  Instance: /top/dut File: ../../../usb/project_area/verif/tb/top.sv Line: 36
-# Loading C:/questasim64_2021.1/uvm-1.1d\win64\uvm_dpi.dll
-# coverage save -onexit ../../../usb/scratch_area/log/usb_base_test_10/usb_base_test_10.ucdb
-# do ../../../usb/scratch_area/sim/wave.do
-# run -all
-# ----------------------------------------------------------------
-# UVM-1.1d
-# (C) 2007-2013 Mentor Graphics Corporation
-# (C) 2007-2013 Cadence Design Systems, Inc.
-# (C) 2006-2013 Synopsys, Inc.
-# (C) 2011-2013 Cypress Semiconductor Corp.
-# ----------------------------------------------------------------
-# 
-#   ***********       IMPORTANT RELEASE NOTES         ************
-# 
-#   You are using a version of the UVM library that has been compiled
-#   with `UVM_NO_DEPRECATED undefined.
-#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
-# 
-#   You are using a version of the UVM library that has been compiled
-#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
-#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
-# 
-#       (Specify +UVM_NO_RELNOTES to turn off this notice)
-# 
-# 
-# 
-# 
-# INFO: USB Function core instantiated (top.dut)
-#       Supported Endpoints: 4 (0 through 3)
-#       WISHBONE Address bus size: A17:0
-#       SSRAM Address bus size: A14:0
-#       Buffer Memory Size: 131072 bytes
-# 
-# UVM_INFO @ 0: reporter [RNTST] Running test usb_base_test...
-# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
-# ----------------------------------------------------------------
-# Name                         Type                    Size  Value
-# ----------------------------------------------------------------
-# uvm_test_top                 usb_base_test           -     @486 
-#   env_h                      usb_env                 -     @493 
-#     reset_agent_h            reset_agent             -     @613 
-#       reset_drv_h            reset_drv               -     @642 
-#         rsp_port             uvm_analysis_port       -     @657 
-#         seq_item_port        uvm_seq_item_pull_port  -     @649 
-#       reset_sqr_h            uvm_sequencer           -     @665 
-#         rsp_export           uvm_analysis_export     -     @672 
-#         seq_item_export      uvm_seq_item_pull_imp   -     @766 
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#     sram_agent_h             sram_agent              -     @634 
-#       cov_h                  sram_agent_cov          -     @923 
-#         analysis_imp         uvm_analysis_imp        -     @930 
-#         sram_agent_cov_port  uvm_analysis_imp        -     @941 
-#       drv_h                  sram_agent_drv          -     @791 
-#         rsp_port             uvm_analysis_port       -     @806 
-#         seq_item_port        uvm_seq_item_pull_port  -     @798 
-#       mon_h                  sram_agent_mon          -     @784 
-#         sram_agent_mon_port  uvm_analysis_port       -     @954 
-#       sqr_h                  sram_agent_sqr          -     @814 
-#         rsp_export           uvm_analysis_export     -     @821 
-#         seq_item_export      uvm_seq_item_pull_imp   -     @915 
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#     utmi_agent_h             utmi_agent              -     @627 
-#       cov_h                  utmi_agent_cov          -     @1111
-#         analysis_imp         uvm_analysis_imp        -     @1118
-#         utmi_agent_cov_port  uvm_analysis_imp        -     @1129
-#       drv_h                  utmi_agent_drv          -     @979 
-#         rsp_port             uvm_analysis_port       -     @994 
-#         seq_item_port        uvm_seq_item_pull_port  -     @986 
-#       mon_h                  utmi_agent_mon          -     @972 
-#         utmi_agent_mon_port  uvm_analysis_port       -     @1142
-#       sqr_h                  utmi_agent_sqr          -     @1002
-#         rsp_export           uvm_analysis_export     -     @1009
-#         seq_item_export      uvm_seq_item_pull_imp   -     @1103
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#     v_sqr_h                  usb_virtual_sqr         -     @504 
-#       reset_sqr_h            uvm_sequencer           -     @1164
-#         rsp_export           uvm_analysis_export     -     @1171
-#         seq_item_export      uvm_seq_item_pull_imp   -     @1265
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#       rsp_export             uvm_analysis_export     -     @511 
-#       seq_item_export        uvm_seq_item_pull_imp   -     @605 
-#       sram_agent_sqr_h       sram_agent_sqr          -     @1491
-#         rsp_export           uvm_analysis_export     -     @1498
-#         seq_item_export      uvm_seq_item_pull_imp   -     @1592
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#       utmi_agent_sqr_h       utmi_agent_sqr          -     @1382
-#         rsp_export           uvm_analysis_export     -     @1389
-#         seq_item_export      uvm_seq_item_pull_imp   -     @1483
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#       wb_agent_sqr_h         wb_agent_sqr            -     @1273
-#         rsp_export           uvm_analysis_export     -     @1280
-#         seq_item_export      uvm_seq_item_pull_imp   -     @1374
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-#       arbitration_queue      array                   0     -    
-#       lock_queue             array                   0     -    
-#       num_last_reqs          integral                32    'd1  
-#       num_last_rsps          integral                32    'd1  
-#     wb_agent_h               wb_agent                -     @620 
-#       cov_h                  wb_agent_cov            -     @1760
-#         analysis_imp         uvm_analysis_imp        -     @1767
-#         wb_agent_cov_port    uvm_analysis_imp        -     @1778
-#       drv_h                  wb_agent_drv            -     @1628
-#         rsp_port             uvm_analysis_port       -     @1643
-#         seq_item_port        uvm_seq_item_pull_port  -     @1635
-#       mon_h                  wb_agent_mon            -     @1621
-#         wb_agent_mon_port    uvm_analysis_port       -     @1791
-#       sqr_h                  wb_agent_sqr            -     @1651
-#         rsp_export           uvm_analysis_export     -     @1658
-#         seq_item_export      uvm_seq_item_pull_imp   -     @1752
-#         arbitration_queue    array                   0     -    
-#         lock_queue           array                   0     -    
-#         num_last_reqs        integral                32    'd1  
-#         num_last_rsps        integral                32    'd1  
-# ----------------------------------------------------------------
-# 
-# 
-#### Factory Configuration (*)
-# 
-#   No instance or type overrides are registered with this factory
-# 
-# All types registered with the factory: 67 total
-# (types without type names will not be printed)
-# 
-#   Type Name
-#   ---------
-#   questa_uvm_recorder
-#   reset_agent
-#   reset_drv
-#   reset_sequence
-#   reset_tr
-#   sram_agent
-#   sram_agent_cov
-#   sram_agent_drv
-#   sram_agent_mon
-#   sram_agent_sqr
-#   sram_tx
-#   usb_base_seq
-#   usb_base_test
-#   usb_env
-#   usb_virtual_sqr
-#   utmi_agent
-#   utmi_agent_cov
-#   utmi_agent_drv
-#   utmi_agent_mon
-#   utmi_agent_sqr
-#   utmi_tx
-#   wb_agent
-#   wb_agent_cov
-#   wb_agent_drv
-#   wb_agent_mon
-#   wb_agent_sqr
-#   wb_tx
-# (*) Types with no associated type name will be printed as <unknown>
-# 
-####
-# 
-# UVM_INFO ../../../usb/project_area/verif/agents/wb_agent/wb_agent_mon.sv(24) @ 0: uvm_test_top.env_h.wb_agent_h.mon_h [wb_agent_mon] Monitor Run Phase
-# UVM_INFO ../../../usb/project_area/verif/agents/wb_agent/wb_agent_cov.sv(34) @ 0: uvm_test_top.env_h.wb_agent_h.cov_h [wb_agent_COV] From Coverage Run Phase
-# UVM_INFO ../../../usb/project_area/verif/agents/utmi_agent/utmi_agent_mon.sv(24) @ 0: uvm_test_top.env_h.utmi_agent_h.mon_h [utmi_agent_mon] Monitor Run Phase
-# UVM_INFO ../../../usb/project_area/verif/agents/utmi_agent/utmi_agent_cov.sv(34) @ 0: uvm_test_top.env_h.utmi_agent_h.cov_h [utmi_agent_COV] From Coverage Run Phase
-# UVM_INFO ../../../usb/project_area/verif/agents/sram_agent/sram_agent_mon.sv(24) @ 0: uvm_test_top.env_h.sram_agent_h.mon_h [sram_agent_mon] Monitor Run Phase
-# UVM_INFO ../../../usb/project_area/verif/agents/sram_agent/sram_agent_cov.sv(34) @ 0: uvm_test_top.env_h.sram_agent_h.cov_h [sram_agent_COV] From Coverage Run Phase
-# ----------------------------------------------------------------------------------------------------------
-# Name                           Type      Size  Value                                                      
-# ----------------------------------------------------------------------------------------------------------
-# req                            reset_tr  -     @1867                                                      
-#   kind                         kind_e    32    ASSERT                                                     
-#   cycles                       integral  32    'h2                                                        
-#   begin_time                   time      64    0                                                          
-#   depth                        int       32    'd2                                                        
-#   parent sequence (name)       string    14    reset_sequence                                             
-#   parent sequence (full name)  string    59    uvm_test_top.env_h.reset_agent_h.reset_sqr_h.reset_sequence
-#   sequencer                    string    44    uvm_test_top.env_h.reset_agent_h.reset_sqr_h               
-# ----------------------------------------------------------------------------------------------------------
-# ----------------------------------------------------------------------------------------------------------
-# Name                           Type      Size  Value                                                      
-# ----------------------------------------------------------------------------------------------------------
-# req                            reset_tr  -     @1872                                                      
-#   kind                         kind_e    32    DEASSERT                                                   
-#   cycles                       integral  32    'h2                                                        
-#   begin_time                   time      64    15000                                                      
-#   depth                        int       32    'd2                                                        
-#   parent sequence (name)       string    14    reset_sequence                                             
-#   parent sequence (full name)  string    59    uvm_test_top.env_h.reset_agent_h.reset_sqr_h.reset_sequence
-#   sequencer                    string    44    uvm_test_top.env_h.reset_agent_h.reset_sqr_h               
-# ----------------------------------------------------------------------------------------------------------
-# **************************************************
-# ****************** TEST Summary ******************
-# **************************************************
-# **************************************************
-# ****************** TEST  PASSED ******************
-# **************************************************
-# 
-# --- UVM Report Summary ---
-# 
-# ** Report counts by severity
-# UVM_INFO :    8
-# UVM_WARNING :    0
-# UVM_ERROR :    0
-# UVM_FATAL :    0
-# ** Report counts by id
-# [RNTST]     1
-# [UVMTOP]     1
-# [sram_agent_COV]     1
-# [sram_agent_mon]     1
-# [utmi_agent_COV]     1
-# [utmi_agent_mon]     1
-# [wb_agent_COV]     1
-# [wb_agent_mon]     1
-# ** Note: $finish    : C:/questasim64_2021.1/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 35 ns  Iteration: 163  Instance: /top
-# 1
-# Break in Task uvm_pkg/uvm_root::run_test at C:/questasim64_2021.1/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
-#  exit

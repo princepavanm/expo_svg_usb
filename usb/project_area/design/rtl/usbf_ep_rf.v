@@ -38,16 +38,31 @@
 
 //  CVS Log
 //
-//  $Id: usbf_ep_rf.v,v 1.4 2003-10-17 02:36:57 rudi Exp $
+//  $Id: usbf_ep_rf.v,v 1.2 2007/04/26 05:38:11 pankaj Exp $
 //
-//  $Date: 2003-10-17 02:36:57 $
-//  $Revision: 1.4 $
-//  $Author: rudi $
+//  $Date: 2007/04/26 05:38:11 $
+//  $Revision: 1.2 $
+//  $Author: pankaj $
 //  $Locker:  $
 //  $State: Exp $
 //
 // Change History:
-//               $Log: not supported by cvs2svn $
+//               $Log: usbf_ep_rf.v,v $
+//               Revision 1.2  2007/04/26 05:38:11  pankaj
+//               wire "int" renamed to "d_int"; Tool "covered" has issue with the name.
+//
+//               Revision 1.1  2007/01/12 11:17:36  kartik
+//               Initial check in ...Source usb core from opencores.org
+//
+//               Revision 1.4  2003/10/17 02:36:57  rudi
+//               - Disabling bit stuffing and NRZI encoding during speed negotiation
+//               - Now the core can send zero size packets
+//               - Fixed register addresses for some of the higher endpoints
+//                 (conversion between decimal/hex was wrong)
+//               - The core now does properly evaluate the function address to
+//                 determine if the packet was intended for it.
+//               - Various other minor bugs and typos
+//
 //               Revision 1.3  2001/11/04 12:22:44  rudi
 //
 //               - Fixed previous fix (brocke something else ...)
@@ -139,6 +154,7 @@ output		dma_in_buf_sz1;	// Indicates that the DMA IN buffer has 1 max_pl_sz
 output		dma_out_buf_avail;// Indicates that there is space for at least
 				// one MAX_PL_SZ packet in the buffer
 
+wire [3:0] zvar;
 ///////////////////////////////////////////////////////////////////
 //
 // Local Wires and Registers
@@ -186,28 +202,30 @@ reg		int_re;
 
 // Aliases
 wire	[31:0]	csr;
-wire	[31:0]	intt;
+wire	[31:0]	d_int;
 wire		dma_en;
 wire	[10:0]	max_pl_sz;
 wire		ep_in;
 wire		ep_out;
 
 assign csr = {uc_bsel, uc_dpd, csr1, 1'h0, ots_stop, csr0};
-assign intt = {2'h0, iena, 2'h0,ienb, 9'h0, int_stat};
+assign d_int = {2'h0, iena, 2'h0,ienb, 9'h0, int_stat};
 assign dma_en = csr[15];
 assign max_pl_sz = csr[10:0];
 assign ep_in  = csr[27:26]==2'b01;
 assign ep_out = csr[27:26]==2'b10;
 
+//always @(we)
+// $display("tr_type = %b", din[25:24]);
 ///////////////////////////////////////////////////////////////////
 //
 // WISHBONE Access
 //
 
-always @(adr or csr or intt or buf0 or buf1)
+always @(adr or csr or d_int or buf0 or buf1)
 	case(adr)	// synopsys full_case parallel_case
 	   2'h0: dout = csr;
-	   2'h1: dout = intt;
+	   2'h1: dout = d_int;
 	   2'h2: dout = buf0;
 	   2'h3: dout = buf1;
 	endcase
@@ -302,6 +320,9 @@ always @(posedge clk)
 // Indicates that this register file matches the current
 // endpoint from token
 assign ep_match = (ep_sel == csr[21:18]);
+
+//added by sreddy
+assign zvar = csr[21:18];
 
 always @(posedge clk)
 	ep_match_r <= ep_match;

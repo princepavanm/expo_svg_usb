@@ -457,7 +457,8 @@ always @(state or mode_hs or idle_long or resume_req_s or me_cnt_100_ms or
 
 	   NORMAL:	// Normal Operation
 	     begin
-		if(!mode_hs && T1_gt_2_5_uS && T1_st_3_0_mS && !idle_long)
+		//TODO if(!mode_hs && T1_gt_2_5_uS && T1_st_3_0_mS && !idle_long)
+		if(!mode_hs && T1_gt_2_5_uS && T1_st_3_0_mS && idle_long)
 		   begin
 			me_cnt_clr = 1'b1;
 			next_state = RESET;

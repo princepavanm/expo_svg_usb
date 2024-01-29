@@ -1,0 +1,335 @@
+# Saving coverage database on exit...
+# End time: 16:24:46 on Jan 29,2024, Elapsed time: 0:00:40
+# Errors: 0, Warnings: 0
+# vsim -vopt -sv_seed 10 -voptargs=""+acc=npr"" -assertdebug "+UVM_VERBOSITY=UVM_LOW" "+UVM_TESTNAME=usb_reg_reset_read_reg_model_test" -l ../../../usb/scratch_area/log/usb_reg_reset_read_reg_model_test_10/usb_reg_reset_read_reg_model_test_10.log -sva -coverage -do "coverage save -onexit ../../../usb/scratch_area/log/usb_reg_reset_read_reg_model_test_10/usb_reg_reset_read_reg_model_test_10.ucdb;add log sim:/top/dut/*; do ../../../usb/scratch_area/sim/wave.do; run -all;" work.top 
+# Start time: 16:24:46 on Jan 29,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.top_sv_unit(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.top(fast)
+# Loading work.reset_intf(fast__2)
+# Loading work.wb_intf(fast__2)
+# Loading work.utmi_intf(fast__2)
+# Loading work.sram_intf(fast__2)
+# Loading work.usbf_top(fast)
+# Loading work.usbf_utmi_if(fast)
+# Loading work.usbf_utmi_ls(fast)
+# Loading work.usbf_pl(fast)
+# Loading work.usbf_pd(fast)
+# Loading work.usbf_crc5(fast)
+# Loading work.usbf_crc16(fast)
+# Loading work.usbf_pa(fast)
+# Loading work.usbf_idma(fast)
+# Loading work.usbf_pe(fast)
+# Loading work.usbf_mem_arb(fast)
+# Loading work.usbf_rf(fast)
+# Loading work.usbf_ep_rf(fast)
+# Loading work.usbf_wb(fast)
+# Loading work.reset_intf(fast)
+# Loading work.wb_intf(fast)
+# Loading work.utmi_intf(fast)
+# Loading work.sram_intf(fast)
+# Loading C:/questasim64_2021.1/uvm-1.1d\win64\uvm_dpi.dll
+# coverage save -onexit ../../../usb/scratch_area/log/usb_reg_reset_read_reg_model_test_10/usb_reg_reset_read_reg_model_test_10.ucdb
+# add log sim:/top/dut/*
+#  do ../../../usb/scratch_area/sim/wave.do
+#  run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# 
+# 
+# 
+# INFO: USB Function core instantiated (top.dut)
+#       Supported Endpoints: 16 (0 through 15)
+#       WISHBONE Address bus size: A17:0
+#       SSRAM Address bus size: A14:0
+#       Buffer Memory Size: 131072 bytes
+# 
+# UVM_INFO @ 0: reporter [RNTST] Running test usb_reg_reset_read_reg_model_test...
+# include_coverage not located
+#   did you mean recording_detail?
+# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+# -------------------------------------------------------------------------
+# Name                       Type                               Size  Value
+# -------------------------------------------------------------------------
+# uvm_test_top               usb_reg_reset_read_reg_model_test  -     @487 
+#   env_h                    usb_env                            -     @494 
+#     reset_agent_h          reset_agent                        -     @622 
+#       reset_drv_h          reset_drv                          -     @1445
+#         rsp_port           uvm_analysis_port                  -     @1460
+#         seq_item_port      uvm_seq_item_pull_port             -     @1452
+#       reset_sqr_h          uvm_sequencer                      -     @1468
+#         rsp_export         uvm_analysis_export                -     @1475
+#         seq_item_export    uvm_seq_item_pull_imp              -     @1569
+#         arbitration_queue  array                              0     -    
+#         lock_queue         array                              0     -    
+#         num_last_reqs      integral                           32    'd1  
+#         num_last_rsps      integral                           32    'd1  
+#     sram_agent_h           sram_agent                         -     @643 
+#       sram_cov_h           sram_cov                           -     @1726
+#         analysis_imp       uvm_analysis_imp                   -     @1733
+#         sram_cov_port      uvm_analysis_imp                   -     @1744
+#       sram_drv_h           sram_drv                           -     @1594
+#         rsp_port           uvm_analysis_port                  -     @1609
+#         seq_item_port      uvm_seq_item_pull_port             -     @1601
+#       sram_mon_h           sram_mon                           -     @1587
+#         sram_mon_port      uvm_analysis_port                  -     @1757
+#       sram_sqr_h           sram_sqr                           -     @1617
+#         rsp_export         uvm_analysis_export                -     @1624
+#         seq_item_export    uvm_seq_item_pull_imp              -     @1718
+#         arbitration_queue  array                              0     -    
+#         lock_queue         array                              0     -    
+#         num_last_reqs      integral                           32    'd1  
+#         num_last_rsps      integral                           32    'd1  
+#     utmi_agent_h           utmi_agent                         -     @636 
+#       utmi_cov_h           utmi_cov                           -     @1914
+#         analysis_imp       uvm_analysis_imp                   -     @1921
+#         utmi_cov_port      uvm_analysis_imp                   -     @1932
+#       utmi_drv_h           utmi_drv                           -     @1782
+#         rsp_port           uvm_analysis_port                  -     @1797
+#         seq_item_port      uvm_seq_item_pull_port             -     @1789
+#       utmi_mon_h           utmi_mon                           -     @1775
+#         utmi_mon_port      uvm_analysis_port                  -     @1945
+#       utmi_sqr_h           utmi_sqr                           -     @1805
+#         rsp_export         uvm_analysis_export                -     @1812
+#         seq_item_export    uvm_seq_item_pull_imp              -     @1906
+#         arbitration_queue  array                              0     -    
+#         lock_queue         array                              0     -    
+#         num_last_reqs      integral                           32    'd1  
+#         num_last_rsps      integral                           32    'd1  
+#     v_sqr_h                usb_virtual_sqr                    -     @513 
+#       reset_sqr_h          uvm_sequencer                      -     @1967
+#         rsp_export         uvm_analysis_export                -     @1974
+#         seq_item_export    uvm_seq_item_pull_imp              -     @2068
+#         arbitration_queue  array                              0     -    
+#         lock_queue         array                              0     -    
+#         num_last_reqs      integral                           32    'd1  
+#         num_last_rsps      integral                           32    'd1  
+#       rsp_export           uvm_analysis_export                -     @520 
+#       seq_item_export      uvm_seq_item_pull_imp              -     @614 
+#       sram_sqr_h           sram_sqr                           -     @2294
+#         rsp_export         uvm_analysis_export                -     @2301
+#         seq_item_export    uvm_seq_item_pull_imp              -     @2395
+#         arbitration_queue  array                              0     -    
+#         lock_queue         array                              0     -    
+#         num_last_reqs      integral                           32    'd1  
+#         num_last_rsps      integral                           32    'd1  
+#       utmi_sqr_h           utmi_sqr                           -     @2185
+#         rsp_export         uvm_analysis_export                -     @2192
+#         seq_item_export    uvm_seq_item_pull_imp              -     @2286
+#         arbitration_queue  array                              0     -    
+#         lock_queue         array                              0     -    
+#         num_last_reqs      integral                           32    'd1  
+#         num_last_rsps      integral                           32    'd1  
+#       wb_sqr_h             wb_sqr                             -     @2076
+#         rsp_export         uvm_analysis_export                -     @2083
+#         seq_item_export    uvm_seq_item_pull_imp              -     @2177
+#         arbitration_queue  array                              0     -    
+#         lock_queue         array                              0     -    
+#         num_last_reqs      integral                           32    'd1  
+#         num_last_rsps      integral                           32    'd1  
+#       arbitration_queue    array                              0     -    
+#       lock_queue           array                              0     -    
+#       num_last_reqs        integral                           32    'd1  
+#       num_last_rsps        integral                           32    'd1  
+#     wb_agent_h             wb_agent                           -     @629 
+#       wb_cov_h             wb_cov                             -     @2563
+#         analysis_imp       uvm_analysis_imp                   -     @2570
+#         wb_cov_port        uvm_analysis_imp                   -     @2581
+#       wb_drv_h             wb_drv                             -     @2431
+#         rsp_port           uvm_analysis_port                  -     @2446
+#         seq_item_port      uvm_seq_item_pull_port             -     @2438
+#       wb_mon_h             wb_mon                             -     @2424
+#         wb_mon_port        uvm_analysis_port                  -     @2594
+#       wb_sqr_h             wb_sqr                             -     @2454
+#         rsp_export         uvm_analysis_export                -     @2461
+#         seq_item_export    uvm_seq_item_pull_imp              -     @2555
+#         arbitration_queue  array                              0     -    
+#         lock_queue         array                              0     -    
+#         num_last_reqs      integral                           32    'd1  
+#         num_last_rsps      integral                           32    'd1  
+# -------------------------------------------------------------------------
+# 
+# UVM_INFO ../../../usb/project_area/verif/agents/wb_agent/wb_mon.sv(24) @ 0: uvm_test_top.env_h.wb_agent_h.wb_mon_h [wb_mon] Monitor Run Phase
+# UVM_INFO ../../../usb/project_area/verif/agents/wb_agent/wb_cov.sv(34) @ 0: uvm_test_top.env_h.wb_agent_h.wb_cov_h [wb_agent_COV] From Coverage Run Phase
+# UVM_INFO ../../../usb/project_area/verif/agents/utmi_agent/utmi_mon.sv(24) @ 0: uvm_test_top.env_h.utmi_agent_h.utmi_mon_h [utmi_mon] Monitor Run Phase
+# UVM_INFO ../../../usb/project_area/verif/agents/utmi_agent/utmi_cov.sv(34) @ 0: uvm_test_top.env_h.utmi_agent_h.utmi_cov_h [utmi_agent_COV] From Coverage Run Phase
+# UVM_INFO ../../../usb/project_area/verif/agents/sram_agent/sram_mon.sv(24) @ 0: uvm_test_top.env_h.sram_agent_h.sram_mon_h [sram_mon] Monitor Run Phase
+# UVM_INFO ../../../usb/project_area/verif/agents/sram_agent/sram_cov.sv(34) @ 0: uvm_test_top.env_h.sram_agent_h.sram_cov_h [sram_agent_COV] From Coverage Run Phase
+# -------------------------------------------------------------------------------------------------------
+# Name                           Type      Size  Value                                                   
+# -------------------------------------------------------------------------------------------------------
+# req                            reset_tr  -     @2630                                                   
+#   kind                         kind_e    32    DEASSERT                                                
+#   cycles                       integral  32    'ha                                                     
+#   begin_time                   time      64    0                                                       
+#   depth                        int       32    'd2                                                     
+#   parent sequence (name)       string    11    reset_seq_h                                             
+#   parent sequence (full name)  string    56    uvm_test_top.env_h.reset_agent_h.reset_sqr_h.reset_seq_h
+#   sequencer                    string    44    uvm_test_top.env_h.reset_agent_h.reset_sqr_h            
+# -------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------
+# Name                           Type      Size  Value                                                   
+# -------------------------------------------------------------------------------------------------------
+# req                            reset_tr  -     @2851                                                   
+#   kind                         kind_e    32    ASSERT                                                  
+#   cycles                       integral  32    'h2                                                     
+#   begin_time                   time      64    9500                                                    
+#   depth                        int       32    'd2                                                     
+#   parent sequence (name)       string    11    reset_seq_h                                             
+#   parent sequence (full name)  string    56    uvm_test_top.env_h.reset_agent_h.reset_sqr_h.reset_seq_h
+#   sequencer                    string    44    uvm_test_top.env_h.reset_agent_h.reset_sqr_h            
+# -------------------------------------------------------------------------------------------------------
+# ERROR: IDMA: IDLE: abort is unknown. (               12500)
+# ERROR: IDMA: IDLE: abort is unknown. (               20800)
+# ERROR: IDMA: IDLE: abort is unknown. (               29200)
+#                31500 :: WB Read  - Addr = 00048 and Data = ffffffff
+#                65500 :: WB Read  - Addr = 00044 and Data = 00000000
+#                98500 :: WB Read  - Addr = 00040 and Data = 00000000
+#               131500 :: WB Read  - Addr = 00010 and Data = 00000000
+#               165500 :: WB Read  - Addr = 0000c and Data = 00000000
+#               198500 :: WB Read  - Addr = 00008 and Data = 00000000
+#               231500 :: WB Read  - Addr = 00004 and Data = 00000000
+#               265500 :: WB Read  - Addr = 00000 and Data = 00000000
+#               298500 :: WB Read  - Addr = 00058 and Data = ffffffff
+#               331500 :: WB Read  - Addr = 00054 and Data = 00000000
+#               365500 :: WB Read  - Addr = 00050 and Data = 00000000
+#               398500 :: WB Read  - Addr = 00068 and Data = ffffffff
+#               431500 :: WB Read  - Addr = 00064 and Data = 00000000
+#               465500 :: WB Read  - Addr = 00060 and Data = 00000000
+#               498500 :: WB Read  - Addr = 00078 and Data = ffffffff
+#               531500 :: WB Read  - Addr = 00074 and Data = 00000000
+#               565500 :: WB Read  - Addr = 00070 and Data = 00000000
+#               598500 :: WB Read  - Addr = 00088 and Data = ffffffff
+#               631500 :: WB Read  - Addr = 00084 and Data = 00000000
+#               665500 :: WB Read  - Addr = 00080 and Data = 00000000
+#               698500 :: WB Read  - Addr = 00098 and Data = ffffffff
+#               731500 :: WB Read  - Addr = 00094 and Data = 00000000
+#               765500 :: WB Read  - Addr = 00090 and Data = 00000000
+#               798500 :: WB Read  - Addr = 000a8 and Data = ffffffff
+#               831500 :: WB Read  - Addr = 000a4 and Data = 00000000
+#               865500 :: WB Read  - Addr = 000a0 and Data = 00000000
+#               898500 :: WB Read  - Addr = 000b8 and Data = ffffffff
+#               931500 :: WB Read  - Addr = 000b4 and Data = 00000000
+#               965500 :: WB Read  - Addr = 000b0 and Data = 00000000
+#               998500 :: WB Read  - Addr = 000c8 and Data = ffffffff
+#              1031500 :: WB Read  - Addr = 000c4 and Data = 00000000
+#              1065500 :: WB Read  - Addr = 000c0 and Data = 00000000
+#              1098500 :: WB Read  - Addr = 000d8 and Data = ffffffff
+#              1131500 :: WB Read  - Addr = 000d4 and Data = 00000000
+#              1165500 :: WB Read  - Addr = 000d0 and Data = 00000000
+#              1198500 :: WB Read  - Addr = 000e8 and Data = ffffffff
+#              1231500 :: WB Read  - Addr = 000e4 and Data = 00000000
+#              1265500 :: WB Read  - Addr = 000e0 and Data = 00000000
+#              1298500 :: WB Read  - Addr = 000f8 and Data = ffffffff
+#              1331500 :: WB Read  - Addr = 000f4 and Data = 00000000
+#              1365500 :: WB Read  - Addr = 000f0 and Data = 00000000
+#              1398500 :: WB Read  - Addr = 00108 and Data = ffffffff
+#              1431500 :: WB Read  - Addr = 00104 and Data = 00000000
+#              1465500 :: WB Read  - Addr = 00100 and Data = 00000000
+#              1498500 :: WB Read  - Addr = 00118 and Data = ffffffff
+#              1531500 :: WB Read  - Addr = 00114 and Data = 00000000
+#              1565500 :: WB Read  - Addr = 00110 and Data = 00000000
+#              1598500 :: WB Read  - Addr = 00128 and Data = ffffffff
+#              1631500 :: WB Read  - Addr = 00124 and Data = 00000000
+#              1665500 :: WB Read  - Addr = 00120 and Data = 00000000
+#              1698500 :: WB Read  - Addr = 00138 and Data = ffffffff
+#              1731500 :: WB Read  - Addr = 00134 and Data = 00000000
+#              1765500 :: WB Read  - Addr = 00130 and Data = 00000000
+#              1798500 :: WB Read  - Addr = 0004c and Data = ffffffff
+#              1831500 :: WB Read  - Addr = 0005c and Data = ffffffff
+#              1865500 :: WB Read  - Addr = 0006c and Data = ffffffff
+#              1898500 :: WB Read  - Addr = 0007c and Data = ffffffff
+#              1931500 :: WB Read  - Addr = 0008c and Data = ffffffff
+#              1965500 :: WB Read  - Addr = 0009c and Data = ffffffff
+#              1998500 :: WB Read  - Addr = 000ac and Data = ffffffff
+#              2031500 :: WB Read  - Addr = 000bc and Data = ffffffff
+#              2065500 :: WB Read  - Addr = 000cc and Data = ffffffff
+#              2098500 :: WB Read  - Addr = 000dc and Data = ffffffff
+#              2131500 :: WB Read  - Addr = 000ec and Data = ffffffff
+#              2165500 :: WB Read  - Addr = 000fc and Data = ffffffff
+#              2198500 :: WB Read  - Addr = 0010c and Data = ffffffff
+#              2231500 :: WB Read  - Addr = 0011c and Data = ffffffff
+#              2265500 :: WB Read  - Addr = 0012c and Data = ffffffff
+#              2298500 :: WB Read  - Addr = 0013c and Data = ffffffff
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 2299600: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# **************************************************
+# ****************** TEST Summary ******************
+# **************************************************
+# **************************************************
+# ****************** TEST  PASSED ******************
+# **************************************************
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :    9
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [RNTST]     1
+# [TEST_DONE]     1
+# [UVMTOP]     1
+# [sram_agent_COV]     1
+# [sram_mon]     1
+# [utmi_agent_COV]     1
+# [utmi_mon]     1
+# [wb_agent_COV]     1
+# [wb_mon]     1
+# ** Note: $finish    : C:/questasim64_2021.1/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 22996 ns  Iteration: 53  Instance: /top
+# 1
+# Break in Task uvm_pkg/uvm_root::run_test at C:/questasim64_2021.1/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
+# 
+do reg_model_wr_rd.do
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 16:25:23 on Jan 29,2024
+# vlog -reportprogress 300 -sv "+acc" "+cover" "+fcover" "+define+DUMP_ON" "+incdir+../../../usb/project_area/design/rtl" "+incdir+../../../usb/project_area/verif/agents" "+incdir+../../../usb/project_area/verif/agents/wb_agent" "+incdir+../../../usb/project_area/verif/agents/utmi_agent" "+incdir+../../../usb/project_area/verif/agents/sram_agent" "+incdir+../../../usb/project_area/verif/agents/reset_agent" "+incdir+../../../usb/project_area/verif/tests" "+incdir+../../../usb/project_area/verif/seqs" "+incdir+../../../usb/project_area/verif/seqs/wb_sequences" "+incdir+../../../usb/project_area/verif/seqs/utmi_sequences" "+incdir+../../../usb/project_area/verif/seqs/sram_sequences" "+incdir+../../../usb/project_area/verif/tb" "+incdir+../../../usb/scratch_area/log" "+incdir+../../../usb/scratch_area/sim" ../../../usb/project_area/design/rtl/usb_rtl_file.svh ../../../usb/project_area/verif/tb/top.sv 
+# -- Compiling module usbf_crc16
+# -- Compiling module usbf_crc5
+# -- Compiling module usbf_utmi_ls
+# -- Compiling module usbf_utmi_if
+# -- Compiling module usbf_idma
+# -- Compiling module usbf_pa
+# -- Compiling module usbf_pd
+# -- Compiling module usbf_pe
+# -- Compiling module usbf_pl
+# -- Compiling module usbf_mem_arb
+# -- Compiling module usbf_ep_rf
+# -- Compiling module usbf_rf
+# -- Compiling module usbf_wb
+# -- Compiling module usbf_top
+# ** Note: (vlog-2286) ../../../usb/project_area/verif/tb/top.sv(3): Using implicit +incdir+C:/questasim64_2021.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Compiling package top_sv_unit
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Compiling interface reset_intf
+# -- Compiling interface wb_intf
+# -- Compiling interface utmi_intf
+# -- Compiling interface sram_intf
+# -- Compiling module top
+# 
+# Top level modules:
+# 	top
+# End time: 16:25:24 on Jan 29,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0

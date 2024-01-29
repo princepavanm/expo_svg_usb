@@ -22,7 +22,7 @@ class reset_agent extends uvm_agent;
   
   //reset_mon      	  reset_mon_h; 
 
-  virtual reset_intf      reset_pif;
+  virtual reset_intf      reset_vif;
 
   reset_drv       	  reset_drv_h; 
   reset_sqr     	  reset_sqr_h;
@@ -38,10 +38,10 @@ class reset_agent extends uvm_agent;
     reset_drv_h = reset_drv::type_id::create("reset_drv_h", this);
     reset_sqr_h = reset_sqr::type_id::create("reset_sqr_h", this);
 
-    if(!uvm_config_db#(virtual reset_intf)::get(this,"","reset_pif",reset_pif))
-      `uvm_fatal("RESET_AGENT", "***** Could not get reset_pif *****")
+    if(!uvm_config_db#(virtual reset_intf)::get(this,"","reset_vif",reset_vif))
+      `uvm_fatal("RESET_AGENT", "***** Could not get reset_vif *****")
 
-    uvm_config_db#(virtual reset_intf)::set(this,"*","reset_pif",reset_pif);
+    uvm_config_db#(virtual reset_intf)::set(this,"*","reset_vif",reset_vif);
   endfunction:build_phase
 
   function void connect_phase(uvm_phase phase);

@@ -39,16 +39,35 @@
 
 //  CVS Log
 //
-//  $Id: usbf_mem_arb.v,v 1.3 2003-10-17 02:36:57 rudi Exp $
+//  $Id: usbf_mem_arb.v,v 1.3 2007/03/16 10:14:48 sreddy Exp $
 //
-//  $Date: 2003-10-17 02:36:57 $
+//  $Date: 2007/03/16 10:14:48 $
 //  $Revision: 1.3 $
-//  $Author: rudi $
+//  $Author: sreddy $
 //  $Locker:  $
 //  $State: Exp $
 //
 // Change History:
-//               $Log: not supported by cvs2svn $
+//               $Log: usbf_mem_arb.v,v $
+//               Revision 1.3  2007/03/16 10:14:48  sreddy
+//               Latency in read enable signal corrected - Kartik
+//
+//               Revision 1.2  2007/03/15 06:59:41  kartik
+//               Bug for SRAM REad corrected. Prev it was tied to 1 always.
+//               Now Logic for read enable for the SRAM  is added.
+//
+//               Revision 1.1  2007/01/12 11:17:41  kartik
+//               Initial check in ...Source usb core from opencores.org
+//
+//               Revision 1.3  2003/10/17 02:36:57  rudi
+//               - Disabling bit stuffing and NRZI encoding during speed negotiation
+//               - Now the core can send zero size packets
+//               - Fixed register addresses for some of the higher endpoints
+//                 (conversion between decimal/hex was wrong)
+//               - The core now does properly evaluate the function address to
+//                 determine if the packet was intended for it.
+//               - Various other minor bugs and typos
+//
 //               Revision 1.2  2001/11/04 12:22:45  rudi
 //
 //               - Fixed previous fix (brocke something else ...)
@@ -86,7 +105,7 @@ module usbf_mem_arb(	phy_clk, wclk, rst,
 		sram_adr, sram_din, sram_dout, sram_re, sram_we,
 
 		// IDMA Memory Interface
-		madr, mdout, mdin, mwe, mreq, mack,
+		madr, mdout, mdin, mwe, mre,mreq, mack,
 
 		// WISHBONE Memory Interface
 		wadr, wdout, wdin, wwe, wreq, wack
@@ -106,6 +125,7 @@ input	[SSRAM_HADR:0]	madr;
 output	[31:0]	mdout;
 input	[31:0]	mdin;
 input		mwe;
+input		mre;
 input		mreq;
 output		mack;
 
@@ -125,6 +145,7 @@ wire		wsel;
 reg	[SSRAM_HADR:0]	sram_adr;
 reg	[31:0]	sram_dout;
 reg		sram_we;
+reg		sram_re;
 wire		mack;
 wire		mcyc;
 reg		wack_r;
@@ -158,7 +179,11 @@ always @(wsel or wwe or wreq or mwe or mcyc)
 	if(wsel)	sram_we = wreq & wwe;
 	else		sram_we = mwe & mcyc;
 
-assign sram_re = 1'b1;
+//assign sram_re = 1'b1;
+// Read Enable Path
+always @(wsel or !wwe or wreq or mre or  mcyc)
+	if(wsel)	sram_re = wreq & !wwe;
+	else		sram_re = mre ;
 
 // -----------------------------------------
 // IDMA specific

@@ -1,0 +1,406 @@
+# Saving coverage database on exit...
+# End time: 16:24:06 on Jan 29,2024, Elapsed time: 0:00:37
+# Errors: 0, Warnings: 2
+# vsim -vopt -sv_seed 10 -voptargs=""+acc=npr"" -assertdebug "+UVM_VERBOSITY=UVM_LOW" "+UVM_TESTNAME=usb_reg_write_read_test" -l ../../../usb/scratch_area/log/usb_reg_write_read_test_10/usb_reg_write_read_test_10.log -sva -coverage -do "coverage save -onexit ../../../usb/scratch_area/log/usb_reg_write_read_test_10/usb_reg_write_read_test_10.ucdb;add log sim:/top/dut/*; do ../../../usb/scratch_area/sim/wave.do; run -all;" work.top 
+# Start time: 16:24:06 on Jan 29,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.top_sv_unit(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.top(fast)
+# Loading work.reset_intf(fast__2)
+# Loading work.wb_intf(fast__2)
+# Loading work.utmi_intf(fast__2)
+# Loading work.sram_intf(fast__2)
+# Loading work.usbf_top(fast)
+# Loading work.usbf_utmi_if(fast)
+# Loading work.usbf_utmi_ls(fast)
+# Loading work.usbf_pl(fast)
+# Loading work.usbf_pd(fast)
+# Loading work.usbf_crc5(fast)
+# Loading work.usbf_crc16(fast)
+# Loading work.usbf_pa(fast)
+# Loading work.usbf_idma(fast)
+# Loading work.usbf_pe(fast)
+# Loading work.usbf_mem_arb(fast)
+# Loading work.usbf_rf(fast)
+# Loading work.usbf_ep_rf(fast)
+# Loading work.usbf_wb(fast)
+# Loading work.reset_intf(fast)
+# Loading work.wb_intf(fast)
+# Loading work.utmi_intf(fast)
+# Loading work.sram_intf(fast)
+# Loading C:/questasim64_2021.1/uvm-1.1d\win64\uvm_dpi.dll
+# coverage save -onexit ../../../usb/scratch_area/log/usb_reg_write_read_test_10/usb_reg_write_read_test_10.ucdb
+# add log sim:/top/dut/*
+#  do ../../../usb/scratch_area/sim/wave.do
+#  run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# 
+# 
+# 
+# INFO: USB Function core instantiated (top.dut)
+#       Supported Endpoints: 16 (0 through 15)
+#       WISHBONE Address bus size: A17:0
+#       SSRAM Address bus size: A14:0
+#       Buffer Memory Size: 131072 bytes
+# 
+# UVM_INFO @ 0: reporter [RNTST] Running test usb_reg_write_read_test...
+# include_coverage not located
+#   did you mean recording_detail?
+# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+# ---------------------------------------------------------------
+# Name                       Type                     Size  Value
+# ---------------------------------------------------------------
+# uvm_test_top               usb_reg_write_read_test  -     @487 
+#   env_h                    usb_env                  -     @494 
+#     reset_agent_h          reset_agent              -     @622 
+#       reset_drv_h          reset_drv                -     @1445
+#         rsp_port           uvm_analysis_port        -     @1460
+#         seq_item_port      uvm_seq_item_pull_port   -     @1452
+#       reset_sqr_h          uvm_sequencer            -     @1468
+#         rsp_export         uvm_analysis_export      -     @1475
+#         seq_item_export    uvm_seq_item_pull_imp    -     @1569
+#         arbitration_queue  array                    0     -    
+#         lock_queue         array                    0     -    
+#         num_last_reqs      integral                 32    'd1  
+#         num_last_rsps      integral                 32    'd1  
+#     sram_agent_h           sram_agent               -     @643 
+#       sram_cov_h           sram_cov                 -     @1726
+#         analysis_imp       uvm_analysis_imp         -     @1733
+#         sram_cov_port      uvm_analysis_imp         -     @1744
+#       sram_drv_h           sram_drv                 -     @1594
+#         rsp_port           uvm_analysis_port        -     @1609
+#         seq_item_port      uvm_seq_item_pull_port   -     @1601
+#       sram_mon_h           sram_mon                 -     @1587
+#         sram_mon_port      uvm_analysis_port        -     @1757
+#       sram_sqr_h           sram_sqr                 -     @1617
+#         rsp_export         uvm_analysis_export      -     @1624
+#         seq_item_export    uvm_seq_item_pull_imp    -     @1718
+#         arbitration_queue  array                    0     -    
+#         lock_queue         array                    0     -    
+#         num_last_reqs      integral                 32    'd1  
+#         num_last_rsps      integral                 32    'd1  
+#     utmi_agent_h           utmi_agent               -     @636 
+#       utmi_cov_h           utmi_cov                 -     @1914
+#         analysis_imp       uvm_analysis_imp         -     @1921
+#         utmi_cov_port      uvm_analysis_imp         -     @1932
+#       utmi_drv_h           utmi_drv                 -     @1782
+#         rsp_port           uvm_analysis_port        -     @1797
+#         seq_item_port      uvm_seq_item_pull_port   -     @1789
+#       utmi_mon_h           utmi_mon                 -     @1775
+#         utmi_mon_port      uvm_analysis_port        -     @1945
+#       utmi_sqr_h           utmi_sqr                 -     @1805
+#         rsp_export         uvm_analysis_export      -     @1812
+#         seq_item_export    uvm_seq_item_pull_imp    -     @1906
+#         arbitration_queue  array                    0     -    
+#         lock_queue         array                    0     -    
+#         num_last_reqs      integral                 32    'd1  
+#         num_last_rsps      integral                 32    'd1  
+#     v_sqr_h                usb_virtual_sqr          -     @513 
+#       reset_sqr_h          uvm_sequencer            -     @1967
+#         rsp_export         uvm_analysis_export      -     @1974
+#         seq_item_export    uvm_seq_item_pull_imp    -     @2068
+#         arbitration_queue  array                    0     -    
+#         lock_queue         array                    0     -    
+#         num_last_reqs      integral                 32    'd1  
+#         num_last_rsps      integral                 32    'd1  
+#       rsp_export           uvm_analysis_export      -     @520 
+#       seq_item_export      uvm_seq_item_pull_imp    -     @614 
+#       sram_sqr_h           sram_sqr                 -     @2294
+#         rsp_export         uvm_analysis_export      -     @2301
+#         seq_item_export    uvm_seq_item_pull_imp    -     @2395
+#         arbitration_queue  array                    0     -    
+#         lock_queue         array                    0     -    
+#         num_last_reqs      integral                 32    'd1  
+#         num_last_rsps      integral                 32    'd1  
+#       utmi_sqr_h           utmi_sqr                 -     @2185
+#         rsp_export         uvm_analysis_export      -     @2192
+#         seq_item_export    uvm_seq_item_pull_imp    -     @2286
+#         arbitration_queue  array                    0     -    
+#         lock_queue         array                    0     -    
+#         num_last_reqs      integral                 32    'd1  
+#         num_last_rsps      integral                 32    'd1  
+#       wb_sqr_h             wb_sqr                   -     @2076
+#         rsp_export         uvm_analysis_export      -     @2083
+#         seq_item_export    uvm_seq_item_pull_imp    -     @2177
+#         arbitration_queue  array                    0     -    
+#         lock_queue         array                    0     -    
+#         num_last_reqs      integral                 32    'd1  
+#         num_last_rsps      integral                 32    'd1  
+#       arbitration_queue    array                    0     -    
+#       lock_queue           array                    0     -    
+#       num_last_reqs        integral                 32    'd1  
+#       num_last_rsps        integral                 32    'd1  
+#     wb_agent_h             wb_agent                 -     @629 
+#       wb_cov_h             wb_cov                   -     @2563
+#         analysis_imp       uvm_analysis_imp         -     @2570
+#         wb_cov_port        uvm_analysis_imp         -     @2581
+#       wb_drv_h             wb_drv                   -     @2431
+#         rsp_port           uvm_analysis_port        -     @2446
+#         seq_item_port      uvm_seq_item_pull_port   -     @2438
+#       wb_mon_h             wb_mon                   -     @2424
+#         wb_mon_port        uvm_analysis_port        -     @2594
+#       wb_sqr_h             wb_sqr                   -     @2454
+#         rsp_export         uvm_analysis_export      -     @2461
+#         seq_item_export    uvm_seq_item_pull_imp    -     @2555
+#         arbitration_queue  array                    0     -    
+#         lock_queue         array                    0     -    
+#         num_last_reqs      integral                 32    'd1  
+#         num_last_rsps      integral                 32    'd1  
+# ---------------------------------------------------------------
+# 
+# UVM_INFO ../../../usb/project_area/verif/agents/wb_agent/wb_mon.sv(24) @ 0: uvm_test_top.env_h.wb_agent_h.wb_mon_h [wb_mon] Monitor Run Phase
+# UVM_INFO ../../../usb/project_area/verif/agents/wb_agent/wb_cov.sv(34) @ 0: uvm_test_top.env_h.wb_agent_h.wb_cov_h [wb_agent_COV] From Coverage Run Phase
+# UVM_INFO ../../../usb/project_area/verif/agents/utmi_agent/utmi_mon.sv(24) @ 0: uvm_test_top.env_h.utmi_agent_h.utmi_mon_h [utmi_mon] Monitor Run Phase
+# UVM_INFO ../../../usb/project_area/verif/agents/utmi_agent/utmi_cov.sv(34) @ 0: uvm_test_top.env_h.utmi_agent_h.utmi_cov_h [utmi_agent_COV] From Coverage Run Phase
+# UVM_INFO ../../../usb/project_area/verif/agents/sram_agent/sram_mon.sv(24) @ 0: uvm_test_top.env_h.sram_agent_h.sram_mon_h [sram_mon] Monitor Run Phase
+# UVM_INFO ../../../usb/project_area/verif/agents/sram_agent/sram_cov.sv(34) @ 0: uvm_test_top.env_h.sram_agent_h.sram_cov_h [sram_agent_COV] From Coverage Run Phase
+# -------------------------------------------------------------------------------------------------------
+# Name                           Type      Size  Value                                                   
+# -------------------------------------------------------------------------------------------------------
+# req                            reset_tr  -     @2630                                                   
+#   kind                         kind_e    32    DEASSERT                                                
+#   cycles                       integral  32    'ha                                                     
+#   begin_time                   time      64    0                                                       
+#   depth                        int       32    'd2                                                     
+#   parent sequence (name)       string    11    reset_seq_h                                             
+#   parent sequence (full name)  string    56    uvm_test_top.env_h.reset_agent_h.reset_sqr_h.reset_seq_h
+#   sequencer                    string    44    uvm_test_top.env_h.reset_agent_h.reset_sqr_h            
+# -------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------
+# Name                           Type      Size  Value                                                   
+# -------------------------------------------------------------------------------------------------------
+# req                            reset_tr  -     @2851                                                   
+#   kind                         kind_e    32    ASSERT                                                  
+#   cycles                       integral  32    'h2                                                     
+#   begin_time                   time      64    9500                                                    
+#   depth                        int       32    'd2                                                     
+#   parent sequence (name)       string    11    reset_seq_h                                             
+#   parent sequence (full name)  string    56    uvm_test_top.env_h.reset_agent_h.reset_sqr_h.reset_seq_h
+#   sequencer                    string    44    uvm_test_top.env_h.reset_agent_h.reset_sqr_h            
+# -------------------------------------------------------------------------------------------------------
+# ERROR: IDMA: IDLE: abort is unknown. (               12500)
+# ERROR: IDMA: IDLE: abort is unknown. (               20800)
+# ERROR: IDMA: IDLE: abort is unknown. (               29200)
+#                31500 :: WB Write - Addr = 00000 and Data = 180d8d36
+#                65500 :: WB Write - Addr = 00004 and Data = 5fe58e5d
+#                98500 :: WB Write - Addr = 00008 and Data = ca6a8d3c
+#               131500 :: WB Write - Addr = 0000c and Data = 5b3c43d0
+#               165500 :: WB Write - Addr = 00010 and Data = 0a9f3bc9
+#               198500 :: WB Write - Addr = 00014 and Data = c926bf15
+#               231500 :: WB Write - Addr = 00040 and Data = 54e43887
+#               265500 :: WB Write - Addr = 00044 and Data = 90873859
+#               298500 :: WB Write - Addr = 00048 and Data = 9fe4a0a9
+#               331500 :: WB Write - Addr = 0004c and Data = cdf04f2f
+#               365500 :: WB Write - Addr = 00050 and Data = 89250d1c
+#               398500 :: WB Write - Addr = 00054 and Data = bcacdfb8
+#               431500 :: WB Write - Addr = 00058 and Data = f6d15d95
+#               465500 :: WB Write - Addr = 0005c and Data = 35297266
+#               498500 :: WB Write - Addr = 00060 and Data = dfbf293c
+#               531500 :: WB Write - Addr = 00064 and Data = ad282235
+#               565500 :: WB Write - Addr = 00068 and Data = 603abcb4
+#               598500 :: WB Write - Addr = 0006c and Data = 92e01c7a
+#               631500 :: WB Write - Addr = 00070 and Data = b6d0e738
+#               665500 :: WB Write - Addr = 00074 and Data = ee7b4e22
+#               698500 :: WB Write - Addr = 00078 and Data = f4923383
+#               731500 :: WB Write - Addr = 0007c and Data = 5bb4d91a
+#               765500 :: WB Write - Addr = 00080 and Data = 754ecc73
+#               798500 :: WB Write - Addr = 00084 and Data = 4de20b98
+#               831500 :: WB Write - Addr = 00088 and Data = 372b4e7d
+#               865500 :: WB Write - Addr = 0008c and Data = cd7b3f32
+#               898500 :: WB Write - Addr = 00090 and Data = 13bd084c
+#               931500 :: WB Write - Addr = 00094 and Data = 15789537
+#               965500 :: WB Write - Addr = 00098 and Data = 188d2043
+#               998500 :: WB Write - Addr = 0009c and Data = c325bc60
+#              1031500 :: WB Write - Addr = 000a0 and Data = 90bb878a
+#              1065500 :: WB Write - Addr = 000a4 and Data = 00c24772
+#              1098500 :: WB Write - Addr = 000a8 and Data = f6bbe9e3
+#              1131500 :: WB Write - Addr = 000ac and Data = 1c580de0
+#              1165500 :: WB Write - Addr = 000b0 and Data = 88647993
+#              1198500 :: WB Write - Addr = 000b4 and Data = 0c58054d
+#              1231500 :: WB Write - Addr = 000b8 and Data = 2ea3ccd2
+#              1265500 :: WB Write - Addr = 000bc and Data = 43d6fd60
+#              1298500 :: WB Write - Addr = 000c0 and Data = d4adbeaa
+#              1331500 :: WB Write - Addr = 000c4 and Data = ff3f0858
+#              1365500 :: WB Write - Addr = 000c8 and Data = bd617267
+#              1398500 :: WB Write - Addr = 000cc and Data = e62d3bdf
+#              1431500 :: WB Write - Addr = 000d0 and Data = 156242e8
+#              1465500 :: WB Write - Addr = 000d4 and Data = 9241d11d
+#              1498500 :: WB Write - Addr = 000d8 and Data = 66be48dd
+#              1531500 :: WB Write - Addr = 000dc and Data = ef0b4314
+#              1565500 :: WB Write - Addr = 000e0 and Data = a6e34b0a
+#              1598500 :: WB Write - Addr = 000e4 and Data = c2317a2b
+#              1631500 :: WB Write - Addr = 000e8 and Data = 05ed930b
+#              1665500 :: WB Write - Addr = 000ec and Data = 0a439fb4
+#              1698500 :: WB Write - Addr = 000f0 and Data = 4d687349
+#              1731500 :: WB Write - Addr = 000f4 and Data = fa862a6d
+#              1765500 :: WB Write - Addr = 000f8 and Data = bab9437e
+#              1798500 :: WB Write - Addr = 000fc and Data = 86c3d723
+#              1831500 :: WB Write - Addr = 00100 and Data = e958e146
+#              1865500 :: WB Write - Addr = 00104 and Data = f0d736c2
+#              1898500 :: WB Write - Addr = 00108 and Data = abd2b09e
+#              1931500 :: WB Write - Addr = 0010c and Data = e3c7c4b7
+#              1965500 :: WB Write - Addr = 00110 and Data = c5f07e4e
+#              1998500 :: WB Write - Addr = 00114 and Data = ae67738a
+#              2031500 :: WB Write - Addr = 00118 and Data = 1278f3ab
+#              2065500 :: WB Write - Addr = 0011c and Data = 0225b836
+#              2098500 :: WB Write - Addr = 00120 and Data = 45da1b22
+#              2131500 :: WB Write - Addr = 00124 and Data = 389deeac
+#              2165500 :: WB Write - Addr = 00128 and Data = 7a88773d
+#              2198500 :: WB Write - Addr = 0012c and Data = 6d323fda
+#              2231500 :: WB Write - Addr = 00130 and Data = bcc915ae
+#              2265500 :: WB Write - Addr = 00134 and Data = d0cc7180
+#              2298500 :: WB Write - Addr = 00138 and Data = 3636cd75
+#              2331500 :: WB Write - Addr = 0013c and Data = b44da812
+#              2365500 :: WB Read  - Addr = 00000 and Data = 00000000
+#              2398500 :: WB Read  - Addr = 00004 and Data = 0000005d
+#              2431500 :: WB Read  - Addr = 00008 and Data = 006a013c
+#              2465500 :: WB Read  - Addr = 0000c and Data = 00000000
+#              2498500 :: WB Read  - Addr = 00010 and Data = 00000000
+#              2531500 :: WB Read  - Addr = 00014 and Data = 00000000
+#              2565500 :: WB Read  - Addr = 00040 and Data = 04e43887
+#              2598500 :: WB Read  - Addr = 00044 and Data = 10070000
+#              2631500 :: WB Read  - Addr = 00048 and Data = 9fe4a0a9
+#              2665500 :: WB Read  - Addr = 0004c and Data = cdf04f2f
+#              2698500 :: WB Read  - Addr = 00050 and Data = 09250d1c
+#              2731500 :: WB Read  - Addr = 00054 and Data = 3c2c0000
+#              2765500 :: WB Read  - Addr = 00058 and Data = f6d15d95
+#              2798500 :: WB Read  - Addr = 0005c and Data = 35297266
+#              2831500 :: WB Read  - Addr = 00060 and Data = 0fbf293c
+#              2865500 :: WB Read  - Addr = 00064 and Data = 2d280000
+#              2898500 :: WB Read  - Addr = 00068 and Data = 603abcb4
+#              2931500 :: WB Read  - Addr = 0006c and Data = 92e01c7a
+#              2965500 :: WB Read  - Addr = 00070 and Data = 06d0a738
+#              2998500 :: WB Read  - Addr = 00074 and Data = 2e3b0000
+#              3031500 :: WB Read  - Addr = 00078 and Data = f4923383
+#              3065500 :: WB Read  - Addr = 0007c and Data = 5bb4d91a
+#              3098500 :: WB Read  - Addr = 00080 and Data = 054e8c73
+#              3131500 :: WB Read  - Addr = 00084 and Data = 0d220000
+#              3165500 :: WB Read  - Addr = 00088 and Data = 372b4e7d
+#              3198500 :: WB Read  - Addr = 0008c and Data = cd7b3f32
+#              3231500 :: WB Read  - Addr = 00090 and Data = 03bd084c
+#              3265500 :: WB Read  - Addr = 00094 and Data = 15380000
+#              3298500 :: WB Read  - Addr = 00098 and Data = 188d2043
+#              3331500 :: WB Read  - Addr = 0009c and Data = c325bc60
+#              3365500 :: WB Read  - Addr = 000a0 and Data = 00bb878a
+#              3398500 :: WB Read  - Addr = 000a4 and Data = 00020000
+#              3431500 :: WB Read  - Addr = 000a8 and Data = f6bbe9e3
+#              3465500 :: WB Read  - Addr = 000ac and Data = 1c580de0
+#              3498500 :: WB Read  - Addr = 000b0 and Data = 08643993
+#              3531500 :: WB Read  - Addr = 000b4 and Data = 0c180000
+#              3565500 :: WB Read  - Addr = 000b8 and Data = 2ea3ccd2
+#              3598500 :: WB Read  - Addr = 000bc and Data = 43d6fd60
+#              3631500 :: WB Read  - Addr = 000c0 and Data = 04adbeaa
+#              3665500 :: WB Read  - Addr = 000c4 and Data = 3f3f0000
+#              3698500 :: WB Read  - Addr = 000c8 and Data = bd617267
+#              3731500 :: WB Read  - Addr = 000cc and Data = e62d3bdf
+#              3765500 :: WB Read  - Addr = 000d0 and Data = 056202e8
+#              3798500 :: WB Read  - Addr = 000d4 and Data = 12010000
+#              3831500 :: WB Read  - Addr = 000d8 and Data = 66be48dd
+#              3865500 :: WB Read  - Addr = 000dc and Data = ef0b4314
+#              3898500 :: WB Read  - Addr = 000e0 and Data = 06e30b0a
+#              3931500 :: WB Read  - Addr = 000e4 and Data = 02310000
+#              3965500 :: WB Read  - Addr = 000e8 and Data = 05ed930b
+#              3998500 :: WB Read  - Addr = 000ec and Data = 0a439fb4
+#              4031500 :: WB Read  - Addr = 000f0 and Data = 0d683349
+#              4065500 :: WB Read  - Addr = 000f4 and Data = 3a060000
+#              4098500 :: WB Read  - Addr = 000f8 and Data = bab9437e
+#              4131500 :: WB Read  - Addr = 000fc and Data = 86c3d723
+#              4165500 :: WB Read  - Addr = 00100 and Data = 0958a146
+#              4198500 :: WB Read  - Addr = 00104 and Data = 30170000
+#              4232500 :: WB Read  - Addr = 00108 and Data = abd2b09e
+#              4265500 :: WB Read  - Addr = 0010c and Data = e3c7c4b7
+#              4298500 :: WB Read  - Addr = 00110 and Data = 05f03e4e
+#              4332500 :: WB Read  - Addr = 00114 and Data = 2e270000
+#              4365500 :: WB Read  - Addr = 00118 and Data = 1278f3ab
+#              4398500 :: WB Read  - Addr = 0011c and Data = 0225b836
+#              4432500 :: WB Read  - Addr = 00120 and Data = 05da1b22
+#              4465500 :: WB Read  - Addr = 00124 and Data = 381d0000
+#              4498500 :: WB Read  - Addr = 00128 and Data = 7a88773d
+#              4532500 :: WB Read  - Addr = 0012c and Data = 6d323fda
+#              4565500 :: WB Read  - Addr = 00130 and Data = 0cc915ae
+#              4598500 :: WB Read  - Addr = 00134 and Data = 100c0000
+#              4632500 :: WB Read  - Addr = 00138 and Data = 3636cd75
+#              4665500 :: WB Read  - Addr = 0013c and Data = b44da812
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 4666600: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# **************************************************
+# ****************** TEST Summary ******************
+# **************************************************
+# **************************************************
+# ****************** TEST  PASSED ******************
+# **************************************************
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :    9
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [RNTST]     1
+# [TEST_DONE]     1
+# [UVMTOP]     1
+# [sram_agent_COV]     1
+# [sram_mon]     1
+# [utmi_agent_COV]     1
+# [utmi_mon]     1
+# [wb_agent_COV]     1
+# [wb_mon]     1
+# ** Note: $finish    : C:/questasim64_2021.1/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 46666 ns  Iteration: 53  Instance: /top
+# 1
+# Break in Task uvm_pkg/uvm_root::run_test at C:/questasim64_2021.1/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
+# 
+do reg_model_read.do
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 16:24:39 on Jan 29,2024
+# vlog -reportprogress 300 -sv "+acc" "+cover" "+fcover" "+define+DUMP_ON" "+incdir+../../../usb/project_area/design/rtl" "+incdir+../../../usb/project_area/verif/agents" "+incdir+../../../usb/project_area/verif/agents/wb_agent" "+incdir+../../../usb/project_area/verif/agents/utmi_agent" "+incdir+../../../usb/project_area/verif/agents/sram_agent" "+incdir+../../../usb/project_area/verif/agents/reset_agent" "+incdir+../../../usb/project_area/verif/tests" "+incdir+../../../usb/project_area/verif/seqs" "+incdir+../../../usb/project_area/verif/seqs/wb_sequences" "+incdir+../../../usb/project_area/verif/seqs/utmi_sequences" "+incdir+../../../usb/project_area/verif/seqs/sram_sequences" "+incdir+../../../usb/project_area/verif/tb" "+incdir+../../../usb/scratch_area/log" "+incdir+../../../usb/scratch_area/sim" ../../../usb/project_area/design/rtl/usb_rtl_file.svh ../../../usb/project_area/verif/tb/top.sv 
+# -- Compiling module usbf_crc16
+# -- Compiling module usbf_crc5
+# -- Compiling module usbf_utmi_ls
+# -- Compiling module usbf_utmi_if
+# -- Compiling module usbf_idma
+# -- Compiling module usbf_pa
+# -- Compiling module usbf_pd
+# -- Compiling module usbf_pe
+# -- Compiling module usbf_pl
+# -- Compiling module usbf_mem_arb
+# -- Compiling module usbf_ep_rf
+# -- Compiling module usbf_rf
+# -- Compiling module usbf_wb
+# -- Compiling module usbf_top
+# ** Note: (vlog-2286) ../../../usb/project_area/verif/tb/top.sv(3): Using implicit +incdir+C:/questasim64_2021.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Compiling package top_sv_unit
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Compiling interface reset_intf
+# -- Compiling interface wb_intf
+# -- Compiling interface utmi_intf
+# -- Compiling interface sram_intf
+# -- Compiling module top
+# 
+# Top level modules:
+# 	top
+# End time: 16:24:40 on Jan 29,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0

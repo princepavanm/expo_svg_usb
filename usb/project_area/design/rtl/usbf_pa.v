@@ -38,16 +38,28 @@
 
 //  CVS Log
 //
-//  $Id: usbf_pa.v,v 1.6 2003-10-17 02:36:57 rudi Exp $
+//  $Id: usbf_pa.v,v 1.1 2007/01/12 11:17:43 kartik Exp $
 //
-//  $Date: 2003-10-17 02:36:57 $
-//  $Revision: 1.6 $
-//  $Author: rudi $
+//  $Date: 2007/01/12 11:17:43 $
+//  $Revision: 1.1 $
+//  $Author: kartik $
 //  $Locker:  $
 //  $State: Exp $
 //
 // Change History:
-//               $Log: not supported by cvs2svn $
+//               $Log: usbf_pa.v,v $
+//               Revision 1.1  2007/01/12 11:17:43  kartik
+//               Initial check in ...Source usb core from opencores.org
+//
+//               Revision 1.6  2003/10/17 02:36:57  rudi
+//               - Disabling bit stuffing and NRZI encoding during speed negotiation
+//               - Now the core can send zero size packets
+//               - Fixed register addresses for some of the higher endpoints
+//                 (conversion between decimal/hex was wrong)
+//               - The core now does properly evaluate the function address to
+//                 determine if the packet was intended for it.
+//               - Various other minor bugs and typos
+//
 //               Revision 1.5  2001/11/04 12:22:45  rudi
 //
 //               - Fixed previous fix (brocke something else ...)
