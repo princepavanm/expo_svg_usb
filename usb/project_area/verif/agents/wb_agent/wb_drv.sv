@@ -37,7 +37,11 @@ class wb_drv extends uvm_driver#(wb_tx);
     if(tx_h.wr_rd == 1) $display("%t :: WB Write - Addr = %h and Data = %h", $time, tx_h.addr, tx_h.data);
     if(tx_h.wr_rd == 0) begin
       $display("%t :: WB Read  - Addr = %h and Data = %h", $time, tx_h.addr, vif.wb_drv_cb.wb_data_o);
-      if (tx_h.wr_rd == 0) tx_h.data = vif.wb_drv_cb.wb_data_o;
+      if (tx_h.wr_rd == 0) begin
+	tx_h.data = vif.wb_drv_cb.wb_data_o;
+	if ((tx_h.addr == 'h00) && (tx_h.data[1] == 'b1)) `uvm_info("WB_DRV", "CSR Reg 2nd field Reading :: HIGH Seed is Detected", UVM_LOW); 
+	if ((tx_h.addr == 'h00) && (tx_h.data[1] == 'b0)) `uvm_info("WB_DRV", "CSR Reg 2nd field Reading :: FULL Seed is Detected", UVM_LOW);
+      end
     end
     @(vif.wb_drv_cb);
     vif.wb_drv_cb.wb_addr_i <= 0;
