@@ -26,6 +26,8 @@ class usb_virtual_sequence extends uvm_sequence #(uvm_sequence_item);
   wb_reg_write_read_seq               wb_reg_write_read_seq_h;
   wb_reg_reset_read_reg_model_seq     wb_reg_reset_read_reg_model_seq_h;
   wb_reg_write_read_reg_model_seq     wb_reg_write_read_reg_model_seq_h;
+  utmi_speed_neg_seq                  utmi_speed_neg_seq_h;
+  utmi_fs_speed_neg_seq               utmi_fs_speed_neg_seq_h;
 
   usb_env		    env_h;
 
@@ -46,6 +48,8 @@ class usb_virtual_sequence extends uvm_sequence #(uvm_sequence_item);
     wb_reg_write_read_seq_h = wb_reg_write_read_seq::type_id::create("wb_reg_write_read_seq_h");
     wb_reg_reset_read_reg_model_seq_h = wb_reg_reset_read_reg_model_seq::type_id::create("wb_reg_reset_read_reg_model_seq_h");
     wb_reg_write_read_reg_model_seq_h = wb_reg_write_read_reg_model_seq::type_id::create("wb_reg_write_read_reg_model_seq_h");
+    utmi_speed_neg_seq_h              = utmi_speed_neg_seq::type_id::create("utmi_speed_neg_seq_h");
+    utmi_fs_speed_neg_seq_h           = utmi_fs_speed_neg_seq::type_id::create("utmi_fs_speed_neg_seq_h");
 
     if(!$cast(env_h, uvm_top.find("uvm_test_top.env_h"))) `uvm_error(get_name(), "env is not found");    
   endtask

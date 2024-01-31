@@ -1,8 +1,8 @@
 # Saving coverage database on exit...
-# End time: 16:23:29 on Jan 29,2024, Elapsed time: 0:00:45
+# End time: 17:02:23 on Jan 29,2024, Elapsed time: 0:01:05
 # Errors: 0, Warnings: 2
 # vsim -vopt -sv_seed 10 -voptargs=""+acc=npr"" -assertdebug "+UVM_VERBOSITY=UVM_LOW" "+UVM_TESTNAME=usb_reg_reset_read_test" -l ../../../usb/scratch_area/log/usb_reg_reset_read_test_10/usb_reg_reset_read_test_10.log -sva -coverage -do "coverage save -onexit ../../../usb/scratch_area/log/usb_reg_reset_read_test_10/usb_reg_reset_read_test_10.ucdb;add log sim:/top/dut/*; do ../../../usb/scratch_area/sim/wave.do; run -all;" work.top 
-# Start time: 16:23:29 on Jan 29,2024
+# Start time: 17:02:23 on Jan 29,2024
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # ** Warning: ../../../usb/project_area/verif/agents/utmi_agent/base_pkt.sv(20): (vopt-2250) Function "calc_crc5" has no return value assignment.
 # ** Warning: ../../../usb/project_area/verif/agents/utmi_agent/base_pkt.sv(25): (vopt-2250) Function "calc_crc16" has no return value assignment.
@@ -312,34 +312,6 @@
 # 1
 # Break in Task uvm_pkg/uvm_root::run_test at C:/questasim64_2021.1/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
 # 
-do reg_write_read.do
-# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
-# Start time: 16:23:59 on Jan 29,2024
-# vlog -reportprogress 300 -sv "+acc" "+cover" "+fcover" "+define+DUMP_ON" "+incdir+../../../usb/project_area/design/rtl" "+incdir+../../../usb/project_area/verif/agents" "+incdir+../../../usb/project_area/verif/agents/wb_agent" "+incdir+../../../usb/project_area/verif/agents/utmi_agent" "+incdir+../../../usb/project_area/verif/agents/sram_agent" "+incdir+../../../usb/project_area/verif/agents/reset_agent" "+incdir+../../../usb/project_area/verif/tests" "+incdir+../../../usb/project_area/verif/seqs" "+incdir+../../../usb/project_area/verif/seqs/wb_sequences" "+incdir+../../../usb/project_area/verif/seqs/utmi_sequences" "+incdir+../../../usb/project_area/verif/seqs/sram_sequences" "+incdir+../../../usb/project_area/verif/tb" "+incdir+../../../usb/scratch_area/log" "+incdir+../../../usb/scratch_area/sim" ../../../usb/project_area/design/rtl/usb_rtl_file.svh ../../../usb/project_area/verif/tb/top.sv 
-# -- Compiling module usbf_crc16
-# -- Compiling module usbf_crc5
-# -- Compiling module usbf_utmi_ls
-# -- Compiling module usbf_utmi_if
-# -- Compiling module usbf_idma
-# -- Compiling module usbf_pa
-# -- Compiling module usbf_pd
-# -- Compiling module usbf_pe
-# -- Compiling module usbf_pl
-# -- Compiling module usbf_mem_arb
-# -- Compiling module usbf_ep_rf
-# -- Compiling module usbf_rf
-# -- Compiling module usbf_wb
-# -- Compiling module usbf_top
-# ** Note: (vlog-2286) ../../../usb/project_area/verif/tb/top.sv(3): Using implicit +incdir+C:/questasim64_2021.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
-# -- Compiling package top_sv_unit
-# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
-# -- Compiling interface reset_intf
-# -- Compiling interface wb_intf
-# -- Compiling interface utmi_intf
-# -- Compiling interface sram_intf
-# -- Compiling module top
-# 
-# Top level modules:
-# 	top
-# End time: 16:23:59 on Jan 29,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
+# Saving coverage database on exit...
+# End time: 17:03:02 on Jan 29,2024, Elapsed time: 0:00:39
+# Errors: 0, Warnings: 2

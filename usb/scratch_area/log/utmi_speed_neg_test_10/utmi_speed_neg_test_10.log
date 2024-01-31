@@ -1,5 +1,5 @@
-# vsim -c -vopt -sv_seed 10 -voptargs=""+acc=npr"" -assertdebug "+UVM_VERBOSITY=UVM_LOW" "+UVM_TESTNAME=usb_base_test" -l ../../../usb/scratch_area/log/usb_base_test_10/usb_base_test_10.log -sva -coverage -do "coverage save -onexit ../../../usb/scratch_area/log/usb_base_test_10/usb_base_test_10.ucdb;do ../../../usb/scratch_area/sim/wave.do;run -all;" work.top 
-# Start time: 17:01:18 on Jan 29,2024
+# vsim -c -vopt -sv_seed 10 -voptargs="+acc=npr" -assertdebug "+UVM_VERBOSITY=UVM_LOW" "+UVM_TESTNAME=utmi_speed_neg_test" -l ../../../usb/scratch_area/log/utmi_speed_neg_test_10/utmi_speed_neg_test_10.log -sva -coverage -do "coverage save -onexit ../../../usb/scratch_area/log/utmi_speed_neg_test_10/utmi_speed_neg_test_10.ucdb; add log sim:/top/dut/*; do ../../../usb/scratch_area/sim/wave.do;run -all; exit" work.top 
+# Start time: 06:56:06 on Jan 31,2024
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Warning: ../../../usb/project_area/verif/agents/utmi_agent/base_pkt.sv(20): (vopt-2250) Function "calc_crc5" has no return value assignment.
 # ** Warning: ../../../usb/project_area/verif/agents/utmi_agent/base_pkt.sv(25): (vopt-2250) Function "calc_crc16" has no return value assignment.
@@ -10,6 +10,20 @@
 # ** Note: (vopt-143) Recognized 1 FSM in module "usbf_pa(fast)".
 # ** Note: (vopt-143) Recognized 1 FSM in module "usbf_wb(fast)".
 # ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=2.
+# //  Questa Sim-64
+# //  Version 2021.1 win64 Jan 19 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
 # Loading sv_std.std
 # Loading mtiUvm.uvm_pkg(fast)
 # Loading work.top_sv_unit(fast)
@@ -38,8 +52,29 @@
 # Loading work.utmi_intf(fast)
 # Loading work.sram_intf(fast)
 # Loading C:/questasim64_2021.1/uvm-1.1d\win64\uvm_dpi.dll
-# coverage save -onexit ../../../usb/scratch_area/log/usb_base_test_10/usb_base_test_10.ucdb
-# do ../../../usb/scratch_area/sim/wave.do
+# ** Warning: (vsim-8634) Code was not compiled with coverage options.
+# coverage save -onexit ../../../usb/scratch_area/log/utmi_speed_neg_test_10/utmi_speed_neg_test_10.ucdb
+#  add log sim:/top/dut/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: Khadeer  Hostname: DESKTOP-MTHNR30  ProcessID: 10036
+#           Attempting to use alternate WLF file "./wlft87yyid".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft87yyid
+#  do ../../../usb/scratch_area/sim/wave.do
+# wave activecursor not supported in batch mode
+# configure wave not supported in batch mode
+# configure wave not supported in batch mode
+# configure wave not supported in batch mode
+# configure wave not supported in batch mode
+# configure wave not supported in batch mode
+# configure wave not supported in batch mode
+# configure wave not supported in batch mode
+# configure wave not supported in batch mode
+# configure wave not supported in batch mode
+# configure wave not supported in batch mode
+# configure wave not supported in batch mode
+# configure wave not supported in batch mode
+# configure wave not supported in batch mode
 # run -all
 # ----------------------------------------------------------------
 # UVM-1.1d
@@ -70,85 +105,85 @@
 #       SSRAM Address bus size: A14:0
 #       Buffer Memory Size: 131072 bytes
 # 
-# UVM_INFO @ 0: reporter [RNTST] Running test usb_base_test...
+# UVM_INFO @ 0: reporter [RNTST] Running test utmi_speed_neg_test...
 # include_coverage not located
 #   did you mean recording_detail?
 # UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
 # --------------------------------------------------------------
 # Name                       Type                    Size  Value
 # --------------------------------------------------------------
-# uvm_test_top               usb_base_test           -     @487 
+# uvm_test_top               utmi_speed_neg_test     -     @487 
 #   env_h                    usb_env                 -     @494 
-#     reset_agent_h          reset_agent             -     @618 
-#       reset_drv_h          reset_drv               -     @1441
-#         rsp_port           uvm_analysis_port       -     @1456
-#         seq_item_port      uvm_seq_item_pull_port  -     @1448
-#       reset_sqr_h          uvm_sequencer           -     @1464
-#         rsp_export         uvm_analysis_export     -     @1471
-#         seq_item_export    uvm_seq_item_pull_imp   -     @1565
+#     reset_agent_h          reset_agent             -     @626 
+#       reset_drv_h          reset_drv               -     @1449
+#         rsp_port           uvm_analysis_port       -     @1464
+#         seq_item_port      uvm_seq_item_pull_port  -     @1456
+#       reset_sqr_h          uvm_sequencer           -     @1472
+#         rsp_export         uvm_analysis_export     -     @1479
+#         seq_item_export    uvm_seq_item_pull_imp   -     @1573
 #         arbitration_queue  array                   0     -    
 #         lock_queue         array                   0     -    
 #         num_last_reqs      integral                32    'd1  
 #         num_last_rsps      integral                32    'd1  
-#     sram_agent_h           sram_agent              -     @639 
-#       sram_cov_h           sram_cov                -     @1722
-#         analysis_imp       uvm_analysis_imp        -     @1729
-#         sram_cov_port      uvm_analysis_imp        -     @1740
-#       sram_drv_h           sram_drv                -     @1590
-#         rsp_port           uvm_analysis_port       -     @1605
-#         seq_item_port      uvm_seq_item_pull_port  -     @1597
-#       sram_mon_h           sram_mon                -     @1583
-#         sram_mon_port      uvm_analysis_port       -     @1753
-#       sram_sqr_h           sram_sqr                -     @1613
-#         rsp_export         uvm_analysis_export     -     @1620
-#         seq_item_export    uvm_seq_item_pull_imp   -     @1714
+#     sram_agent_h           sram_agent              -     @647 
+#       sram_cov_h           sram_cov                -     @1730
+#         analysis_imp       uvm_analysis_imp        -     @1737
+#         sram_cov_port      uvm_analysis_imp        -     @1748
+#       sram_drv_h           sram_drv                -     @1598
+#         rsp_port           uvm_analysis_port       -     @1613
+#         seq_item_port      uvm_seq_item_pull_port  -     @1605
+#       sram_mon_h           sram_mon                -     @1591
+#         sram_mon_port      uvm_analysis_port       -     @1761
+#       sram_sqr_h           sram_sqr                -     @1621
+#         rsp_export         uvm_analysis_export     -     @1628
+#         seq_item_export    uvm_seq_item_pull_imp   -     @1722
 #         arbitration_queue  array                   0     -    
 #         lock_queue         array                   0     -    
 #         num_last_reqs      integral                32    'd1  
 #         num_last_rsps      integral                32    'd1  
-#     utmi_agent_h           utmi_agent              -     @632 
-#       utmi_cov_h           utmi_cov                -     @1910
-#         analysis_imp       uvm_analysis_imp        -     @1917
-#         utmi_cov_port      uvm_analysis_imp        -     @1928
-#       utmi_drv_h           utmi_drv                -     @1778
-#         rsp_port           uvm_analysis_port       -     @1793
-#         seq_item_port      uvm_seq_item_pull_port  -     @1785
-#       utmi_mon_h           utmi_mon                -     @1771
-#         utmi_mon_port      uvm_analysis_port       -     @1941
-#       utmi_sqr_h           utmi_sqr                -     @1801
-#         rsp_export         uvm_analysis_export     -     @1808
-#         seq_item_export    uvm_seq_item_pull_imp   -     @1902
+#     utmi_agent_h           utmi_agent              -     @640 
+#       utmi_cov_h           utmi_cov                -     @1918
+#         analysis_imp       uvm_analysis_imp        -     @1925
+#         utmi_cov_port      uvm_analysis_imp        -     @1936
+#       utmi_drv_h           utmi_drv                -     @1786
+#         rsp_port           uvm_analysis_port       -     @1801
+#         seq_item_port      uvm_seq_item_pull_port  -     @1793
+#       utmi_mon_h           utmi_mon                -     @1779
+#         utmi_mon_port      uvm_analysis_port       -     @1949
+#       utmi_sqr_h           utmi_sqr                -     @1809
+#         rsp_export         uvm_analysis_export     -     @1816
+#         seq_item_export    uvm_seq_item_pull_imp   -     @1910
 #         arbitration_queue  array                   0     -    
 #         lock_queue         array                   0     -    
 #         num_last_reqs      integral                32    'd1  
 #         num_last_rsps      integral                32    'd1  
-#     v_sqr_h                usb_virtual_sqr         -     @509 
-#       reset_sqr_h          uvm_sequencer           -     @1963
-#         rsp_export         uvm_analysis_export     -     @1970
-#         seq_item_export    uvm_seq_item_pull_imp   -     @2064
+#     v_sqr_h                usb_virtual_sqr         -     @517 
+#       reset_sqr_h          uvm_sequencer           -     @1971
+#         rsp_export         uvm_analysis_export     -     @1978
+#         seq_item_export    uvm_seq_item_pull_imp   -     @2072
 #         arbitration_queue  array                   0     -    
 #         lock_queue         array                   0     -    
 #         num_last_reqs      integral                32    'd1  
 #         num_last_rsps      integral                32    'd1  
-#       rsp_export           uvm_analysis_export     -     @516 
-#       seq_item_export      uvm_seq_item_pull_imp   -     @610 
-#       sram_sqr_h           sram_sqr                -     @2290
-#         rsp_export         uvm_analysis_export     -     @2297
-#         seq_item_export    uvm_seq_item_pull_imp   -     @2391
+#       rsp_export           uvm_analysis_export     -     @524 
+#       seq_item_export      uvm_seq_item_pull_imp   -     @618 
+#       sram_sqr_h           sram_sqr                -     @2298
+#         rsp_export         uvm_analysis_export     -     @2305
+#         seq_item_export    uvm_seq_item_pull_imp   -     @2399
 #         arbitration_queue  array                   0     -    
 #         lock_queue         array                   0     -    
 #         num_last_reqs      integral                32    'd1  
 #         num_last_rsps      integral                32    'd1  
-#       utmi_sqr_h           utmi_sqr                -     @2181
-#         rsp_export         uvm_analysis_export     -     @2188
-#         seq_item_export    uvm_seq_item_pull_imp   -     @2282
+#       utmi_sqr_h           utmi_sqr                -     @2189
+#         rsp_export         uvm_analysis_export     -     @2196
+#         seq_item_export    uvm_seq_item_pull_imp   -     @2290
 #         arbitration_queue  array                   0     -    
 #         lock_queue         array                   0     -    
 #         num_last_reqs      integral                32    'd1  
 #         num_last_rsps      integral                32    'd1  
-#       wb_sqr_h             wb_sqr                  -     @2072
-#         rsp_export         uvm_analysis_export     -     @2079
-#         seq_item_export    uvm_seq_item_pull_imp   -     @2173
+#       wb_sqr_h             wb_sqr                  -     @2080
+#         rsp_export         uvm_analysis_export     -     @2087
+#         seq_item_export    uvm_seq_item_pull_imp   -     @2181
 #         arbitration_queue  array                   0     -    
 #         lock_queue         array                   0     -    
 #         num_last_reqs      integral                32    'd1  
@@ -157,18 +192,18 @@
 #       lock_queue           array                   0     -    
 #       num_last_reqs        integral                32    'd1  
 #       num_last_rsps        integral                32    'd1  
-#     wb_agent_h             wb_agent                -     @625 
-#       wb_cov_h             wb_cov                  -     @2559
-#         analysis_imp       uvm_analysis_imp        -     @2566
-#         wb_cov_port        uvm_analysis_imp        -     @2577
-#       wb_drv_h             wb_drv                  -     @2427
-#         rsp_port           uvm_analysis_port       -     @2442
-#         seq_item_port      uvm_seq_item_pull_port  -     @2434
-#       wb_mon_h             wb_mon                  -     @2420
-#         wb_mon_port        uvm_analysis_port       -     @2590
-#       wb_sqr_h             wb_sqr                  -     @2450
-#         rsp_export         uvm_analysis_export     -     @2457
-#         seq_item_export    uvm_seq_item_pull_imp   -     @2551
+#     wb_agent_h             wb_agent                -     @633 
+#       wb_cov_h             wb_cov                  -     @2567
+#         analysis_imp       uvm_analysis_imp        -     @2574
+#         wb_cov_port        uvm_analysis_imp        -     @2585
+#       wb_drv_h             wb_drv                  -     @2435
+#         rsp_port           uvm_analysis_port       -     @2450
+#         seq_item_port      uvm_seq_item_pull_port  -     @2442
+#       wb_mon_h             wb_mon                  -     @2428
+#         wb_mon_port        uvm_analysis_port       -     @2598
+#       wb_sqr_h             wb_sqr                  -     @2458
+#         rsp_export         uvm_analysis_export     -     @2465
+#         seq_item_export    uvm_seq_item_pull_imp   -     @2559
 #         arbitration_queue  array                   0     -    
 #         lock_queue         array                   0     -    
 #         num_last_reqs      integral                32    'd1  
@@ -178,13 +213,14 @@
 # UVM_INFO ../../../usb/project_area/verif/agents/wb_agent/wb_mon.sv(24) @ 0: uvm_test_top.env_h.wb_agent_h.wb_mon_h [wb_mon] Monitor Run Phase
 # UVM_INFO ../../../usb/project_area/verif/agents/wb_agent/wb_cov.sv(34) @ 0: uvm_test_top.env_h.wb_agent_h.wb_cov_h [wb_agent_COV] From Coverage Run Phase
 # UVM_INFO ../../../usb/project_area/verif/agents/utmi_agent/utmi_mon.sv(24) @ 0: uvm_test_top.env_h.utmi_agent_h.utmi_mon_h [utmi_mon] Monitor Run Phase
+# UVM_INFO ../../../usb/project_area/verif/agents/utmi_agent/utmi_drv.sv(30) @ 0: uvm_test_top.env_h.utmi_agent_h.utmi_drv_h [RESET] Reset Signaling Started
 # UVM_INFO ../../../usb/project_area/verif/agents/utmi_agent/utmi_cov.sv(34) @ 0: uvm_test_top.env_h.utmi_agent_h.utmi_cov_h [utmi_agent_COV] From Coverage Run Phase
 # UVM_INFO ../../../usb/project_area/verif/agents/sram_agent/sram_mon.sv(24) @ 0: uvm_test_top.env_h.sram_agent_h.sram_mon_h [sram_mon] Monitor Run Phase
 # UVM_INFO ../../../usb/project_area/verif/agents/sram_agent/sram_cov.sv(34) @ 0: uvm_test_top.env_h.sram_agent_h.sram_cov_h [sram_agent_COV] From Coverage Run Phase
 # -------------------------------------------------------------------------------------------------------
 # Name                           Type      Size  Value                                                   
 # -------------------------------------------------------------------------------------------------------
-# req                            reset_tr  -     @2626                                                   
+# req                            reset_tr  -     @2634                                                   
 #   kind                         kind_e    32    DEASSERT                                                
 #   cycles                       integral  32    'ha                                                     
 #   begin_time                   time      64    0                                                       
@@ -196,7 +232,7 @@
 # -------------------------------------------------------------------------------------------------------
 # Name                           Type      Size  Value                                                   
 # -------------------------------------------------------------------------------------------------------
-# req                            reset_tr  -     @2847                                                   
+# req                            reset_tr  -     @2855                                                   
 #   kind                         kind_e    32    ASSERT                                                  
 #   cycles                       integral  32    'h2                                                     
 #   begin_time                   time      64    9500                                                    
@@ -205,7 +241,23 @@
 #   parent sequence (full name)  string    56    uvm_test_top.env_h.reset_agent_h.reset_sqr_h.reset_seq_h
 #   sequencer                    string    44    uvm_test_top.env_h.reset_agent_h.reset_sqr_h            
 # -------------------------------------------------------------------------------------------------------
-# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 11500: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# ERROR: IDMA: IDLE: abort is unknown. (               12500)
+# ERROR: IDMA: IDLE: abort is unknown. (               20800)
+# ERROR: IDMA: IDLE: abort is unknown. (               29200)
+# UVM_INFO ../../../usb/project_area/verif/agents/utmi_agent/utmi_drv.sv(37) @ 20830833: uvm_test_top.env_h.utmi_agent_h.utmi_drv_h [RESET] Reset Signaling Completed
+# --------------------------------------------------------------------------------------------------------------
+# Name                           Type      Size  Value                                                          
+# --------------------------------------------------------------------------------------------------------------
+# req                            base_pkt  -     @2860                                                          
+#   pid                          integral  8     'hf                                                            
+#   begin_time                   time      64    20830833                                                       
+#   depth                        int       32    'd2                                                            
+#   parent sequence (name)       string    20    utmi_speed_neg_seq_h                                           
+#   parent sequence (full name)  string    63    uvm_test_top.env_h.utmi_agent_h.utmi_sqr_h.utmi_speed_neg_seq_h
+#   sequencer                    string    42    uvm_test_top.env_h.utmi_agent_h.utmi_sqr_h                     
+# --------------------------------------------------------------------------------------------------------------
+# UVM_INFO ../../../usb/project_area/verif/agents/utmi_agent/utmi_drv.sv(65) @ 51505927597: uvm_test_top.env_h.utmi_agent_h.utmi_drv_h [UTMI_DRV] HIGH Seed Negotiaion is Done
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 51505927697: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
 # **************************************************
 # ****************** TEST Summary ******************
 # **************************************************
@@ -216,13 +268,15 @@
 # --- UVM Report Summary ---
 # 
 # ** Report counts by severity
-# UVM_INFO :    9
+# UVM_INFO :   12
 # UVM_WARNING :    0
 # UVM_ERROR :    0
 # UVM_FATAL :    0
 # ** Report counts by id
+# [RESET]     2
 # [RNTST]     1
 # [TEST_DONE]     1
+# [UTMI_DRV]     1
 # [UVMTOP]     1
 # [sram_agent_COV]     1
 # [sram_mon]     1
@@ -231,39 +285,7 @@
 # [wb_agent_COV]     1
 # [wb_mon]     1
 # ** Note: $finish    : C:/questasim64_2021.1/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 115 ns  Iteration: 62  Instance: /top
-# 1
-# Break in Task uvm_pkg/uvm_root::run_test at C:/questasim64_2021.1/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
-# 
-do reg.do
-# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
-# Start time: 17:02:16 on Jan 29,2024
-# vlog -reportprogress 300 -sv "+acc" "+cover" "+fcover" "+define+DUMP_ON" "+incdir+../../../usb/project_area/design/rtl" "+incdir+../../../usb/project_area/verif/agents" "+incdir+../../../usb/project_area/verif/agents/wb_agent" "+incdir+../../../usb/project_area/verif/agents/utmi_agent" "+incdir+../../../usb/project_area/verif/agents/sram_agent" "+incdir+../../../usb/project_area/verif/agents/reset_agent" "+incdir+../../../usb/project_area/verif/tests" "+incdir+../../../usb/project_area/verif/seqs" "+incdir+../../../usb/project_area/verif/seqs/wb_sequences" "+incdir+../../../usb/project_area/verif/seqs/utmi_sequences" "+incdir+../../../usb/project_area/verif/seqs/sram_sequences" "+incdir+../../../usb/project_area/verif/tb" "+incdir+../../../usb/scratch_area/log" "+incdir+../../../usb/scratch_area/sim" ../../../usb/project_area/design/rtl/usb_rtl_file.svh ../../../usb/project_area/verif/tb/top.sv 
-# -- Compiling module usbf_crc16
-# -- Compiling module usbf_crc5
-# -- Compiling module usbf_utmi_ls
-# -- Compiling module usbf_utmi_if
-# -- Compiling module usbf_idma
-# -- Compiling module usbf_pa
-# -- Compiling module usbf_pd
-# -- Compiling module usbf_pe
-# -- Compiling module usbf_pl
-# -- Compiling module usbf_mem_arb
-# -- Compiling module usbf_ep_rf
-# -- Compiling module usbf_rf
-# -- Compiling module usbf_wb
-# -- Compiling module usbf_top
-# ** Note: (vlog-2286) ../../../usb/project_area/verif/tb/top.sv(3): Using implicit +incdir+C:/questasim64_2021.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
-# ** Warning: ../../../usb/project_area/verif/tb/top.sv(4): (vlog-13233) Design unit "top_sv_unit" already exists and will be overwritten. Overwriting SystemVerilog $unit with different source files.
-# -- Compiling package top_sv_unit
-# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
-# -- Compiling interface reset_intf
-# -- Compiling interface wb_intf
-# -- Compiling interface utmi_intf
-# -- Compiling interface sram_intf
-# -- Compiling module top
-# 
-# Top level modules:
-# 	top
-# End time: 17:02:16 on Jan 29,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 1
+#    Time: 515059276970 ps  Iteration: 53  Instance: /top
+# Saving coverage database on exit...
+# End time: 06:57:24 on Jan 31,2024, Elapsed time: 0:01:18
+# Errors: 0, Warnings: 5

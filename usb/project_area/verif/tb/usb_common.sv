@@ -23,7 +23,8 @@ typedef enum bit [4:0] {
 	SPEED_NEG = 5'b1_0000,
 	//ENUM,
 	SUSPEND   = 5'b1_0001,
-	RESUME    = 5'b1_0010
+	RESUME    = 5'b1_0010,
+	SPEED_NEG_FS = 5'b1_0011
 } pkt_type_t;
 
 //16 EPs => Each EP has 2 buffers

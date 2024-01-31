@@ -81,7 +81,7 @@ usb_reg_write_read_test :
 	rm -rf $(LOG_DIR)/usb_reg_write_read_test_$(SEED)
 	rm -rf usb_reg_write_read_test_$(SEED).ucdb
 	mkdir $(LOG_DIR)/usb_reg_write_read_test_$(SEED)
-	vsim -c -vopt -sv_seed $(SEED) -voptargs=+acc=npr -assertdebug +UVM_VERBOSITY=$(uvm_verbosity) +UVM_TESTNAME=usb_reg_reset_read_test -l $(LOG_DIR)/usb_reg_write_read_test_$(SEED)/usb_reg_write_read_test_$(SEED).log -sva -coverage -do "coverage save -onexit $(LOG_DIR)/usb_reg_write_read_test_$(SEED)/usb_reg_write_read_test_$(SEED).ucdb; add log sim:/top/dut/*; do $(SIM_DIR)/wave.do;run -all; exit" work.top
+	vsim -c -vopt -sv_seed $(SEED) -voptargs=+acc=npr -assertdebug +UVM_VERBOSITY=$(uvm_verbosity) +UVM_TESTNAME=usb_reg_write_read_test -l $(LOG_DIR)/usb_reg_write_read_test_$(SEED)/usb_reg_write_read_test_$(SEED).log -sva -coverage -do "coverage save -onexit $(LOG_DIR)/usb_reg_write_read_test_$(SEED)/usb_reg_write_read_test_$(SEED).ucdb; add log sim:/top/dut/*; do $(SIM_DIR)/wave.do;run -all; exit" work.top
 
 ###################################################  usb_reg_reset_read_reg_model_test  ###################################################
 
@@ -90,7 +90,7 @@ usb_reg_reset_read_reg_model_test :
 	rm -rf $(LOG_DIR)/usb_reg_reset_read_reg_model_test_$(SEED)
 	rm -rf usb_reg_reset_read_reg_model_test_$(SEED).ucdb
 	mkdir $(LOG_DIR)/usb_reg_reset_read_reg_model_test_$(SEED)
-	vsim -c -vopt -sv_seed $(SEED) -voptargs=+acc=npr -assertdebug +UVM_VERBOSITY=$(uvm_verbosity) +UVM_TESTNAME=usb_reg_reset_read_test -l $(LOG_DIR)/usb_reg_reset_read_reg_model_test_$(SEED)/usb_reg_reset_read_reg_model_test_$(SEED).log -sva -coverage -do "coverage save -onexit $(LOG_DIR)/usb_reg_reset_read_reg_model_test_$(SEED)/usb_reg_reset_read_reg_model_test_$(SEED).ucdb; add log sim:/top/dut/*; do $(SIM_DIR)/wave.do;run -all; exit" work.top
+	vsim -c -vopt -sv_seed $(SEED) -voptargs=+acc=npr -assertdebug +UVM_VERBOSITY=$(uvm_verbosity) +UVM_TESTNAME=usb_reg_reset_read_reg_model_test -l $(LOG_DIR)/usb_reg_reset_read_reg_model_test_$(SEED)/usb_reg_reset_read_reg_model_test_$(SEED).log -sva -coverage -do "coverage save -onexit $(LOG_DIR)/usb_reg_reset_read_reg_model_test_$(SEED)/usb_reg_reset_read_reg_model_test_$(SEED).ucdb; add log sim:/top/dut/*; do $(SIM_DIR)/wave.do;run -all; exit" work.top
 
 ###################################################  usb_reg_write_read_reg_model_test  ###################################################
 
@@ -99,16 +99,25 @@ usb_reg_write_read_reg_model_test :
 	rm -rf $(LOG_DIR)/usb_reg_write_read_reg_model_test_$(SEED)
 	rm -rf usb_reg_write_read_reg_model_test_$(SEED).ucdb
 	mkdir $(LOG_DIR)/usb_reg_write_read_reg_model_test_$(SEED)
-	vsim -c -vopt -sv_seed $(SEED) -voptargs=+acc=npr -assertdebug +UVM_VERBOSITY=$(uvm_verbosity) +UVM_TESTNAME=usb_reg_reset_read_test -l $(LOG_DIR)/usb_reg_write_read_reg_model_test_$(SEED)/usb_reg_write_read_reg_model_test_$(SEED).log -sva -coverage -do "coverage save -onexit $(LOG_DIR)/usb_reg_write_read_reg_model_test_$(SEED)/usb_reg_write_read_reg_model_test_$(SEED).ucdb; add log sim:/top/dut/*; do $(SIM_DIR)/wave.do;run -all; exit" work.top
+	vsim -c -vopt -sv_seed $(SEED) -voptargs=+acc=npr -assertdebug +UVM_VERBOSITY=$(uvm_verbosity) +UVM_TESTNAME=usb_reg_write_read_reg_model_test -l $(LOG_DIR)/usb_reg_write_read_reg_model_test_$(SEED)/usb_reg_write_read_reg_model_test_$(SEED).log -sva -coverage -do "coverage save -onexit $(LOG_DIR)/usb_reg_write_read_reg_model_test_$(SEED)/usb_reg_write_read_reg_model_test_$(SEED).ucdb; add log sim:/top/dut/*; do $(SIM_DIR)/wave.do;run -all; exit" work.top
 
-################################################### usb_hs_reg_write_read_reg_model_test ##################################################
+############################################################  utmi_speed_neg_test  ###########################################################
 
-usb_hs_reg_write_read_reg_model_test :
+utmi_speed_neg_test :
 	vlog -sv +acc +fcover +define+$(DUMP_OPTS) $(INC_DIR) $(DUT_FILE) $(TOP_FILE)
-	rm -rf $(LOG_DIR)/usb_hs_reg_write_read_reg_model_test_$(SEED)
-	rm -rf usb_hs_reg_write_read_reg_model_test_$(SEED).ucdb
-	mkdir $(LOG_DIR)/usb_hs_reg_write_read_reg_model_test_$(SEED)
-	vsim -c -vopt -sv_seed $(SEED) -voptargs=+acc=npr -assertdebug +UVM_VERBOSITY=$(uvm_verbosity) +UVM_TESTNAME=usb_reg_reset_read_test -l $(LOG_DIR)/usb_hs_reg_write_read_reg_model_test_$(SEED)/usb_hs_reg_write_read_reg_model_test_$(SEED).log -sva -coverage -do "coverage save -onexit $(LOG_DIR)/usb_hs_reg_write_read_reg_model_test_$(SEED)/usb_hs_reg_write_read_reg_model_test_$(SEED).ucdb; add log sim:/top/dut/*; do $(SIM_DIR)/wave.do;run -all; exit" work.top
+	rm -rf $(LOG_DIR)/utmi_speed_neg_test_$(SEED)
+	rm -rf utmi_speed_neg_test_$(SEED).ucdb
+	mkdir $(LOG_DIR)/utmi_speed_neg_test_$(SEED)
+	vsim -c -vopt -sv_seed $(SEED) -voptargs=+acc=npr -assertdebug +UVM_VERBOSITY=$(uvm_verbosity) +UVM_TESTNAME=utmi_speed_neg_test -l $(LOG_DIR)/utmi_speed_neg_test_$(SEED)/utmi_speed_neg_test_$(SEED).log -sva -coverage -do "coverage save -onexit $(LOG_DIR)/utmi_speed_neg_test_$(SEED)/utmi_speed_neg_test_$(SEED).ucdb; add log sim:/top/dut/*; do $(SIM_DIR)/wave.do;run -all; exit" work.top
+
+############################################################  utmi_fs_speed_neg_test  ###########################################################
+
+utmi_fs_speed_neg_test :
+	vlog -sv +acc +fcover +define+$(DUMP_OPTS) $(INC_DIR) $(DUT_FILE) $(TOP_FILE)
+	rm -rf $(LOG_DIR)/utmi_fs_speed_neg_test_$(SEED)
+	rm -rf utmi_fs_speed_neg_test_$(SEED).ucdb
+	mkdir $(LOG_DIR)/utmi_fs_speed_neg_test_$(SEED)
+	vsim -c -vopt -sv_seed $(SEED) -voptargs=+acc=npr -assertdebug +UVM_VERBOSITY=$(uvm_verbosity) +UVM_TESTNAME=utmi_fs_speed_neg_test -l $(LOG_DIR)/utmi_fs_speed_neg_test_$(SEED)/utmi_fs_speed_neg_test_$(SEED).log -sva -coverage -do "coverage save -onexit $(LOG_DIR)/utmi_fs_speed_neg_test_$(SEED)/utmi_fs_speed_neg_test_$(SEED).ucdb; add log sim:/top/dut/*; do $(SIM_DIR)/wave.do;run -all; exit" work.top
 
 ############################################################  usb_hs_enum_test  ###########################################################
 
@@ -117,6 +126,15 @@ usb_hs_enum_test :
 	rm -rf $(LOG_DIR)/usb_hs_enum_test_$(SEED)
 	rm -rf usb_hs_enum_test_$(SEED).ucdb
 	mkdir $(LOG_DIR)/usb_hs_enum_test_$(SEED)
-	vsim -c -vopt -sv_seed $(SEED) -voptargs=+acc=npr -assertdebug +UVM_VERBOSITY=$(uvm_verbosity) +UVM_TESTNAME=usb_reg_reset_read_test -l $(LOG_DIR)/usb_hs_enum_test_$(SEED)/usb_hs_enum_test_$(SEED).log -sva -coverage -do "coverage save -onexit $(LOG_DIR)/usb_hs_enum_test_$(SEED)/usb_hs_enum_test_$(SEED).ucdb; add log sim:/top/dut/*; do $(SIM_DIR)/wave.do;run -all; exit" work.top
+	vsim -c -vopt -sv_seed $(SEED) -voptargs=+acc=npr -assertdebug +UVM_VERBOSITY=$(uvm_verbosity) +UVM_TESTNAME=usb_hs_enum_test -l $(LOG_DIR)/usb_hs_enum_test_$(SEED)/usb_hs_enum_test_$(SEED).log -sva -coverage -do "coverage save -onexit $(LOG_DIR)/usb_hs_enum_test_$(SEED)/usb_hs_enum_test_$(SEED).ucdb; add log sim:/top/dut/*; do $(SIM_DIR)/wave.do;run -all; exit" work.top
+
+############################################################  usb_hs_enum_out_test  ###########################################################
+
+usb_hs_enum_out_test :
+	vlog -sv +acc +fcover +define+$(DUMP_OPTS) $(INC_DIR) $(DUT_FILE) $(TOP_FILE)
+	rm -rf $(LOG_DIR)/usb_hs_enum_out_test_$(SEED)
+	rm -rf usb_hs_enum_out_test_$(SEED).ucdb
+	mkdir $(LOG_DIR)/usb_hs_enum_out_test_$(SEED)
+	vsim -c -vopt -sv_seed $(SEED) -voptargs=+acc=npr -assertdebug +UVM_VERBOSITY=$(uvm_verbosity) +UVM_TESTNAME=usb_hs_enum_out_test -l $(LOG_DIR)/usb_hs_enum_out_test_$(SEED)/usb_hs_enum_out_test_$(SEED).log -sva -coverage -do "coverage save -onexit $(LOG_DIR)/usb_hs_enum_out_test_$(SEED)/usb_hs_enum_out_test_$(SEED).ucdb; add log sim:/top/dut/*; do $(SIM_DIR)/wave.do;run -all; exit" work.top
 
 ###########################################################################################################################################
