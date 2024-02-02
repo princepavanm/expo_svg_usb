@@ -1,6 +1,11 @@
 class utmi_base_seq extends uvm_sequence#(base_pkt);
 
   `uvm_object_utils(utmi_base_seq)
+
+  sof_pkt      sof_pkt_h;
+  token_pkt    token_pkt_h;
+  data_pkt     data_pkt_h;
+  hs_pkt       hs_pkt_h;
   
   function new(string name="utmi_base_seq");
     super.new(name);

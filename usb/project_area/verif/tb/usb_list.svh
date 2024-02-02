@@ -21,6 +21,10 @@
   `include "wb_agent.sv"
 
   `include "base_pkt.sv"
+  `include "sof_pkt.sv"
+  `include "token_pkt.sv"
+  `include "data_pkt.sv"
+  `include "hs_pkt.sv"
 
   `include "utmi_drv.sv"
   `include "utmi_sqr.sv"

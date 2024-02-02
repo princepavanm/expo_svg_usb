@@ -6,7 +6,7 @@ class base_pkt extends uvm_sequence_item;
 
   `uvm_object_utils_begin(base_pkt)
     `uvm_field_int(pid, UVM_ALL_ON)
-    //`uvm_field_enum(pkt_type_t, pkt_type, UVM_ALL_ON)
+    `uvm_field_enum(pkt_type_t, pkt_type, UVM_ALL_ON)
   `uvm_object_utils_end
 
   function new(string name="base_pkt");

@@ -30,7 +30,6 @@ typedef enum bit [4:0] {
 //16 EPs => Each EP has 2 buffers
 //total buffer size = 14'h400*32 = 1024*32 = 32,768
 typedef enum bit [13:0] {
-	//`define EP_BUF_SIZE = 14'h0400;
 	EP_BUF_SIZE = 14'h0400
 } ep_buf_size_t;
 

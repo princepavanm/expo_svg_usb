@@ -1,0 +1,400 @@
+# Saving coverage database on exit...
+# End time: 18:54:45 on Feb 02,2024, Elapsed time: 0:02:01
+# Errors: 0, Warnings: 0
+# vsim -vopt -sv_seed 10 -voptargs=""+acc=npr"" -assertdebug "+UVM_VERBOSITY=UVM_LOW" "+UVM_TESTNAME=usb_hs_enum_test" -l ../../../usb/scratch_area/log/usb_hs_enum_test_10/usb_hs_enum_test_10.log -sva -coverage -do "coverage save -onexit ../../../usb/scratch_area/log/usb_hs_enum_test_10/usb_hs_enum_test_10.ucdb;add log sim:/top/dut/*; do ../../../usb/scratch_area/sim/wave.do; run -all;" work.top 
+# Start time: 18:54:45 on Feb 02,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.top_sv_unit(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.top(fast)
+# Loading work.reset_intf(fast__2)
+# Loading work.wb_intf(fast__2)
+# Loading work.utmi_intf(fast__2)
+# Loading work.sram_intf(fast__2)
+# Loading work.usbf_top(fast)
+# Loading work.usbf_utmi_if(fast)
+# Loading work.usbf_utmi_ls(fast)
+# Loading work.usbf_pl(fast)
+# Loading work.usbf_pd(fast)
+# Loading work.usbf_crc5(fast)
+# Loading work.usbf_crc16(fast)
+# Loading work.usbf_pa(fast)
+# Loading work.usbf_idma(fast)
+# Loading work.usbf_pe(fast)
+# Loading work.usbf_mem_arb(fast)
+# Loading work.usbf_rf(fast)
+# Loading work.usbf_ep_rf(fast)
+# Loading work.usbf_wb(fast)
+# Loading work.reset_intf(fast)
+# Loading work.wb_intf(fast)
+# Loading work.utmi_intf(fast)
+# Loading work.sram_intf(fast)
+# Loading C:/questasim64_2021.1/uvm-1.1d\win64\uvm_dpi.dll
+# coverage save -onexit ../../../usb/scratch_area/log/usb_hs_enum_test_10/usb_hs_enum_test_10.ucdb
+# add log sim:/top/dut/*
+#  do ../../../usb/scratch_area/sim/wave.do
+#  run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# 
+# 
+# 
+# INFO: USB Function core instantiated (top.dut)
+#       Supported Endpoints: 16 (0 through 15)
+#       WISHBONE Address bus size: A17:0
+#       SSRAM Address bus size: A14:0
+#       Buffer Memory Size: 131072 bytes
+# 
+# UVM_INFO @ 0: reporter [RNTST] Running test usb_hs_enum_test...
+# include_coverage not located
+#   did you mean recording_detail?
+# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+# --------------------------------------------------------------
+# Name                       Type                    Size  Value
+# --------------------------------------------------------------
+# uvm_test_top               usb_hs_enum_test        -     @487 
+#   env_h                    usb_env                 -     @494 
+#     reset_agent_h          reset_agent             -     @634 
+#       reset_drv_h          reset_drv               -     @1457
+#         rsp_port           uvm_analysis_port       -     @1472
+#         seq_item_port      uvm_seq_item_pull_port  -     @1464
+#       reset_sqr_h          uvm_sequencer           -     @1480
+#         rsp_export         uvm_analysis_export     -     @1487
+#         seq_item_export    uvm_seq_item_pull_imp   -     @1581
+#         arbitration_queue  array                   0     -    
+#         lock_queue         array                   0     -    
+#         num_last_reqs      integral                32    'd1  
+#         num_last_rsps      integral                32    'd1  
+#     sram_agent_h           sram_agent              -     @655 
+#       sram_cov_h           sram_cov                -     @1738
+#         analysis_imp       uvm_analysis_imp        -     @1745
+#         sram_cov_port      uvm_analysis_imp        -     @1756
+#       sram_drv_h           sram_drv                -     @1606
+#         rsp_port           uvm_analysis_port       -     @1621
+#         seq_item_port      uvm_seq_item_pull_port  -     @1613
+#       sram_mon_h           sram_mon                -     @1599
+#         sram_mon_port      uvm_analysis_port       -     @1769
+#       sram_sqr_h           sram_sqr                -     @1629
+#         rsp_export         uvm_analysis_export     -     @1636
+#         seq_item_export    uvm_seq_item_pull_imp   -     @1730
+#         arbitration_queue  array                   0     -    
+#         lock_queue         array                   0     -    
+#         num_last_reqs      integral                32    'd1  
+#         num_last_rsps      integral                32    'd1  
+#     utmi_agent_h           utmi_agent              -     @648 
+#       utmi_cov_h           utmi_cov                -     @1926
+#         analysis_imp       uvm_analysis_imp        -     @1933
+#         utmi_cov_port      uvm_analysis_imp        -     @1944
+#       utmi_drv_h           utmi_drv                -     @1794
+#         rsp_port           uvm_analysis_port       -     @1809
+#         seq_item_port      uvm_seq_item_pull_port  -     @1801
+#       utmi_mon_h           utmi_mon                -     @1787
+#         utmi_mon_port      uvm_analysis_port       -     @1957
+#       utmi_sqr_h           utmi_sqr                -     @1817
+#         rsp_export         uvm_analysis_export     -     @1824
+#         seq_item_export    uvm_seq_item_pull_imp   -     @1918
+#         arbitration_queue  array                   0     -    
+#         lock_queue         array                   0     -    
+#         num_last_reqs      integral                32    'd1  
+#         num_last_rsps      integral                32    'd1  
+#     v_sqr_h                usb_virtual_sqr         -     @525 
+#       reset_sqr_h          uvm_sequencer           -     @1979
+#         rsp_export         uvm_analysis_export     -     @1986
+#         seq_item_export    uvm_seq_item_pull_imp   -     @2080
+#         arbitration_queue  array                   0     -    
+#         lock_queue         array                   0     -    
+#         num_last_reqs      integral                32    'd1  
+#         num_last_rsps      integral                32    'd1  
+#       rsp_export           uvm_analysis_export     -     @532 
+#       seq_item_export      uvm_seq_item_pull_imp   -     @626 
+#       sram_sqr_h           sram_sqr                -     @2306
+#         rsp_export         uvm_analysis_export     -     @2313
+#         seq_item_export    uvm_seq_item_pull_imp   -     @2407
+#         arbitration_queue  array                   0     -    
+#         lock_queue         array                   0     -    
+#         num_last_reqs      integral                32    'd1  
+#         num_last_rsps      integral                32    'd1  
+#       utmi_sqr_h           utmi_sqr                -     @2197
+#         rsp_export         uvm_analysis_export     -     @2204
+#         seq_item_export    uvm_seq_item_pull_imp   -     @2298
+#         arbitration_queue  array                   0     -    
+#         lock_queue         array                   0     -    
+#         num_last_reqs      integral                32    'd1  
+#         num_last_rsps      integral                32    'd1  
+#       wb_sqr_h             wb_sqr                  -     @2088
+#         rsp_export         uvm_analysis_export     -     @2095
+#         seq_item_export    uvm_seq_item_pull_imp   -     @2189
+#         arbitration_queue  array                   0     -    
+#         lock_queue         array                   0     -    
+#         num_last_reqs      integral                32    'd1  
+#         num_last_rsps      integral                32    'd1  
+#       arbitration_queue    array                   0     -    
+#       lock_queue           array                   0     -    
+#       num_last_reqs        integral                32    'd1  
+#       num_last_rsps        integral                32    'd1  
+#     wb_agent_h             wb_agent                -     @641 
+#       wb_cov_h             wb_cov                  -     @2575
+#         analysis_imp       uvm_analysis_imp        -     @2582
+#         wb_cov_port        uvm_analysis_imp        -     @2593
+#       wb_drv_h             wb_drv                  -     @2443
+#         rsp_port           uvm_analysis_port       -     @2458
+#         seq_item_port      uvm_seq_item_pull_port  -     @2450
+#       wb_mon_h             wb_mon                  -     @2436
+#         wb_mon_port        uvm_analysis_port       -     @2606
+#       wb_sqr_h             wb_sqr                  -     @2466
+#         rsp_export         uvm_analysis_export     -     @2473
+#         seq_item_export    uvm_seq_item_pull_imp   -     @2567
+#         arbitration_queue  array                   0     -    
+#         lock_queue         array                   0     -    
+#         num_last_reqs      integral                32    'd1  
+#         num_last_rsps      integral                32    'd1  
+# --------------------------------------------------------------
+# 
+# UVM_INFO ../../../usb/project_area/verif/agents/wb_agent/wb_mon.sv(24) @ 0: uvm_test_top.env_h.wb_agent_h.wb_mon_h [wb_mon] Monitor Run Phase
+# UVM_INFO ../../../usb/project_area/verif/agents/wb_agent/wb_cov.sv(34) @ 0: uvm_test_top.env_h.wb_agent_h.wb_cov_h [wb_agent_COV] From Coverage Run Phase
+# UVM_INFO ../../../usb/project_area/verif/agents/utmi_agent/utmi_mon.sv(24) @ 0: uvm_test_top.env_h.utmi_agent_h.utmi_mon_h [utmi_mon] Monitor Run Phase
+# UVM_INFO ../../../usb/project_area/verif/agents/utmi_agent/utmi_drv.sv(54) @ 0: uvm_test_top.env_h.utmi_agent_h.utmi_drv_h [RESET] Reset Signaling Started
+# UVM_INFO ../../../usb/project_area/verif/agents/utmi_agent/utmi_cov.sv(34) @ 0: uvm_test_top.env_h.utmi_agent_h.utmi_cov_h [utmi_agent_COV] From Coverage Run Phase
+# UVM_INFO ../../../usb/project_area/verif/agents/sram_agent/sram_mon.sv(24) @ 0: uvm_test_top.env_h.sram_agent_h.sram_mon_h [sram_mon] Monitor Run Phase
+# UVM_INFO ../../../usb/project_area/verif/agents/sram_agent/sram_cov.sv(34) @ 0: uvm_test_top.env_h.sram_agent_h.sram_cov_h [sram_agent_COV] From Coverage Run Phase
+# -------------------------------------------------------------------------------------------------------
+# Name                           Type      Size  Value                                                   
+# -------------------------------------------------------------------------------------------------------
+# req                            reset_tr  -     @2642                                                   
+#   kind                         kind_e    32    DEASSERT                                                
+#   cycles                       integral  32    'ha                                                     
+#   begin_time                   time      64    0                                                       
+#   depth                        int       32    'd2                                                     
+#   parent sequence (name)       string    11    reset_seq_h                                             
+#   parent sequence (full name)  string    56    uvm_test_top.env_h.reset_agent_h.reset_sqr_h.reset_seq_h
+#   sequencer                    string    44    uvm_test_top.env_h.reset_agent_h.reset_sqr_h            
+# -------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------------------
+# Name                           Type      Size  Value                                                   
+# -------------------------------------------------------------------------------------------------------
+# req                            reset_tr  -     @2863                                                   
+#   kind                         kind_e    32    ASSERT                                                  
+#   cycles                       integral  32    'h2                                                     
+#   begin_time                   time      64    9500                                                    
+#   depth                        int       32    'd2                                                     
+#   parent sequence (name)       string    11    reset_seq_h                                             
+#   parent sequence (full name)  string    56    uvm_test_top.env_h.reset_agent_h.reset_sqr_h.reset_seq_h
+#   sequencer                    string    44    uvm_test_top.env_h.reset_agent_h.reset_sqr_h            
+# -------------------------------------------------------------------------------------------------------
+# ERROR: IDMA: IDLE: abort is unknown. (               12500)
+# ERROR: IDMA: IDLE: abort is unknown. (               20800)
+# ERROR: IDMA: IDLE: abort is unknown. (               29200)
+# UVM_INFO ../../../usb/project_area/verif/agents/utmi_agent/utmi_drv.sv(61) @ 20830833: uvm_test_top.env_h.utmi_agent_h.utmi_drv_h [RESET] Reset Signaling Completed
+# ----------------------------------------------------------------------------------------------------------------
+# Name                           Type        Size  Value                                                          
+# ----------------------------------------------------------------------------------------------------------------
+# req                            base_pkt    -     @2870                                                          
+#   pid                          integral    8     'hf                                                            
+#   pkt_type                     pkt_type_t  5     SPEED_NEG                                                      
+#   begin_time                   time        64    20830833                                                       
+#   depth                        int         32    'd2                                                            
+#   parent sequence (name)       string      20    utmi_speed_neg_seq_h                                           
+#   parent sequence (full name)  string      63    uvm_test_top.env_h.utmi_agent_h.utmi_sqr_h.utmi_speed_neg_seq_h
+#   sequencer                    string      42    uvm_test_top.env_h.utmi_agent_h.utmi_sqr_h                     
+# ----------------------------------------------------------------------------------------------------------------
+# UVM_INFO ../../../usb/project_area/verif/agents/utmi_agent/utmi_drv.sv(89) @ 51505927597: uvm_test_top.env_h.utmi_agent_h.utmi_drv_h [UTMI_DRV] HIGH Seed Negotiaion is Done
+#          51505933500 :: WB Write - Addr = 00004 and Data = 00000077
+#          51505940500 :: WB Write - Addr = 00008 and Data = 01ff01ff
+#          51505948500 :: WB Read  - Addr = 0000c and Data = 00000000
+# UVM_INFO ../../../usb/project_area/verif/seqs/wb_sequences/wb_intr_handling_seq.sv(13) @ 51505949500: uvm_test_top.env_h.wb_agent_h.wb_sqr_h@@wb_intr_handling_seq_h [INT_SRC_READ] Data = 0000000000000000
+#          51505955500 :: WB Write - Addr = 00040 and Data = 0303b008
+#          51505963500 :: WB Write - Addr = 00044 and Data = 3f3f0000
+#          51505970500 :: WB Write - Addr = 00048 and Data = 08000000
+#          51505978500 :: WB Write - Addr = 0004c and Data = 08000400
+# --------------------------------------------------------------------------------------------------------------
+# Name                           Type        Size  Value                                                        
+# --------------------------------------------------------------------------------------------------------------
+# sof_pkt_h                      sof_pkt     -     @2933                                                        
+#   pid                          integral    8     'ha5                                                         
+#   pkt_type                     pkt_type_t  5     SOF                                                          
+#   frame_num                    integral    11    'h1                                                          
+#   crc5                         integral    5     'h1d                                                         
+#   begin_time                   time        64    51505979501                                                  
+#   depth                        int         32    'd2                                                          
+#   parent sequence (name)       string      18    utmi_enum_in_seq_h                                           
+#   parent sequence (full name)  string      61    uvm_test_top.env_h.utmi_agent_h.utmi_sqr_h.utmi_enum_in_seq_h
+#   sequencer                    string      42    uvm_test_top.env_h.utmi_agent_h.utmi_sqr_h                   
+# --------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------------
+# Name                           Type        Size  Value                                                        
+# --------------------------------------------------------------------------------------------------------------
+# token_pkt_h                    token_pkt   -     @2937                                                        
+#   pid                          integral    8     'h2d                                                         
+#   pkt_type                     pkt_type_t  5     SETUP                                                        
+#   addr                         integral    7     'h77                                                         
+#   endp                         integral    4     'h0                                                          
+#   crc5                         integral    5     'hb                                                          
+#   begin_time                   time        64    51505990906                                                  
+#   depth                        int         32    'd2                                                          
+#   parent sequence (name)       string      18    utmi_enum_in_seq_h                                           
+#   parent sequence (full name)  string      61    uvm_test_top.env_h.utmi_agent_h.utmi_sqr_h.utmi_enum_in_seq_h
+#   sequencer                    string      42    uvm_test_top.env_h.utmi_agent_h.utmi_sqr_h                   
+# --------------------------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------------
+# Name                           Type          Size  Value                                                        
+# ----------------------------------------------------------------------------------------------------------------
+# data_pkt_h                     data_pkt      -     @2941                                                        
+#   pid                          integral      8     'hc3                                                         
+#   pkt_type                     pkt_type_t    5     DATA0                                                        
+#   dataQ                        da(integral)  8     -                                                            
+#     [0]                        integral      8     'h80                                                         
+#     [1]                        integral      8     'h6                                                          
+#     [2]                        integral      8     'h0                                                          
+#     [3]                        integral      8     'h0                                                          
+#     [4]                        integral      8     'h0                                                          
+#     [5]                        integral      8     'h0                                                          
+#     [6]                        integral      8     'h8                                                          
+#     [7]                        integral      8     'h0                                                          
+#   crc16                        integral      16    'h94d5                                                       
+#   begin_time                   time          64    51506002568                                                  
+#   depth                        int           32    'd2                                                          
+#   parent sequence (name)       string        18    utmi_enum_in_seq_h                                           
+#   parent sequence (full name)  string        61    uvm_test_top.env_h.utmi_agent_h.utmi_sqr_h.utmi_enum_in_seq_h
+#   sequencer                    string        42    uvm_test_top.env_h.utmi_agent_h.utmi_sqr_h                   
+# ----------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------------
+# Name                           Type        Size  Value                                                        
+# --------------------------------------------------------------------------------------------------------------
+# token_pkt_h                    token_pkt   -     @2945                                                        
+#   pid                          integral    8     'h69                                                         
+#   pkt_type                     pkt_type_t  5     IN                                                           
+#   addr                         integral    7     'h77                                                         
+#   endp                         integral    4     'h0                                                          
+#   crc5                         integral    5     'hb                                                          
+#   begin_time                   time        64    51506030890                                                  
+#   depth                        int         32    'd2                                                          
+#   parent sequence (name)       string      18    utmi_enum_in_seq_h                                           
+#   parent sequence (full name)  string      61    uvm_test_top.env_h.utmi_agent_h.utmi_sqr_h.utmi_enum_in_seq_h
+#   sequencer                    string      42    uvm_test_top.env_h.utmi_agent_h.utmi_sqr_h                   
+# --------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------------
+# Name                           Type        Size  Value                                                        
+# --------------------------------------------------------------------------------------------------------------
+# hs_pkt_h                       hs_pkt      -     @2949                                                        
+#   pid                          integral    8     'hd2                                                         
+#   pkt_type                     pkt_type_t  5     ACK                                                          
+#   begin_time                   time        64    51506089200                                                  
+#   depth                        int         32    'd2                                                          
+#   parent sequence (name)       string      18    utmi_enum_in_seq_h                                           
+#   parent sequence (full name)  string      61    uvm_test_top.env_h.utmi_agent_h.utmi_sqr_h.utmi_enum_in_seq_h
+#   sequencer                    string      42    uvm_test_top.env_h.utmi_agent_h.utmi_sqr_h                   
+# --------------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------------
+# Name                           Type        Size  Value                                                        
+# --------------------------------------------------------------------------------------------------------------
+# token_pkt_h                    token_pkt   -     @2953                                                        
+#   pid                          integral    8     'he1                                                         
+#   pkt_type                     pkt_type_t  5     OUT                                                          
+#   addr                         integral    7     'h77                                                         
+#   endp                         integral    4     'h0                                                          
+#   crc5                         integral    5     'hb                                                          
+#   begin_time                   time        64    51506097530                                                  
+#   depth                        int         32    'd2                                                          
+#   parent sequence (name)       string      18    utmi_enum_in_seq_h                                           
+#   parent sequence (full name)  string      61    uvm_test_top.env_h.utmi_agent_h.utmi_sqr_h.utmi_enum_in_seq_h
+#   sequencer                    string      42    uvm_test_top.env_h.utmi_agent_h.utmi_sqr_h                   
+# --------------------------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------------
+# Name                           Type          Size  Value                                                        
+# ----------------------------------------------------------------------------------------------------------------
+# data_pkt_h                     data_pkt      -     @2957                                                        
+#   pid                          integral      8     'hc3                                                         
+#   pkt_type                     pkt_type_t    5     DATA0                                                        
+#   dataQ                        da(integral)  1     -                                                            
+#     [0]                        integral      8     'h0                                                          
+#   crc16                        integral      16    'hfd02                                                       
+#   begin_time                   time          64    51506109192                                                  
+#   depth                        int           32    'd2                                                          
+#   parent sequence (name)       string        18    utmi_enum_in_seq_h                                           
+#   parent sequence (full name)  string        61    uvm_test_top.env_h.utmi_agent_h.utmi_sqr_h.utmi_enum_in_seq_h
+#   sequencer                    string        42    uvm_test_top.env_h.utmi_agent_h.utmi_sqr_h                   
+# ----------------------------------------------------------------------------------------------------------------
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 51506322521: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# **************************************************
+# ****************** TEST Summary ******************
+# **************************************************
+# **************************************************
+# ****************** TEST  PASSED ******************
+# **************************************************
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   13
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [INT_SRC_READ]     1
+# [RESET]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# [UTMI_DRV]     1
+# [UVMTOP]     1
+# [sram_agent_COV]     1
+# [sram_mon]     1
+# [utmi_agent_COV]     1
+# [utmi_mon]     1
+# [wb_agent_COV]     1
+# [wb_mon]     1
+# ** Note: $finish    : C:/questasim64_2021.1/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 515063225210 ps  Iteration: 53  Instance: /top
+# 1
+# Break in Task uvm_pkg/uvm_root::run_test at C:/questasim64_2021.1/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh line 430
+# 
+do hs_enum_out.do
+# QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
+# Start time: 18:57:04 on Feb 02,2024
+# vlog -reportprogress 300 -sv "+acc" "+cover" "+fcover" "+define+DUMP_ON" "+incdir+../../../usb/project_area/design/rtl" "+incdir+../../../usb/project_area/verif/agents" "+incdir+../../../usb/project_area/verif/agents/wb_agent" "+incdir+../../../usb/project_area/verif/agents/utmi_agent" "+incdir+../../../usb/project_area/verif/agents/sram_agent" "+incdir+../../../usb/project_area/verif/agents/reset_agent" "+incdir+../../../usb/project_area/verif/tests" "+incdir+../../../usb/project_area/verif/seqs" "+incdir+../../../usb/project_area/verif/seqs/wb_sequences" "+incdir+../../../usb/project_area/verif/seqs/utmi_sequences" "+incdir+../../../usb/project_area/verif/seqs/sram_sequences" "+incdir+../../../usb/project_area/verif/tb" "+incdir+../../../usb/scratch_area/log" "+incdir+../../../usb/scratch_area/sim" ../../../usb/project_area/design/rtl/usb_rtl_file.svh ../../../usb/project_area/verif/tb/top.sv 
+# -- Compiling module usbf_crc16
+# -- Compiling module usbf_crc5
+# -- Compiling module usbf_utmi_ls
+# -- Compiling module usbf_utmi_if
+# -- Compiling module usbf_idma
+# -- Compiling module usbf_pa
+# -- Compiling module usbf_pd
+# -- Compiling module usbf_pe
+# -- Compiling module usbf_pl
+# -- Compiling module usbf_mem_arb
+# -- Compiling module usbf_ep_rf
+# -- Compiling module usbf_rf
+# -- Compiling module usbf_wb
+# -- Compiling module usbf_top
+# ** Note: (vlog-2286) ../../../usb/project_area/verif/tb/top.sv(3): Using implicit +incdir+C:/questasim64_2021.1/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Compiling package top_sv_unit
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Compiling interface reset_intf
+# -- Compiling interface wb_intf
+# -- Compiling interface utmi_intf
+# -- Compiling interface sram_intf
+# -- Compiling module top
+# 
+# Top level modules:
+# 	top
+# End time: 18:57:04 on Feb 02,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0

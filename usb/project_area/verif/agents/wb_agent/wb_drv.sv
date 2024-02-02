@@ -20,6 +20,7 @@ class wb_drv extends uvm_driver#(wb_tx);
     @(posedge vif.wb_rst);
     forever begin
      seq_item_port.get_next_item(req);
+       //req.print();
        drive_tx(req);
      seq_item_port.item_done();
     end
@@ -38,9 +39,9 @@ class wb_drv extends uvm_driver#(wb_tx);
     if(tx_h.wr_rd == 0) begin
       $display("%t :: WB Read  - Addr = %h and Data = %h", $time, tx_h.addr, vif.wb_drv_cb.wb_data_o);
       if (tx_h.wr_rd == 0) begin
-	tx_h.data = vif.wb_drv_cb.wb_data_o;
-	if ((tx_h.addr == 'h00) && (tx_h.data[1] == 'b1)) `uvm_info("WB_DRV", "CSR Reg 2nd field Reading :: HIGH Seed is Detected", UVM_LOW); 
-	if ((tx_h.addr == 'h00) && (tx_h.data[1] == 'b0)) `uvm_info("WB_DRV", "CSR Reg 2nd field Reading :: FULL Seed is Detected", UVM_LOW);
+	    tx_h.data = vif.wb_drv_cb.wb_data_o;
+	    if ((tx_h.addr == 'h00) && (tx_h.data[1] == 'b1)) `uvm_info("WB_DRV", "CSR Reg 2nd field Reading :: HIGH Seed is Detected", UVM_LOW); 
+	    if ((tx_h.addr == 'h00) && (tx_h.data[1] == 'b0)) `uvm_info("WB_DRV", "CSR Reg 2nd field Reading :: FULL Seed is Detected", UVM_LOW);
       end
     end
     @(vif.wb_drv_cb);
